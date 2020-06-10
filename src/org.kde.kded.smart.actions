@@ -1,0 +1,11 @@
+[Domain]
+Name=TBD
+Icon=TBD
+URL=TBD
+
+[org.kde.kded.smart.smartctl]
+Name=TBD
+Description=TBD
+#Policy=auth_admin
+Policy=yes
+PolicyInactive=auth_admin
