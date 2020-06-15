@@ -19,6 +19,7 @@ find_package(KF5Solid REQUIRED)
 find_package(KF5Service REQUIRED)
 find_package(KF5KIO REQUIRED)
 find_package(KF5Auth REQUIRED)
+find_package(KF5Declarative REQUIRED)
 
 find_package(smartctl)
 set_package_properties(smartctl PROPERTIES TYPE RUNTIME)

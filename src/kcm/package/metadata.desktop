@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=TBD
+Comment=TBD
+Type=Service
+Icon=TBD
+# do we need this?
+X-KDE-ServiceTypes=SettingsModule
+X-KDE-PluginInfo-Author=Harald Sitter
+X-KDE-PluginInfo-Email=sitter@kde.org
+X-KDE-PluginInfo-Name=smart
+X-KDE-PluginInfo-Version=TBD
+X-KDE-PluginInfo-Website=TBD
+X-KDE-PluginInfo-License=GPL
+X-Plasma-MainScript=main.qml

@@ -1,4 +1,7 @@
+
 add_definitions(-DTRANSLATION_DOMAIN=\"kded_smart\")
+
+add_subdirectory(kcm)
 
 add_library(kded_smart STATIC smartdata.cpp smartmonitor.cpp smartctl.cpp)
 target_include_directories(kded_smart
