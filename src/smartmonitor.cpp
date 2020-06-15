@@ -97,7 +97,11 @@ void SMARTMonitor::makeFailure(const Device &device, QObject *parent)
 
 void SMARTMonitor::checkUDI(const QString &udi)
 {
-    checkDevice(Solid::Device(udi));
+    Solid::Device dev(udi);
+    if (!dev.is<Solid::Block>()) {
+        return; // uninteresting device!
+    }
+    checkDevice(Device(dev));
 }
 
 void SMARTMonitor::reloadData()
