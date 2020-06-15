@@ -19,7 +19,7 @@ class Device;
 struct Device
 {
     Device(const QString &udi_, const QString &product_, const QString &path_);
-    Device(const Solid::Device &solidDevice);
+    explicit Device(const Solid::Device &solidDevice);
 
     const QString udi;
     const QString product;

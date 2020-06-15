@@ -108,7 +108,7 @@ void SMARTMonitor::reloadData()
 {
     const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::StorageDrive);
     for (const auto &device : devices) {
-        checkDevice(device);
+        checkDevice(Device(device));
     }
     m_reloadTimer.start();
 }
