@@ -6,6 +6,7 @@
 #include <KDEDModule>
 
 #include "smartmonitor.h"
+#include "smartnotifier.h"
 
 class SMARTModule : public KDEDModule
 {
@@ -19,6 +20,7 @@ public:
 
 private:
     SMARTMonitor m_monitor { new SMARTCtl };
+    SMARTNotifier m_notifier { &m_monitor };
 };
 
 K_PLUGIN_FACTORY_WITH_JSON(SMARTModuleFactory,

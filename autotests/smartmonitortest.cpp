@@ -63,14 +63,18 @@ private Q_SLOTS:
         // Mock failure construction. we don't want or need to talk to knotification
         // during tests
         QVector<QString> failedDevices;
-        auto makeFailure = [&failedDevices](const Device &device, QObject *) {
+        auto onFailure = [&failedDevices](const Device &device) {
             Q_ASSERT(!failedDevices.contains(device.path));
             failedDevices << device.path;
         };
 
         // NOTE: monitor still talks to solid but we aren't interested in its results
         //   to also inject our fixtures we manually product device discoveries here.
-        SMARTMonitor monitor(ctl, makeFailure);
+        SMARTMonitor monitor(ctl);
+        connect(&monitor, &SMARTMonitor::failure,
+                this, onFailure);
+        // don't start it, that'd only run solid stuff that we do not test here
+
         monitor.checkDevice({"udi-pass", "product", "/dev/testfoobarpass"});
         // discover this twice to ensure notifications aren't duplicated!
         monitor.checkDevice({"udi-fail", "product", "/dev/testfoobarfail"});

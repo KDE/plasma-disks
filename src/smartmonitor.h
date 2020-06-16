@@ -34,8 +34,11 @@ public:
     typedef std::function<void(const Device &device, QObject *parent)> FailureFactory;
 
     explicit SMARTMonitor(AbstractSMARTCtl *ctl,
-                          const FailureFactory &failureFactory = nullptr,
                           QObject *parent = nullptr);
+    void start();
+
+signals:
+    void failure(const Device &device);
 
 private slots:
     void checkUDI(const QString &udi);
@@ -43,12 +46,10 @@ private slots:
 
 private:
     void checkDevice(const Device &device);
-    void makeFailure(const Device &device, QObject *parent);
 
     QTimer m_reloadTimer;
     QVector<QString> m_notified;
     std::unique_ptr<AbstractSMARTCtl> m_ctl;
-    const FailureFactory &m_failureFactory = nullptr;
 };
 
 #endif // SMARTMONITOR_H

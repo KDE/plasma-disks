@@ -3,7 +3,7 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kded_smart\")
 
 add_subdirectory(kcm)
 
-add_library(kded_smart STATIC smartdata.cpp smartmonitor.cpp smartctl.cpp)
+add_library(kded_smart STATIC smartdata.cpp smartmonitor.cpp smartctl.cpp smartnotifier.cpp)
 target_include_directories(kded_smart
     PUBLIC
         "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/..;${CMAKE_CURRENT_BINARY_DIR}/..>")
