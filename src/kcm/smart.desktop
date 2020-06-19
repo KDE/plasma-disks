@@ -1,16 +1,19 @@
 [Desktop Entry]
 Type=Service
+# FIXME
 Icon=TBD
-Exec=kcmshell5 smart
+Exec=kinfocenter smart
 
 X-KDE-Library=smart
 X-KDE-ServiceTypes=KCModule
 X-KDE-ParentApp=kinfocenter
 X-KDE-PluginKeyword=smart
-X-KDE-KInfoCenter-Category=basic_information # FIXME not sure that's a good fit
+X-KDE-KInfoCenter-Category=device_information
 X-KDE-Weight=0
+# FIXME
 Categories=TBD
 
-Name=TBD
-Comment=TBD
+Name=SMART
+Comment=Self-Monitoring, Analysis and Reporting Technology
+# FIXME
 X-KDE-Keywords=TBD

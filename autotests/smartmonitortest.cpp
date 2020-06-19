@@ -11,6 +11,7 @@
 
 #include <functional>
 
+#include <device.h>
 #include <smartmonitor.h>
 
 class MockCtl : public AbstractSMARTCtl
@@ -63,9 +64,9 @@ private Q_SLOTS:
         // Mock failure construction. we don't want or need to talk to knotification
         // during tests
         QVector<QString> failedDevices;
-        auto onFailure = [&failedDevices](const Device &device) {
-            Q_ASSERT(!failedDevices.contains(device.path));
-            failedDevices << device.path;
+        auto onFailure = [&failedDevices](const Device *device) {
+            Q_ASSERT(!failedDevices.contains(device->path()));
+            failedDevices << device->path();
         };
 
         // NOTE: monitor still talks to solid but we aren't interested in its results
@@ -75,16 +76,14 @@ private Q_SLOTS:
                 this, onFailure);
         // don't start it, that'd only run solid stuff that we do not test here
 
-        monitor.checkDevice({"udi-pass", "product", "/dev/testfoobarpass"});
+        monitor.checkDevice(new Device {"udi-pass", "product", "/dev/testfoobarpass"});
         // discover this twice to ensure notifications aren't duplicated!
-        monitor.checkDevice({"udi-fail", "product", "/dev/testfoobarfail"});
-        monitor.checkDevice({"udi-fail", "product", "/dev/testfoobarfail"});
+        monitor.checkDevice(new Device {"udi-fail", "product", "/dev/testfoobarfail"});
+        monitor.checkDevice(new Device {"udi-fail", "product", "/dev/testfoobarfail"});
 
         // no failure notification
-        QVERIFY(!monitor.m_notified.contains("udi-pass"));
         QVERIFY(!failedDevices.contains("/dev/testfoobarpass"));
         // failure notification
-        QVERIFY(monitor.m_notified.contains("udi-fail"));
         QVERIFY(failedDevices.contains("/dev/testfoobarfail"));
     }
 };

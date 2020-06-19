@@ -1,0 +1,162 @@
+// SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+// SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
+
+#include "dbusobjectmanagerserver.h"
+
+#include <QDBusConnection>
+#include <QDBusConnectionInterface>
+#include <QDBusMetaType>
+
+// QtDBus doesn't implement PropertiesChanged for some reason.
+// This is meant to be childed' on an object to track that
+// objects' property notifications.
+class KDBusPropertiesChangedAdaptor : public QObject
+{
+    Q_OBJECT
+public:
+    KDBusPropertiesChangedAdaptor(const QString &objectPath, QObject *adaptee)
+        : QObject(adaptee)
+        , m_objectPath(objectPath)
+    {
+        auto mo = adaptee->metaObject();
+        for (int i = 0; i < mo->propertyCount(); ++i) {
+            QMetaProperty property = mo->property(i);
+            if (!property.hasNotifySignal()) {
+                continue;
+            }
+            const int fooIndex = metaObject()->indexOfMethod("onPropertyChanged()"); // of adaptor
+            Q_ASSERT(fooIndex != -1);
+            connect(adaptee, property.notifySignal(),
+                    this, metaObject()->method(fooIndex));
+        }
+    }
+
+private slots:
+    void onPropertyChanged()
+    {
+        if (!sender() || senderSignalIndex() == -1) {
+            return;
+        }
+        auto mo = sender()->metaObject();
+        for (int i = 0; i < mo->propertyCount(); ++i) {
+            QMetaProperty property = mo->property(i);
+            if (!property.hasNotifySignal()) {
+                continue;
+            }
+            if (property.notifySignalIndex() != senderSignalIndex()) {
+                continue;
+            }
+            QDBusMessage signal = QDBusMessage::createSignal(
+                        m_objectPath,
+                        QStringLiteral("org.freedesktop.DBus.Properties"),
+                        QStringLiteral("PropertiesChanged"));
+            signal << mo->classInfo(mo->indexOfClassInfo("D-Bus Interface")).value();
+            signal << QVariantMap({
+                                      { QString::fromLatin1(property.name()), property.read(sender()) }
+                                  }); // changed properties DICT<STRING,VARIANT>
+            signal << QStringList(); // invalidated property names no clue what invalidation means
+            QDBusConnection::sessionBus().send(signal);
+        }
+    }
+
+private:
+    const QString m_objectPath;
+};
+
+KDBusObjectManagerServer::KDBusObjectManagerServer(QObject *parent)
+    : QObject(parent)
+{
+    registerTypes();
+    QDBusConnection connection = QDBusConnection::sessionBus();
+    if (!connection.registerObject(m_path,
+                                   this,
+                                   QDBusConnection::ExportAllSlots
+                                   | QDBusConnection::ExportAllSignals
+                                   | QDBusConnection::ExportAllProperties
+                                   | QDBusConnection::ExportAllInvokables
+                                   | QDBusConnection::ExportAllContents
+                                   | QDBusConnection::ExportAdaptors)) {
+#warning we could conceivably disable notification actions if serving fails so you still get notifications but no action to open the kcm
+        qDebug() << "fail";
+        return;
+    }
+    qDebug()<<"registered";
+}
+
+bool KDBusObjectManagerServer::serve(QObject *object)
+{
+    m_managedObjects << object;
+    emit InterfacesAdded(path(object), interfacePropertiesMap(object));
+    connect(object, &QObject::destroyed, this, [this](QObject *obj) { unserve(obj); }); // auto-unserve
+    const QString dbusPath = path(object).path();
+    new KDBusPropertiesChangedAdaptor(dbusPath, object);
+    QDBusConnection connection = QDBusConnection::sessionBus();
+    return connection.registerObject(dbusPath,
+                                     object,
+                                     QDBusConnection::ExportAllSlots
+                                     | QDBusConnection::ExportAllSignals
+                                     | QDBusConnection::ExportAllProperties
+                                     | QDBusConnection::ExportAllInvokables
+                                     | QDBusConnection::ExportAllContents
+                                     | QDBusConnection::ExportAdaptors);
+}
+
+void KDBusObjectManagerServer::unserve(QObject *object)
+{
+#warning hardcoded bc interfacePropertiesMap only has one interface
+    emit InterfacesRemoved(path(object), { QStringLiteral("org.kde.object") });
+    QDBusConnection::sessionBus().unregisterObject(path(object).path());
+    m_managedObjects.removeAll(object);
+}
+
+void KDBusObjectManagerServer::registerTypes()
+{
+    qDBusRegisterMetaType<KDBusObjectManagerPropertiesMap>();
+    qDBusRegisterMetaType<KDBusObjectManagerInterfacePropertiesMap>();
+    qDBusRegisterMetaType<KDBusObjectManagerObjectPathInterfacePropertiesMap>();
+
+    // For some reason we need to manually map the names. No idea why it works
+    // for the maps though.
+    qRegisterMetaType<KDBusObjectManagerInterfaceList>("KDBusObjectManagerInterfaceList");
+    qDBusRegisterMetaType<KDBusObjectManagerInterfaceList>();
+}
+
+KDBusObjectManagerObjectPathInterfacePropertiesMap KDBusObjectManagerServer::GetManagedObjects()
+{
+    QMap<QDBusObjectPath, QMap<QString, QMap<QString, QVariant>>> map;
+    for (const auto *object : m_managedObjects) {
+        const QDBusObjectPath dbusPath = path(object);
+        if (dbusPath.path().isEmpty()) {
+            qDebug() << "Invalid dbus path for" << object->objectName();
+            continue;
+        }
+        map[dbusPath] = interfacePropertiesMap(object);
+    }
+    return map;
+}
+
+QDBusObjectPath KDBusObjectManagerServer::path(const QObject *object)
+{
+    const QString path = m_path + "/" + object->objectName();
+
+    qDebug() << "path for " << object ->objectName() << object->metaObject()->className() << ":" << path;
+    return QDBusObjectPath(path);
+}
+
+KDBusObjectManagerInterfacePropertiesMap KDBusObjectManagerServer::interfacePropertiesMap(const QObject *child)
+{
+    QMap<QString, QVariantMap> interfaceMap;
+
+    auto mo = child->metaObject();
+#warning Intorspect all classes or something to get to proper interface names
+    QVariantMap properties;
+    for (int i = mo->propertyOffset(); i < mo->propertyCount(); ++i) {
+        auto property = mo->property(i);
+        properties[property.name()] = property.read(child);
+    }
+    interfaceMap["org.kde.object"] = properties;
+
+    return interfaceMap;
+}
+
+#include "dbusobjectmanagerserver.moc"

@@ -11,23 +11,24 @@
 #include <QDebug>
 
 #include "smartmonitor.h"
+#include "device.h"
 
 class FailureNotification : public QObject
 {
     Q_OBJECT
 public:
     // Don't use directly, go through makeFailure!
-    FailureNotification(const Device &device, QObject *parent = nullptr)
+    FailureNotification(const Device *device, QObject *parent = nullptr)
         : QObject(parent)
     {
 #warning todo what eventid to use
-        m_notification->setContexts({{ QStringLiteral("device"), device.path }});
+        m_notification->setContexts({{ QStringLiteral("device"), device->path() }});
 #warning todo icon
         m_notification->setIconName(QStringLiteral("data-warning"));
         m_notification->setTitle(i18nc("@title notification", "Storage Device Problems"));
         m_notification->setText(i18nc("@info notification text",
                                     "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is likely to fail soon!",
-                                    device.product, device.path));
+                                    device->product(), device->path()));
 
 #warning action setup is super awkward not sure how to make it better perhaps absuing actions like this is a bad idea
         KService::Ptr partitionmanager = KService::serviceByDesktopName(QStringLiteral("org.kde.partitionmanager"));
@@ -62,9 +63,11 @@ public:
     }
 
 private:
+#warning use persistent its disabled so i dont go mad when restarting kded
     KNotification *m_notification = new KNotification {
         QStringLiteral("notification"),
-        KNotification::Persistent | KNotification::DefaultEvent,
+//        KNotification::Persistent | KNotification::DefaultEvent,
+            KNotification::DefaultEvent,
         nullptr
     };
 };
@@ -74,10 +77,9 @@ SMARTNotifier::SMARTNotifier(SMARTMonitor *monitor, QObject *parent)
 {
     connect(monitor, &SMARTMonitor::failure,
             this, &SMARTNotifier::fail);
-    monitor->start();
 }
 
-void SMARTNotifier::fail(const Device &device)
+void SMARTNotifier::fail(const Device *device)
 {
     new FailureNotification(device, this); // auto-delets
 }

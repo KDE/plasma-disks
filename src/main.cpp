@@ -5,6 +5,8 @@
 #include <KPluginFactory>
 #include <KDEDModule>
 
+#include "dbusobjectmanagerserver.h"
+#include "device.h"
 #include "smartmonitor.h"
 #include "smartnotifier.h"
 
@@ -15,26 +17,29 @@ public:
     explicit SMARTModule(QObject *parent, const QVariantList &args)
         : KDEDModule(parent)
     {
+        qDebug() <<"module ctoring";
         Q_UNUSED(args);
+        connect(&m_monitor, &SMARTMonitor::deviceAdded,
+                this, [this](Device *device) {
+            qDebug() << "device added!" << device;
+            dbusDeviceServer.serve(device);
+        });
+        connect(&m_monitor, &SMARTMonitor::deviceRemoved,
+                &dbusDeviceServer, [this](Device *device) {
+            dbusDeviceServer.unserve(device);
+        });
+        m_monitor.start();
+qDebug() <<"module ctoring done";
     }
 
 private:
     SMARTMonitor m_monitor { new SMARTCtl };
     SMARTNotifier m_notifier { &m_monitor };
+    KDBusObjectManagerServer dbusDeviceServer;
 };
 
 K_PLUGIN_FACTORY_WITH_JSON(SMARTModuleFactory,
                            "smart.json",
                            registerPlugin<SMARTModule>();)
-
-#include <unistd.h>
-int main(int argc, char **argv)
-{
-    QCoreApplication app(argc, argv);
-    app.setApplicationName(QStringLiteral("plasma-smart"));
-    SMARTModule m(nullptr, {});
-    sleep(2);
-    app.exec();
-}
 
 #include "main.moc"

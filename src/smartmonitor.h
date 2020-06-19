@@ -12,44 +12,34 @@
 
 #include "smartctl.h"
 
-namespace Solid {
 class Device;
-}
-
-struct Device
-{
-    Device(const QString &udi_, const QString &product_, const QString &path_);
-    explicit Device(const Solid::Device &solidDevice);
-
-    const QString udi;
-    const QString product;
-    const QString path;
-};
 
 class SMARTMonitor : public QObject
 {
     Q_OBJECT
     friend class SMARTMonitorTest;
 public:
-    typedef std::function<void(const Device &device, QObject *parent)> FailureFactory;
-
     explicit SMARTMonitor(AbstractSMARTCtl *ctl,
                           QObject *parent = nullptr);
     void start();
 
+    QVector<Device *> devices() const;
+
 signals:
-    void failure(const Device &device);
+    void failure(const Device *device);
+    void deviceAdded(Device *device);
+    void deviceRemoved(Device *device);
 
 private slots:
     void checkUDI(const QString &udi);
     void reloadData();
 
 private:
-    void checkDevice(const Device &device);
+    void checkDevice(Device *device);
 
     QTimer m_reloadTimer;
-    QVector<QString> m_notified;
     std::unique_ptr<AbstractSMARTCtl> m_ctl;
+    QVector<Device *> m_devices;
 };
 
 #endif // SMARTMONITOR_H

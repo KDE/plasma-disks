@@ -6,6 +6,7 @@
 #include <KAboutData>
 #include <KLocalizedString>
 
+#include "devicemodel.h"
 #include "version.h"
 
 Module::Module(QObject *parent, const QVariantList &args)
@@ -13,7 +14,7 @@ Module::Module(QObject *parent, const QVariantList &args)
 {
 
     auto aboutData = new KAboutData(QStringLiteral("smart"),
-                                    i18nc("@title", "TBD"),
+                                    i18nc("@title", "Self-Monitoring, Analysis and Reporting Technology"),
                                     QString::fromLatin1(global_s_versionStringFull),
                                     QString(),
                                     KAboutLicense::LicenseKey::GPL_V3,
@@ -22,7 +23,7 @@ Module::Module(QObject *parent, const QVariantList &args)
     // We have no help so remove the button from the buttons.
     setButtons(buttons() ^ Help ^ Default ^ Apply);
 
-#warning todo either call load and block here or make sure the ui works without anything loaded
+    qmlRegisterType<DeviceModel>("SMART", 1, 0, "DeviceModel");
 }
 
 Module::~Module()
@@ -40,3 +41,5 @@ void Module::save()
 void Module::defaults()
 {
 }
+
+#include "module.moc"

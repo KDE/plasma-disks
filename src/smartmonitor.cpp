@@ -2,8 +2,6 @@
 // SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
 
 #include "smartmonitor.h"
-#include "smartctl.h"
-#include "smartdata.h"
 
 #include <Solid/Device>
 #include <Solid/DeviceInterface>
@@ -12,6 +10,10 @@
 #include <Solid/StorageDrive>
 
 #include <QDebug>
+
+#include "device.h"
+#include "smartctl.h"
+#include "smartdata.h"
 
 SMARTMonitor::SMARTMonitor(AbstractSMARTCtl *ctl, QObject *parent)
     : QObject(parent)
@@ -22,9 +24,15 @@ SMARTMonitor::SMARTMonitor(AbstractSMARTCtl *ctl, QObject *parent)
 
 void SMARTMonitor::start()
 {
+    qDebug() << "starting";
     connect(Solid::DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceAdded,
             this, &SMARTMonitor::checkUDI);
     QMetaObject::invokeMethod(this, &SMARTMonitor::reloadData);
+}
+
+QVector<Device *> SMARTMonitor::devices() const
+{
+    return m_devices;
 }
 
 void SMARTMonitor::checkUDI(const QString &udi)
@@ -33,51 +41,58 @@ void SMARTMonitor::checkUDI(const QString &udi)
     if (!dev.is<Solid::Block>()) {
         return; // uninteresting device!
     }
-    checkDevice(Device(dev));
+    checkDevice(new Device(dev));
 }
 
 void SMARTMonitor::reloadData()
 {
     const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::StorageDrive);
     for (const auto &device : devices) {
-        checkDevice(Device(device));
+        checkDevice(new Device(device));
     }
     m_reloadTimer.start();
 }
 
-void SMARTMonitor::checkDevice(const Device &device)
+void SMARTMonitor::checkDevice(Device *device)
 {
-    const QJsonDocument document = m_ctl->run(device.path);
+    const QJsonDocument document = m_ctl->run(device->path());
     if (document.isEmpty()) {
         return;
     }
     SMARTData data(document);
     qDebug() << data.m_device << data.m_status.m_passed;
 #warning testing
-        if (data.m_status.m_passed) {
-            return;
+//        if (data.m_status.m_passed) {
+//            return;
+//        }
+    auto existingIt = std::find_if(m_devices.begin(), m_devices.end(), [&device](Device *existing) {
+       return *existing == *device;
+    });
+    if (existingIt != m_devices.cend()) {
+        device->deleteLater(); // won't be needing this
+
+        Device *existing = *existingIt;
+        // update failure and call it a day. Notification is handled by the Device.
+#warning fixme since devices notify on changes we dont need this here failure crap anymore
+        const bool oldFail = existing->failed();
+        const bool newFail = !data.m_status.m_passed;
+        if (oldFail != newFail) {
+            existing->setFailed(newFail);
+            if (newFail) {
+                emit failure(device);
+            }
         }
 
-    if (m_notified.contains(device.udi)) {
         return;
     }
-    m_notified << device.udi;
+#warning failure should go away
+    device->setFailed(!data.m_status.m_passed);
+    if (!data.m_status.m_passed) {
+        emit failure(device);
+    }
 
-    emit failure(device);
-}
-
-Device::Device(const QString &udi_, const QString &product_, const QString &path_)
-    : udi(udi_)
-    , product(product_)
-    , path(path_)
-{
-}
-
-Device::Device(const Solid::Device &solidDevice)
-    : Device(solidDevice.udi(),
-             solidDevice.product(),
-             solidDevice.as<Solid::Block>()->device())
-{
+    m_devices << device;
+    emit deviceAdded(device);
 }
 
 #include "smartmonitor.moc"
