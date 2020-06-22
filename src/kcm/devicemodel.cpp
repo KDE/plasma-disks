@@ -11,7 +11,8 @@ DeviceModel::DeviceModel(QObject *parent)
 #warning this bugger needs a servicewatcher in the event kded dies
 #warning this isn't all too hot bc wed not get property notifications I rather think we need to ctor Device interfaces
     auto addObj = [this](const QDBusObjectPath &dbusPath, const KDBusObjectManagerInterfacePropertiesMap &interfacePropertyMap) {
-        beginResetModel();
+        const int newIndex = m_objects.size();
+        beginInsertRows(QModelIndex(), newIndex, newIndex);
 
         // QDBus doesn't manage to map notfiable properties for its generated interface classes
         // so it brings literally nothing to the table for our Device class.
@@ -53,7 +54,7 @@ DeviceModel::DeviceModel(QObject *parent)
             initRoleNames(obj);
         }
 
-        endResetModel();
+        endInsertRows();
     };
 
     auto iface = new OrgFreedesktopDBusObjectManagerInterface(
