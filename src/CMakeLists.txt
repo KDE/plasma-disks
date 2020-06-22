@@ -9,13 +9,11 @@ set(kded_SRCS
     device.cpp
 )
 
-# FIXME make name libified
-add_library(kded_smart STATIC ${kded_SRCS})
-
-target_include_directories(kded_smart
+add_library(statickdedsmart STATIC ${kded_SRCS})
+target_include_directories(statickdedsmart
     PUBLIC
         "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR};${CMAKE_CURRENT_BINARY_DIR}>")
-target_link_libraries(kded_smart
+target_link_libraries(statickdedsmart
     PUBLIC
     Qt5::Core
     Qt5::DBus
@@ -33,7 +31,7 @@ add_library(kded-smart MODULE main.cpp)
 set_target_properties(kded-smart PROPERTIES OUTPUT_NAME smart)
 kcoreaddons_desktop_to_json(kded-smart smart.desktop)
 target_link_libraries(kded-smart
-    kded_smart
+    statickdedsmart
 )
 
 install(TARGETS kded-smart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded)

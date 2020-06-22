@@ -24,7 +24,7 @@ add_library(kcm MODULE ${kcm_SRCS})
 set_target_properties(kcm PROPERTIES OUTPUT_NAME smart)
 
 target_link_libraries(kcm
-    kded_smart
+    statickdedsmart
     KF5::ConfigWidgets
     KF5::CoreAddons
     KF5::I18n
