@@ -38,11 +38,9 @@ ActionReply SMARTHelper::smartctl(const QVariantMap &args)
             { QStringLiteral("--all"), QStringLiteral("--json=c"), devicePath },
             QProcess::ReadOnly);
     p.waitForFinished();
-    if (p.exitCode() != 0) {
-        return ActionReply::HelperErrorReply();
-    }
 
     ActionReply reply;
+    reply.addData(QStringLiteral("exitCode"), p.exitCode());
     reply.addData(QStringLiteral("data"), p.readAllStandardOutput());
     return reply;
 }

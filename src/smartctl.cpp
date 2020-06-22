@@ -19,10 +19,13 @@ QJsonDocument SMARTCtl::run(const QString &devicePath) const
                 ;
     KAuth::ExecuteJob *job = action.execute();
     job->exec();
-    auto data = job->data();
+    const auto data = job->data();
+#warning code handling isnt the hottest
+    const auto code = data.value(QStringLiteral("exitCode"), QByteArray()).toInt();
     const auto json = data.value(QStringLiteral("data"), QByteArray()).toByteArray();
-    if (json.isEmpty()) {
-        qDebug() << "looks like we got no data back for" << devicePath;
+    if (json.isEmpty() || code & Failure::BadCmdLine || code & Failure::Internal || code & Failure::DeviceOpen) {
+        qDebug() << "looks like we got no data back for" << devicePath << code;
+        return QJsonDocument();
     }
     return QJsonDocument::fromJson(json);
 }
