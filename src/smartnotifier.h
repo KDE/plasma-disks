@@ -13,7 +13,4 @@ class SMARTNotifier : public QObject
     Q_OBJECT
 public:
     SMARTNotifier(SMARTMonitor *monitor, QObject *parent = nullptr);
-
-private slots:
-    void fail(const Device *device);
 };

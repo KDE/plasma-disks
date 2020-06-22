@@ -60,11 +60,7 @@ void SMARTMonitor::checkDevice(Device *device)
         return;
     }
     SMARTData data(document);
-    qDebug() << data.m_device << data.m_status.m_passed;
-#warning testing
-//        if (data.m_status.m_passed) {
-//            return;
-//        }
+
     auto existingIt = std::find_if(m_devices.begin(), m_devices.end(), [&device](Device *existing) {
        return *existing == *device;
     });
@@ -73,23 +69,11 @@ void SMARTMonitor::checkDevice(Device *device)
 
         Device *existing = *existingIt;
         // update failure and call it a day. Notification is handled by the Device.
-#warning fixme since devices notify on changes we dont need this here failure crap anymore
-        const bool oldFail = existing->failed();
-        const bool newFail = !data.m_status.m_passed;
-        if (oldFail != newFail) {
-            existing->setFailed(newFail);
-            if (newFail) {
-                emit failure(device);
-            }
-        }
+        existing->setFailed(!data.m_status.m_passed);
 
         return;
     }
-#warning failure should go away
     device->setFailed(!data.m_status.m_passed);
-    if (!data.m_status.m_passed) {
-        emit failure(device);
-    }
 
     m_devices << device;
     emit deviceAdded(device);

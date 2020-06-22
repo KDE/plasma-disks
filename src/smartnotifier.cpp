@@ -75,13 +75,18 @@ private:
 SMARTNotifier::SMARTNotifier(SMARTMonitor *monitor, QObject *parent)
     : QObject(parent)
 {
-    connect(monitor, &SMARTMonitor::failure,
-            this, &SMARTNotifier::fail);
-}
-
-void SMARTNotifier::fail(const Device *device)
-{
-    new FailureNotification(device, this); // auto-delets
+    connect(monitor, &SMARTMonitor::deviceAdded,
+            this, [this](const Device *device) {
+        connect(device, &Device::failedChanged,
+                this, [this, device] {
+           if (device->failed()) {
+               new FailureNotification(device, this); // auto-deletes
+               // once displayed we'll not want to trigger any more notifications
+               device->disconnect(this);
+           }
+        });
+    });
+    // upon removal the devices are deleted which takes care of disconnecting
 }
 
 #include "smartnotifier.moc"

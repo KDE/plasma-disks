@@ -26,7 +26,6 @@ public:
     QVector<Device *> devices() const;
 
 signals:
-    void failure(const Device *device);
     void deviceAdded(Device *device);
     void deviceRemoved(Device *device);
 
