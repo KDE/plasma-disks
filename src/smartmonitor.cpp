@@ -8,6 +8,7 @@
 #include <Solid/DeviceNotifier>
 #include <Solid/Block>
 #include <Solid/StorageDrive>
+#include <Solid/StorageVolume>
 
 #include <QDebug>
 
@@ -40,10 +41,7 @@ QVector<Device *> SMARTMonitor::devices() const
 void SMARTMonitor::checkUDI(const QString &udi)
 {
     Solid::Device dev(udi);
-    if (!dev.is<Solid::Block>()) {
-        return; // uninteresting device!
-    }
-    checkDevice(new Device(dev));
+    checkDevice(dev);
 }
 
 void SMARTMonitor::removeUDI(const QString &udi)
@@ -61,11 +59,45 @@ void SMARTMonitor::removeUDI(const QString &udi)
 
 void SMARTMonitor::reloadData()
 {
-    const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::StorageDrive);
+    const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::StorageVolume);
     for (const auto &device : devices) {
-        checkDevice(new Device(device));
+        checkDevice(device);
     }
     m_reloadTimer.start();
+}
+
+void SMARTMonitor::checkDevice(const Solid::Device &device)
+{
+    qDebug() << "!!!! " << device.udi();
+
+    // This seems fairly awkward on a solid level. The actual device
+    // isn't really trivial to identify. It certainly mustn't be a
+    // filesystem but beyond that it's entirely unclear.
+    // The trouble here is that we'll only want to run smartctl on
+    // actual devices, not the partitions on the devices as otherwise
+    // we'll have trouble validating the output as we'd not know
+    // if it is incomplete because the device wasn't a device or
+    // there's no data or smartctl is broken or the auth helper is broken...
+    if (!device.is<Solid::StorageVolume>()) {
+        qDebug() << "   not a volume";
+        return; // certainly not an interesting device
+    }
+#warning try to create all variants
+    switch (device.as<Solid::StorageVolume>()->usage()) {
+    case Solid::StorageVolume::Unused: Q_FALLTHROUGH();
+    case Solid::StorageVolume::FileSystem: Q_FALLTHROUGH();
+    case Solid::StorageVolume::Encrypted: Q_FALLTHROUGH();
+    case Solid::StorageVolume::Other: Q_FALLTHROUGH();
+    case Solid::StorageVolume::Raid:
+        qDebug() << "   bad type" << device.as<Solid::StorageVolume>()->usage();
+        return;
+    case Solid::StorageVolume::PartitionTable:
+        break;
+    }
+
+    qDebug() << "bueno!";
+
+    checkDevice(new Device(device));
 }
 
 void SMARTMonitor::checkDevice(Device *device)

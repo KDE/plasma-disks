@@ -13,6 +13,9 @@
 #include "smartctl.h"
 
 class Device;
+namespace Solid {
+class Device;
+}
 
 class SMARTMonitor : public QObject
 {
@@ -35,6 +38,7 @@ private slots:
     void reloadData();
 
 private:
+    void checkDevice(const Solid::Device &device);
     void checkDevice(Device *device);
 
     QTimer m_reloadTimer;
