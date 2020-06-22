@@ -64,28 +64,13 @@ public:
 
     DeviceModel(QObject *parent = nullptr);
 
-    QHash<int, QByteArray> roleNames() const final
-    {
-        qDebug() << "returning roles" << m_roles << QAbstractItemModel::roleNames();
-        return m_roles;
-    }
+    QHash<int, QByteArray> roleNames() const final;
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const final
-    {
-        qDebug() << "rowcount" << parent.isValid() << m_objects.count();
-        if (parent.isValid()) {
-            return 0;
-        }
-        return m_objects.count();
-    }
+    int rowCount(const QModelIndex &parent = QModelIndex()) const final;
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    Q_SCRIPTABLE int role(const QByteArray &roleName) const
-    {
-        qDebug() << roleName << m_roles.key(roleName, -1);
-        return m_roles.key(roleName, -1);
-    }
+    Q_SCRIPTABLE int role(const QByteArray &roleName) const;
 
 private Q_SLOTS:
     void propertyChanged();
