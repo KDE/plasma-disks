@@ -31,6 +31,7 @@ signals:
 
 private slots:
     void checkUDI(const QString &udi);
+    void removeUDI(const QString &udi);
     void reloadData();
 
 private:

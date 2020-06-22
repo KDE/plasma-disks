@@ -27,6 +27,8 @@ void SMARTMonitor::start()
     qDebug() << "starting";
     connect(Solid::DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceAdded,
             this, &SMARTMonitor::checkUDI);
+    connect(Solid::DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceRemoved,
+            this, &SMARTMonitor::removeUDI);
     QMetaObject::invokeMethod(this, &SMARTMonitor::reloadData);
 }
 
@@ -42,6 +44,19 @@ void SMARTMonitor::checkUDI(const QString &udi)
         return; // uninteresting device!
     }
     checkDevice(new Device(dev));
+}
+
+void SMARTMonitor::removeUDI(const QString &udi)
+{
+    std::remove_if(m_devices.begin(), m_devices.end(), [this, udi](Device *dev) {
+        if (dev->udi() != udi) {
+            return false;
+        }
+
+        emit deviceRemoved(dev);
+        dev->deleteLater();
+        return true;
+    });
 }
 
 void SMARTMonitor::reloadData()
