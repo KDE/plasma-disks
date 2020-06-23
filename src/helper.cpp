@@ -16,7 +16,6 @@ QString pathFrom(const QVariantMap &args)
 
 ActionReply SMARTHelper::smartctl(const QVariantMap &args)
 {
-    qInstallMessageHandler(nullptr);
     // I may be better overall to also spin up solid on the root end and only allow
     // UDIs as input. We can then assert expected input. Not sure it makes much
     // of a difference though.
