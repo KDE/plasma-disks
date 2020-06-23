@@ -27,24 +27,15 @@ public:
         m_notification->setIconName(QStringLiteral("data-warning"));
         m_notification->setTitle(i18nc("@title notification", "Storage Device Problems"));
         m_notification->setText(i18nc("@info notification text",
-                                    "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is likely to fail soon!",
-                                    device->product(), device->path()));
+                                      "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is likely to fail soon!",
+                                      device->product(), device->path()));
 
-#warning action setup is super awkward not sure how to make it better perhaps absuing actions like this is a bad idea
-        KService::Ptr partitionmanager = KService::serviceByDesktopName(QStringLiteral("org.kde.partitionmanager"));
+#warning should we maybe prefix with kcm so as to not have such a generic desktop name
+        KService::Ptr kcm = KService::serviceByStorageId(QStringLiteral("smart"));
+        Q_ASSERT(kcm); // there's a bug or installation is broken; mustn't happen in production
         m_notification->setActions({i18nc("@action:button notification action", "Manage")});
         connect(m_notification, &KNotification::action1Activated,
-                this, [partitionmanager] { KIO::ApplicationLauncherJob(partitionmanager).start(); });
-        KService::Ptr kup = KService::serviceByDesktopName(QStringLiteral("kcm_kup"));
-        qDebug() << kup->isValid() << kup->desktopEntryName();
-        if (kup->isValid()) {
-            // run through systemsettings directly
-            kup->setExec(QStringLiteral("systemsettings5 ") + kup->desktopEntryName());
-            m_notification->setActions({i18nc("@action:button notification action", "Manage"),
-                                      i18nc("@action:button notification action", "Backup")});
-            connect(m_notification, &KNotification::action2Activated,
-                    this, [kup] { KIO::ApplicationLauncherJob(kup).start(); });
-        }
+                this, [kcm] { KIO::ApplicationLauncherJob(kcm).start(); });
 
         connect(m_notification, &KNotification::closed,
                 this, [this] {
