@@ -13,6 +13,7 @@ Device::Device(const QString &udi_, const QString &product_, const QString &path
     , m_product(product_)
     , m_path(path_)
 {
+#warning there ought to be a way to permanently ignore devices
 #warning product alone cannot provide a sufficiently hot prettys string see my usb3 sticky
 #warning we need a reliable way to make udis safe to use here dbus is very limited in what it will allow for paths
     QString name = m_udi;
