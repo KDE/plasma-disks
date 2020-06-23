@@ -20,6 +20,8 @@ SMARTMonitor::SMARTMonitor(AbstractSMARTCtl *ctl, QObject *parent)
     : QObject(parent)
     , m_ctl(ctl)
 {
+    connect(&m_reloadTimer, &QTimer::timeout,
+            this, &SMARTMonitor::reloadData);
     m_reloadTimer.setInterval(1000 * 60 /*minute*/ * 60 /*hour*/ * 24 /*day*/);
 }
 
