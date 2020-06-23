@@ -15,18 +15,35 @@ KCM.SimpleKCM {
         height: 160
         model: SMART.DeviceModel {}
 
+        SMART.ServiceRunner {
+            id: partitionManagerRunner
+            name: "org.kde.partitionmanager"
+        }
+
+        SMART.ServiceRunner {
+            id: kupRunner
+            name: "kcm_kup"
+        }
+
         delegate: Kirigami.Card {
             banner.title: "%1 (%2)".arg(product).arg(path)
             banner.titleIcon: failed ? "data-warning" : ""
             actions: [
-                Action {
+                Kirigami.Action {
+                    visible: partitionManagerRunner.canRun
                     text: i18n("Partition Manager")
                     icon.name: "partitionmanager"
-                    onTriggered: {}
+                    onTriggered: partitionManagerRunner.run()
                 },
-                Action {
+                Kirigami.Action {
+                    visible: kupRunner.canRun
                     text: i18n("Backup")
                     icon.name: "kup"
+                    onTriggered: kupRunner.run()
+                },
+                Kirigami.Action {
+                    text: i18n("Ignore Device ((TBD))")
+                    icon.name: "dialog-close"
                     onTriggered: {}
                 }
             ]

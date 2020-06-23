@@ -7,6 +7,7 @@
 #include <KLocalizedString>
 
 #include "devicemodel.h"
+#include "servicerunner.h"
 #include "version.h"
 
 Module::Module(QObject *parent, const QVariantList &args)
@@ -24,6 +25,7 @@ Module::Module(QObject *parent, const QVariantList &args)
     setButtons(buttons() ^ Help ^ Default ^ Apply);
 
     qmlRegisterType<DeviceModel>("SMART", 1, 0, "DeviceModel");
+    qmlRegisterType<ServiceRunner>("SMART", 1, 0, "ServiceRunner");
 }
 
 Module::~Module()

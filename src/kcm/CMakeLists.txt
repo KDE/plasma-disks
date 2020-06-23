@@ -9,6 +9,7 @@ set(kcm_SRCS
     main.cpp
     module.cpp
     devicemodel.cpp
+    servicerunner.cpp
 )
 
 # Something wonky is going on with the dbus macros. When the commands are set in the parent scope
