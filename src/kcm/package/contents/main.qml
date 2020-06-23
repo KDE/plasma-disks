@@ -25,6 +25,17 @@ KCM.SimpleKCM {
             name: "kcm_kup"
         }
 
+        Rectangle {
+            color: "red"
+            anchors.fill: parent
+            visible: parent.count <= 0
+            Label {
+                anchors.centerIn: parent
+                wrapMode: Text.Wrap
+                text: i18n("((TBD)) KDED HAS DIED!")
+            }
+        }
+
         delegate: Kirigami.Card {
             banner.title: "%1 (%2)".arg(product).arg(path)
             banner.titleIcon: failed ? "data-warning" : ""

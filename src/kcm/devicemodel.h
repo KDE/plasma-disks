@@ -75,6 +75,11 @@ public:
 private Q_SLOTS:
     void propertyChanged();
 
+    void addObject(const QDBusObjectPath &dbusPath, const KDBusObjectManagerInterfacePropertiesMap &interfacePropertyMap);
+    void removeObject(const QDBusObjectPath &dbusPath);
+    void reset();
+    void reload();
+
 private:
     void initRoleNames(QObject *object);
 
@@ -83,6 +88,8 @@ private:
     QHash<int, QByteArray> m_roles;
     QHash<int, QByteArray> m_objectPoperties;
     QHash<int, int> m_signalIndexToProperties;
+
+    OrgFreedesktopDBusObjectManagerInterface *m_iface = nullptr;
 };
 
 Q_DECLARE_METATYPE(DeviceModel*)
