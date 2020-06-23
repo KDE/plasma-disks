@@ -23,7 +23,7 @@ QJsonDocument SMARTCtl::run(const QString &devicePath) const
 #warning code handling isnt the hottest
     const auto code = data.value(QStringLiteral("exitCode"), QByteArray()).toInt();
     const auto json = data.value(QStringLiteral("data"), QByteArray()).toByteArray();
-    if (json.isEmpty() || code & Failure::BadCmdLine || code & Failure::Internal || code & Failure::DeviceOpen) {
+    if (json.isEmpty() || code & Failure::BadCmdLine || code & Failure::DeviceOpen) {
         qDebug() << "looks like we got no data back for" << devicePath << code;
         return QJsonDocument();
     }

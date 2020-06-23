@@ -39,7 +39,7 @@ public:
     enum Failure {
         BadCmdLine = 0x1,
         DeviceOpen = 0x2,
-        Internal = 0x4,
+        InternalCommand = 0x4,
         Disk = 0x8,
         Prefail = 0x16,
         PastPrefail = 0x32,
