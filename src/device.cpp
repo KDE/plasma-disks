@@ -36,14 +36,12 @@ bool Device::failed() const
 {
     return m_failed;
 }
-#include <QDebug>
+
 void Device::setFailed(bool failed)
 {
     if (m_failed == failed) {
-        qDebug() << "NOOP" << m_failed << failed;
         return;
     }
     m_failed = failed;
-    qDebug() << "emitting!" << m_failed;
     emit failedChanged();
 }
