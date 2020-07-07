@@ -46,11 +46,15 @@ private slots:
             if (property.notifySignalIndex() != senderSignalIndex()) {
                 continue;
             }
+            const int ciid = mo->indexOfClassInfo("D-Bus Interface");
+            if (ciid == -1) {
+                continue;
+            }
             QDBusMessage signal = QDBusMessage::createSignal(
                         m_objectPath,
                         QStringLiteral("org.freedesktop.DBus.Properties"),
                         QStringLiteral("PropertiesChanged"));
-            signal << mo->classInfo(mo->indexOfClassInfo("D-Bus Interface")).value();
+            signal << mo->classInfo(ciid).value();
             signal << QVariantMap({
                                       { QString::fromLatin1(property.name()), property.read(sender()) }
                                   }); // changed properties DICT<STRING,VARIANT>
