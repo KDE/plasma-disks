@@ -155,14 +155,25 @@ KDBusObjectManagerInterfacePropertiesMap KDBusObjectManagerServer::interfaceProp
 
     QMap<QString, QVariantMap> interfaceMap;
 
-    auto mo = child->metaObject();
-#warning Intorspect all classes or something to get to proper interface names
-    QVariantMap properties;
-    for (int i = mo->propertyOffset(); i < mo->propertyCount(); ++i) {
-        auto property = mo->property(i);
-        properties[property.name()] = property.read(child);
+    for (auto mo = child->metaObject(); mo; mo = mo->superClass()) {
+        if (strcmp(mo->className(), "QObject") == 0) {
+            continue;
+        }
+
+        int ciid = mo->indexOfClassInfo("D-Bus Interface");
+        if (ciid == -1) {
+            qWarning() << mo->className() << "defines no interface";
+            continue;
+        }
+        const auto interface = QString::fromLatin1(mo->classInfo(ciid).value());
+
+        QVariantMap properties;
+        for (int i = mo->propertyOffset(); i < mo->propertyCount(); ++i) {
+            auto property = mo->property(i);
+            properties[property.name()] = property.read(child);
+        }
+        interfaceMap[interface] = properties;
     }
-    interfaceMap["org.kde.object"] = properties;
 
     return interfaceMap;
 }
