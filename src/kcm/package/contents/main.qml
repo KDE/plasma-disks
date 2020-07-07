@@ -9,6 +9,13 @@ import org.kde.kirigami 2.4 as Kirigami
 import QtQuick.Controls 2.14
 
 KCM.SimpleKCM {
+    // FIXME: not so good looking
+    CheckBox {
+        id: showAll
+        checked: false
+        text: "Show All"
+    }
+
     Kirigami.CardsListView {
         id: listView
         width: 110
@@ -37,6 +44,8 @@ KCM.SimpleKCM {
         }
 
         delegate: Kirigami.Card {
+            // FIXME: marking delegates visible still has them using space :O
+            visible: showAll.checked || !ignore
             banner.title: "%1 (%2)".arg(product).arg(path)
             banner.titleIcon: failed ? "data-warning" : ""
             actions: [
@@ -53,9 +62,11 @@ KCM.SimpleKCM {
                     onTriggered: kupRunner.run()
                 },
                 Kirigami.Action {
-                    text: i18n("Ignore Device ((TBD))")
-                    icon.name: "dialog-close"
-                    onTriggered: {}
+                    text: ignore ? i18n("Monitor") : i18n("Ignore")
+                    icon.name: ignore ? "view-visible" : "view-hidden"
+                    onTriggered: {
+                        model.ignore = !ignore
+                    }
                 }
             ]
             contentItem: Label {
