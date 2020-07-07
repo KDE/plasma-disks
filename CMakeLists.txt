@@ -1,4 +1,7 @@
-cmake_minimum_required(VERSION 3.6)
+# SPDX-License-Identifier: BSD-3-Clause
+# SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
+
+cmake_minimum_required(VERSION 3.16)
 
 project(plasma-smart VERSION 0.0)
 
