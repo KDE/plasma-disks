@@ -149,6 +149,10 @@ QDBusObjectPath KDBusObjectManagerServer::path(const QObject *object)
 
 KDBusObjectManagerInterfacePropertiesMap KDBusObjectManagerServer::interfacePropertiesMap(const QObject *child)
 {
+    // Technically this is duplicating qdbus' internal GetAll implementation, so we could actually
+    // shoot dbus queries to ourself and have Qt figure things out. All we need to do is
+    // compose it into the dbuspath tree we manage.
+
     QMap<QString, QVariantMap> interfaceMap;
 
     auto mo = child->metaObject();
