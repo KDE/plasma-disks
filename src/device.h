@@ -20,6 +20,7 @@ class Device : public QObject
     // and so we don't describe a write as this oughtn't be writable on dbus!
 #warning setFailed for testing
     Q_PROPERTY(bool failed READ failed WRITE setFailed NOTIFY failedChanged)
+    Q_PROPERTY(bool ignore READ ignore WRITE setIgnore NOTIFY ignoreChanged)
 public:
     Device(const QString &udi_, const QString &product_, const QString &path_, QObject *parent = nullptr);
     explicit Device(const Solid::Device &solidDevice, QObject *parent = nullptr);
@@ -29,16 +30,21 @@ public:
     bool failed() const;
     void setFailed(bool failed);
 
+    bool ignore() const;
+    void setIgnore(bool ignore);
+
     QString udi() const { return m_udi; }
     QString product() const { return m_product; }
     QString path() const { return m_path; }
 
 signals:
     void failedChanged();
+    void ignoreChanged();
 
 private:
     QString m_udi;
     QString m_product;
     QString m_path;
     bool m_failed = false;
+    bool m_ignored = false;
 };

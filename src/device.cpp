@@ -3,6 +3,9 @@
 
 #include "device.h"
 
+#include <KConfigGroup>
+#include <KSharedConfig>
+
 #include <Solid/Device>
 #include <Solid/DeviceInterface>
 #include <Solid/Block>
@@ -12,8 +15,10 @@ Device::Device(const QString &udi_, const QString &product_, const QString &path
     , m_udi(udi_)
     , m_product(product_)
     , m_path(path_)
+    , m_ignored(KSharedConfig::openConfig("org.kde.kded.smart")
+                ->group("Ignores")
+                .readEntry(udi_, false))
 {
-#warning there ought to be a way to permanently ignore devices
 #warning product alone cannot provide a sufficiently hot prettys string see my usb3 sticky
 #warning we need a reliable way to make udis safe to use here dbus is very limited in what it will allow for paths
     QString name = m_udi;
@@ -45,4 +50,21 @@ void Device::setFailed(bool failed)
     }
     m_failed = failed;
     emit failedChanged();
+}
+
+bool Device::ignore() const
+{
+    return m_ignored;
+}
+
+void Device::setIgnore(bool ignored)
+{
+    if (m_ignored == ignored) {
+        return;
+    }
+    KSharedConfig::openConfig("org.kde.kded.smart")
+            ->group("Ignores")
+            .writeEntry(m_udi, ignored);
+    m_ignored = ignored;
+    emit ignoreChanged();
 }
