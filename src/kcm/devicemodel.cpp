@@ -54,6 +54,26 @@ QVariant DeviceModel::data(const QModelIndex &index, int role) const
     return obj->property(prop);
 }
 
+bool DeviceModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    qDebug() << "!!!!!" << role;
+    if (!hasIndex(index.row(), index.column())) {
+        qDebug() << "noindex";
+        return false;
+    }
+    QObject *obj = m_objects.at(index.row());
+    if (role == ObjectRole) {
+        return false; // cannot set object!
+    }
+    const QByteArray prop = m_objectPoperties.value(role);
+    if (prop.isEmpty()) {
+        qDebug() << "  no prop mapped" << role;
+        return false;
+    }
+    qDebug() << role << prop << obj->property(prop);
+    return obj->setProperty(prop, value);
+}
+
 int DeviceModel::role(const QByteArray &roleName) const
 {
     qDebug() << roleName << m_roles.key(roleName, -1);
@@ -72,6 +92,36 @@ void DeviceModel::propertyChanged()
     qDebug() << "PROPERTY CHANGED (" << index << ") :: " << role << roleNames().value(role);
     Q_EMIT dataChanged(createIndex(index, 0), createIndex(index, 0), {role});
 }
+
+class RuntimePropertyChangeFilter : public QObject
+{
+    Q_OBJECT
+public:
+    RuntimePropertyChangeFilter(OrgFreedesktopDBusPropertiesInterface *parent)
+        : QObject(parent)
+        , m_dbusObject(parent)
+    {
+        qDebug() << "::::: WATCH";
+    }
+
+protected:
+    bool eventFilter(QObject *obj, QEvent *event) override
+    {
+        qDebug() << "::::: FILTER!";
+        if (event->type() == QEvent::DynamicPropertyChange) {
+            auto change = static_cast<QDynamicPropertyChangeEvent *>(event);
+            const auto name = change->propertyName();
+            const auto value = m_dbusObject->property(name);
+            qDebug() << "org.kde.kded.smart.Device" << name << value;
+#warning we should kinda support interfaces properly we presently ignore them in addobject
+            m_dbusObject->Set("org.kde.kded.smart.Device", name, QDBusVariant(value));
+        }
+        return QObject::eventFilter(obj, event);
+    }
+
+private:
+    OrgFreedesktopDBusPropertiesInterface *m_dbusObject;
+};
 
 void DeviceModel::addObject(const QDBusObjectPath &dbusPath, const KDBusObjectManagerInterfacePropertiesMap &interfacePropertyMap)
 {
@@ -96,6 +146,7 @@ void DeviceModel::addObject(const QDBusObjectPath &dbusPath, const KDBusObjectMa
             obj->setProperty(qPrintable(propertyIt.key()), propertyIt.value());
         }
     }
+    obj->installEventFilter(new RuntimePropertyChangeFilter(obj));
 
     connect(obj, &OrgFreedesktopDBusPropertiesInterface::PropertiesChanged,
             this, [this, obj](const QString &interface, const QVariantMap &properties, const QStringList &invalidated) {
