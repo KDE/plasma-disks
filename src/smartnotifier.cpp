@@ -17,7 +17,6 @@ class FailureNotification : public QObject
 {
     Q_OBJECT
 public:
-    // Don't use directly, go through makeFailure!
     FailureNotification(const Device *device, QObject *parent = nullptr)
         : QObject(parent)
     {
@@ -26,14 +25,15 @@ public:
 #warning todo icon
         m_notification->setIconName(QStringLiteral("data-warning"));
         m_notification->setTitle(i18nc("@title notification", "Storage Device Problems"));
-        m_notification->setText(i18nc("@info notification text",
+        m_notification->setText(i18nc("@info notification; text %1 is a pretty product name; %2 the device path e.g. /dev/sda",
                                       "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is likely to fail soon!",
                                       device->product(), device->path()));
 
 #warning should we maybe prefix with kcm so as to not have such a generic desktop name
         KService::Ptr kcm = KService::serviceByStorageId(QStringLiteral("smart"));
         Q_ASSERT(kcm); // there's a bug or installation is broken; mustn't happen in production
-        m_notification->setActions({i18nc("@action:button notification action", "Manage")});
+        m_notification->setActions({i18nc("@action:button notification action to manage device problems",
+                                    "Manage")});
         connect(m_notification, &KNotification::action1Activated,
                 this, [kcm] { KIO::ApplicationLauncherJob(kcm).start(); });
 
