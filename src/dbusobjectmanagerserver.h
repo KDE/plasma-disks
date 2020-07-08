@@ -9,7 +9,6 @@
 #include <QMetaObject>
 #include <QMetaProperty>
 
-#warning namespace maybe
 // Be very mindful when changing anything here. QMetaType<->DBus is very finicky.
 typedef QMap<QString, QVariant> KDBusObjectManagerPropertiesMap;
 typedef QMap<QString, KDBusObjectManagerPropertiesMap> KDBusObjectManagerInterfacePropertiesMap;
