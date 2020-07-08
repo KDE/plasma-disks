@@ -80,11 +80,9 @@ KDBusObjectManagerServer::KDBusObjectManagerServer(QObject *parent)
                                    | QDBusConnection::ExportAllInvokables
                                    | QDBusConnection::ExportAllContents
                                    | QDBusConnection::ExportAdaptors)) {
-#warning we could conceivably disable notification actions if serving fails so you still get notifications but no action to open the kcm
-        qDebug() << "fail";
+        qDebug() << "failed to register" << m_path;
         return;
     }
-    qDebug()<<"registered";
 }
 
 bool KDBusObjectManagerServer::serve(QObject *object)
