@@ -127,5 +127,3 @@ void SMARTMonitor::checkDevice(Device *device)
     m_devices << device;
     emit deviceAdded(device);
 }
-
-#include "smartmonitor.moc"

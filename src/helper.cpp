@@ -45,5 +45,3 @@ ActionReply SMARTHelper::smartctl(const QVariantMap &args)
 }
 
 KAUTH_HELPER_MAIN("org.kde.kded.smart", SMARTHelper)
-
-#include "helper.moc"

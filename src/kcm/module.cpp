@@ -43,5 +43,3 @@ void Module::save()
 void Module::defaults()
 {
 }
-
-#include "module.moc"
