@@ -16,9 +16,12 @@ DeviceModel::DeviceModel(QObject *parent)
             this, &DeviceModel::reload);
     connect(watcher, &QDBusServiceWatcher::serviceUnregistered,
             this, &DeviceModel::reset);
-#warning do we need to track owner changes at all
-#warning theres a dupe bug somehwere when restarting kded the first entry might arrive more than once
-#warning ... probably need to track observed objects as we need to watch for new objects early on but that causes a race condition with getMAnagedObjects
+    connect(watcher, &QDBusServiceWatcher::serviceOwnerChanged,
+            this, [this] {
+        // When kded5 --replace is used the owner changes happen.
+        reset();
+        reload();
+    });
 
     reload();
 }
