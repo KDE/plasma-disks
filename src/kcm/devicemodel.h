@@ -91,6 +91,7 @@ private:
     QHash<int, int> m_signalIndexToProperties;
 
     OrgFreedesktopDBusObjectManagerInterface *m_iface = nullptr;
+    QDBusPendingCallWatcher *m_getManagedObjectsWatcher = nullptr;
 };
 
 Q_DECLARE_METATYPE(DeviceModel*)

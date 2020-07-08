@@ -31,6 +31,7 @@ QHash<int, QByteArray> DeviceModel::roleNames() const
 
 int DeviceModel::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent); // this is a flat list we decidedly don't care about the parent
     return m_objects.count();
 }
 
@@ -254,16 +255,21 @@ void DeviceModel::reload()
             this, &DeviceModel::removeObject);
 
     // Load existing objects.
-#warning should maybe throw away pending callwatchers iff a reload happens why we wait for the call
-    auto callWatcher = new QDBusPendingCallWatcher(m_iface->GetManagedObjects(), this);
-    connect(callWatcher, &QDBusPendingCallWatcher::finished,
-            this, [this, callWatcher] {
-        QDBusPendingReply<KDBusObjectManagerObjectPathInterfacePropertiesMap> call = *callWatcher;
+    if (m_getManagedObjectsWatcher) {
+        // Last reload didn't finish before this one, so throw away the last watcher
+        m_getManagedObjectsWatcher->deleteLater();
+    }
+    m_getManagedObjectsWatcher = new QDBusPendingCallWatcher(m_iface->GetManagedObjects(), this);
+    connect(m_getManagedObjectsWatcher, &QDBusPendingCallWatcher::finished,
+            this, [this] {
+        QDBusPendingReply<KDBusObjectManagerObjectPathInterfacePropertiesMap> call = *m_getManagedObjectsWatcher;
         QList<QObject*> objects;
         auto map = call.value();
         for (auto it = map.cbegin(); it != map.cend(); ++it) {
             addObject(it.key(), it.value());
         }
+        m_getManagedObjectsWatcher->deleteLater();
+        m_getManagedObjectsWatcher = nullptr;
     });
 }
 
