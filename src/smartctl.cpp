@@ -6,10 +6,20 @@
 #include <QDebug>
 #include <KAuthAction>
 #include <KAuthExecuteJob>
+#include <KLocalizedString>
 
 QJsonDocument SMARTCtl::run(const QString &devicePath) const
 {
     KAuth::Action action(QStringLiteral("org.kde.kded.smart.smartctl"));
+    // This is technically never used unless the sysadmin forces our action
+    // to require authentication. In that case we'll want to give request context
+    // as we do requests per-device though.
+    action.setDetailsV2({
+                            { KAuth::Action::AuthDetail::DetailMessage,
+                              i18nc("@label description of authentication request to read SMART data. %1 is a device path e.g. /dev/sda",
+                              "Read SMART report for storage device %1",
+                              devicePath) }
+                        });
     action.setHelperId(QStringLiteral("org.kde.kded.smart"));
     action.addArgument(QStringLiteral("devicePath"), devicePath);
     qDebug() << action.isValid()

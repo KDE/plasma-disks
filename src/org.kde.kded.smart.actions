@@ -1,11 +1,13 @@
 [Domain]
-Name=TBD
-Icon=TBD
-URL=TBD
+Name=Plasma SMART
+Icon=drive-multidisk
+URL=https://www.kde.org
 
 [org.kde.kded.smart.smartctl]
-Name=TBD
-Description=TBD
-#Policy=auth_admin
+Name=Read SMART Report Details
+Description=Read storage device SMART report
 Policy=yes
 PolicyInactive=auth_admin
+
+# require auth, only useful for testing
+#Policy=auth_admin

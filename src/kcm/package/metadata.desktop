@@ -1,14 +1,13 @@
 [Desktop Entry]
-Name=TBD
-Comment=TBD
+Name=SMART
 Type=Service
-Icon=TBD
-# do we need this?
+Icon=drive-multidisk
+# FIXME: do we need these metadata even
 X-KDE-ServiceTypes=SettingsModule
 X-KDE-PluginInfo-Author=Harald Sitter
 X-KDE-PluginInfo-Email=sitter@kde.org
 X-KDE-PluginInfo-Name=smart
-X-KDE-PluginInfo-Version=TBD
-X-KDE-PluginInfo-Website=TBD
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Website=https://www.kde.org
 X-KDE-PluginInfo-License=GPL
 X-Plasma-MainScript=main.qml

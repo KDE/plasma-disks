@@ -15,7 +15,7 @@ Module::Module(QObject *parent, const QVariantList &args)
 {
 
     auto aboutData = new KAboutData(QStringLiteral("smart"),
-                                    i18nc("@title", "Self-Monitoring, Analysis and Reporting Technology"),
+                                    i18nc("@title", "Storage Device Health Monitoring"),
                                     QString::fromLatin1(global_s_versionStringFull),
                                     QString(),
                                     KAboutLicense::LicenseKey::GPL_V3,

@@ -1,7 +1,6 @@
 [Desktop Entry]
 Type=Service
-# FIXME
-Icon=TBD
+Icon=drive-multidisk
 Exec=kinfocenter smart
 
 X-KDE-Library=smart
@@ -9,11 +8,8 @@ X-KDE-ServiceTypes=KCModule
 X-KDE-ParentApp=kinfocenter
 X-KDE-PluginKeyword=smart
 X-KDE-KInfoCenter-Category=device_information
-X-KDE-Weight=0
-# FIXME
-Categories=TBD
+Categories=Qt;KDE;X-KDE-information;
 
-Name=SMART
-Comment=Self-Monitoring, Analysis and Reporting Technology
-# FIXME
-X-KDE-Keywords=TBD
+Name=SMART Status
+Comment=Storage device health monitoring
+Keywords=SMART,S.M.A.R.T.,monitoring,health,disk,drive,storage,failure
