@@ -57,6 +57,8 @@ class DeviceModel : public QAbstractListModel
     Q_OBJECT
     /// Whether kded is available and connected
     Q_PROPERTY(bool valid READ valid NOTIFY validChanged)
+    /// Whether we are waiting for GetManagedObjects (i.e. initial listing)
+    Q_PROPERTY(bool waiting READ waiting NOTIFY waitingChanged)
 public:
     enum ItemRole {
         ObjectRole = Qt::UserRole + 1
@@ -76,9 +78,11 @@ public:
     Q_SCRIPTABLE int role(const QByteArray &roleName) const;
 
     bool valid() const;
+    bool waiting() const;
 
 signals:
     void validChanged();
+    void waitingChanged();
 
 private Q_SLOTS:
     void propertyChanged();

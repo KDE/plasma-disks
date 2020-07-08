@@ -87,6 +87,11 @@ bool DeviceModel::valid() const
     return m_iface != nullptr;
 }
 
+bool DeviceModel::waiting() const
+{
+    return m_getManagedObjectsWatcher != nullptr;
+}
+
 void DeviceModel::propertyChanged()
 {
     qDebug() << "prop changed";
@@ -245,14 +250,23 @@ void DeviceModel::reset()
 {
     qDebug() << "reset";
     beginResetModel();
+
     qDeleteAll(m_objects);
     m_objects.clear();
+
     if (m_iface) {
         m_iface->disconnect(this);
         m_iface->deleteLater();
         m_iface = nullptr;
         emit validChanged();
     }
+
+    if (m_getManagedObjectsWatcher) {
+        m_getManagedObjectsWatcher->deleteLater();
+        m_getManagedObjectsWatcher = nullptr;
+        emit waitingChanged();
+    }
+
     qDebug() << "objects in" << m_objects.size();
     endResetModel();
 }
@@ -279,6 +293,7 @@ void DeviceModel::reload()
         m_getManagedObjectsWatcher->deleteLater();
     }
     m_getManagedObjectsWatcher = new QDBusPendingCallWatcher(m_iface->GetManagedObjects(), this);
+    emit waitingChanged();
     connect(m_getManagedObjectsWatcher, &QDBusPendingCallWatcher::finished,
             this, [this] {
         QDBusPendingReply<KDBusObjectManagerObjectPathInterfacePropertiesMap> call = *m_getManagedObjectsWatcher;
@@ -288,6 +303,7 @@ void DeviceModel::reload()
         }
         m_getManagedObjectsWatcher->deleteLater();
         m_getManagedObjectsWatcher = nullptr;
+        emit waitingChanged();
     });
 }
 

@@ -5,7 +5,7 @@ import org.kde.kcm 1.2 as KCM
 import QtQuick 2.14
 import QtQml.Models 2.14
 import SMART 1.0 as SMART
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 import QtQuick.Controls 2.14
 
 KCM.SimpleKCM {
@@ -25,15 +25,26 @@ KCM.SimpleKCM {
             name: "kcm_kup"
         }
 
-        Rectangle {
-            color: "red"
-            anchors.fill: parent
-            visible: !deviceModel.valid
-            Label {
-                anchors.centerIn: parent
-                wrapMode: Text.Wrap
-                text: i18n("((TBD)) KDED HAS DIED!")
-            }
+        Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            width: parent.width - (Kirigami.Units.largeSpacing * 4)
+
+            opacity: !deviceModel.valid
+            Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; easing.type: Easing.InOutQuad } }
+
+            icon.name: "messagebox_warning"
+            text: i18nc("@info/status", "Unable to obtain data. KDED is not running.")
+        }
+
+        Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            width: parent.width - (Kirigami.Units.largeSpacing * 4)
+
+            opacity: deviceModel.valid && !deviceModel.waiting && parent.count <= 0
+            Behavior on opacity { NumberAnimation { duration: Kirigami.Units.longDuration; easing.type: Easing.InOutQuad } }
+
+            icon.name: "edit-none"
+            text: i18nc("@info/status", "No S.M.A.R.T. devices found.")
         }
 
         delegate: Kirigami.Card {
