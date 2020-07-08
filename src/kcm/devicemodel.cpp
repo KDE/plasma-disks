@@ -12,12 +12,14 @@ DeviceModel::DeviceModel(QObject *parent)
     auto watcher = new QDBusServiceWatcher("org.kde.kded5", QDBusConnection::sessionBus(),
                                            QDBusServiceWatcher::WatchForOwnerChange,
                                            this);
-    connect(watcher, &QDBusServiceWatcher::serviceRegistered,
-            this, &DeviceModel::reload);
-    connect(watcher, &QDBusServiceWatcher::serviceUnregistered,
-            this, &DeviceModel::reset);
     connect(watcher, &QDBusServiceWatcher::serviceOwnerChanged,
-            this, &DeviceModel::reload);
+            this, [this](const QString &/*service*/, const QString &/*oldOwner*/, const QString &newOwner){
+        if (!newOwner.isEmpty()) { // this is a registration even not a loss event
+            reload();
+        } else {
+            reset();
+        }
+    });
 
     reload();
 }
