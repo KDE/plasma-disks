@@ -242,6 +242,11 @@ void DeviceModel::reset()
     beginResetModel();
     qDeleteAll(m_objects);
     m_objects.clear();
+    if (m_iface) {
+        m_iface->disconnect(this);
+        m_iface->deleteLater();
+        m_iface = nullptr;
+    }
     qDebug() << "objects in" << m_objects.size();
     endResetModel();
 }
@@ -249,12 +254,6 @@ void DeviceModel::reset()
 void DeviceModel::reload()
 {
     reset();
-
-    if (m_iface) {
-        m_iface->disconnect(this);
-        m_iface->deleteLater();
-        m_iface = nullptr;
-    }
 
     m_iface = new OrgFreedesktopDBusObjectManagerInterface(
                 "org.kde.kded5",
