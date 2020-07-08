@@ -82,6 +82,11 @@ int DeviceModel::role(const QByteArray &roleName) const
     return m_roles.key(roleName, -1);
 }
 
+bool DeviceModel::valid() const
+{
+    return m_iface != nullptr;
+}
+
 void DeviceModel::propertyChanged()
 {
     qDebug() << "prop changed";
@@ -246,6 +251,7 @@ void DeviceModel::reset()
         m_iface->disconnect(this);
         m_iface->deleteLater();
         m_iface = nullptr;
+        emit validChanged();
     }
     qDebug() << "objects in" << m_objects.size();
     endResetModel();
@@ -264,6 +270,8 @@ void DeviceModel::reload()
             this, &DeviceModel::addObject);
     connect(m_iface, &OrgFreedesktopDBusObjectManagerInterface::InterfacesRemoved,
             this, &DeviceModel::removeObject);
+
+    emit validChanged();
 
     // Load existing objects.
     if (m_getManagedObjectsWatcher) {

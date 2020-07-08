@@ -55,6 +55,8 @@ Q_SIGNALS: // SIGNALS
 class DeviceModel : public QAbstractListModel
 {
     Q_OBJECT
+    /// Whether kded is available and connected
+    Q_PROPERTY(bool valid READ valid NOTIFY validChanged)
 public:
     enum ItemRole {
         ObjectRole = Qt::UserRole + 1
@@ -72,6 +74,11 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
 
     Q_SCRIPTABLE int role(const QByteArray &roleName) const;
+
+    bool valid() const;
+
+signals:
+    void validChanged();
 
 private Q_SLOTS:
     void propertyChanged();

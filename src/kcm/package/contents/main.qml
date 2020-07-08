@@ -13,7 +13,7 @@ KCM.SimpleKCM {
         id: listView
         width: 110
         height: 160
-        model: SMART.DeviceModel {}
+        model: SMART.DeviceModel { id: deviceModel }
 
         SMART.ServiceRunner {
             id: partitionManagerRunner
@@ -28,7 +28,7 @@ KCM.SimpleKCM {
         Rectangle {
             color: "red"
             anchors.fill: parent
-            visible: parent.count <= 0
+            visible: !deviceModel.valid
             Label {
                 anchors.centerIn: parent
                 wrapMode: Text.Wrap
