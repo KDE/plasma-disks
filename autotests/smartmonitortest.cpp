@@ -80,6 +80,7 @@ private Q_SLOTS:
             }
             if (device->path() == "/dev/testfoobarfail") {
                 QVERIFY(device->failed());
+                sawFail = true;
             }
         }
         QVERIFY(sawPass);
