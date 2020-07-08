@@ -22,7 +22,12 @@ set(kcm_SRCS
 qt5_generate_dbus_interface(../device.h org.kde.kded.smart.Device.xml)
 qt5_add_dbus_interface(kcm_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kded.smart.Device.xml org.kde.kded.smart.Device)
 
-qt5_add_dbus_interface(kcm_SRCS  org.freedesktop.DBus.Properties.xml org.freedesktop.DBus.Properties)
+qt5_add_dbus_interface(kcm_SRCS org.freedesktop.DBus.Properties.xml org.freedesktop.DBus.Properties)
+set_source_files_properties(org.freedesktop.DBus.ObjectManager.xml
+    PROPERTIES
+        INCLUDE dbusobjectmanagerserver.h
+)
+qt5_add_dbus_interface(kcm_SRCS org.freedesktop.DBus.ObjectManager.xml org.freedesktop.DBus.ObjectManager)
 
 add_library(kcm MODULE ${kcm_SRCS})
 set_target_properties(kcm PROPERTIES OUTPUT_NAME smart)
