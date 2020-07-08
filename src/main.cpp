@@ -17,7 +17,6 @@ public:
     explicit SMARTModule(QObject *parent, const QVariantList &args)
         : KDEDModule(parent)
     {
-        qDebug() <<"module ctoring";
         Q_UNUSED(args);
         connect(&m_monitor, &SMARTMonitor::deviceAdded,
                 this, [this](Device *device) {
@@ -29,7 +28,6 @@ public:
             dbusDeviceServer.unserve(device);
         });
         m_monitor.start();
-qDebug() <<"module ctoring done";
     }
 
 private:
