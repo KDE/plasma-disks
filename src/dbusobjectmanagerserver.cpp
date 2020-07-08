@@ -107,8 +107,8 @@ bool KDBusObjectManagerServer::serve(QObject *object)
 
 void KDBusObjectManagerServer::unserve(QObject *object)
 {
-#warning hardcoded bc interfacePropertiesMap only has one interface
-    emit InterfacesRemoved(path(object), { QStringLiteral("org.kde.object") });
+    const QStringList interfaces = metaObjectsFor(object).keys();
+    emit InterfacesRemoved(path(object), { interfaces });
     QDBusConnection::sessionBus().unregisterObject(path(object).path());
     m_managedObjects.removeAll(object);
 }
@@ -155,18 +155,10 @@ KDBusObjectManagerInterfacePropertiesMap KDBusObjectManagerServer::interfaceProp
 
     QMap<QString, QVariantMap> interfaceMap;
 
-    for (auto mo = child->metaObject(); mo; mo = mo->superClass()) {
-        if (strcmp(mo->className(), "QObject") == 0) {
-            continue;
-        }
-
-        int ciid = mo->indexOfClassInfo("D-Bus Interface");
-        if (ciid == -1) {
-            qWarning() << mo->className() << "defines no interface";
-            continue;
-        }
-        const auto interface = QString::fromLatin1(mo->classInfo(ciid).value());
-
+    const auto metaObjectHash = metaObjectsFor(child);
+    for (auto it = metaObjectHash.cbegin(); it != metaObjectHash.cend(); ++it) {
+        const QString interface = it.key();
+        const QMetaObject *mo = it.value();
         QVariantMap properties;
         for (int i = mo->propertyOffset(); i < mo->propertyCount(); ++i) {
             auto property = mo->property(i);
@@ -176,6 +168,25 @@ KDBusObjectManagerInterfacePropertiesMap KDBusObjectManagerServer::interfaceProp
     }
 
     return interfaceMap;
+}
+
+KDBusObjectManagerServer::InterfaceMetaObjectHash KDBusObjectManagerServer::metaObjectsFor(const QObject *object)
+{
+    InterfaceMetaObjectHash map;
+    for (auto mo = object->metaObject(); mo; mo = mo->superClass()) {
+        if (strcmp(mo->className(), "QObject") == 0) {
+            continue;
+        }
+
+        int ciid = mo->indexOfClassInfo("D-Bus Interface");
+        if (ciid == -1) {
+            qWarning() << mo->className() << "defines no interface";
+            continue;
+        }
+
+        map[QString::fromLatin1(mo->classInfo(ciid).value())] = mo;
+    }
+    return map;
 }
 
 #include "dbusobjectmanagerserver.moc"

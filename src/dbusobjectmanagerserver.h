@@ -25,6 +25,7 @@ class KDBusObjectManagerServer : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.DBus.ObjectManager")
+    typedef QHash<QString, const QMetaObject *> InterfaceMetaObjectHash;
 public:
     KDBusObjectManagerServer(QObject *parent = nullptr);
     bool serve(QObject *object);
@@ -44,6 +45,8 @@ protected:
     KDBusObjectManagerInterfacePropertiesMap interfacePropertiesMap(const QObject *child);
 
 private:
+    InterfaceMetaObjectHash metaObjectsFor(const QObject *object);
+
     const QString m_path = QStringLiteral("/modules/smart/devices");
     QVector<QObject *> m_managedObjects;
 };
