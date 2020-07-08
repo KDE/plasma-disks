@@ -127,8 +127,17 @@ private:
 
 void DeviceModel::addObject(const QDBusObjectPath &dbusPath, const KDBusObjectManagerInterfacePropertiesMap &interfacePropertyMap)
 {
-#warning this isnt all too hot bc wed not get property notifications I rather think we need to ctor Device interfaces
-    const int newIndex = m_objects.size();
+    const QString path = dbusPath.path();
+
+    int newIndex = 0;
+    for (auto it = m_objects.cbegin(); it != m_objects.cend(); ++it) {
+        if ((*it)->objectName() == path) {
+            qDebug() << path << "already tracked";
+            return; // already tracked
+        }
+        ++newIndex;
+    }
+
     beginInsertRows(QModelIndex(), newIndex, newIndex);
 
     // QDBus doesn't manage to map notfiable properties for its generated interface classes
@@ -137,11 +146,11 @@ void DeviceModel::addObject(const QDBusObjectPath &dbusPath, const KDBusObjectMa
     // Property changes are abstracted via the the ListModel anyway.
     auto obj = new OrgFreedesktopDBusPropertiesInterface(
                 "org.kde.kded5",
-                dbusPath.path(),
+                path,
                 QDBusConnection::sessionBus(),
                 this);
     m_objects << obj;
-    obj->setObjectName(dbusPath.path());
+    obj->setObjectName(path);
     // Don't care about interfaces, iterate the values i.e. propertymap
     for (const auto &propertyMap : interfacePropertyMap) {
         for (auto propertyIt = propertyMap.cbegin(); propertyIt != propertyMap.cend(); ++propertyIt) {
@@ -151,9 +160,9 @@ void DeviceModel::addObject(const QDBusObjectPath &dbusPath, const KDBusObjectMa
     obj->installEventFilter(new RuntimePropertyChangeFilter(obj));
 
     connect(obj, &OrgFreedesktopDBusPropertiesInterface::PropertiesChanged,
-            this, [this, obj](const QString &interface, const QVariantMap &properties, const QStringList &invalidated) {
-#warning kinda code dupe from initial setting above
-        qDebug() << interface << properties;
+            this, [this, obj](const QString &/*interface*/,
+                              const QVariantMap &properties,
+                              const QStringList &/*invalidated*/) {
         for (auto it = properties.cbegin(); it != properties.cend(); ++it) {
             obj->setProperty(qPrintable(it.key()), it.value());
 
