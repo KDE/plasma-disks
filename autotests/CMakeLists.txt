@@ -10,3 +10,6 @@ ecm_add_test(smartdatatest.cpp TEST_NAME smartdatatest
 
 ecm_add_test(smartmonitortest.cpp TEST_NAME smartmonitortest
     LINK_LIBRARIES Qt5::Test statickdedsmart)
+
+ecm_add_test(devicetest.cpp TEST_NAME devicetest
+    LINK_LIBRARIES Qt5::Test statickdedsmart)

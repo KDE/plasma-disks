@@ -10,6 +10,8 @@
 #include <Solid/DeviceInterface>
 #include <Solid/Block>
 
+#include <QRegularExpression>
+
 Device::Device(const QString &udi_, const QString &product_, const QString &path_, QObject *parent)
     : QObject(parent)
     , m_udi(udi_)
@@ -19,9 +21,18 @@ Device::Device(const QString &udi_, const QString &product_, const QString &path
                 ->group("Ignores")
                 .readEntry(udi_, false))
 {
-#warning we need a reliable way to make udis safe to use here dbus is very limited in what it will allow for paths
-    QString name = m_udi;
-    setObjectName(name.remove(0, 1).replace('/', '_'));
+    // A simple replace actually makes any UDI safe to use for dbus.
+    // https://dbus.freedesktop.org/doc/dbus-specification.html#message-protocol-marshaling-object-path
+    // > No element may be the empty string.
+    // > Multiple '/' characters cannot occur in sequence.
+    // > A trailing '/' character is not allowed unless the path is the root path (a single '/' character).
+    // > Each element must only contain the ASCII characters "[A-Z][a-z][0-9]_"
+    // Since our name is put into a pre-existing path we only need to concern ourselves
+    // with the content constraint and by extension the character constraint covers all
+    // others since our name musn't be a path either.
+    static const QRegularExpression filterExpr(QStringLiteral("[^A-Za-z0-9_]"));
+    setObjectName(m_udi.replace(filterExpr, QStringLiteral("_")));
+    Q_ASSERT(!objectName().isEmpty()); // mustn't be empty!
 }
 
 Device::Device(const Solid::Device &solidDevice, QObject *parent)
