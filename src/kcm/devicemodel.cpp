@@ -17,11 +17,7 @@ DeviceModel::DeviceModel(QObject *parent)
     connect(watcher, &QDBusServiceWatcher::serviceUnregistered,
             this, &DeviceModel::reset);
     connect(watcher, &QDBusServiceWatcher::serviceOwnerChanged,
-            this, [this] {
-        // When kded5 --replace is used the owner changes happen.
-        reset();
-        reload();
-    });
+            this, &DeviceModel::reload);
 
     reload();
 }
@@ -241,6 +237,8 @@ void DeviceModel::reset()
 
 void DeviceModel::reload()
 {
+    reset();
+
     if (m_iface) {
         m_iface->disconnect(this);
         m_iface->deleteLater();
