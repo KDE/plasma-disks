@@ -282,7 +282,6 @@ void DeviceModel::reload()
     connect(m_getManagedObjectsWatcher, &QDBusPendingCallWatcher::finished,
             this, [this] {
         QDBusPendingReply<KDBusObjectManagerObjectPathInterfacePropertiesMap> call = *m_getManagedObjectsWatcher;
-        QList<QObject*> objects;
         auto map = call.value();
         for (auto it = map.cbegin(); it != map.cend(); ++it) {
             addObject(it.key(), it.value());
