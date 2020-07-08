@@ -53,18 +53,20 @@ KCM.SimpleKCM {
             actions: [
                 Kirigami.Action {
                     visible: partitionManagerRunner.canRun
-                    text: i18n("Partition Manager")
+                    text: i18nc("@action/button action button to start partition manager", "Partition Manager")
                     icon.name: "partitionmanager"
                     onTriggered: partitionManagerRunner.run()
                 },
                 Kirigami.Action {
                     visible: kupRunner.canRun
-                    text: i18n("Backup")
+                    text: i18nc("@action/button action button to start backup program", "Backup")
                     icon.name: "kup"
                     onTriggered: kupRunner.run()
                 },
                 Kirigami.Action {
-                    text: ignore ? i18n("Monitor") : i18n("Ignore")
+                    text: ignore
+                          ? i18nc("@action/button action button to monitor a device for smart failure", "Monitor")
+                          : i18nc("@action/button action button to ignore smart failures for a device", "Ignore")
                     icon.name: ignore ? "view-visible" : "view-hidden"
                     onTriggered: {
                         model.ignore = !ignore
@@ -74,10 +76,11 @@ KCM.SimpleKCM {
             contentItem: Label {
                 width: parent.width
                 wrapMode: Text.Wrap
-                text: failed ?
-                          i18n("The SMART system of this device is reporting problems. This may be a sign of impending device failure or data reliablity being compromised. It is highly recommended that you backup your data and replace this drive as soon as possible to avoid losing any data.")
-                        :
-                          i18n("This device appears to be working as expected.")
+                text: failed
+                      ? i18nc("@info",
+                              "The SMART system of this device is reporting problems. This may be a sign of impending device failure or data reliablity being compromised. It is highly recommended that you backup your data and replace this drive as soon as possible to avoid losing any data.")
+                      : i18nc("@info",
+                             "This device appears to be working as expected.")
             }
         }
     }
