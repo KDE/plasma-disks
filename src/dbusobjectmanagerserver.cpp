@@ -113,6 +113,12 @@ void KDBusObjectManagerServer::unserve(QObject *object)
 
 void KDBusObjectManagerServer::registerTypes()
 {
+    static bool registered = false;
+    if (registered) {
+        return;
+    }
+    registered = true;
+
     qDBusRegisterMetaType<KDBusObjectManagerPropertiesMap>();
     qDBusRegisterMetaType<KDBusObjectManagerInterfacePropertiesMap>();
     qDBusRegisterMetaType<KDBusObjectManagerObjectPathInterfacePropertiesMap>();
