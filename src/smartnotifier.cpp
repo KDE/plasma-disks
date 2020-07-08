@@ -22,7 +22,6 @@ public:
     {
 #warning todo what eventid to use
         m_notification->setContexts({{ QStringLiteral("device"), device->path() }});
-#warning todo icon
         m_notification->setIconName(QStringLiteral("data-warning"));
         m_notification->setTitle(i18nc("@title notification", "Storage Device Problems"));
         m_notification->setText(i18nc("@info notification; text %1 is a pretty product name; %2 the device path e.g. /dev/sda",
