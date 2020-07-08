@@ -19,7 +19,6 @@ Device::Device(const QString &udi_, const QString &product_, const QString &path
                 ->group("Ignores")
                 .readEntry(udi_, false))
 {
-#warning product alone cannot provide a sufficiently hot prettys string see my usb3 sticky
 #warning we need a reliable way to make udis safe to use here dbus is very limited in what it will allow for paths
     QString name = m_udi;
     setObjectName(name.remove(0, 1).replace('/', '_'));
@@ -27,7 +26,9 @@ Device::Device(const QString &udi_, const QString &product_, const QString &path
 
 Device::Device(const Solid::Device &solidDevice, QObject *parent)
     : Device(solidDevice.udi(),
-             solidDevice.product(),
+             solidDevice.vendor().isEmpty() ? solidDevice.product()
+                                            : QStringLiteral("%1 %2").arg(solidDevice.vendor(),
+                                                                          solidDevice.product()),
              solidDevice.as<Solid::Block>()->device(),
              parent)
 {
