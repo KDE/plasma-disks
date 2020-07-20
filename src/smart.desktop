@@ -5,7 +5,7 @@ X-KDE-Kded-autoload=true
 X-KDE-Kded-load-on-demand=false
 X-KDE-Kded-phase=1
 X-KDE-Library=smart
-Icon=drive-multidisk
+Icon=preferences-smart-status
 
 Name=SMART
 Comment=Storage device health monitoring

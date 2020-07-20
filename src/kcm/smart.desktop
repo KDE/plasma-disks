@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-Icon=drive-multidisk
+Icon=preferences-smart-status
 Exec=kinfocenter smart
 
 X-KDE-Library=smart

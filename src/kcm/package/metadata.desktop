@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=SMART
 Type=Service
-Icon=drive-multidisk
+Icon=preferences-smart-status
 # FIXME: do we need these metadata even
 X-KDE-ServiceTypes=SettingsModule
 X-KDE-PluginInfo-Author=Harald Sitter

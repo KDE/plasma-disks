@@ -1,6 +1,6 @@
 [Domain]
 Name=Plasma SMART
-Icon=drive-multidisk
+Icon=preferences-smart-status
 URL=https://www.kde.org
 
 [org.kde.kded.smart.smartctl]
