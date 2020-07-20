@@ -5,21 +5,28 @@
 #define SMARTCTL_H
 
 #include <QJsonDocument>
+#include <QObject>
 
-class AbstractSMARTCtl
+class AbstractSMARTCtl : public QObject
 {
+    Q_OBJECT
 public:
     virtual ~AbstractSMARTCtl() = default;
-    virtual QJsonDocument run(const QString &devicePath) const = 0;
+    virtual void run(const QString &devicePath) const = 0;
 
+signals:
+    void finished(const QString &devicePath, const QJsonDocument &document) const;
+
+protected:
     AbstractSMARTCtl() = default;
+
+private:
     Q_DISABLE_COPY(AbstractSMARTCtl)
 };
 
 class SMARTCtl : public AbstractSMARTCtl
 {
 public:
-
     /** smartctl manpage
        Bit 0: Command line did not parse.
        Bit 1: Device open failed, device did not return an IDENTIFY DEVICE structure,
@@ -48,7 +55,7 @@ public:
         // The entire thing doesn't exceed 8 bits because it's a posix exit code.
     };
 
-    QJsonDocument run(const QString &devicePath) const override;
+    void run(const QString &devicePath) const override;
 };
 
 #endif // SMARTCTL_H

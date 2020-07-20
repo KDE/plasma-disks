@@ -4,6 +4,7 @@
 #ifndef SMARTMONITOR_H
 #define SMARTMONITOR_H
 
+#include <QHash>
 #include <QObject>
 #include <QTimer>
 
@@ -36,6 +37,7 @@ private slots:
     void checkUDI(const QString &udi);
     void removeUDI(const QString &udi);
     void reloadData();
+    void onSMARTCtlFinished(const QString &devicePath, const QJsonDocument &document);
 
 private:
     void checkDevice(const Solid::Device &device);
@@ -43,7 +45,8 @@ private:
 
     QTimer m_reloadTimer;
     std::unique_ptr<AbstractSMARTCtl> m_ctl;
-    QVector<Device *> m_devices;
+    QHash<QString, Device *> m_pendingDevices; // waiting for smartctl to return
+    QVector<Device *> m_devices; // monitored smart devices
 };
 
 #endif // SMARTMONITOR_H

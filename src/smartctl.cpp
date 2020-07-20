@@ -8,7 +8,7 @@
 #include <KAuthExecuteJob>
 #include <KLocalizedString>
 
-QJsonDocument SMARTCtl::run(const QString &devicePath) const
+void SMARTCtl::run(const QString &devicePath) const
 {
 #warning an argument could be made that run should be async since it goes through dbus and that can take a while
     KAuth::Action action(QStringLiteral("org.kde.kded.smart.smartctl"));
@@ -29,13 +29,18 @@ QJsonDocument SMARTCtl::run(const QString &devicePath) const
              << action.status()
                 ;
     KAuth::ExecuteJob *job = action.execute();
-    job->exec();
-    const auto data = job->data();
-    const auto code = data.value(QStringLiteral("exitCode"), QByteArray()).toInt();
-    const auto json = data.value(QStringLiteral("data"), QByteArray()).toByteArray();
-    if (json.isEmpty() || code & Failure::CmdLineParse || code & Failure::DeviceOpen) {
-        qDebug() << "looks like we got no data back for" << devicePath << code << json.isEmpty();
-        return QJsonDocument();
-    }
-    return QJsonDocument::fromJson(json);
+    connect(job, &KJob::result,
+            this, [this, job, devicePath] {
+        const auto data = job->data();
+        const auto code = data.value(QStringLiteral("exitCode"), QByteArray()).toInt();
+        const auto json = data.value(QStringLiteral("data"), QByteArray()).toByteArray();
+        QJsonDocument document;
+        if (json.isEmpty() || code & Failure::CmdLineParse || code & Failure::DeviceOpen) {
+            qDebug() << "looks like we got no data back for" << devicePath << code << json.isEmpty();
+        } else {
+            document = QJsonDocument::fromJson(json);
+        }
+        emit finished(devicePath, document);
+    });
+    job->start();
 }

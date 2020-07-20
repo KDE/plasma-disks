@@ -22,6 +22,8 @@ SMARTMonitor::SMARTMonitor(AbstractSMARTCtl *ctl, QObject *parent)
 {
     connect(&m_reloadTimer, &QTimer::timeout,
             this, &SMARTMonitor::reloadData);
+    connect(ctl, &AbstractSMARTCtl::finished,
+            this, &SMARTMonitor::onSMARTCtlFinished);
     m_reloadTimer.setInterval(1000 * 60 /*minute*/ * 60 /*hour*/ * 24 /*day*/);
 }
 
@@ -68,6 +70,41 @@ void SMARTMonitor::reloadData()
     m_reloadTimer.start();
 }
 
+void SMARTMonitor::onSMARTCtlFinished(const QString &devicePath, const QJsonDocument &document)
+{
+    auto pendingIt = m_pendingDevices.find(devicePath);
+    if (pendingIt == m_pendingDevices.end()) {
+        qDebug() << "unexpected pending result for" << devicePath;
+        return;
+    }
+    Device *device = *pendingIt;
+    m_pendingDevices.erase(pendingIt);
+
+    if (document.isEmpty()) { // failed to get data, ignore the device
+        device->deleteLater();
+        return;
+    }
+
+    SMARTData data(document);
+
+    auto existingIt = std::find_if(m_devices.begin(), m_devices.end(), [&device](Device *existing) {
+            return *existing == *device;
+    });
+    if (existingIt != m_devices.cend()) {
+        device->deleteLater(); // won't be needing this
+
+        Device *existing = *existingIt;
+        // update failure and call it a day. Notification is handled by the Device.
+        existing->setFailed(!data.m_status.m_passed);
+
+        return;
+    }
+    device->setFailed(!data.m_status.m_passed);
+
+    m_devices << device;
+    emit deviceAdded(device);
+}
+
 void SMARTMonitor::checkDevice(const Solid::Device &device)
 {
     qDebug() << "!!!! " << device.udi();
@@ -84,7 +121,6 @@ void SMARTMonitor::checkDevice(const Solid::Device &device)
         qDebug() << "   not a volume";
         return; // certainly not an interesting device
     }
-#warning try to create all variants
     switch (device.as<Solid::StorageVolume>()->usage()) {
     case Solid::StorageVolume::Unused: Q_FALLTHROUGH();
     case Solid::StorageVolume::FileSystem: Q_FALLTHROUGH();
@@ -97,33 +133,13 @@ void SMARTMonitor::checkDevice(const Solid::Device &device)
         break;
     }
 
-    qDebug() << "bueno!";
+    qDebug() << "evaluating!";
 
     checkDevice(new Device(device));
 }
 
 void SMARTMonitor::checkDevice(Device *device)
 {
-    const QJsonDocument document = m_ctl->run(device->path());
-    if (document.isEmpty()) {
-        return;
-    }
-    SMARTData data(document);
-
-    auto existingIt = std::find_if(m_devices.begin(), m_devices.end(), [&device](Device *existing) {
-       return *existing == *device;
-    });
-    if (existingIt != m_devices.cend()) {
-        device->deleteLater(); // won't be needing this
-
-        Device *existing = *existingIt;
-        // update failure and call it a day. Notification is handled by the Device.
-        existing->setFailed(!data.m_status.m_passed);
-
-        return;
-    }
-    device->setFailed(!data.m_status.m_passed);
-
-    m_devices << device;
-    emit deviceAdded(device);
+    m_pendingDevices[device->path()] = device;
+    m_ctl->run(device->path());
 }

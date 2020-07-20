@@ -17,10 +17,10 @@
 class MockCtl : public AbstractSMARTCtl
 {
 public:
-    QJsonDocument run(const QString &devicePath) const override
+    void run(const QString &devicePath) const override
     {
         qDebug() << devicePath;
-        return m_docs.value(devicePath);
+        emit finished(devicePath, m_docs.value(devicePath));
     }
 
     QMap<QString, QJsonDocument> m_docs;
