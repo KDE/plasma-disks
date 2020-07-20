@@ -10,6 +10,7 @@
 
 QJsonDocument SMARTCtl::run(const QString &devicePath) const
 {
+#warning an argument could be made that run should be async since it goes through dbus and that can take a while
     KAuth::Action action(QStringLiteral("org.kde.kded.smart.smartctl"));
     // This is technically never used unless the sysadmin forces our action
     // to require authentication. In that case we'll want to give request context

@@ -6,6 +6,7 @@
 #include "org.freedesktop.DBus.Properties.h"
 #include "org.kde.kded.smart.Device.h"
 
+#warning clean up verbosity
 #warning I feel like the dbus shebang needs putting into a seprate class it has little to do with the devicemodelling in general
 DeviceModel::DeviceModel(QObject *parent)
     : QAbstractListModel(parent)
