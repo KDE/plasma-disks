@@ -28,12 +28,23 @@ private Q_SLOTS:
 
     void testFail()
     {
-        // NB: fixture isn't actually of a failure, so fields needs tweaking as necessary
+        // NB: fixture isn't actually of a failure, so fields need tweaking as necessary
         QFile file(QFINDTESTDATA("fixtures/fail.json"));
         QVERIFY(file.open(QFile::ReadOnly));
         auto doc = QJsonDocument::fromJson(file.readAll());
         SMARTData data(doc);
         QCOMPARE(data.m_device, "/dev/testfoobarfail");
+        QCOMPARE(data.m_status.m_passed, false);
+    }
+
+    void testBroken()
+    {
+        // Actual broken device provided by ahiemstra@heimr.nl
+        QFile file(QFINDTESTDATA("fixtures/broken.json"));
+        QVERIFY(file.open(QFile::ReadOnly));
+        auto doc = QJsonDocument::fromJson(file.readAll());
+        SMARTData data(doc);
+        QCOMPARE(data.m_device, "/dev/sdc");
         QCOMPARE(data.m_status.m_passed, false);
     }
 };
