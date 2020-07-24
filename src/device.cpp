@@ -19,7 +19,7 @@ Device::Device(const QString &udi_, const QString &product_, const QString &path
     , m_path(path_)
     , m_ignored(KSharedConfig::openConfig("org.kde.kded.smart")
                 ->group("Ignores")
-                .readEntry(udi_, false))
+                .readEntry(m_udi, false))
 {
     // A simple replace actually makes any UDI safe to use for dbus.
     // https://dbus.freedesktop.org/doc/dbus-specification.html#message-protocol-marshaling-object-path
@@ -31,7 +31,8 @@ Device::Device(const QString &udi_, const QString &product_, const QString &path
     // with the content constraint and by extension the character constraint covers all
     // others since our name musn't be a path either.
     static const QRegularExpression filterExpr(QStringLiteral("[^A-Za-z0-9_]"));
-    setObjectName(m_udi.replace(filterExpr, QStringLiteral("_")));
+    QString name = m_udi;
+    setObjectName(name.replace(filterExpr, QStringLiteral("_")));
     Q_ASSERT(!objectName().isEmpty()); // mustn't be empty!
 }
 

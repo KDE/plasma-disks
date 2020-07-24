@@ -42,9 +42,9 @@ signals:
     void ignoreChanged();
 
 private:
-    QString m_udi;
-    QString m_product;
-    QString m_path;
+    const QString m_udi;
+    const QString m_product;
+    const QString m_path;
     bool m_failed = false;
     bool m_ignored = false;
 };
