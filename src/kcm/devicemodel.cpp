@@ -85,19 +85,6 @@ bool DeviceModel::waiting() const
     return m_getManagedObjectsWatcher != nullptr;
 }
 
-void DeviceModel::propertyChanged()
-{
-    qDebug() << "prop changed";
-    Q_UNREACHABLE();
-    if (!sender() || senderSignalIndex() == -1) {
-        return;
-    }
-    int role = m_signalIndexToProperties.value(senderSignalIndex(), -1);
-    int index = m_objects.indexOf(sender());
-    qDebug() << "PROPERTY CHANGED (" << index << ") :: " << role << roleNames().value(role);
-    Q_EMIT dataChanged(createIndex(index, 0), createIndex(index, 0), {role});
-}
-
 // Event filter for runtime QObjects properties changing.
 class RuntimePropertyChangeFilter : public QObject
 {
@@ -221,16 +208,6 @@ void DeviceModel::initRoleNames(QObject *object)
         m_roles[++maxEnumValue] = dynProperty;
         m_objectPoperties.insert(maxEnumValue, dynProperty);
     }
-
-QMetaMethod DeviceModel::propertyChangedMetaMethod() const
-{
-    auto mo = metaObject();
-    int methodIndex = mo->indexOfMethod("propertyChanged()");
-    if (methodIndex == -1) {
-        qFatal("Cannot find propertyChanged method. The model '%s' seems broken", mo->className());
-        return QMetaMethod();
-    }
-    return mo->method(methodIndex);
 }
 
 void DeviceModel::reset()

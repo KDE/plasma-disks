@@ -47,8 +47,6 @@ signals:
     void waitingChanged();
 
 private Q_SLOTS:
-    void propertyChanged();
-
     void addObject(const QDBusObjectPath &dbusPath, const KDBusObjectManagerInterfacePropertiesMap &interfacePropertyMap);
     void removeObject(const QDBusObjectPath &dbusPath);
     void reset();
