@@ -6,7 +6,6 @@
 #include "org.freedesktop.DBus.Properties.h"
 #include "org.kde.kded.smart.Device.h"
 
-#warning clean up verbosity
 #warning I feel like the dbus shebang needs putting into a seprate class it has little to do with the devicemodelling in general
 DeviceModel::DeviceModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -30,7 +29,6 @@ DeviceModel::DeviceModel(QObject *parent)
 
 QHash<int, QByteArray> DeviceModel::roleNames() const
 {
-    qDebug() << "returning roles" << m_roles << QAbstractItemModel::roleNames();
     return m_roles;
 }
 
@@ -42,9 +40,7 @@ int DeviceModel::rowCount(const QModelIndex &parent) const
 
 QVariant DeviceModel::data(const QModelIndex &index, int role) const
 {
-    qDebug() << role;
     if (!hasIndex(index.row(), index.column())) {
-        qDebug() << "noindex";
         return QVariant();
     }
     QObject *obj = m_objects.at(index.row());
@@ -53,18 +49,14 @@ QVariant DeviceModel::data(const QModelIndex &index, int role) const
     }
     const QByteArray prop = m_objectPoperties.value(role);
     if (prop.isEmpty()) {
-        qDebug() << "  no prop mapped" << role;
         return QVariant();
     }
-    qDebug() << role << prop << obj->property(prop);
     return obj->property(prop);
 }
 
 bool DeviceModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    qDebug() << "!!!!!" << role;
     if (!hasIndex(index.row(), index.column())) {
-        qDebug() << "noindex";
         return false;
     }
     QObject *obj = m_objects.at(index.row());
@@ -73,16 +65,13 @@ bool DeviceModel::setData(const QModelIndex &index, const QVariant &value, int r
     }
     const QByteArray prop = m_objectPoperties.value(role);
     if (prop.isEmpty()) {
-        qDebug() << "  no prop mapped" << role;
         return false;
     }
-    qDebug() << role << prop << obj->property(prop);
     return obj->setProperty(prop, value);
 }
 
 int DeviceModel::role(const QByteArray &roleName) const
 {
-    qDebug() << roleName << m_roles.key(roleName, -1);
     return m_roles.key(roleName, -1);
 }
 
@@ -109,6 +98,7 @@ void DeviceModel::propertyChanged()
     Q_EMIT dataChanged(createIndex(index, 0), createIndex(index, 0), {role});
 }
 
+// Event filter for runtime QObjects properties changing.
 class RuntimePropertyChangeFilter : public QObject
 {
     Q_OBJECT
@@ -117,18 +107,15 @@ public:
         : QObject(parent)
         , m_dbusObject(parent)
     {
-        qDebug() << "::::: WATCH";
     }
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event) override
     {
-        qDebug() << "::::: FILTER!";
         if (event->type() == QEvent::DynamicPropertyChange) {
             auto change = static_cast<QDynamicPropertyChangeEvent *>(event);
             const auto name = change->propertyName();
             const auto value = m_dbusObject->property(name);
-            qDebug() << "org.kde.kded.smart.Device" << name << value;
 #warning we should kinda support interfaces properly we presently ignore them in addobject
             m_dbusObject->Set("org.kde.kded.smart.Device", name, QDBusVariant(value));
         }
@@ -146,7 +133,6 @@ void DeviceModel::addObject(const QDBusObjectPath &dbusPath, const KDBusObjectMa
     int newIndex = 0;
     for (auto it = m_objects.cbegin(); it != m_objects.cend(); ++it) {
         if ((*it)->objectName() == path) {
-            qDebug() << path << "already tracked";
             return; // already tracked
         }
         ++newIndex;
@@ -236,9 +222,6 @@ void DeviceModel::initRoleNames(QObject *object)
         m_objectPoperties.insert(maxEnumValue, dynProperty);
     }
 
-    qDebug() << m_roles;
-}
-
 QMetaMethod DeviceModel::propertyChangedMetaMethod() const
 {
     auto mo = metaObject();
@@ -252,7 +235,6 @@ QMetaMethod DeviceModel::propertyChangedMetaMethod() const
 
 void DeviceModel::reset()
 {
-    qDebug() << "reset";
     beginResetModel();
 
     qDeleteAll(m_objects);
@@ -271,7 +253,6 @@ void DeviceModel::reset()
         emit waitingChanged();
     }
 
-    qDebug() << "objects in" << m_objects.size();
     endResetModel();
 }
 
