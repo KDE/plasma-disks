@@ -67,7 +67,7 @@ SMARTNotifier::SMARTNotifier(SMARTMonitor *monitor, QObject *parent)
             this, [this](const Device *device) {
         connect(device, &Device::failedChanged,
                 this, [this, device] {
-           if (device->failed()) {
+            if (device->failed() && !device->ignore()) {
                new FailureNotification(device, this); // auto-deletes
                // once displayed we'll not want to trigger any more notifications
                device->disconnect(this);
