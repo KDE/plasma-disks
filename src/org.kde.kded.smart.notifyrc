@@ -1,0 +1,14 @@
+[Global]
+IconName=preferences-smart-status
+Name=Storage Device Health Monitoring
+Comment=Storage Device Health Monitoring
+
+[Context/device]
+Name=Device
+Comment=Used for notifications about a specific device
+
+[Event/impendingDeviceFailure]
+Name=Impending Device Failure
+Comment=A device is showing signs of impending failure
+Contexts=device
+Action=Popup

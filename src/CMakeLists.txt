@@ -46,4 +46,6 @@ target_link_libraries(kded-smart-helper KF5::AuthCore KF5::ConfigCore KF5::I18n)
 kauth_install_helper_files(kded-smart-helper org.kde.kded.smart root)
 install(TARGETS kded-smart-helper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 
+install(FILES org.kde.kded.smart.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
+
 add_subdirectory(kcm)

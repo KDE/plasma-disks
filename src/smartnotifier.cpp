@@ -20,8 +20,7 @@ public:
     FailureNotification(const Device *device, QObject *parent = nullptr)
         : QObject(parent)
     {
-#warning todo what eventid to use
-        m_notification->setContexts({{ QStringLiteral("device"), device->path() }});
+        m_notification->setComponentName("org.kde.kded.smart");
         m_notification->setIconName(QStringLiteral("data-warning"));
         m_notification->setTitle(i18nc("@title notification", "Storage Device Problems"));
         m_notification->setText(i18nc("@info notification; text %1 is a pretty product name; %2 the device path e.g. /dev/sda",
@@ -55,9 +54,8 @@ public:
 private:
 #warning use persistent its disabled so i dont go mad when restarting kded
     KNotification *m_notification = new KNotification {
-        QStringLiteral("notification"),
-//        KNotification::Persistent | KNotification::DefaultEvent,
-            KNotification::DefaultEvent,
+        QStringLiteral("impendingDeviceFailure"),
+//        KNotification::Persistent,
         nullptr
     };
 };
