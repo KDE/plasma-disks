@@ -103,7 +103,9 @@ protected:
             auto change = static_cast<QDynamicPropertyChangeEvent *>(event);
             const auto name = change->propertyName();
             const auto value = m_dbusObject->property(name);
-#warning we should kinda support interfaces properly we presently ignore them in addobject
+            // WARNING: should we want to rely on the actual interfaces a property relies on
+            // that needs implementing first. On addObject we ignore the interface and so we
+            // use a dummy interface here.
             m_dbusObject->Set("org.kde.kded.smart.Device", name, QDBusVariant(value));
         }
         return QObject::eventFilter(obj, event);
