@@ -42,6 +42,7 @@ target_link_libraries(kcm
     KF5::Solid)
 
 kcoreaddons_desktop_to_json(kcm smart.desktop)
+
 install(FILES smart.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 install(TARGETS kcm DESTINATION ${PLUGIN_INSTALL_DIR}/kcms)
 kpackage_install_package(package smart kcms)
