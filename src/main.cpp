@@ -20,7 +20,6 @@ public:
         Q_UNUSED(args);
         connect(&m_monitor, &SMARTMonitor::deviceAdded,
                 this, [this](Device *device) {
-            qDebug() << "device added!" << device;
             dbusDeviceServer.serve(device);
         });
         connect(&m_monitor, &SMARTMonitor::deviceRemoved,
