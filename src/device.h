@@ -17,8 +17,7 @@ class Device : public QObject
     Q_PROPERTY(QString product READ product CONSTANT)
     Q_PROPERTY(QString path READ path CONSTANT)
     // We dbus-expose objects without adaptor so the property API reflects the dbus API
-    // and so we don't describe a write as this oughtn't be writable on dbus!
-#warning setFailed for testing
+    // and so be mindful of what is available as writable property.
     Q_PROPERTY(bool failed READ failed WRITE setFailed NOTIFY failedChanged)
     Q_PROPERTY(bool ignore READ ignore WRITE setIgnore NOTIFY ignoreChanged)
 public:
