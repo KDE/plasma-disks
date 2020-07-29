@@ -5,7 +5,7 @@ URL=https://www.kde.org
 
 [org.kde.kded.smart.smartctl]
 Name=Read SMART Report Details
-Description=Read storage device SMART report
+Description=Read storage device SMART report to check the device's health
 Policy=yes
 PolicyInactive=auth_admin
 
