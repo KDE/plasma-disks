@@ -78,7 +78,7 @@ KCM.SimpleKCM {
                 wrapMode: Text.Wrap
                 text: failed
                       ? i18nc("@info",
-                              "The SMART system of this device is reporting problems. This may be a sign of impending device failure or data reliablity being compromised. It is highly recommended that you backup your data and replace this drive as soon as possible to avoid losing any data.")
+                              "The SMART system of this device is reporting problems. This may be a sign of imminent device failure or data reliablity being compromised. It is highly recommended that you backup your data and replace this drive as soon as possible to avoid losing any data.")
                       : i18nc("@info",
                              "This device appears to be working as expected.")
             }

@@ -52,7 +52,7 @@ public:
 
 private:
     KNotification *m_notification = new KNotification {
-        QStringLiteral("impendingDeviceFailure"),
+        QStringLiteral("imminentDeviceFailure"),
         KNotification::Persistent,
         nullptr
     };
