@@ -51,10 +51,9 @@ public:
     }
 
 private:
-#warning use persistent its disabled so i dont go mad when restarting kded
     KNotification *m_notification = new KNotification {
         QStringLiteral("impendingDeviceFailure"),
-//        KNotification::Persistent,
+        KNotification::Persistent,
         nullptr
     };
 };

@@ -6,7 +6,9 @@
 #include "org.freedesktop.DBus.Properties.h"
 #include "org.kde.kded.smart.Device.h"
 
-#warning I feel like the dbus shebang needs putting into a seprate class it has little to do with the devicemodelling in general
+// TODO: look into refactoring the dbus logic out maybe.
+//   It could probably sit in a different object that controls the Model, that way modelling
+//   would be more separate from the actual data access.
 DeviceModel::DeviceModel(QObject *parent)
     : QAbstractListModel(parent)
 {
