@@ -27,7 +27,6 @@ public:
                                       "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is likely to fail soon!",
                                       device->product(), device->path()));
 
-#warning should we maybe prefix with kcm so as to not have such a generic desktop name
         KService::Ptr kcm = KService::serviceByStorageId(QStringLiteral("smart"));
         Q_ASSERT(kcm); // there's a bug or installation is broken; mustn't happen in production
         m_notification->setActions({i18nc("@action:button notification action to manage device problems",

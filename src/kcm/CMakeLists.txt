@@ -30,7 +30,11 @@ set_source_files_properties(org.freedesktop.DBus.ObjectManager.xml
 qt5_add_dbus_interface(kcm_SRCS org.freedesktop.DBus.ObjectManager.xml org.freedesktop.DBus.ObjectManager)
 
 add_library(kcm MODULE ${kcm_SRCS})
-set_target_properties(kcm PROPERTIES OUTPUT_NAME smart)
+set_target_properties(kcm PROPERTIES
+    OUTPUT_NAME smart
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/kcms
+    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/kcms
+)
 
 target_link_libraries(kcm
     statickdedsmart
