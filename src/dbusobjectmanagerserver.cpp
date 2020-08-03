@@ -7,6 +7,8 @@
 #include <QDBusConnectionInterface>
 #include <QDBusMetaType>
 
+#include "kded_debug.h"
+
 // QtDBus doesn't implement PropertiesChanged for some reason.
 // This is meant to be childed' on an object to track that
 // objects' property notifications.
@@ -80,7 +82,7 @@ KDBusObjectManagerServer::KDBusObjectManagerServer(QObject *parent)
                                    | QDBusConnection::ExportAllInvokables
                                    | QDBusConnection::ExportAllContents
                                    | QDBusConnection::ExportAdaptors)) {
-        qDebug() << "failed to register" << m_path;
+        qCDebug(KDED) << "failed to register" << m_path;
         return;
     }
 }
@@ -135,7 +137,7 @@ KDBusObjectManagerObjectPathInterfacePropertiesMap KDBusObjectManagerServer::Get
     for (const auto *object : m_managedObjects) {
         const QDBusObjectPath dbusPath = path(object);
         if (dbusPath.path().isEmpty()) {
-            qDebug() << "Invalid dbus path for" << object->objectName();
+            qCDebug(KDED)  << "Invalid dbus path for" << object->objectName();
             continue;
         }
         map[dbusPath] = interfacePropertiesMap(object);
@@ -147,7 +149,7 @@ QDBusObjectPath KDBusObjectManagerServer::path(const QObject *object)
 {
     const QString path = m_path + "/" + object->objectName();
 
-    qDebug() << "path for " << object ->objectName() << object->metaObject()->className() << ":" << path;
+    qCDebug(KDED) << "path for " << object ->objectName() << object->metaObject()->className() << ":" << path;
     return QDBusObjectPath(path);
 }
 
@@ -184,7 +186,7 @@ KDBusObjectManagerServer::InterfaceMetaObjectHash KDBusObjectManagerServer::meta
 
         int ciid = mo->indexOfClassInfo("D-Bus Interface");
         if (ciid == -1) {
-            qWarning() << mo->className() << "defines no interface";
+            qCWarning(KDED) << mo->className() << "defines no interface";
             continue;
         }
 

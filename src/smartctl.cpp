@@ -8,6 +8,8 @@
 #include <KAuthExecuteJob>
 #include <KLocalizedString>
 
+#include "kded_debug.h"
+
 void SMARTCtl::run(const QString &devicePath) const
 {
     KAuth::Action action(QStringLiteral("org.kde.kded.smart.smartctl"));
@@ -22,11 +24,10 @@ void SMARTCtl::run(const QString &devicePath) const
                         });
     action.setHelperId(QStringLiteral("org.kde.kded.smart"));
     action.addArgument(QStringLiteral("devicePath"), devicePath);
-    qDebug() << action.isValid()
-             << action.hasHelper()
-             << action.helperId()
-             << action.status()
-                ;
+    qCDebug(KDED) << action.isValid()
+                  << action.hasHelper()
+                  << action.helperId()
+                  << action.status();
     KAuth::ExecuteJob *job = action.execute();
     connect(job, &KJob::result,
             this, [this, job, devicePath] {
@@ -35,7 +36,7 @@ void SMARTCtl::run(const QString &devicePath) const
         const auto json = data.value(QStringLiteral("data"), QByteArray()).toByteArray();
         QJsonDocument document;
         if (json.isEmpty() || code & Failure::CmdLineParse || code & Failure::DeviceOpen) {
-            qDebug() << "looks like we got no data back for" << devicePath << code << json.isEmpty();
+            qCDebug(KDED) << "looks like we got no data back for" << devicePath << code << json.isEmpty();
         } else {
             document = QJsonDocument::fromJson(json);
         }

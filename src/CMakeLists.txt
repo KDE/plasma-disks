@@ -12,6 +12,15 @@ set(kded_SRCS
     device.cpp
 )
 
+ecm_qt_declare_logging_category(
+    kded_SRCS
+    HEADER "kded_debug.h"
+    IDENTIFIER "KDED"
+    CATEGORY_NAME "org.kde.plasma.disks"
+    DESCRIPTION "Plasma Disks"
+    EXPORT PlasmaDisks
+)
+
 add_library(statickdedsmart STATIC ${kded_SRCS})
 target_include_directories(statickdedsmart
     PUBLIC
@@ -31,12 +40,9 @@ target_link_libraries(statickdedsmart
 )
 
 add_library(kded-smart MODULE main.cpp)
-set_target_properties(kded-smart PROPERTIES OUTPUT_NAME smart)
 kcoreaddons_desktop_to_json(kded-smart smart.desktop)
-target_link_libraries(kded-smart
-    statickdedsmart
-)
-
+set_target_properties(kded-smart PROPERTIES OUTPUT_NAME smart)
+target_link_libraries(kded-smart statickdedsmart)
 install(TARGETS kded-smart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded)
 
 kauth_install_actions(org.kde.kded.smart org.kde.kded.smart.actions)

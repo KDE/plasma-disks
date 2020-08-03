@@ -13,6 +13,7 @@
 #include <QDebug>
 
 #include "device.h"
+#include "kded_debug.h"
 #include "smartctl.h"
 #include "smartdata.h"
 
@@ -29,7 +30,7 @@ SMARTMonitor::SMARTMonitor(AbstractSMARTCtl *ctl, QObject *parent)
 
 void SMARTMonitor::start()
 {
-    qDebug() << "starting";
+    qCDebug(KDED) << "starting";
     connect(Solid::DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceAdded,
             this, &SMARTMonitor::checkUDI);
     connect(Solid::DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceRemoved,
@@ -74,7 +75,7 @@ void SMARTMonitor::onSMARTCtlFinished(const QString &devicePath, const QJsonDocu
 {
     auto pendingIt = m_pendingDevices.find(devicePath);
     if (pendingIt == m_pendingDevices.end()) {
-        qDebug() << "unexpected pending result for" << devicePath;
+        qCDebug(KDED) << "unexpected pending result for" << devicePath;
         return;
     }
     Device *device = *pendingIt;
@@ -107,7 +108,7 @@ void SMARTMonitor::onSMARTCtlFinished(const QString &devicePath, const QJsonDocu
 
 void SMARTMonitor::checkDevice(const Solid::Device &device)
 {
-    qDebug() << "!!!! " << device.udi();
+    qCDebug(KDED) << "!!!! " << device.udi();
 
     // This seems fairly awkward on a solid level. The actual device
     // isn't really trivial to identify. It certainly mustn't be a
@@ -118,7 +119,7 @@ void SMARTMonitor::checkDevice(const Solid::Device &device)
     // if it is incomplete because the device wasn't a device or
     // there's no data or smartctl is broken or the auth helper is broken...
     if (!device.is<Solid::StorageVolume>()) {
-        qDebug() << "   not a volume";
+        qCDebug(KDED) << "   not a volume";
         return; // certainly not an interesting device
     }
     switch (device.as<Solid::StorageVolume>()->usage()) {
@@ -127,13 +128,13 @@ void SMARTMonitor::checkDevice(const Solid::Device &device)
     case Solid::StorageVolume::Encrypted: Q_FALLTHROUGH();
     case Solid::StorageVolume::Other: Q_FALLTHROUGH();
     case Solid::StorageVolume::Raid:
-        qDebug() << "   bad type" << device.as<Solid::StorageVolume>()->usage();
+        qCDebug(KDED) << "   bad type" << device.as<Solid::StorageVolume>()->usage();
         return;
     case Solid::StorageVolume::PartitionTable:
         break;
     }
 
-    qDebug() << "evaluating!";
+    qCDebug(KDED) << "evaluating!";
 
     checkDevice(new Device(device));
 }
