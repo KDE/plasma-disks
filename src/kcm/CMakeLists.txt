@@ -48,3 +48,5 @@ kcoreaddons_desktop_to_json(kcm smart.desktop)
 install(FILES smart.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 install(TARGETS kcm DESTINATION ${PLUGIN_INSTALL_DIR}/kcms)
 kpackage_install_package(package smart kcms)
+
+install(FILES org.kde.kinfocenter.smart.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
