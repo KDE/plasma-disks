@@ -40,4 +40,8 @@ if(BUILD_TESTING)
     add_subdirectory(autotests)
 endif()
 
+if(IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
+    ki18n_install(po)
+endif()
+
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
