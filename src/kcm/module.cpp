@@ -14,7 +14,7 @@ Module::Module(QObject *parent, const QVariantList &args)
     : KQuickAddons::ConfigModule(parent, args)
 {
 
-    auto aboutData = new KAboutData(QStringLiteral("smart"),
+    auto aboutData = new KAboutData(QStringLiteral("plasma_disks"),
                                     i18nc("@title", "Storage Device Health Monitoring"),
                                     QString::fromLatin1(global_s_versionStringFull),
                                     QString(),
