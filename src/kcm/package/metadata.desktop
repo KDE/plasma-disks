@@ -1,5 +1,9 @@
 [Desktop Entry]
 Name=SMART
+Name[ca]=SMART
+Name[ca@valencia]=SMART
+Name[sv]=SMART
+Name[x-test]=xxSMARTxx
 Type=Service
 Icon=preferences-smart-status
 # FIXME: do we need these metadata even

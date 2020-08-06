@@ -1,11 +1,23 @@
 [Domain]
 Name=Plasma SMART
+Name[ca]=Plasma SMART
+Name[ca@valencia]=Plasma SMART
+Name[sv]=Plasma SMART
+Name[x-test]=xxPlasma SMARTxx
 Icon=preferences-smart-status
 URL=https://www.kde.org
 
 [org.kde.kded.smart.smartctl]
 Name=Read SMART Report Details
+Name[ca]=Llegeix els detalls de l'informe SMART
+Name[ca@valencia]=Llig els detalls de l'informe SMART
+Name[sv]=Läs detaljerad rapport från SMART
+Name[x-test]=xxRead SMART Report Detailsxx
 Description=Read storage device SMART report to check the device's health
+Description[ca]=Llegeix l'informe SMART del dispositiu d'emmagatzematge per a comprovar l'estat del dispositiu
+Description[ca@valencia]=Llig l'informe SMART del dispositiu d'emmagatzematge per a comprovar l'estat del dispositiu
+Description[sv]=Läs lagringsenhetens SMART-rapport för att kontrollera enhetens hälsa
+Description[x-test]=xxRead storage device SMART report to check the device's healthxx
 Policy=yes
 PolicyInactive=auth_admin
 

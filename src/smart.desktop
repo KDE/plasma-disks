@@ -8,4 +8,12 @@ X-KDE-Library=smart
 Icon=preferences-smart-status
 
 Name=SMART
+Name[ca]=SMART
+Name[ca@valencia]=SMART
+Name[sv]=SMART
+Name[x-test]=xxSMARTxx
 Comment=Storage device health monitoring
+Comment[ca]=Monitoratge de l'estat dels dispositius d'emmagatzematge
+Comment[ca@valencia]=Monitoratge de l'estat dels dispositius d'emmagatzematge
+Comment[sv]=Övervakning av lagringsenheters hälsa
+Comment[x-test]=xxStorage device health monitoringxx
