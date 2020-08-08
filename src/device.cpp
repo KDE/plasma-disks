@@ -29,7 +29,7 @@ Device::Device(const QString &udi_, const QString &product_, const QString &path
     // > Each element must only contain the ASCII characters "[A-Z][a-z][0-9]_"
     // Since our name is put into a pre-existing path we only need to concern ourselves
     // with the content constraint and by extension the character constraint covers all
-    // others since our name musn't be a path either.
+    // others since our name must not be a path either.
     static const QRegularExpression filterExpr(QStringLiteral("[^A-Za-z0-9_]"));
     QString name = m_udi;
     setObjectName(name.replace(filterExpr, QStringLiteral("_")));

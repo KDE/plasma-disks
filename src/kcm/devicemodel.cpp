@@ -131,10 +131,10 @@ void DeviceModel::addObject(const QDBusObjectPath &dbusPath, const KDBusObjectMa
 
     beginInsertRows(QModelIndex(), newIndex, newIndex);
 
-    // QDBus doesn't manage to map notfiable properties for its generated interface classes
+    // QDBus doesn't manage to map notifiable properties for its generated interface classes
     // so it brings literally nothing to the table for our Device class.
     // Use QObjects with dynamic properties instead to model the remote objects.
-    // Property changes are abstracted via the the ListModel anyway.
+    // Property changes are abstracted via the ListModel anyway.
     auto obj = new OrgFreedesktopDBusPropertiesInterface(
                 "org.kde.kded5",
                 path,
