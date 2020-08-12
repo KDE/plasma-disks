@@ -23,9 +23,9 @@ public:
         m_notification->setComponentName("org.kde.kded.smart");
         m_notification->setIconName(QStringLiteral("data-warning"));
         m_notification->setTitle(i18nc("@title notification", "Storage Device Problems"));
-        m_notification->setText(i18nc("@info notification; text %1 is a pretty product name; %2 the device path e.g. /dev/sda",
-                                      "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is likely to fail soon!",
-                                      device->product(), device->path()));
+        m_notification->setText(xi18nc("@info notification; text %1 is a pretty product name; %2 the device path e.g. /dev/sda",
+                                       "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is likely to fail soon!",
+                                        device->product(), device->path()));
 
         KService::Ptr kcm = KService::serviceByStorageId(QStringLiteral("smart"));
         Q_ASSERT(kcm); // there's a bug or installation is broken; mustn't happen in production
