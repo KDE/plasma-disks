@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SPDX-License-Identifier: FSFAP
+  SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
+ -->
+<component type="addon">
+  <id>org.kde.plasma.disks</id>
+  <extends>org.kde.kinfocenter</extends>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <name>Plasma Disks</name>
+  <summary>Hard disk health monitoring for KDE Plasma</summary>
+  <description>
+    <p>Plasma Disks monitors S.M.A.R.T. data of disks and alerts the user when signs of imminent failure appear.</p>
+  </description>
+  <icon type="stock">preferences-smart-status</icon>
+  <screenshots>
+    <screenshot type="default">
+      <caption>The Plasma Disks Info Center module showing the state of devices.</caption>
+      <image>https://cdn.kde.org/screenshots/plasma-disks/plasma-disks.png</image>
+    </screenshot>
+  </screenshots>
+  <project_group>KDE</project_group>
+  <developer_name>Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <categories>
+    <category>System</category>
+  </categories>
+</component>
