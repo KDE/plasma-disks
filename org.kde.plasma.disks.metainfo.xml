@@ -9,19 +9,54 @@
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Plasma Disks</name>
+  <name xml:lang="ca">Plasma Disks</name>
+  <name xml:lang="eu">Plasmako diskoak</name>
+  <name xml:lang="nl">Plasma-schijven</name>
+  <name xml:lang="pt">Discos do Plasma</name>
+  <name xml:lang="sv">Plasma diskar</name>
+  <name xml:lang="uk">Диски Плазми</name>
+  <name xml:lang="x-test">xxPlasma Disksxx</name>
   <summary>Hard disk health monitoring for KDE Plasma</summary>
+  <summary xml:lang="ca">Monitoratge de l'estat dels disc durs per al Plasma del KDE</summary>
+  <summary xml:lang="eu">Disko zurrunen osasuna gainbegiratzea KDE Plasma-rako</summary>
+  <summary xml:lang="nl">Monitoren van welzijn van vaste schijf voor KDE Plasma</summary>
+  <summary xml:lang="pt">Monitorização do estado de saúde dos discos rígidos para o Plasma do KDE</summary>
+  <summary xml:lang="sv">Övervakning av hårddiskhälsa för KDE Plasma</summary>
+  <summary xml:lang="uk">Стеження за станом дисків для Плазми KDE</summary>
+  <summary xml:lang="x-test">xxHard disk health monitoring for KDE Plasmaxx</summary>
   <description>
     <p>Plasma Disks monitors S.M.A.R.T. data of disks and alerts the user when signs of imminent failure appear.</p>
+    <p xml:lang="ca">El Plasma Disks controla les dades S.M.A.R.T. dels discs i alerta l'usuari quan apareixen signes de fallada imminent.</p>
+    <p xml:lang="eu">«Plasmako diskoak» diskoetako S.M.A.R.T. datuak gainbegiratzen ditu eta erabiltzailea ohartarazten du hurbileko hutsegiteen zantzuak agertzen direnean.</p>
+    <p xml:lang="nl">Plasma Disks monitort S.M.A.R.T. gegevens van schijven en waarschuwt de gebruiker wanneer tekenen van driegend falen verschijnen.</p>
+    <p xml:lang="pt">Os Discos do Plasma vigiam os dados de S.M.A.R.T. dos discos e alerta o utilizador quando aparecerem sinais de falha iminente.</p>
+    <p xml:lang="sv">Plasma diskar övervakar S.M.A.R.T.-data för diskar och varnar användaren när tecken på förestående fel visar sig.</p>
+    <p xml:lang="uk">«Диски Плазми» стежать за даними S.M.A.R.T. дисків і попереджають користувача, коли з'являються ознаки неминучої відмови у роботі.</p>
+    <p xml:lang="x-test">xxPlasma Disks monitors S.M.A.R.T. data of disks and alerts the user when signs of imminent failure appear.xx</p>
   </description>
   <icon type="stock">preferences-smart-status</icon>
   <screenshots>
     <screenshot type="default">
       <caption>The Plasma Disks Info Center module showing the state of devices.</caption>
+      <caption xml:lang="ca">El mòdul del Centre d'informació dels discs del Plasma que mostra l'estat dels dispositius.</caption>
+      <caption xml:lang="eu">«Plasmako diskoen informazio gunea» modulua gailuen egoera erakusten.</caption>
+      <caption xml:lang="nl">De module Plasma Disks Info Center laat de status van apparaten zien.</caption>
+      <caption xml:lang="pt">O módulo do Centro de Informações de Discos do Plasma a mostrar o estado dos dispositivos.</caption>
+      <caption xml:lang="sv">Modulen Plasma diskar i informationscentralen som visar enheters tillstånd.</caption>
+      <caption xml:lang="uk">Модуль «Центру інформації» «Диски Плазми» призначено для показу даних щодо стану дискових пристроїв зберігання даних.</caption>
+      <caption xml:lang="x-test">xxThe Plasma Disks Info Center module showing the state of devices.xx</caption>
       <image>https://cdn.kde.org/screenshots/plasma-disks/plasma-disks.png</image>
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
   <developer_name>Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="ca">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="eu">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="nl">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="pt">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="sv">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="uk">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="x-test">xxHarald Sitter &lt;sitter@kde.org&gt;xx</developer_name>
   <categories>
     <category>System</category>
   </categories>
