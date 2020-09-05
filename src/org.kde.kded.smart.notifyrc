@@ -37,6 +37,7 @@ Comment[x-test]=xxStorage Device Health Monitoringxx
 Name=Device
 Name[ca]=Dispositiu
 Name[ca@valencia]=Dispositiu
+Name[cs]=Zařízení
 Name[es]=Dispositivo
 Name[eu]=Gailua
 Name[fi]=Laite
