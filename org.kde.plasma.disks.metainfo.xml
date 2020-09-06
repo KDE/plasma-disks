@@ -11,6 +11,7 @@
   <name>Plasma Disks</name>
   <name xml:lang="ca">Plasma Disks</name>
   <name xml:lang="ca-valencia">Plasma Disks</name>
+  <name xml:lang="cs">Disky Plasma</name>
   <name xml:lang="es">Plasma Disks</name>
   <name xml:lang="eu">Plasmako diskoak</name>
   <name xml:lang="fr">Disques de Plasma</name>
@@ -76,6 +77,7 @@
   <developer_name>Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="ca">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="ca-valencia">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="cs">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="es">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="eu">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="fr">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
