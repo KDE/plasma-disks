@@ -32,6 +32,7 @@ Name[x-test]=xxSMART Statusxx
 Comment=Storage device health monitoring
 Comment[ca]=Monitoratge de l'estat dels dispositius d'emmagatzematge
 Comment[ca@valencia]=Monitoratge de l'estat dels dispositius d'emmagatzematge
+Comment[de]=Überwachung des Datenträgerstatus
 Comment[es]=Control del estado de salud de dispositivos de almacenamiento
 Comment[eu]=Biltegiratze-gailuen osasuna gainbegiratzea
 Comment[fi]=Tallennuslaitteiden kunnon valvonta
