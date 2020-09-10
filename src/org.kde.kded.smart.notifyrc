@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: CC0-1.0
 [Global]
 IconName=preferences-smart-status
 Name=Storage Device Health Monitoring

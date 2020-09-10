@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: FSFAP -->
 <?xml version="1.0" encoding="utf-8"?>
 <component type="addon">
   <id>org.kde.kinfocenter.smart</id>
