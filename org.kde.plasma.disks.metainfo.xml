@@ -107,4 +107,7 @@
   <categories>
     <category>System</category>
   </categories>
+  <releases>
+    <release version="5.19.90" date="2020-09-22"/>
+  </releases>
 </component>
