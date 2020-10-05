@@ -87,6 +87,7 @@ void SMARTMonitor::onSMARTCtlFinished(const QString &devicePath, const QJsonDocu
     }
 
     SMARTData data(document);
+    Q_ASSERT(devicePath == data.m_device);
 
     auto existingIt = std::find_if(m_devices.begin(), m_devices.end(), [&device](Device *existing) {
             return *existing == *device;

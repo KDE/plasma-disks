@@ -10,8 +10,17 @@
 
 #include "kded_debug.h"
 
-void SMARTCtl::run(const QString &devicePath) const
+void SMARTCtl::run(const QString &devicePath)
 {
+    // https://bugs.kde.org/show_bug.cgi?id=379215
+    // One cannot make any kind of concurrent requests to kauth, so we need
+    // a fairly awkward busy state and request queuing system.
+    if (m_busy) {
+        m_requestQueue.push(devicePath);
+        return;
+    }
+    m_busy = true;
+
     KAuth::Action action(QStringLiteral("org.kde.kded.smart.smartctl"));
     // This is technically never used unless the sysadmin forces our action
     // to require authentication. In that case we'll want to give request context
@@ -34,12 +43,22 @@ void SMARTCtl::run(const QString &devicePath) const
         const auto data = job->data();
         const auto code = data.value(QStringLiteral("exitCode"), QByteArray()).toInt();
         const auto json = data.value(QStringLiteral("data"), QByteArray()).toByteArray();
+
         QJsonDocument document;
         if (json.isEmpty() || code & Failure::CmdLineParse || code & Failure::DeviceOpen) {
             qCDebug(KDED) << "looks like we got no data back for" << devicePath << code << json.isEmpty();
         } else {
             document = QJsonDocument::fromJson(json);
         }
+
+        // Queue the next pending request if there is any.
+        m_busy = false;
+        if (!m_requestQueue.empty()) {
+            auto request = m_requestQueue.front();
+            run(request);
+            m_requestQueue.pop();
+        }
+
         emit finished(devicePath, document);
     });
     job->start();

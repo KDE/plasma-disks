@@ -17,7 +17,7 @@
 class MockCtl : public AbstractSMARTCtl
 {
 public:
-    void run(const QString &devicePath) const override
+    void run(const QString &devicePath) override
     {
         qDebug() << devicePath;
         emit finished(devicePath, m_docs.value(devicePath));
