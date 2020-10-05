@@ -4,6 +4,7 @@
 Name=Plasma SMART
 Name[ca]=Plasma SMART
 Name[ca@valencia]=Plasma SMART
+Name[da]=Plasma SMART
 Name[de]=Plasma SMART
 Name[en_GB]=Plasma SMART
 Name[es]=Plasma SMART
@@ -29,6 +30,7 @@ URL=https://www.kde.org
 Name=Read SMART Report Details
 Name[ca]=Llegeix els detalls de l'informe SMART
 Name[ca@valencia]=Llig els detalls de l'informe SMART
+Name[da]=Læs rapportdetaljer fra SMART
 Name[de]=Auslesen von SMART-Berichten
 Name[en_GB]=Read SMART Report Details
 Name[es]=Leer detalles del informe SMART
