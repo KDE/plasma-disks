@@ -7,12 +7,14 @@
 #include <QJsonDocument>
 #include <QObject>
 
+#include <queue>
+
 class AbstractSMARTCtl : public QObject
 {
     Q_OBJECT
 public:
     virtual ~AbstractSMARTCtl() = default;
-    virtual void run(const QString &devicePath) const = 0;
+    virtual void run(const QString &devicePath) = 0;
 
 signals:
     void finished(const QString &devicePath, const QJsonDocument &document) const;
@@ -55,7 +57,11 @@ public:
         // The entire thing doesn't exceed 8 bits because it's a posix exit code.
     };
 
-    void run(const QString &devicePath) const override;
+    void run(const QString &devicePath) override;
+
+private:
+    bool m_busy = false;
+    std::queue<QString> m_requestQueue;
 };
 
 #endif // SMARTCTL_H
