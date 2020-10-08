@@ -4,6 +4,7 @@
 #include "smartctl.h"
 
 #include <QDebug>
+#include <QFileInfo>
 #include <KAuthAction>
 #include <KAuthExecuteJob>
 #include <KLocalizedString>
@@ -32,7 +33,15 @@ void SMARTCtl::run(const QString &devicePath)
                               devicePath) }
                         });
     action.setHelperId(QStringLiteral("org.kde.kded.smart"));
-    action.addArgument(QStringLiteral("devicePath"), devicePath);
+
+    // The helper only consumes names, ensure we fully resolve the name of the
+    // device to /dev/$name.
+    const QString canonicalDevicePath = QFileInfo(devicePath).canonicalFilePath();
+    Q_ASSERT(!canonicalDevicePath.isEmpty());
+    const QFileInfo canonicalDeviceInfo(canonicalDevicePath);
+    Q_ASSERT(canonicalDeviceInfo.absolutePath() == QLatin1String("/dev"));
+
+    action.addArgument(QStringLiteral("deviceName"), canonicalDeviceInfo.fileName());
     qCDebug(KDED) << action.isValid()
                   << action.hasHelper()
                   << action.helperId()
