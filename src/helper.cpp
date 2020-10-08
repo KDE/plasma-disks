@@ -6,27 +6,67 @@
 #include <QDebug>
 #include <QProcess>
 #include <QFileInfo>
+#include <QScopeGuard>
 
-QString pathFrom(const QVariantMap &args)
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/types.h>
+#include <dirent.h>
+
+// Append name to /dev/ and ensure it is a trustable block device.
+static QString nameToPath(const QString &name)
 {
-    const auto devicePath = args.value(QStringLiteral("devicePath")).toString();
-    QFileInfo info(devicePath);
-    return info.absoluteFilePath();
+    if (name.isEmpty()) {
+        return {};
+    }
+
+    // This also excludes relative path shenanigans as they'd all need to contain a separator.
+    if (name.contains(QLatin1Char('/'))) {
+        qWarning() << "Device names must not contain slashes";
+        return {};
+    }
+
+    const QString path = QStringLiteral("/dev/%1").arg(name);
+
+    int blockFD = open(QFile::encodeName(path), O_PATH | O_NOFOLLOW);
+    auto blockFDClose = qScopeGuard([blockFD] { close(blockFD); });
+    if (blockFD == -1) {
+        const int err = errno;
+        qWarning() << "Failed to open block device" << name << strerror(err);
+        return {};
+    }
+
+    struct stat sb;
+    if (fstat(blockFD, &sb) == -1) {
+        const int err = errno;
+        qWarning() << "Failed to stat block device" << name << strerror(err);
+        return {};
+    }
+
+    if (!S_ISBLK(sb.st_mode)) {
+        qWarning() << "Device is not actually a block device" << name;
+        return {};
+    }
+
+    if (sb.st_uid != 0) {
+        qWarning() << "Device is not owned by root" << name;
+        return {};
+    }
+
+    return path;
 }
 
 ActionReply SMARTHelper::smartctl(const QVariantMap &args)
 {
-    // I may be better overall to also spin up solid on the root end and only allow
-    // UDIs as input. We can then assert expected input. Not sure it makes much
-    // of a difference though.
-    const QString devicePath = pathFrom(args);
-    if (devicePath.isEmpty() || !QFile::exists(devicePath)) {
-        qDebug() << "bad path";
+    // For security reasons we only accept fully resolved device names which
+    // we use to construct the final /dev/$name path.
+    const QString name = args.value(QStringLiteral("deviceName")).toString();
+    const QString devicePath = nameToPath(name);
+    if (devicePath.isEmpty()) {
         return ActionReply::HelperErrorReply();
-    }
-    if (!devicePath.startsWith(QStringLiteral("/dev/"))) {
-        qDebug() << "unauthorized path";
-        return ActionReply::HelperErrorReply(KAuth::ActionReply::AuthorizationDeniedError);
     }
 
     // PATH is super minimal when invoked through dbus
