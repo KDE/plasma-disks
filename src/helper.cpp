@@ -32,7 +32,13 @@ static QString nameToPath(const QString &name)
 
     const QString path = QStringLiteral("/dev/%1").arg(name);
 
-    int blockFD = open(QFile::encodeName(path), O_PATH | O_NOFOLLOW);
+    int flags = O_NOFOLLOW; // POSIX.1-2008 should always be available
+#ifdef O_PATH // Not available on FreeBSD and Linux < 2.6.39
+    flags |= O_PATH;
+#else
+    flags |= O_RDONLY;
+#endif
+    int blockFD = open(QFile::encodeName(path), flags);
     auto blockFDClose = qScopeGuard([blockFD] { close(blockFD); });
     if (blockFD == -1) {
         const int err = errno;
