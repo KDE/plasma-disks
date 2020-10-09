@@ -15,6 +15,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <dirent.h>
+#include <errno.h>
 
 // Append name to /dev/ and ensure it is a trustable block device.
 static QString nameToPath(const QString &name)
