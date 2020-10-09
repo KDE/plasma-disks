@@ -6,15 +6,12 @@
 #include <QDebug>
 #include <QProcess>
 #include <QFileInfo>
-#include <QScopeGuard>
 
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
-#include <sys/types.h>
-#include <dirent.h>
 #include <errno.h>
 
 // Append name to /dev/ and ensure it is a trustable block device.
@@ -32,22 +29,8 @@ static QString nameToPath(const QString &name)
 
     const QString path = QStringLiteral("/dev/%1").arg(name);
 
-    int flags = O_NOFOLLOW; // POSIX.1-2008 should always be available
-#ifdef O_PATH // Not available on FreeBSD and Linux < 2.6.39
-    flags |= O_PATH;
-#else
-    flags |= O_RDONLY;
-#endif
-    int blockFD = open(QFile::encodeName(path), flags);
-    auto blockFDClose = qScopeGuard([blockFD] { close(blockFD); });
-    if (blockFD == -1) {
-        const int err = errno;
-        qWarning() << "Failed to open block device" << name << strerror(err);
-        return {};
-    }
-
     struct stat sb;
-    if (fstat(blockFD, &sb) == -1) {
+    if (lstat(QFile::encodeName(path), &sb) == -1) {
         const int err = errno;
         qWarning() << "Failed to stat block device" << name << strerror(err);
         return {};
