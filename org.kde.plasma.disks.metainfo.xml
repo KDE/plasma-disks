@@ -15,6 +15,7 @@
   <name xml:lang="da">Plasma diske</name>
   <name xml:lang="en-GB">Plasma Disks</name>
   <name xml:lang="es">Plasma Disks</name>
+  <name xml:lang="et">Plasma Disks</name>
   <name xml:lang="eu">Plasmako diskoak</name>
   <name xml:lang="fr">Disques de Plasma</name>
   <name xml:lang="it">Dischi di Plasma</name>
@@ -33,6 +34,7 @@
   <summary xml:lang="ca-valencia">Monitoratge de l'estat dels disc durs per al Plasma del KDE</summary>
   <summary xml:lang="en-GB">Hard disk health monitoring for KDE Plasma</summary>
   <summary xml:lang="es">Supervisión de la salud de los discos duros para KDE Plasma</summary>
+  <summary xml:lang="et">Kõvaketaste korrasoleku jälgija KDE Plasma jaoks</summary>
   <summary xml:lang="eu">Disko zurrunen osasuna gainbegiratzea KDE Plasma-rako</summary>
   <summary xml:lang="fr">Surveillance de la bonne santé des disques durs pour Plasma KDE</summary>
   <summary xml:lang="it">Controllo della salute dei dischi rigidi per KDE Plasma</summary>
@@ -52,6 +54,7 @@
     <p xml:lang="ca-valencia">El Plasma Disks controla les dades S.M.A.R.T. dels discs i alerta l'usuari quan apareixen signes de fallada imminent.</p>
     <p xml:lang="en-GB">Plasma Disks monitors S.M.A.R.T. data of disks and alerts the user when signs of imminent failure appear.</p>
     <p xml:lang="es">Plasma Disks monitoriza los datos S.M.A.R.T. de los discos y alerta al usuario cuando aparecen signos de un fallo inminente.</p>
+    <p xml:lang="et">Plasma Disks jälgib ketaste SMART-i teavet ja hoiatab kasutajat, kui ilmneb märke lähenevast rikkest.</p>
     <p xml:lang="eu">«Plasmako diskoak» diskoetako S.M.A.R.T. datuak gainbegiratzen ditu eta erabiltzailea ohartarazten du hurbileko hutsegiteen zantzuak agertzen direnean.</p>
     <p xml:lang="fr">Les disques Plasma surveille les données « SMART » des disques et signale à l'utilisateur l'apparition de tout signe de panne imminente.</p>
     <p xml:lang="it">Dischi di Plasma controlla i dati S.M.A.R.T. dei dischi, e avverte l'utente quando si manifestano dei segni di guasto imminente.</p>
@@ -74,6 +77,7 @@
       <caption xml:lang="ca-valencia">El mòdul del Centre d'informació dels discs del Plasma que mostra l'estat dels dispositius.</caption>
       <caption xml:lang="en-GB">The Plasma Disks Info Center module showing the state of devices.</caption>
       <caption xml:lang="es">El módulo del centro de información de discos de Plasma mostrando el estado de los dispositivos.</caption>
+      <caption xml:lang="et">Seadmete olekut näitav Plasma Disksi moodul Infokeskuses.</caption>
       <caption xml:lang="eu">«Plasmako diskoen informazio gunea» modulua gailuen egoera erakusten.</caption>
       <caption xml:lang="fr">Le module « Disques » du centre d'informations  de Plasma, affichant l'état des périphériques.</caption>
       <caption xml:lang="it">Il modulo Dischi di Plasma del Centro d'informazione che mostra lo stato dei dispositivi.</caption>
@@ -97,6 +101,7 @@
   <developer_name xml:lang="cs">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="en-GB">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="es">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="et">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="eu">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="fr">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="it">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
