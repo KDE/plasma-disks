@@ -13,6 +13,7 @@
   <name xml:lang="ca-valencia">Plasma Disks</name>
   <name xml:lang="cs">Disky Plasma</name>
   <name xml:lang="da">Plasma diske</name>
+  <name xml:lang="el">Plasma Disks</name>
   <name xml:lang="en-GB">Plasma Disks</name>
   <name xml:lang="es">Plasma Disks</name>
   <name xml:lang="et">Plasma Disks</name>
@@ -22,6 +23,7 @@
   <name xml:lang="ko">Plasma 디스크</name>
   <name xml:lang="nl">Plasma-schijven</name>
   <name xml:lang="nn">Plasma-diskar</name>
+  <name xml:lang="pl">Dyski Plazmy</name>
   <name xml:lang="pt-BR">Discos do Plasma</name>
   <name xml:lang="ro">Discuri Plasma</name>
   <name xml:lang="sk">Plasma Disks</name>
@@ -32,6 +34,7 @@
   <summary>Hard disk health monitoring for KDE Plasma</summary>
   <summary xml:lang="ca">Monitoratge de l'estat dels disc durs per al Plasma del KDE</summary>
   <summary xml:lang="ca-valencia">Monitoratge de l'estat dels disc durs per al Plasma del KDE</summary>
+  <summary xml:lang="el">Επίβλεψη της υγείας του σκληρού δίσκου για το KDE Plasma</summary>
   <summary xml:lang="en-GB">Hard disk health monitoring for KDE Plasma</summary>
   <summary xml:lang="es">Supervisión de la salud de los discos duros para KDE Plasma</summary>
   <summary xml:lang="et">Kõvaketaste korrasoleku jälgija KDE Plasma jaoks</summary>
@@ -41,6 +44,7 @@
   <summary xml:lang="ko">KDE Plasma용 하드 디스크 상태 모니터링</summary>
   <summary xml:lang="nl">Monitoren van welzijn van vaste schijf voor KDE Plasma</summary>
   <summary xml:lang="nn">Overvaking av harddisk-helse for KDE Plasma</summary>
+  <summary xml:lang="pl">Monitorowanie urządzeń przechowywania dla Plazmy KDE</summary>
   <summary xml:lang="pt-BR">Monitoramento da saúde do disco rígido para o KDE Plasma</summary>
   <summary xml:lang="ro">Monitorizarea sănătății discurilor pentru Plasma KDE</summary>
   <summary xml:lang="sk">Monitoring zdravia diskov pre KDE Plasma</summary>
@@ -52,6 +56,7 @@
     <p>Plasma Disks monitors S.M.A.R.T. data of disks and alerts the user when signs of imminent failure appear.</p>
     <p xml:lang="ca">El Plasma Disks controla les dades S.M.A.R.T. dels discs i alerta l'usuari quan apareixen signes de fallada imminent.</p>
     <p xml:lang="ca-valencia">El Plasma Disks controla les dades S.M.A.R.T. dels discs i alerta l'usuari quan apareixen signes de fallada imminent.</p>
+    <p xml:lang="el">Το Plasma Disks παρακολουθεί τα δεδομένα S.M.A.R.T. των δίσκων και ειδοποιεί τον χρήστη όταν παρουσιάζονται σημάδια επικείμενης αστοχίας.</p>
     <p xml:lang="en-GB">Plasma Disks monitors S.M.A.R.T. data of disks and alerts the user when signs of imminent failure appear.</p>
     <p xml:lang="es">Plasma Disks monitoriza los datos S.M.A.R.T. de los discos y alerta al usuario cuando aparecen signos de un fallo inminente.</p>
     <p xml:lang="et">Plasma Disks jälgib ketaste SMART-i teavet ja hoiatab kasutajat, kui ilmneb märke lähenevast rikkest.</p>
@@ -61,6 +66,7 @@
     <p xml:lang="ko">Plasma 디스크에서는 디스크의 SMART 데이터를 관찰하고 오류 발생 시 사용자에게 경고합니다.</p>
     <p xml:lang="nl">Plasma Disks monitort S.M.A.R.T. gegevens van schijven en waarschuwt de gebruiker wanneer tekenen van driegend falen verschijnen.</p>
     <p xml:lang="nn">Plasma Disks overvaker S.M.A.R.T.-data på harddiskar og varslar brukaren når det finst teikn på nærleg havari.</p>
+    <p xml:lang="pl">Dyski Plazmy monitorują dane S.M.A.R.T. dysków i ostrzegają, gdy pojawią się znaki świadczące o bliskiej ich usterce.</p>
     <p xml:lang="pt-BR">O Discos do Plasma monitora os dados S.M.A.R.T. dos discos e alerta o usuário quando aparecerem sinais de falha iminente.</p>
     <p xml:lang="ro">Discuri Plasma monitorizează datele S.M.A.R.T. ale discurilor și alertează utilizatorul la apariția semnelor de defecțiune iminentă.</p>
     <p xml:lang="sk">Plasma Disks monitoruje údaje S.M.A.R.T. a upozorní používateľa, keď sa objavia známky zlyhania disku.</p>
@@ -75,6 +81,7 @@
       <caption>The Plasma Disks Info Center module showing the state of devices.</caption>
       <caption xml:lang="ca">El mòdul del Centre d'informació dels discs del Plasma que mostra l'estat dels dispositius.</caption>
       <caption xml:lang="ca-valencia">El mòdul del Centre d'informació dels discs del Plasma que mostra l'estat dels dispositius.</caption>
+      <caption xml:lang="el">Το άρθρωμα κέντρου πληροφοριών Plasma Disks δείχνει την κατάσταση των συσκευών.</caption>
       <caption xml:lang="en-GB">The Plasma Disks Info Center module showing the state of devices.</caption>
       <caption xml:lang="es">El módulo del centro de información de discos de Plasma mostrando el estado de los dispositivos.</caption>
       <caption xml:lang="et">Seadmete olekut näitav Plasma Disksi moodul Infokeskuses.</caption>
@@ -84,6 +91,7 @@
       <caption xml:lang="ko">Plasma 디스크 정보 센터 모듈에서는 장치 상태를 표시합니다.</caption>
       <caption xml:lang="nl">De module Plasma Disks Info Center laat de status van apparaten zien.</caption>
       <caption xml:lang="nn">Plasma Disks-informasjonssenter­modulen viser helsetilstanden til lagringseiningar.</caption>
+      <caption xml:lang="pl">Ośrodek pokazujący stan urządzeń dyskowych.</caption>
       <caption xml:lang="pt-BR">O módulo de informação do Discos do Plasma mostrando o estado dos dispositivos.</caption>
       <caption xml:lang="ro">Modul al centrului de informații Discuri Plasma ce arată starea dispozitivelor.</caption>
       <caption xml:lang="sk">Modul informačného centra Plasma Disks zobrazuje stav zariadení.</caption>
@@ -99,6 +107,7 @@
   <developer_name xml:lang="ca">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="ca-valencia">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="cs">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="el">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="en-GB">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="es">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="et">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
@@ -108,6 +117,7 @@
   <developer_name xml:lang="ko">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="nl">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="nn">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="pl">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="pt-BR">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="ro">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="sk">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
