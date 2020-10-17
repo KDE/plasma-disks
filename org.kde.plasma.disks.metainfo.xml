@@ -18,7 +18,7 @@
   <name xml:lang="es">Plasma Disks</name>
   <name xml:lang="et">Plasma Disks</name>
   <name xml:lang="eu">Plasmako diskoak</name>
-  <name xml:lang="fr">Disques de Plasma</name>
+  <name xml:lang="fr">Plasma « Disques »</name>
   <name xml:lang="it">Dischi di Plasma</name>
   <name xml:lang="ko">Plasma 디스크</name>
   <name xml:lang="nl">Plasma-schijven</name>
@@ -61,7 +61,7 @@
     <p xml:lang="es">Plasma Disks monitoriza los datos S.M.A.R.T. de los discos y alerta al usuario cuando aparecen signos de un fallo inminente.</p>
     <p xml:lang="et">Plasma Disks jälgib ketaste SMART-i teavet ja hoiatab kasutajat, kui ilmneb märke lähenevast rikkest.</p>
     <p xml:lang="eu">«Plasmako diskoak» diskoetako S.M.A.R.T. datuak gainbegiratzen ditu eta erabiltzailea ohartarazten du hurbileko hutsegiteen zantzuak agertzen direnean.</p>
-    <p xml:lang="fr">Les disques Plasma surveille les données « SMART » des disques et signale à l'utilisateur l'apparition de tout signe de panne imminente.</p>
+    <p xml:lang="fr">Le composant graphique  « Disques » de Plasma surveille les données « SMART » des disques et alerte l'utilisateur lors de l'apparition de tout signe de panne imminente.</p>
     <p xml:lang="it">Dischi di Plasma controlla i dati S.M.A.R.T. dei dischi, e avverte l'utente quando si manifestano dei segni di guasto imminente.</p>
     <p xml:lang="ko">Plasma 디스크에서는 디스크의 SMART 데이터를 관찰하고 오류 발생 시 사용자에게 경고합니다.</p>
     <p xml:lang="nl">Plasma Disks monitort S.M.A.R.T. gegevens van schijven en waarschuwt de gebruiker wanneer tekenen van driegend falen verschijnen.</p>
