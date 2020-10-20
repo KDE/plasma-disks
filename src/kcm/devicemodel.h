@@ -55,8 +55,6 @@ private Q_SLOTS:
 private:
     void initRoleNames(QObject *object);
 
-    QMetaMethod propertyChangedMetaMethod() const;
-
     QHash<int, QByteArray> m_roles;
     QHash<int, QByteArray> m_objectPoperties;
     QHash<int, int> m_signalIndexToProperties;
