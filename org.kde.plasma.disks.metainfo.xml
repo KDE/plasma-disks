@@ -12,7 +12,7 @@
   <name xml:lang="ca">Plasma Disks</name>
   <name xml:lang="ca-valencia">Plasma Disks</name>
   <name xml:lang="cs">Disky Plasma</name>
-  <name xml:lang="da">Plasma diske</name>
+  <name xml:lang="da">Plasma Diske</name>
   <name xml:lang="el">Plasma Disks</name>
   <name xml:lang="en-GB">Plasma Disks</name>
   <name xml:lang="es">Plasma Disks</name>
@@ -34,6 +34,7 @@
   <summary>Hard disk health monitoring for KDE Plasma</summary>
   <summary xml:lang="ca">Monitoratge de l'estat dels disc durs per al Plasma del KDE</summary>
   <summary xml:lang="ca-valencia">Monitoratge de l'estat dels disc durs per al Plasma del KDE</summary>
+  <summary xml:lang="da">Overvågning af harddiskhelbred til KDE Plasma</summary>
   <summary xml:lang="el">Επίβλεψη της υγείας του σκληρού δίσκου για το KDE Plasma</summary>
   <summary xml:lang="en-GB">Hard disk health monitoring for KDE Plasma</summary>
   <summary xml:lang="es">Supervisión de la salud de los discos duros para KDE Plasma</summary>
@@ -56,6 +57,7 @@
     <p>Plasma Disks monitors S.M.A.R.T. data of disks and alerts the user when signs of imminent failure appear.</p>
     <p xml:lang="ca">El Plasma Disks controla les dades S.M.A.R.T. dels discs i alerta l'usuari quan apareixen signes de fallada imminent.</p>
     <p xml:lang="ca-valencia">El Plasma Disks controla les dades S.M.A.R.T. dels discs i alerta l'usuari quan apareixen signes de fallada imminent.</p>
+    <p xml:lang="da">Plasma Diske overvåger S.M.A.R.T.-data for diske og giver brugeren besked når der opstår tegn på snarligt nedbrud.</p>
     <p xml:lang="el">Το Plasma Disks παρακολουθεί τα δεδομένα S.M.A.R.T. των δίσκων και ειδοποιεί τον χρήστη όταν παρουσιάζονται σημάδια επικείμενης αστοχίας.</p>
     <p xml:lang="en-GB">Plasma Disks monitors S.M.A.R.T. data of disks and alerts the user when signs of imminent failure appear.</p>
     <p xml:lang="es">Plasma Disks monitoriza los datos S.M.A.R.T. de los discos y alerta al usuario cuando aparecen signos de un fallo inminente.</p>
@@ -81,6 +83,7 @@
       <caption>The Plasma Disks Info Center module showing the state of devices.</caption>
       <caption xml:lang="ca">El mòdul del Centre d'informació dels discs del Plasma que mostra l'estat dels dispositius.</caption>
       <caption xml:lang="ca-valencia">El mòdul del Centre d'informació dels discs del Plasma que mostra l'estat dels dispositius.</caption>
+      <caption xml:lang="da">Plasma Diske Info Center-modulet viser enhedernes tilstande.</caption>
       <caption xml:lang="el">Το άρθρωμα κέντρου πληροφοριών Plasma Disks δείχνει την κατάσταση των συσκευών.</caption>
       <caption xml:lang="en-GB">The Plasma Disks Info Center module showing the state of devices.</caption>
       <caption xml:lang="es">El módulo del centro de información de discos de Plasma mostrando el estado de los dispositivos.</caption>
@@ -107,6 +110,7 @@
   <developer_name xml:lang="ca">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="ca-valencia">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="cs">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="da">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="el">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="en-GB">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="es">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
