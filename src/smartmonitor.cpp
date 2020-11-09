@@ -51,7 +51,7 @@ void SMARTMonitor::checkUDI(const QString &udi)
 
 void SMARTMonitor::removeUDI(const QString &udi)
 {
-    std::remove_if(m_devices.begin(), m_devices.end(), [this, udi](Device *dev) {
+    auto newEnd = std::remove_if(m_devices.begin(), m_devices.end(), [this, udi](Device *dev) {
         if (dev->udi() != udi) {
             return false;
         }
@@ -60,6 +60,7 @@ void SMARTMonitor::removeUDI(const QString &udi)
         dev->deleteLater();
         return true;
     });
+    m_devices.erase(newEnd, m_devices.end());
 }
 
 void SMARTMonitor::reloadData()

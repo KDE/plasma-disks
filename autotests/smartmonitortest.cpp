@@ -85,6 +85,12 @@ private Q_SLOTS:
         }
         QVERIFY(sawPass);
         QVERIFY(sawFail);
+
+        // Ensure removing works as well.
+        // https://bugs.kde.org/show_bug.cgi?id=428746
+
+        monitor.removeUDI("udi-pass");
+        QCOMPARE(monitor.devices().size(), 1);
     }
 };
 
