@@ -47,6 +47,18 @@ private Q_SLOTS:
         QCOMPARE(data.m_device, "/dev/sdc");
         QCOMPARE(data.m_status.m_passed, false);
     }
+
+    void testTimeout()
+    {
+        // Query timed out but overall status is available and success.
+        // From https://bugs.kde.org/show_bug.cgi?id=428844
+        QFile file(QFINDTESTDATA("fixtures/error-info-log-failed.json"));
+        QVERIFY(file.open(QFile::ReadOnly));
+        auto doc = QJsonDocument::fromJson(file.readAll());
+        SMARTData data(doc);
+        QCOMPARE(data.m_device, "/dev/nvme0n1");
+        QCOMPARE(data.m_status.m_passed, true);
+    }
 };
 
 QTEST_MAIN(SMARTDataTest)
