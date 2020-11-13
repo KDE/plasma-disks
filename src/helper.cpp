@@ -70,7 +70,13 @@ ActionReply SMARTHelper::smartctl(const QVariantMap &args)
     p.start(QStringLiteral("smartctl"),
             { QStringLiteral("--all"), QStringLiteral("--json=c"), devicePath },
             QProcess::ReadOnly);
-    p.waitForFinished();
+    // Wait for 120 seconds + 5 seconds leeway.
+    // This allows us to ideally let smartctl time out internally and still
+    // construct a json blob if possible. The kernel ioctl timeout for nvme
+    // apparently is 60 seconds and internal smartctl timeouts also largely
+    // appear to be in that range but there may be more than one :|
+    // https://bugs.kde.org/show_bug.cgi?id=428844
+    p.waitForFinished(125000);
 
     ActionReply reply;
     reply.addData(QStringLiteral("exitCode"), p.exitCode());
