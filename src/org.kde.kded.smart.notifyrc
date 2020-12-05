@@ -3,6 +3,7 @@
 [Global]
 IconName=preferences-smart-status
 Name=Storage Device Health Monitoring
+Name[az]=Yaddaş Cihazının Vəziyyətinin İzlənməsi
 Name[ca]=Monitoratge de l'estat dels dispositius d'emmagatzematge
 Name[ca@valencia]=Monitoratge de l'estat dels dispositius d'emmagatzematge
 Name[da]=Overvågning af lagringsenheders helbred
@@ -28,6 +29,7 @@ Name[sv]=Övervakning av lagringsenheters hälsa
 Name[uk]=Спостереження за станом пристроїв зберігання даних
 Name[x-test]=xxStorage Device Health Monitoringxx
 Comment=Storage Device Health Monitoring
+Comment[az]=Yaddaş Cihazının Vəziyyətinin İzlənməsi
 Comment[ca]=Monitoratge de l'estat dels dispositius d'emmagatzematge
 Comment[ca@valencia]=Monitoratge de l'estat dels dispositius d'emmagatzematge
 Comment[da]=Overvågning af lagringsenheders helbred
@@ -55,6 +57,7 @@ Comment[x-test]=xxStorage Device Health Monitoringxx
 
 [Context/device]
 Name=Device
+Name[az]=Cihaz
 Name[ca]=Dispositiu
 Name[ca@valencia]=Dispositiu
 Name[cs]=Zařízení
@@ -81,6 +84,7 @@ Name[sv]=Enhet
 Name[uk]=Пристрій
 Name[x-test]=xxDevicexx
 Comment=Used for notifications about a specific device
+Comment[az]=Göstərilən cihaz haqqında bildirişlər üçün istifadə olunur
 Comment[ca]=S'usa per a les notificacions d'un dispositiu específic
 Comment[ca@valencia]=S'usa per a les notificacions d'un dispositiu específic
 Comment[da]=Bruges til underretninger om en bestemt enhed
@@ -108,6 +112,7 @@ Comment[x-test]=xxUsed for notifications about a specific devicexx
 
 [Event/imminentDeviceFailure]
 Name=Imminent Device Failure
+Name[az]=Cihaz sıradan çıxmaq üzrədir
 Name[ca]=Fallada imminent del dispositiu
 Name[ca@valencia]=Fallada imminent del dispositiu
 Name[da]=Snarligt enhedsnedbrud
@@ -133,6 +138,7 @@ Name[sv]=Nära förestående fel
 Name[uk]=Неминуча відмова пристрою
 Name[x-test]=xxImminent Device Failurexx
 Comment=A device is showing signs of imminent failure
+Comment[az]=Cihaz sıradan çıxmaq üzrə olduğunu göstərir
 Comment[ca]=Un dispositiu mostra signes d'una fallada imminent
 Comment[ca@valencia]=Un dispositiu mostra signes d'una fallada imminent
 Comment[da]=En enheder vises tegn på snarligt nedbrud

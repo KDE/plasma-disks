@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
 [Domain]
 Name=Plasma SMART
+Name[az]=Plasma SMART
 Name[ca]=Plasma SMART
 Name[ca@valencia]=Plasma SMART
 Name[da]=Plasma SMART
@@ -31,6 +32,7 @@ URL=https://www.kde.org
 
 [org.kde.kded.smart.smartctl]
 Name=Read SMART Report Details
+Name[az]=SMART Hesabatı Təfərrüatlarını Oxumaq
 Name[ca]=Llegeix els detalls de l'informe SMART
 Name[ca@valencia]=Llig els detalls de l'informe SMART
 Name[da]=Læs detaljer fra SMART-rapport
@@ -56,6 +58,7 @@ Name[sv]=Läs detaljerad rapport från SMART
 Name[uk]=Ознайомлення із подробицями звіту SMART
 Name[x-test]=xxRead SMART Report Detailsxx
 Description=Read storage device SMART report to check the device's health
+Description[az]=Yaddaş qurğusunun vəziyyətini yoxlamaq üçün SMART hesabatını oxuyun
 Description[ca]=Llegeix l'informe SMART del dispositiu d'emmagatzematge per a comprovar l'estat del dispositiu
 Description[ca@valencia]=Llig l'informe SMART del dispositiu d'emmagatzematge per a comprovar l'estat del dispositiu
 Description[da]=Læs lagerenheders SMART-rapport for at tjekke enhedens helbred
