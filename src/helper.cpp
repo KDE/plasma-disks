@@ -7,6 +7,8 @@
 #include <QProcess>
 #include <QFileInfo>
 
+#include <chrono>
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -76,7 +78,8 @@ ActionReply SMARTHelper::smartctl(const QVariantMap &args)
     // apparently is 60 seconds and internal smartctl timeouts also largely
     // appear to be in that range but there may be more than one :|
     // https://bugs.kde.org/show_bug.cgi?id=428844
-    p.waitForFinished(125000);
+    using namespace std::chrono_literals;
+    p.waitForFinished(std::chrono::milliseconds(125s).count());
 
     ActionReply reply;
     reply.addData(QStringLiteral("exitCode"), p.exitCode());
