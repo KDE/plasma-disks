@@ -19,6 +19,7 @@
   <name xml:lang="et">Plasma Disks</name>
   <name xml:lang="eu">Plasmako diskoak</name>
   <name xml:lang="fr">Plasma « Disques »</name>
+  <name xml:lang="hu">Plasma Disks</name>
   <name xml:lang="it">Dischi di Plasma</name>
   <name xml:lang="ko">Plasma 디스크</name>
   <name xml:lang="nl">Plasma-schijven</name>
@@ -41,6 +42,7 @@
   <summary xml:lang="et">Kõvaketaste korrasoleku jälgija KDE Plasma jaoks</summary>
   <summary xml:lang="eu">Disko zurrunen osasuna gainbegiratzea KDE Plasma-rako</summary>
   <summary xml:lang="fr">Surveillance de la bonne santé des disques durs pour Plasma KDE</summary>
+  <summary xml:lang="hu">Háttértárállapot-figyelő program a KDE Plasmához</summary>
   <summary xml:lang="it">Controllo della salute dei dischi rigidi per KDE Plasma</summary>
   <summary xml:lang="ko">KDE Plasma용 하드 디스크 상태 모니터링</summary>
   <summary xml:lang="nl">Monitoren van welzijn van vaste schijf voor KDE Plasma</summary>
@@ -64,6 +66,7 @@
     <p xml:lang="et">Plasma Disks jälgib ketaste SMART-i teavet ja hoiatab kasutajat, kui ilmneb märke lähenevast rikkest.</p>
     <p xml:lang="eu">«Plasmako diskoak» diskoetako S.M.A.R.T. datuak gainbegiratzen ditu eta erabiltzailea ohartarazten du hurbileko hutsegiteen zantzuak agertzen direnean.</p>
     <p xml:lang="fr">Le composant graphique  « Disques » de Plasma surveille les données « SMART » des disques et alerte l'utilisateur lors de l'apparition de tout signe de panne imminente.</p>
+    <p xml:lang="hu">A Plasma Disks figyeli a háttértárak S.M.A.R.T. adatait, és riasztja, ha meghibásodás jelei tűnnek fel.</p>
     <p xml:lang="it">Dischi di Plasma controlla i dati S.M.A.R.T. dei dischi, e avverte l'utente quando si manifestano dei segni di guasto imminente.</p>
     <p xml:lang="ko">Plasma 디스크에서는 디스크의 SMART 데이터를 관찰하고 오류 발생 시 사용자에게 경고합니다.</p>
     <p xml:lang="nl">Plasma Disks monitort S.M.A.R.T. gegevens van schijven en waarschuwt de gebruiker wanneer tekenen van driegend falen verschijnen.</p>
@@ -90,6 +93,7 @@
       <caption xml:lang="et">Seadmete olekut näitav Plasma Disksi moodul Infokeskuses.</caption>
       <caption xml:lang="eu">«Plasmako diskoen informazio gunea» modulua gailuen egoera erakusten.</caption>
       <caption xml:lang="fr">Le module « Disques » du centre d'informations  de Plasma, affichant l'état des périphériques.</caption>
+      <caption xml:lang="hu">A Plasma Disks Rendszerinformáció modul megjeleníti az eszközök állapotát.</caption>
       <caption xml:lang="it">Il modulo Dischi di Plasma del Centro d'informazione che mostra lo stato dei dispositivi.</caption>
       <caption xml:lang="ko">Plasma 디스크 정보 센터 모듈에서는 장치 상태를 표시합니다.</caption>
       <caption xml:lang="nl">De module Plasma Disks Info Center laat de status van apparaten zien.</caption>
@@ -117,6 +121,7 @@
   <developer_name xml:lang="et">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="eu">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="fr">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="hu">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="it">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="ko">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="nl">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
