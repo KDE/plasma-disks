@@ -4,7 +4,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 project(plasma-disks)
-set(PROJECT_VERSION "5.20.4")
+set(PROJECT_VERSION "5.20.5")
 
 set(QT_MIN_VERSION "5.15.0")
 set(KF5_MIN_VERSION "5.74")
