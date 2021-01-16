@@ -14,17 +14,17 @@ DeviceModel::DeviceModel(QObject *parent)
 {
     KDBusObjectManagerServer::registerTypes();
 
-    auto watcher = new QDBusServiceWatcher("org.kde.kded5", QDBusConnection::sessionBus(),
-                                           QDBusServiceWatcher::WatchForOwnerChange,
-                                           this);
-    connect(watcher, &QDBusServiceWatcher::serviceOwnerChanged,
-            this, [this](const QString &/*service*/, const QString &/*oldOwner*/, const QString &newOwner){
-        if (!newOwner.isEmpty()) { // this is a registration even not a loss event
-            reload();
-        } else {
-            reset();
-        }
-    });
+    auto watcher = new QDBusServiceWatcher("org.kde.kded5", QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+    connect(watcher,
+            &QDBusServiceWatcher::serviceOwnerChanged,
+            this,
+            [this](const QString & /*service*/, const QString & /*oldOwner*/, const QString &newOwner) {
+                if (!newOwner.isEmpty()) { // this is a registration even not a loss event
+                    reload();
+                } else {
+                    reset();
+                }
+            });
 
     reload();
 }
@@ -135,11 +135,7 @@ void DeviceModel::addObject(const QDBusObjectPath &dbusPath, const KDBusObjectMa
     // so it brings literally nothing to the table for our Device class.
     // Use QObjects with dynamic properties instead to model the remote objects.
     // Property changes are abstracted via the ListModel anyway.
-    auto obj = new OrgFreedesktopDBusPropertiesInterface(
-                "org.kde.kded5",
-                path,
-                QDBusConnection::sessionBus(),
-                this);
+    auto obj = new OrgFreedesktopDBusPropertiesInterface("org.kde.kded5", path, QDBusConnection::sessionBus(), this);
     m_objects << obj;
     obj->setObjectName(path);
     // Don't care about interfaces, iterate the values i.e. propertymap
@@ -150,23 +146,23 @@ void DeviceModel::addObject(const QDBusObjectPath &dbusPath, const KDBusObjectMa
     }
     obj->installEventFilter(new RuntimePropertyChangeFilter(obj));
 
-    connect(obj, &OrgFreedesktopDBusPropertiesInterface::PropertiesChanged,
-            this, [this, obj](const QString &/*interface*/,
-                              const QVariantMap &properties,
-                              const QStringList &/*invalidated*/) {
-        for (auto it = properties.cbegin(); it != properties.cend(); ++it) {
-            obj->setProperty(qPrintable(it.key()), it.value());
+    connect(obj,
+            &OrgFreedesktopDBusPropertiesInterface::PropertiesChanged,
+            this,
+            [this, obj](const QString & /*interface*/, const QVariantMap &properties, const QStringList & /*invalidated*/) {
+                for (auto it = properties.cbegin(); it != properties.cend(); ++it) {
+                    obj->setProperty(qPrintable(it.key()), it.value());
 
-            // Technically we need an event filter to monitor dynamic prop changes,
-            // but since this is the only place they can change we'll take a shortcut
-            // and notify the views immediately.
-            const int role = m_objectPoperties.key(it.key().toLatin1(), -1);
-            Q_ASSERT(role != -1);
-            const int index = m_objects.indexOf(obj);
-            Q_ASSERT(index != -1);
-            emit dataChanged(createIndex(index, 0), createIndex(index, 0), {role});
-        }
-    });
+                    // Technically we need an event filter to monitor dynamic prop changes,
+                    // but since this is the only place they can change we'll take a shortcut
+                    // and notify the views immediately.
+                    const int role = m_objectPoperties.key(it.key().toLatin1(), -1);
+                    Q_ASSERT(role != -1);
+                    const int index = m_objects.indexOf(obj);
+                    Q_ASSERT(index != -1);
+                    emit dataChanged(createIndex(index, 0), createIndex(index, 0), {role});
+                }
+            });
 
     if (m_roles.isEmpty()) {
         initRoleNames(obj);
@@ -241,15 +237,9 @@ void DeviceModel::reload()
 {
     reset();
 
-    m_iface = new OrgFreedesktopDBusObjectManagerInterface(
-                "org.kde.kded5",
-                "/modules/smart/devices",
-                QDBusConnection::sessionBus(),
-                this);
-    connect(m_iface, &OrgFreedesktopDBusObjectManagerInterface::InterfacesAdded,
-            this, &DeviceModel::addObject);
-    connect(m_iface, &OrgFreedesktopDBusObjectManagerInterface::InterfacesRemoved,
-            this, &DeviceModel::removeObject);
+    m_iface = new OrgFreedesktopDBusObjectManagerInterface("org.kde.kded5", "/modules/smart/devices", QDBusConnection::sessionBus(), this);
+    connect(m_iface, &OrgFreedesktopDBusObjectManagerInterface::InterfacesAdded, this, &DeviceModel::addObject);
+    connect(m_iface, &OrgFreedesktopDBusObjectManagerInterface::InterfacesRemoved, this, &DeviceModel::removeObject);
 
     emit validChanged();
 
@@ -260,8 +250,7 @@ void DeviceModel::reload()
     }
     m_getManagedObjectsWatcher = new QDBusPendingCallWatcher(m_iface->GetManagedObjects(), this);
     emit waitingChanged();
-    connect(m_getManagedObjectsWatcher, &QDBusPendingCallWatcher::finished,
-            this, [this] {
+    connect(m_getManagedObjectsWatcher, &QDBusPendingCallWatcher::finished, this, [this] {
         QDBusPendingReply<KDBusObjectManagerObjectPathInterfacePropertiesMap> call = *m_getManagedObjectsWatcher;
         auto map = call.value();
         for (auto it = map.cbegin(); it != map.cend(); ++it) {

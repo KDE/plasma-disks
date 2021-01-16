@@ -4,17 +4,17 @@
 #include "helper.h"
 
 #include <QDebug>
-#include <QProcess>
 #include <QFileInfo>
+#include <QProcess>
 
 #include <chrono>
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <string.h>
 #include <errno.h>
+#include <fcntl.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <unistd.h>
 
 // Append name to /dev/ and ensure it is a trustable block device.
 static QString nameToPath(const QString &name)
@@ -69,9 +69,7 @@ ActionReply SMARTHelper::smartctl(const QVariantMap &args)
     setenv("PATH", "/usr/sbin:/sbin", 1);
     QProcess p;
     // json=c is badly documented and means "gimme json but don't pretty print"
-    p.start(QStringLiteral("smartctl"),
-            { QStringLiteral("--all"), QStringLiteral("--json=c"), devicePath },
-            QProcess::ReadOnly);
+    p.start(QStringLiteral("smartctl"), {QStringLiteral("--all"), QStringLiteral("--json=c"), devicePath}, QProcess::ReadOnly);
     // Wait for 120 seconds + 5 seconds leeway.
     // This allows us to ideally let smartctl time out internally and still
     // construct a json blob if possible. The kernel ioctl timeout for nvme

@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include <QObject>
 #include <KService>
+#include <QObject>
 
 class ServiceRunner : public QObject
 {
@@ -27,5 +27,5 @@ signals:
 
 private:
     QString m_name;
-    KService::Ptr m_service { nullptr };
+    KService::Ptr m_service{nullptr};
 };

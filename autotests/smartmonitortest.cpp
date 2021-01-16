@@ -4,10 +4,10 @@
 #include <QDebug>
 #include <QDir>
 #include <QFile>
+#include <QJsonDocument>
 #include <QObject>
 #include <QStandardPaths>
 #include <QTest>
-#include <QJsonDocument>
 
 #include <functional>
 
@@ -30,8 +30,7 @@ class SMARTMonitorTest : public QObject
 {
     Q_OBJECT
 
-    struct Payload
-    {
+    struct Payload {
         QJsonDocument doc;
         bool err = true;
     };
@@ -55,10 +54,14 @@ private Q_SLOTS:
         auto ctl = new MockCtl; // new; monitor takes ownership!
         Payload payload;
         load("fixtures/pass.json", payload);
-        if (payload.err) { return; }
+        if (payload.err) {
+            return;
+        }
         ctl->m_docs["/dev/testfoobarpass"] = payload.doc;
         load("fixtures/fail.json", payload);
-        if (payload.err) { return; }
+        if (payload.err) {
+            return;
+        }
         ctl->m_docs["/dev/testfoobarfail"] = payload.doc;
 
         // NOTE: monitor still talks to solid but we aren't interested in its results
@@ -66,10 +69,10 @@ private Q_SLOTS:
         SMARTMonitor monitor(ctl);
         // don't start it, that'd only run solid stuff that we do not test here
 
-        monitor.checkDevice(new Device {"udi-pass", "product", "/dev/testfoobarpass"});
+        monitor.checkDevice(new Device{"udi-pass", "product", "/dev/testfoobarpass"});
         // discover this twice to ensure notifications aren't duplicated!
-        monitor.checkDevice(new Device {"udi-fail", "product", "/dev/testfoobarfail"});
-        monitor.checkDevice(new Device {"udi-fail", "product", "/dev/testfoobarfail"});
+        monitor.checkDevice(new Device{"udi-fail", "product", "/dev/testfoobarfail"});
+        monitor.checkDevice(new Device{"udi-fail", "product", "/dev/testfoobarfail"});
 
         bool sawPass = false;
         bool sawFail = false;

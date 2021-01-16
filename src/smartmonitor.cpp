@@ -3,10 +3,10 @@
 
 #include "smartmonitor.h"
 
+#include <Solid/Block>
 #include <Solid/Device>
 #include <Solid/DeviceInterface>
 #include <Solid/DeviceNotifier>
-#include <Solid/Block>
 #include <Solid/StorageDrive>
 #include <Solid/StorageVolume>
 
@@ -21,20 +21,16 @@ SMARTMonitor::SMARTMonitor(AbstractSMARTCtl *ctl, QObject *parent)
     : QObject(parent)
     , m_ctl(ctl)
 {
-    connect(&m_reloadTimer, &QTimer::timeout,
-            this, &SMARTMonitor::reloadData);
-    connect(ctl, &AbstractSMARTCtl::finished,
-            this, &SMARTMonitor::onSMARTCtlFinished);
+    connect(&m_reloadTimer, &QTimer::timeout, this, &SMARTMonitor::reloadData);
+    connect(ctl, &AbstractSMARTCtl::finished, this, &SMARTMonitor::onSMARTCtlFinished);
     m_reloadTimer.setInterval(1000 * 60 /*minute*/ * 60 /*hour*/ * 24 /*day*/);
 }
 
 void SMARTMonitor::start()
 {
     qCDebug(KDED) << "starting";
-    connect(Solid::DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceAdded,
-            this, &SMARTMonitor::checkUDI);
-    connect(Solid::DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceRemoved,
-            this, &SMARTMonitor::removeUDI);
+    connect(Solid::DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceAdded, this, &SMARTMonitor::checkUDI);
+    connect(Solid::DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceRemoved, this, &SMARTMonitor::removeUDI);
     QMetaObject::invokeMethod(this, &SMARTMonitor::reloadData);
 }
 
@@ -91,7 +87,7 @@ void SMARTMonitor::onSMARTCtlFinished(const QString &devicePath, const QJsonDocu
     Q_ASSERT(devicePath == data.m_device);
 
     auto existingIt = std::find_if(m_devices.begin(), m_devices.end(), [&device](Device *existing) {
-            return *existing == *device;
+        return *existing == *device;
     });
     if (existingIt != m_devices.cend()) {
         device->deleteLater(); // won't be needing this
@@ -125,10 +121,14 @@ void SMARTMonitor::checkDevice(const Solid::Device &device)
         return; // certainly not an interesting device
     }
     switch (device.as<Solid::StorageVolume>()->usage()) {
-    case Solid::StorageVolume::Unused: Q_FALLTHROUGH();
-    case Solid::StorageVolume::FileSystem: Q_FALLTHROUGH();
-    case Solid::StorageVolume::Encrypted: Q_FALLTHROUGH();
-    case Solid::StorageVolume::Other: Q_FALLTHROUGH();
+    case Solid::StorageVolume::Unused:
+        Q_FALLTHROUGH();
+    case Solid::StorageVolume::FileSystem:
+        Q_FALLTHROUGH();
+    case Solid::StorageVolume::Encrypted:
+        Q_FALLTHROUGH();
+    case Solid::StorageVolume::Other:
+        Q_FALLTHROUGH();
     case Solid::StorageVolume::Raid:
         qCDebug(KDED) << "   bad type" << device.as<Solid::StorageVolume>()->usage();
         return;

@@ -6,9 +6,9 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 
+#include <Solid/Block>
 #include <Solid/Device>
 #include <Solid/DeviceInterface>
-#include <Solid/Block>
 
 #include <QRegularExpression>
 
@@ -17,9 +17,7 @@ Device::Device(const QString &udi_, const QString &product_, const QString &path
     , m_udi(udi_)
     , m_product(product_)
     , m_path(path_)
-    , m_ignored(KSharedConfig::openConfig("org.kde.kded.smart")
-                ->group("Ignores")
-                .readEntry(m_udi, false))
+    , m_ignored(KSharedConfig::openConfig("org.kde.kded.smart")->group("Ignores").readEntry(m_udi, false))
 {
     // A simple replace actually makes any UDI safe to use for dbus.
     // https://dbus.freedesktop.org/doc/dbus-specification.html#message-protocol-marshaling-object-path
@@ -38,9 +36,7 @@ Device::Device(const QString &udi_, const QString &product_, const QString &path
 
 Device::Device(const Solid::Device &solidDevice, QObject *parent)
     : Device(solidDevice.udi(),
-             solidDevice.vendor().isEmpty() ? solidDevice.product()
-                                            : QStringLiteral("%1 %2").arg(solidDevice.vendor(),
-                                                                          solidDevice.product()),
+             solidDevice.vendor().isEmpty() ? solidDevice.product() : QStringLiteral("%1 %2").arg(solidDevice.vendor(), solidDevice.product()),
              solidDevice.as<Solid::Block>()->device(),
              parent)
 {
@@ -48,7 +44,7 @@ Device::Device(const Solid::Device &solidDevice, QObject *parent)
 
 bool Device::operator==(const Device &other) const
 {
-    return  m_udi == other.m_udi;
+    return m_udi == other.m_udi;
 }
 
 bool Device::failed() const
@@ -75,9 +71,7 @@ void Device::setIgnore(bool ignored)
     if (m_ignored == ignored) {
         return;
     }
-    KSharedConfig::openConfig("org.kde.kded.smart")
-            ->group("Ignores")
-            .writeEntry(m_udi, ignored);
+    KSharedConfig::openConfig("org.kde.kded.smart")->group("Ignores").writeEntry(m_udi, ignored);
     m_ignored = ignored;
     emit ignoreChanged();
 }

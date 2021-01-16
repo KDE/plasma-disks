@@ -5,7 +5,8 @@
 
 #include <QObject>
 
-namespace Solid {
+namespace Solid
+{
 class Device;
 }
 
@@ -32,9 +33,20 @@ public:
     bool ignore() const;
     void setIgnore(bool ignore);
 
-    QString udi() const { return m_udi; }
-    QString product() const { return m_product; }
-    QString path() const { return m_path; }
+    QString udi() const
+    {
+        return m_udi;
+    }
+
+    QString product() const
+    {
+        return m_product;
+    }
+
+    QString path() const
+    {
+        return m_path;
+    }
 
 signals:
     void failedChanged();

@@ -28,8 +28,7 @@ public:
             }
             const int fooIndex = metaObject()->indexOfMethod("onPropertyChanged()"); // of adaptor
             Q_ASSERT(fooIndex != -1);
-            connect(adaptee, property.notifySignal(),
-                    this, metaObject()->method(fooIndex));
+            connect(adaptee, property.notifySignal(), this, metaObject()->method(fooIndex));
         }
     }
 
@@ -52,14 +51,11 @@ private slots:
             if (ciid == -1) {
                 continue;
             }
-            QDBusMessage signal = QDBusMessage::createSignal(
-                        m_objectPath,
-                        QStringLiteral("org.freedesktop.DBus.Properties"),
-                        QStringLiteral("PropertiesChanged"));
+            QDBusMessage signal = QDBusMessage::createSignal(m_objectPath, //
+                                                             QStringLiteral("org.freedesktop.DBus.Properties"),
+                                                             QStringLiteral("PropertiesChanged"));
             signal << mo->classInfo(ciid).value();
-            signal << QVariantMap({
-                                      { QString::fromLatin1(property.name()), property.read(sender()) }
-                                  }); // changed properties DICT<STRING,VARIANT>
+            signal << QVariantMap({{QString::fromLatin1(property.name()), property.read(sender())}}); // changed properties DICT<STRING,VARIANT>
             signal << QStringList(); // invalidated property names no clue what invalidation means
             QDBusConnection::sessionBus().send(signal);
         }
@@ -76,12 +72,8 @@ KDBusObjectManagerServer::KDBusObjectManagerServer(QObject *parent)
     QDBusConnection connection = QDBusConnection::sessionBus();
     if (!connection.registerObject(m_path,
                                    this,
-                                   QDBusConnection::ExportAllSlots
-                                   | QDBusConnection::ExportAllSignals
-                                   | QDBusConnection::ExportAllProperties
-                                   | QDBusConnection::ExportAllInvokables
-                                   | QDBusConnection::ExportAllContents
-                                   | QDBusConnection::ExportAdaptors)) {
+                                   QDBusConnection::ExportAllSlots | QDBusConnection::ExportAllSignals | QDBusConnection::ExportAllProperties
+                                       | QDBusConnection::ExportAllInvokables | QDBusConnection::ExportAllContents | QDBusConnection::ExportAdaptors)) {
         qCDebug(KDED) << "failed to register" << m_path;
         return;
     }
@@ -91,24 +83,22 @@ bool KDBusObjectManagerServer::serve(QObject *object)
 {
     m_managedObjects << object;
     emit InterfacesAdded(path(object), interfacePropertiesMap(object));
-    connect(object, &QObject::destroyed, this, [this](QObject *obj) { unserve(obj); }); // auto-unserve
+    connect(object, &QObject::destroyed, this, [this](QObject *obj) {
+        unserve(obj);
+    }); // auto-unserve
     const QString dbusPath = path(object).path();
     new KDBusPropertiesChangedAdaptor(dbusPath, object);
     QDBusConnection connection = QDBusConnection::sessionBus();
     return connection.registerObject(dbusPath,
                                      object,
-                                     QDBusConnection::ExportAllSlots
-                                     | QDBusConnection::ExportAllSignals
-                                     | QDBusConnection::ExportAllProperties
-                                     | QDBusConnection::ExportAllInvokables
-                                     | QDBusConnection::ExportAllContents
-                                     | QDBusConnection::ExportAdaptors);
+                                     QDBusConnection::ExportAllSlots | QDBusConnection::ExportAllSignals | QDBusConnection::ExportAllProperties
+                                         | QDBusConnection::ExportAllInvokables | QDBusConnection::ExportAllContents | QDBusConnection::ExportAdaptors);
 }
 
 void KDBusObjectManagerServer::unserve(QObject *object)
 {
     const QStringList interfaces = metaObjectsFor(object).keys();
-    emit InterfacesRemoved(path(object), { interfaces });
+    emit InterfacesRemoved(path(object), {interfaces});
     QDBusConnection::sessionBus().unregisterObject(path(object).path());
     m_managedObjects.removeAll(object);
 }
@@ -137,7 +127,7 @@ KDBusObjectManagerObjectPathInterfacePropertiesMap KDBusObjectManagerServer::Get
     for (const auto *object : m_managedObjects) {
         const QDBusObjectPath dbusPath = path(object);
         if (dbusPath.path().isEmpty()) {
-            qCDebug(KDED)  << "Invalid dbus path for" << object->objectName();
+            qCDebug(KDED) << "Invalid dbus path for" << object->objectName();
             continue;
         }
         map[dbusPath] = interfacePropertiesMap(object);
@@ -149,7 +139,7 @@ QDBusObjectPath KDBusObjectManagerServer::path(const QObject *object)
 {
     const QString path = m_path + "/" + object->objectName();
 
-    qCDebug(KDED) << "path for " << object ->objectName() << object->metaObject()->className() << ":" << path;
+    qCDebug(KDED) << "path for " << object->objectName() << object->metaObject()->className() << ":" << path;
     return QDBusObjectPath(path);
 }
 

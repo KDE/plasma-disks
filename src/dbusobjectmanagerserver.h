@@ -3,9 +3,9 @@
 
 #pragma once
 
-#include <QDebug>
-#include <QDBusObjectPath>
 #include <QChildEvent>
+#include <QDBusObjectPath>
+#include <QDebug>
 #include <QMetaObject>
 #include <QMetaProperty>
 
@@ -25,6 +25,7 @@ class KDBusObjectManagerServer : public QObject
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.DBus.ObjectManager")
     typedef QHash<QString, const QMetaObject *> InterfaceMetaObjectHash;
+
 public:
     KDBusObjectManagerServer(QObject *parent = nullptr);
     bool serve(QObject *object);

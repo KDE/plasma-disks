@@ -3,10 +3,10 @@
 
 #pragma once
 
-#include <QtCore/QObject>
 #include <QtCore/QByteArray>
 #include <QtCore/QList>
 #include <QtCore/QMap>
+#include <QtCore/QObject>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
 #include <QtCore/QVariant>
@@ -23,10 +23,10 @@ class DeviceModel : public QAbstractListModel
     Q_PROPERTY(bool waiting READ waiting NOTIFY waitingChanged)
 public:
     enum ItemRole {
-        ObjectRole = Qt::UserRole + 1
+        ObjectRole = Qt::UserRole + 1,
     };
 
-    QVector<QObject*> m_objects;
+    QVector<QObject *> m_objects;
 
     DeviceModel(QObject *parent = nullptr);
 
@@ -63,4 +63,4 @@ private:
     QDBusPendingCallWatcher *m_getManagedObjectsWatcher = nullptr;
 };
 
-Q_DECLARE_METATYPE(DeviceModel*)
+Q_DECLARE_METATYPE(DeviceModel *)

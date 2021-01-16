@@ -14,7 +14,8 @@
 #include "smartctl.h"
 
 class Device;
-namespace Solid {
+namespace Solid
+{
 class Device;
 }
 
@@ -22,9 +23,9 @@ class SMARTMonitor : public QObject
 {
     Q_OBJECT
     friend class SMARTMonitorTest;
+
 public:
-    explicit SMARTMonitor(AbstractSMARTCtl *ctl,
-                          QObject *parent = nullptr);
+    explicit SMARTMonitor(AbstractSMARTCtl *ctl, QObject *parent = nullptr);
     void start();
 
     QVector<Device *> devices() const;

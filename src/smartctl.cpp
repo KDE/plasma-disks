@@ -3,11 +3,11 @@
 
 #include "smartctl.h"
 
-#include <QDebug>
-#include <QFileInfo>
 #include <KAuthAction>
 #include <KAuthExecuteJob>
 #include <KLocalizedString>
+#include <QDebug>
+#include <QFileInfo>
 
 #include "kded_debug.h"
 
@@ -26,12 +26,10 @@ void SMARTCtl::run(const QString &devicePath)
     // This is technically never used unless the sysadmin forces our action
     // to require authentication. In that case we'll want to give request context
     // as we do requests per-device though.
-    action.setDetailsV2({
-                            { KAuth::Action::AuthDetail::DetailMessage,
-                              i18nc("@label description of authentication request to read SMART data. %1 is a device path e.g. /dev/sda",
-                              "Read SMART report for storage device %1",
-                              devicePath) }
-                        });
+    action.setDetailsV2({{KAuth::Action::AuthDetail::DetailMessage,
+                          i18nc("@label description of authentication request to read SMART data. %1 is a device path e.g. /dev/sda",
+                                "Read SMART report for storage device %1",
+                                devicePath)}});
     action.setHelperId(QStringLiteral("org.kde.kded.smart"));
 
     // The helper only consumes names, ensure we fully resolve the name of the
@@ -42,13 +40,9 @@ void SMARTCtl::run(const QString &devicePath)
     Q_ASSERT(canonicalDeviceInfo.absolutePath() == QLatin1String("/dev"));
 
     action.addArgument(QStringLiteral("deviceName"), canonicalDeviceInfo.fileName());
-    qCDebug(KDED) << action.isValid()
-                  << action.hasHelper()
-                  << action.helperId()
-                  << action.status();
+    qCDebug(KDED) << action.isValid() << action.hasHelper() << action.helperId() << action.status();
     KAuth::ExecuteJob *job = action.execute();
-    connect(job, &KJob::result,
-            this, [this, job, devicePath] {
+    connect(job, &KJob::result, this, [this, job, devicePath] {
         const auto data = job->data();
         const auto code = data.value(QStringLiteral("exitCode"), QByteArray()).toInt();
         const auto json = data.value(QStringLiteral("data"), QByteArray()).toByteArray();

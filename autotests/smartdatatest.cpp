@@ -4,10 +4,10 @@
 #include <QDebug>
 #include <QDir>
 #include <QFile>
+#include <QJsonDocument>
 #include <QObject>
 #include <QStandardPaths>
 #include <QTest>
-#include <QJsonDocument>
 
 #include <KSycoca>
 #include <smartdata.h>

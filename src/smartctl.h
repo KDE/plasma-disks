@@ -53,7 +53,7 @@ public:
         Prefail = 0x10,
         PastPrefail = 0x20,
         ErrorsRecorded = 0x40,
-        SelfTestErrors = 0x80
+        SelfTestErrors = 0x80,
         // The entire thing doesn't exceed 8 bits because it's a posix exit code.
     };
 
