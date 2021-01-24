@@ -79,7 +79,7 @@
     <p xml:lang="et">Plasma Disks jälgib ketaste SMART-i teavet ja hoiatab kasutajat, kui ilmneb märke lähenevast rikkest.</p>
     <p xml:lang="eu">«Plasmako diskoak» diskoetako S.M.A.R.T. datuak gainbegiratzen ditu eta erabiltzailea ohartarazten du hurbileko hutsegiteen zantzuak agertzen direnean.</p>
     <p xml:lang="fi">Plasma Disks valvoo levyjen SMART-tietoa ja hälyttää käyttäjän uhkaavasta laiteviasta.</p>
-    <p xml:lang="fr">Le composant graphique  « Disques » de Plasma surveille les données « SMART » des disques et alerte l'utilisateur lors de l'apparition de tout signe de panne imminente.</p>
+    <p xml:lang="fr">Le composant graphique « Disques » de Plasma surveille les données « SMART » des disques et alerte l'utilisateur lors de l'apparition de tout signe de panne imminente.</p>
     <p xml:lang="hu">A Plasma Disks figyeli a háttértárak S.M.A.R.T. adatait, és riasztja, ha meghibásodás jelei tűnnek fel.</p>
     <p xml:lang="ia">Plasma Disks survelia datos S.M.A.R.T. de discos e alerta le usator quando signos de fallimento imminente appare.</p>
     <p xml:lang="it">Dischi di Plasma controlla i dati S.M.A.R.T. dei dischi, e avverte l'utente quando si manifestano dei segni di guasto imminente.</p>
@@ -111,7 +111,7 @@
       <caption xml:lang="et">Seadmete olekut näitav Plasma Disksi moodul Infokeskuses.</caption>
       <caption xml:lang="eu">«Plasmako diskoen informazio gunea» modulua gailuen egoera erakusten.</caption>
       <caption xml:lang="fi">Plasma Disksin tietokeskusmoduuli esittää eri laitteiden tilan.</caption>
-      <caption xml:lang="fr">Le module « Disques » du centre d'informations  de Plasma, affichant l'état des périphériques.</caption>
+      <caption xml:lang="fr">Le module « Disques » du centre d'informations de Plasma, affichant l'état des périphériques.</caption>
       <caption xml:lang="hu">A Plasma Disks Rendszerinformáció modul megjeleníti az eszközök állapotát.</caption>
       <caption xml:lang="ia">Le modulo Plasma Disks Info Center (Centro de Information de Discos de Plasma) monstrante le stato de dispositivos.</caption>
       <caption xml:lang="it">Il modulo Dischi di Plasma del Centro d'informazione che mostra lo stato dei dispositivi.</caption>
