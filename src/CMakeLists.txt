@@ -27,8 +27,8 @@ target_include_directories(statickdedsmart
         "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR};${CMAKE_CURRENT_BINARY_DIR}>")
 target_link_libraries(statickdedsmart
     PUBLIC
-    Qt5::Core
-    Qt5::DBus
+    Qt::Core
+    Qt::DBus
     KF5::Solid
     KF5::I18n
     KF5::Notifications

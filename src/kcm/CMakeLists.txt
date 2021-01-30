@@ -40,7 +40,7 @@ target_link_libraries(kcm
     KF5::CoreAddons
     KF5::I18n
     KF5::QuickAddons
-    Qt5::DBus
+    Qt::DBus
     KF5::Solid)
 
 kcoreaddons_desktop_to_json(kcm smart.desktop)
