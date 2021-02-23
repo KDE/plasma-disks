@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: BSD-3-Clause
-# SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
+# SPDX-FileCopyrightText: 2020-2021 Harald Sitter <sitter@kde.org>
 
 add_definitions(-DTRANSLATION_DOMAIN=\"plasma_disks\")
 
@@ -10,7 +10,17 @@ set(kded_SRCS
     smartnotifier.cpp
     dbusobjectmanagerserver.cpp
     device.cpp
+    devicenotifier.cpp
+    soliddevicenotifier.cpp
 )
+
+if(WITH_SIMULATION)
+    list(APPEND kded_SRCS
+        simulationdevicenotifier.cpp
+        simulationctl.cpp
+        ../autotests/fixtures/simulation.qrc)
+    add_definitions(-DWITH_SIMULATION)
+endif()
 
 ecm_qt_declare_logging_category(
     kded_SRCS

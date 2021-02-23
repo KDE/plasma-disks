@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
-// SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
+// SPDX-FileCopyrightText: 2020-2021 Harald Sitter <sitter@kde.org>
 
 #include <KDEDModule>
 #include <KPluginFactory>
@@ -7,8 +7,42 @@
 
 #include "dbusobjectmanagerserver.h"
 #include "device.h"
+#include "smartctl.h"
 #include "smartmonitor.h"
 #include "smartnotifier.h"
+#include "soliddevicenotifier.h"
+
+#ifdef WITH_SIMULATION
+#include "simulationctl.h"
+#include "simulationdevicenotifier.h"
+#endif
+
+static bool isSimulation()
+{
+    return qEnvironmentVariableIntValue("PLASMA_DISKS_SIMULATION") == 1;
+}
+
+template<class... Args>
+static std::unique_ptr<AbstractSMARTCtl> make_unique_smartctl(Args &&... args)
+{
+#ifdef WITH_SIMULATION
+    if (isSimulation()) {
+        return std::make_unique<SimulationCtl>(std::forward<Args>(args)...);
+    }
+#endif
+    return std::make_unique<SMARTCtl>(std::forward<Args>(args)...);
+}
+
+template<class... Args>
+static std::unique_ptr<DeviceNotifier> make_unique_devicenotifier(Args &&... args)
+{
+#ifdef WITH_SIMULATION
+    if (isSimulation()) {
+        return std::make_unique<SimulationDeviceNotifier>(std::forward<Args>(args)...);
+    }
+#endif
+    return std::make_unique<SolidDeviceNotifier>(std::forward<Args>(args)...);
+}
 
 class SMARTModule : public KDEDModule
 {
@@ -17,6 +51,7 @@ public:
     explicit SMARTModule(QObject *parent, const QVariantList &args)
         : KDEDModule(parent)
     {
+        Q_INIT_RESOURCE(simulation);
         Q_UNUSED(args);
         connect(&m_monitor, &SMARTMonitor::deviceAdded, this, [this](Device *device) {
             dbusDeviceServer.serve(device);
@@ -28,7 +63,7 @@ public:
     }
 
 private:
-    SMARTMonitor m_monitor{new SMARTCtl};
+    SMARTMonitor m_monitor{make_unique_smartctl(), make_unique_devicenotifier()};
     SMARTNotifier m_notifier{&m_monitor};
     KDBusObjectManagerServer dbusDeviceServer;
 };

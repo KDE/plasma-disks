@@ -1,48 +1,37 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
-// SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
+// SPDX-FileCopyrightText: 2020-2021 Harald Sitter <sitter@kde.org>
 
 #include "smartmonitor.h"
 
-#include <Solid/Block>
-#include <Solid/Device>
-#include <Solid/DeviceInterface>
-#include <Solid/DeviceNotifier>
-#include <Solid/StorageDrive>
-#include <Solid/StorageVolume>
-
-#include <QDebug>
+#include <KLocalizedString>
 
 #include "device.h"
+#include "devicenotifier.h"
 #include "kded_debug.h"
 #include "smartctl.h"
 #include "smartdata.h"
 
-SMARTMonitor::SMARTMonitor(AbstractSMARTCtl *ctl, QObject *parent)
+SMARTMonitor::SMARTMonitor(std::unique_ptr<AbstractSMARTCtl> ctl, std::unique_ptr<DeviceNotifier> deviceNotifier, QObject *parent)
     : QObject(parent)
-    , m_ctl(ctl)
+    , m_ctl(std::move(ctl))
+    , m_deviceNotifier(std::move(deviceNotifier))
 {
     connect(&m_reloadTimer, &QTimer::timeout, this, &SMARTMonitor::reloadData);
-    connect(ctl, &AbstractSMARTCtl::finished, this, &SMARTMonitor::onSMARTCtlFinished);
+    connect(m_ctl.get(), &AbstractSMARTCtl::finished, this, &SMARTMonitor::onSMARTCtlFinished);
     m_reloadTimer.setInterval(1000 * 60 /*minute*/ * 60 /*hour*/ * 24 /*day*/);
 }
 
 void SMARTMonitor::start()
 {
     qCDebug(KDED) << "starting";
-    connect(Solid::DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceAdded, this, &SMARTMonitor::checkUDI);
-    connect(Solid::DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceRemoved, this, &SMARTMonitor::removeUDI);
-    QMetaObject::invokeMethod(this, &SMARTMonitor::reloadData);
+    connect(m_deviceNotifier.get(), &DeviceNotifier::addDevice, this, &SMARTMonitor::addDevice);
+    connect(m_deviceNotifier.get(), &DeviceNotifier::removeUDI, this, &SMARTMonitor::removeUDI);
+    QMetaObject::invokeMethod(m_deviceNotifier.get(), &DeviceNotifier::start, Qt::QueuedConnection); // async to ensure listeners are ready
 }
 
 QVector<Device *> SMARTMonitor::devices() const
 {
     return m_devices;
-}
-
-void SMARTMonitor::checkUDI(const QString &udi)
-{
-    Solid::Device dev(udi);
-    checkDevice(dev);
 }
 
 void SMARTMonitor::removeUDI(const QString &udi)
@@ -61,10 +50,7 @@ void SMARTMonitor::removeUDI(const QString &udi)
 
 void SMARTMonitor::reloadData()
 {
-    const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::StorageVolume);
-    for (const auto &device : devices) {
-        checkDevice(device);
-    }
+    m_deviceNotifier->loadData();
     m_reloadTimer.start();
 }
 
@@ -84,7 +70,9 @@ void SMARTMonitor::onSMARTCtlFinished(const QString &devicePath, const QJsonDocu
     }
 
     SMARTData data(document);
-    Q_ASSERT(devicePath == data.m_device);
+    if (!devicePath.endsWith(QStringLiteral(".json"))) { // simulation data
+        Q_ASSERT(devicePath == data.m_device);
+    }
 
     auto existingIt = std::find_if(m_devices.begin(), m_devices.end(), [&device](Device *existing) {
         return *existing == *device;
@@ -104,45 +92,10 @@ void SMARTMonitor::onSMARTCtlFinished(const QString &devicePath, const QJsonDocu
     emit deviceAdded(device);
 }
 
-void SMARTMonitor::checkDevice(const Solid::Device &device)
-{
-    qCDebug(KDED) << "!!!! " << device.udi();
-
-    // This seems fairly awkward on a solid level. The actual device
-    // isn't really trivial to identify. It certainly mustn't be a
-    // filesystem but beyond that it's entirely unclear.
-    // The trouble here is that we'll only want to run smartctl on
-    // actual devices, not the partitions on the devices as otherwise
-    // we'll have trouble validating the output as we'd not know
-    // if it is incomplete because the device wasn't a device or
-    // there's no data or smartctl is broken or the auth helper is broken...
-    if (!device.is<Solid::StorageVolume>()) {
-        qCDebug(KDED) << "   not a volume";
-        return; // certainly not an interesting device
-    }
-    switch (device.as<Solid::StorageVolume>()->usage()) {
-    case Solid::StorageVolume::Unused:
-        Q_FALLTHROUGH();
-    case Solid::StorageVolume::FileSystem:
-        Q_FALLTHROUGH();
-    case Solid::StorageVolume::Encrypted:
-        Q_FALLTHROUGH();
-    case Solid::StorageVolume::Other:
-        Q_FALLTHROUGH();
-    case Solid::StorageVolume::Raid:
-        qCDebug(KDED) << "   bad type" << device.as<Solid::StorageVolume>()->usage();
-        return;
-    case Solid::StorageVolume::PartitionTable:
-        break;
-    }
-
-    qCDebug(KDED) << "evaluating!";
-
-    checkDevice(new Device(device));
-}
-
-void SMARTMonitor::checkDevice(Device *device)
+void SMARTMonitor::addDevice(Device *device)
 {
     m_pendingDevices[device->path()] = device;
     m_ctl->run(device->path());
 }
+
+#include "smartmonitor.moc"

@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: BSD-3-Clause
-# SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
+# SPDX-FileCopyrightText: 2020-2021 Harald Sitter <sitter@kde.org>
 
 cmake_minimum_required(VERSION 3.16)
 
@@ -15,6 +15,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+include(CMakeDependentOption)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
@@ -40,6 +41,13 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 
 find_package(smartctl)
 set_package_properties(smartctl PROPERTIES TYPE RUNTIME)
+
+cmake_dependent_option(WITH_SIMULATION
+    "Build with simulation tech allowing easy testing via PLASMA_DISKS_SIMULATION=1"
+    ON
+    "CMAKE_BUILD_TYPE MATCHES [Dd]ebug"
+    OFF
+)
 
 add_subdirectory(src)
 

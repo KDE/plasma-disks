@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
-// SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
+// SPDX-FileCopyrightText: 2020-2021 Harald Sitter <sitter@kde.org>
 
 #ifndef SMARTMONITOR_H
 #define SMARTMONITOR_H
@@ -11,13 +11,9 @@
 #include <functional>
 #include <memory>
 
-#include "smartctl.h"
-
+class AbstractSMARTCtl;
 class Device;
-namespace Solid
-{
-class Device;
-}
+class DeviceNotifier;
 
 class SMARTMonitor : public QObject
 {
@@ -25,7 +21,7 @@ class SMARTMonitor : public QObject
     friend class SMARTMonitorTest;
 
 public:
-    explicit SMARTMonitor(AbstractSMARTCtl *ctl, QObject *parent = nullptr);
+    explicit SMARTMonitor(std::unique_ptr<AbstractSMARTCtl> ctl, std::unique_ptr<DeviceNotifier> deviceNotifier, QObject *parent = nullptr);
     void start();
 
     QVector<Device *> devices() const;
@@ -35,17 +31,16 @@ signals:
     void deviceRemoved(Device *device);
 
 private slots:
-    void checkUDI(const QString &udi);
     void removeUDI(const QString &udi);
     void reloadData();
     void onSMARTCtlFinished(const QString &devicePath, const QJsonDocument &document);
 
 private:
-    void checkDevice(const Solid::Device &device);
-    void checkDevice(Device *device);
+    void addDevice(Device *device);
 
     QTimer m_reloadTimer;
-    std::unique_ptr<AbstractSMARTCtl> m_ctl;
+    const std::unique_ptr<AbstractSMARTCtl> m_ctl;
+    const std::unique_ptr<DeviceNotifier> m_deviceNotifier;
     QHash<QString, Device *> m_pendingDevices; // waiting for smartctl to return
     QVector<Device *> m_devices; // monitored smart devices
 };

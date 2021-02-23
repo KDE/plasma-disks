@@ -1,78 +1,71 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
-// SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
+// SPDX-FileCopyrightText: 2020-2021 Harald Sitter <sitter@kde.org>
 
 #include <QDebug>
 #include <QDir>
 #include <QFile>
 #include <QJsonDocument>
 #include <QObject>
+#include <QSignalSpy>
 #include <QStandardPaths>
 #include <QTest>
 
 #include <functional>
 
+#include "devicenotifier.h"
 #include <device.h>
+#include <smartctl.h>
 #include <smartmonitor.h>
-
-class MockCtl : public AbstractSMARTCtl
-{
-public:
-    void run(const QString &devicePath) override
-    {
-        qDebug() << devicePath;
-        emit finished(devicePath, m_docs.value(devicePath));
-    }
-
-    QMap<QString, QJsonDocument> m_docs;
-};
 
 class SMARTMonitorTest : public QObject
 {
     Q_OBJECT
 
-    struct Payload {
-        QJsonDocument doc;
-        bool err = true;
-    };
-
 private Q_SLOTS:
-    void load(const QString &fixture, Payload &payload)
-    {
-        payload.doc = QJsonDocument();
-        payload.err = true;
-
-        QFile file(QFINDTESTDATA(fixture));
-        QVERIFY(file.open(QFile::ReadOnly));
-
-        payload.doc = QJsonDocument::fromJson(file.readAll());
-        payload.err = false;
-    }
-
     void testRun()
     {
-        // Mock smartctl. We want fixed behavior.
-        auto ctl = new MockCtl; // new; monitor takes ownership!
-        Payload payload;
-        load("fixtures/pass.json", payload);
-        if (payload.err) {
-            return;
-        }
-        ctl->m_docs["/dev/testfoobarpass"] = payload.doc;
-        load("fixtures/fail.json", payload);
-        if (payload.err) {
-            return;
-        }
-        ctl->m_docs["/dev/testfoobarfail"] = payload.doc;
+        struct Ctl : public AbstractSMARTCtl {
+            void run(const QString &devicePath) override
+            {
+                static QMap<QString, QString> data{{"/dev/testfoobarpass", "fixtures/pass.json"}, {"/dev/testfoobarfail", "fixtures/fail.json"}};
 
-        // NOTE: monitor still talks to solid but we aren't interested in its results
-        //   to also inject our fixtures we manually product device discoveries here.
-        SMARTMonitor monitor(ctl);
-        // don't start it, that'd only run solid stuff that we do not test here
+                const QString fixture = data.value(devicePath);
+                Q_ASSERT(!fixture.isEmpty());
+                QFile file(QFINDTESTDATA(fixture));
+                const bool open = file.open(QFile::ReadOnly);
+                Q_ASSERT(open);
+                QJsonParseError err;
+                const auto document = QJsonDocument::fromJson(file.readAll(), &err);
+                Q_ASSERT(err.error == QJsonParseError::NoError);
 
-        monitor.checkDevice(new Device{"udi-pass", "product", "/dev/testfoobarpass"});
-        // discover this twice to ensure notifications aren't duplicated!
-        monitor.checkDevice(new Device{"udi-fail", "product", "/dev/testfoobarfail"});
-        monitor.checkDevice(new Device{"udi-fail", "product", "/dev/testfoobarfail"});
+                Q_EMIT finished(devicePath, document);
+            }
+        };
+
+        struct Notifier : public DeviceNotifier {
+            using DeviceNotifier::DeviceNotifier;
+            void start() override
+            {
+                loadData();
+            }
+            void loadData() override
+            {
+                Q_EMIT addDevice(new Device{"udi-pass", "product", "/dev/testfoobarpass"});
+                // discover this twice to ensure notifications aren't duplicated!
+                Q_EMIT addDevice(new Device{"udi-fail", "product", "/dev/testfoobarfail"});
+                Q_EMIT addDevice(new Device{"udi-fail", "product", "/dev/testfoobarfail"});
+            }
+        };
+
+        SMARTMonitor monitor(std::make_unique<Ctl>(), std::make_unique<Notifier>());
+        QSignalSpy spy(&monitor, &SMARTMonitor::deviceAdded);
+        QVERIFY(spy.isValid());
+        monitor.start();
+        // The signals are all emitted in one go and as such should arrive
+        // within a single wait.
+        QVERIFY(spy.wait());
+        QCOMPARE(spy.count(), 2); // There are 3 devices but one is a dupe.
+        QCOMPARE(monitor.devices().count(), 2); // There are 3 devices but one is a dupe.
 
         bool sawPass = false;
         bool sawFail = false;
