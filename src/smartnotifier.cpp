@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
-// SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
+// SPDX-FileCopyrightText: 2020-2021 Harald Sitter <sitter@kde.org>
 
 #include "smartnotifier.h"
 
@@ -58,15 +58,30 @@ SMARTNotifier::SMARTNotifier(SMARTMonitor *monitor, QObject *parent)
     : QObject(parent)
 {
     connect(monitor, &SMARTMonitor::deviceAdded, this, [this](const Device *device) {
-        connect(device, &Device::failedChanged, this, [this, device] {
-            if (device->failed() && !device->ignore()) {
-                new FailureNotification(device, this); // auto-deletes
-                // once displayed we'll not want to trigger any more notifications
-                device->disconnect(this);
-            }
-        });
+        connect(device, &Device::failedChanged, this, &SMARTNotifier::onMaybeFailed);
+        // The device may already be in failure state. Make sure we display it if applicable.
+        maybeFailed(device);
     });
     // upon removal the devices are deleted which takes care of disconnecting
+}
+
+void SMARTNotifier::onMaybeFailed()
+{
+    maybeFailed(qobject_cast<Device *>(sender()));
+}
+
+void SMARTNotifier::maybeFailed(const Device *device)
+{
+    Q_ASSERT(device);
+    // We notify on instabilities in the hopes that there won't be false positives.
+    // Might need revisiting.
+    if (!device->failed() || device->ignore()) {
+        return;
+    }
+
+    new FailureNotification(device, this); // auto-deletes
+    // once displayed we'll not want to trigger any more notifications
+    device->disconnect(this);
 }
 
 #include "smartnotifier.moc"
