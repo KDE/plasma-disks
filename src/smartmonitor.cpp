@@ -7,6 +7,7 @@
 
 #include "device.h"
 #include "devicenotifier.h"
+#include "instabilities.h"
 #include "kded_debug.h"
 #include "smartctl.h"
 #include "smartdata.h"
@@ -82,10 +83,12 @@ void SMARTMonitor::onSMARTCtlFinished(const QString &devicePath, const QJsonDocu
 
         Device *existing = *existingIt;
         // update failure and call it a day. Notification is handled by the Device.
+        existing->setInstabilities(Instabilities::from(data));
         existing->setFailed(!data.m_status.m_passed);
 
         return;
     }
+    device->setInstabilities(Instabilities::from(data));
     device->setFailed(!data.m_status.m_passed);
 
     m_devices << device;
@@ -97,5 +100,3 @@ void SMARTMonitor::addDevice(Device *device)
     m_pendingDevices[device->path()] = device;
     m_ctl->run(device->path());
 }
-
-#include "smartmonitor.moc"

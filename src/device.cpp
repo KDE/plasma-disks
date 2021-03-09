@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
-// SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
+// SPDX-FileCopyrightText: 2020-2021 Harald Sitter <sitter@kde.org>
 
 #include "device.h"
 
@@ -74,4 +74,18 @@ void Device::setIgnore(bool ignored)
     KSharedConfig::openConfig("org.kde.kded.smart")->group("Ignores").writeEntry(m_udi, ignored);
     m_ignored = ignored;
     emit ignoreChanged();
+}
+
+QStringList Device::instabilities() const
+{
+    return m_instabilities;
+}
+
+void Device::setInstabilities(const QStringList &instabilities)
+{
+    if (m_instabilities == instabilities) {
+        return;
+    }
+    m_instabilities = instabilities;
+    Q_EMIT instabilitiesChanged();
 }

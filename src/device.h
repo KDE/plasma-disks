@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
-// SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
+// SPDX-FileCopyrightText: 2020-2021 Harald Sitter <sitter@kde.org>
 
 #pragma once
 
@@ -17,8 +17,16 @@ class Device : public QObject
     Q_PROPERTY(QString udi READ udi CONSTANT)
     Q_PROPERTY(QString product READ product CONSTANT)
     Q_PROPERTY(QString path READ path CONSTANT)
+    /**
+     * A list of hints at problems that aren't failures.
+     * This may be non-empty even when failure is true, failure does outrank this information though!
+     * An instability is for example a pre-fail attribute or a self-test failure.
+     * They may point at (imminent) problems but may just as well be nothing. Think of them as soft failures.
+     */
+    Q_PROPERTY(QStringList instabilities READ instabilities WRITE setInstabilities NOTIFY instabilitiesChanged)
     // We dbus-expose objects without adaptor so the property API reflects the dbus API
     // and so be mindful of what is available as writable property.
+    // 'failed' is writable for ease of testing and nothing more.
     Q_PROPERTY(bool failed READ failed WRITE setFailed NOTIFY failedChanged)
     Q_PROPERTY(bool ignore READ ignore WRITE setIgnore NOTIFY ignoreChanged)
 public:
@@ -48,7 +56,11 @@ public:
         return m_path;
     }
 
+    QStringList instabilities() const;
+    void setInstabilities(const QStringList &instabilities);
+
 signals:
+    void instabilitiesChanged();
     void failedChanged();
     void ignoreChanged();
 
@@ -56,6 +68,7 @@ private:
     const QString m_udi;
     const QString m_product;
     const QString m_path;
+    QStringList m_instabilities;
     bool m_failed = false;
     bool m_ignored = false;
 };

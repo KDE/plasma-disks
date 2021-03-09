@@ -12,6 +12,8 @@ set(kded_SRCS
     device.cpp
     devicenotifier.cpp
     soliddevicenotifier.cpp
+    instabilities.cpp
+    smartfailure.cpp
 )
 
 if(WITH_SIMULATION)

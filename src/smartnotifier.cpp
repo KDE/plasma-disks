@@ -21,12 +21,23 @@ public:
         : QObject(parent)
     {
         m_notification->setComponentName("org.kde.kded.smart");
-        m_notification->setIconName(QStringLiteral("data-warning"));
+        if (device->failed()) {
+            m_notification->setIconName(QStringLiteral("data-warning"));
+        } else {
+            m_notification->setIconName(QStringLiteral("data-information"));
+        }
         m_notification->setTitle(i18nc("@title notification", "Storage Device Problems"));
-        m_notification->setText(xi18nc("@info notification; text %1 is a pretty product name; %2 the device path e.g. /dev/sda",
-                                       "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is likely to fail soon!",
-                                       device->product(),
-                                       device->path()));
+        if (device->failed()) {
+            m_notification->setText(xi18nc("@info notification; text %1 is a pretty product name; %2 the device path e.g. /dev/sda",
+                                           "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is likely to fail soon!",
+                                           device->product(),
+                                           device->path()));
+        } else {
+            m_notification->setText(xi18nc("@info notification; text %1 is a pretty product name; %2 the device path e.g. /dev/sda",
+                                           "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is showing indications of instability.",
+                                           device->product(),
+                                           device->path()));
+        }
 
         KService::Ptr kcm = KService::serviceByStorageId(QStringLiteral("smart"));
         Q_ASSERT(kcm); // there's a bug or installation is broken; mustn't happen in production
@@ -75,7 +86,7 @@ void SMARTNotifier::maybeFailed(const Device *device)
     Q_ASSERT(device);
     // We notify on instabilities in the hopes that there won't be false positives.
     // Might need revisiting.
-    if (!device->failed() || device->ignore()) {
+    if ((!device->failed() && device->instabilities().isEmpty()) || device->ignore()) {
         return;
     }
 

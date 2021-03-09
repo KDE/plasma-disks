@@ -10,6 +10,7 @@
 #include <QFileInfo>
 
 #include "kded_debug.h"
+#include "smartfailure.h"
 
 void SMARTCtl::run(const QString &devicePath)
 {
@@ -44,11 +45,11 @@ void SMARTCtl::run(const QString &devicePath)
     KAuth::ExecuteJob *job = action.execute();
     connect(job, &KJob::result, this, [this, job, devicePath] {
         const auto data = job->data();
-        const auto code = data.value(QStringLiteral("exitCode"), QByteArray()).toInt();
+        const auto code = SMART::Failures(data.value(QStringLiteral("exitCode"), QByteArray()).toInt());
         const auto json = data.value(QStringLiteral("data"), QByteArray()).toByteArray();
 
         QJsonDocument document;
-        if (json.isEmpty() || code & Failure::CmdLineParse || code & Failure::DeviceOpen) {
+        if (json.isEmpty() || code & SMART::Failure::CmdLineParse || code & SMART::Failure::DeviceOpen) {
             qCDebug(KDED) << "looks like we got no data back for" << devicePath << code << json.isEmpty();
         } else {
             document = QJsonDocument::fromJson(json);

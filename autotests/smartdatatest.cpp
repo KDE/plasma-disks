@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
-// SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
+// SPDX-FileCopyrightText: 2020-2021 Harald Sitter <sitter@kde.org>
 
 #include <QDebug>
 #include <QDir>
@@ -24,6 +24,7 @@ private Q_SLOTS:
         SMARTData data(doc);
         QCOMPARE(data.m_device, "/dev/testfoobarpass");
         QCOMPARE(data.m_status.m_passed, true);
+        QVERIFY(!data.m_smartctl.failure());
     }
 
     void testFail()
@@ -35,6 +36,7 @@ private Q_SLOTS:
         SMARTData data(doc);
         QCOMPARE(data.m_device, "/dev/testfoobarfail");
         QCOMPARE(data.m_status.m_passed, false);
+        QVERIFY(!data.m_smartctl.failure());
     }
 
     void testBroken()
@@ -46,6 +48,10 @@ private Q_SLOTS:
         SMARTData data(doc);
         QCOMPARE(data.m_device, "/dev/sdc");
         QCOMPARE(data.m_status.m_passed, false);
+        QCOMPARE(data.m_smartctl.failure(),
+                 SMART::Failures({SMART::Failure::Disk, SMART::Failure::Prefail, SMART::Failure::ErrorsRecorded, SMART::Failure::SelfTestErrors}));
+        QVERIFY(data.m_smartctl.failure());
+        QVERIFY(!!data.m_smartctl.failure());
     }
 
     void testTimeout()
@@ -58,6 +64,21 @@ private Q_SLOTS:
         SMARTData data(doc);
         QCOMPARE(data.m_device, "/dev/nvme0n1");
         QCOMPARE(data.m_status.m_passed, true);
+        QCOMPARE(data.m_smartctl.failure(), SMART::Failures({SMART::Failure::InternalCommand}));
+        QVERIFY(data.m_smartctl.failure());
+        QVERIFY(!!data.m_smartctl.failure());
+    }
+
+    void testFailingSectorsButPassingStatus()
+    {
+        // SMART status is a pass but there are problems.
+        QFile file(QFINDTESTDATA("fixtures/failing-sectors-passing-status.json"));
+        QVERIFY(file.open(QFile::ReadOnly));
+        auto doc = QJsonDocument::fromJson(file.readAll());
+        SMARTData data(doc);
+        QCOMPARE(data.m_device, "/dev/sdb");
+        QCOMPARE(data.m_status.m_passed, true);
+        QCOMPARE(data.m_smartctl.failure(), SMART::Failures({SMART::Failure::ErrorsRecorded | SMART::Failure::SelfTestErrors}));
     }
 };
 
