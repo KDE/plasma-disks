@@ -73,7 +73,7 @@ KCM.SimpleKCM {
                         var items = instabilities.map(item => "<li>%1</li>".arg(item))
                         return i18nc("@info %1 is a bunch of <li> with the strings from instabilities.cpp",
                             "<p>The SMART firmware is not reporting a failure, but there are early signs of malfunction. " +
-                            "This might point at imminent device failure but requires longer term analysis. " +
+                            "This might not point at imminent device failure but requires longer term analysis. " +
                             "Back up your data and contact the manufacturer of this disk, or replace it preemptively just to be safe.</p>" +
                             "<ul>%1</ul>", items.join(''))
                     }
