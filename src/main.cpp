@@ -17,10 +17,12 @@
 #include "simulationdevicenotifier.h"
 #endif
 
+#ifdef WITH_SIMULATION
 static bool isSimulation()
 {
     return qEnvironmentVariableIntValue("PLASMA_DISKS_SIMULATION") == 1;
 }
+#endif
 
 template<class... Args>
 static std::unique_ptr<AbstractSMARTCtl> make_unique_smartctl(Args &&... args)
