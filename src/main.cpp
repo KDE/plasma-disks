@@ -53,7 +53,9 @@ public:
     explicit SMARTModule(QObject *parent, const QVariantList &args)
         : KDEDModule(parent)
     {
+#ifdef WITH_SIMULATION
         Q_INIT_RESOURCE(simulation);
+#endif
         Q_UNUSED(args);
         connect(&m_monitor, &SMARTMonitor::deviceAdded, this, [this](Device *device) {
             dbusDeviceServer.serve(device);
