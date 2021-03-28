@@ -32,6 +32,7 @@ Name[sl]=Spremljanje stanja naprave za shranjevanje podatkov
 Name[sv]=Övervakning av lagringsenheters hälsa
 Name[uk]=Спостереження за станом пристроїв зберігання даних
 Name[x-test]=xxStorage Device Health Monitoringxx
+Name[zh_CN]=存储设备健康状况监测
 Comment=Storage Device Health Monitoring
 Comment[az]=Yaddaş Cihazının Vəziyyətinin İzlənməsi
 Comment[ca]=Monitoratge de l'estat dels dispositius d'emmagatzematge
@@ -62,6 +63,7 @@ Comment[sl]=Spremljanje stanja naprave za shranjevanje podatkov
 Comment[sv]=Övervakning av lagringsenheters hälsa
 Comment[uk]=Спостереження за станом пристроїв зберігання даних
 Comment[x-test]=xxStorage Device Health Monitoringxx
+Comment[zh_CN]=存储设备健康状况监测
 
 [Context/device]
 Name=Device
@@ -95,6 +97,7 @@ Name[sl]=Naprava
 Name[sv]=Enhet
 Name[uk]=Пристрій
 Name[x-test]=xxDevicexx
+Name[zh_CN]=设备
 Comment=Used for notifications about a specific device
 Comment[az]=Göstərilən cihaz haqqında bildirişlər üçün istifadə olunur
 Comment[ca]=S'usa per a les notificacions d'un dispositiu específic
@@ -125,6 +128,7 @@ Comment[sl]=Uporablja se za obvestila o določeni napravi
 Comment[sv]=Används för underrättelser om en specifik enhet
 Comment[uk]=Використовується для сповіщень щодо певного пристрою
 Comment[x-test]=xxUsed for notifications about a specific devicexx
+Comment[zh_CN]=用于为特定设备发送通知
 
 [Event/imminentDeviceFailure]
 Name=Imminent Device Failure
@@ -157,6 +161,7 @@ Name[sl]=Skorajšnja napaka naprave
 Name[sv]=Nära förestående fel
 Name[uk]=Неминуча відмова пристрою
 Name[x-test]=xxImminent Device Failurexx
+Name[zh_CN]=设备即将发生故障
 Comment=A device is showing signs of imminent failure
 Comment[az]=Cihaz sıradan çıxmaq üzrə olduğunu göstərir
 Comment[ca]=Un dispositiu mostra signes d'una fallada imminent
@@ -187,5 +192,6 @@ Comment[sl]=Naprava kaže znake skorajšnje okvare
 Comment[sv]=En enhet visar tecken på ett nära förestående fel
 Comment[uk]=Пристрій повідомляє про ознаки неминучої відмови у роботі
 Comment[x-test]=xxA device is showing signs of imminent failurexx
+Comment[zh_CN]=一个设备出现故障前兆
 Contexts=device
 Action=Popup
