@@ -16,7 +16,7 @@ class QJsonDocument;
 class SMARTStatus
 {
 public:
-    SMARTStatus(const QJsonObject &object);
+    explicit SMARTStatus(const QJsonObject &object);
 
     bool m_passed;
 };
@@ -25,7 +25,7 @@ public:
 class SMARTCtlData
 {
 public:
-    SMARTCtlData(const QJsonObject &object);
+    explicit SMARTCtlData(const QJsonObject &object);
 
     SMART::Failures failure() const;
 
@@ -37,7 +37,7 @@ private:
 class SMARTData
 {
 public:
-    SMARTData(const QJsonDocument &document);
+    explicit SMARTData(const QJsonDocument &document);
 
     SMARTCtlData m_smartctl;
     SMARTStatus m_status;

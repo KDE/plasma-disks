@@ -20,7 +20,7 @@ SMARTCtlData::SMARTCtlData(const QJsonObject &object)
 
 SMART::Failures SMARTCtlData::failure() const
 {
-    return SMART::Failures(static_cast<SMART::Failure>(m_exitStatus));
+    return {static_cast<SMART::Failure>(m_exitStatus)};
 }
 
 SMARTData::SMARTData(const QJsonDocument &document)

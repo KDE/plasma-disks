@@ -34,7 +34,7 @@ private Q_SLOTS:
                 QFile file(QFINDTESTDATA(fixture));
                 const bool open = file.open(QFile::ReadOnly);
                 Q_ASSERT(open);
-                QJsonParseError err;
+                QJsonParseError err{};
                 const auto document = QJsonDocument::fromJson(file.readAll(), &err);
                 Q_ASSERT(err.error == QJsonParseError::NoError);
 
