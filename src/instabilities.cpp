@@ -32,8 +32,9 @@ static QString smartCtlDataFailureToInstabilityString(SMART::Failure failure)
     case SMART::Failure::ErrorsRecorded:
         return i18nc("@label", "The device error log contains records of errors.");
     case SMART::Failure::SelfTestErrors:
-        return i18nc("@label",
-                     "The device self-test log contains records of errors. [ATA only] Failed self-tests outdated by a newer successful extended self-test are ignored.");
+        return i18nc(
+            "@label",
+            "The device self-test log contains records of errors. [ATA only] Failed self-tests outdated by a newer successful extended self-test are ignored.");
     }
     Q_UNREACHABLE();
     return {};
