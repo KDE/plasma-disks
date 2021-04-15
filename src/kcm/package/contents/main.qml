@@ -10,6 +10,9 @@ import org.kde.kirigami 2.12 as Kirigami
 import QtQuick.Controls 2.14
 
 KCM.SimpleKCM {
+    implicitWidth: Kirigami.Units.gridUnit * 28
+    implicitHeight: Kirigami.Units.gridUnit * 20
+
     Kirigami.CardsListView {
         id: listView
         width: 110
