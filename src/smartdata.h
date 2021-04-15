@@ -9,8 +9,8 @@
 
 #include "smartfailure.h"
 
-class QJsonObject;
 class QJsonDocument;
+class QJsonObject;
 
 /** Models "smart_status" blobs */
 class SMARTStatus
@@ -42,6 +42,14 @@ public:
     SMARTCtlData m_smartctl;
     SMARTStatus m_status;
     QString m_device;
+
+    // Keep at end so it's initialized last. m_valid is initialized
+    // from checkValid() and that requires other members to have been
+    // initialized already.
+    const bool m_valid = false;
+
+private:
+    bool checkValid(const QJsonDocument &document) const;
 };
 
 #endif // SMARTDATA_H

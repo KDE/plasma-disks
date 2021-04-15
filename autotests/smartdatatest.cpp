@@ -25,6 +25,7 @@ private Q_SLOTS:
         QCOMPARE(data.m_device, "/dev/testfoobarpass");
         QCOMPARE(data.m_status.m_passed, true);
         QVERIFY(!data.m_smartctl.failure());
+        QVERIFY(data.m_valid);
     }
 
     void testFail()
@@ -37,6 +38,7 @@ private Q_SLOTS:
         QCOMPARE(data.m_device, "/dev/testfoobarfail");
         QCOMPARE(data.m_status.m_passed, false);
         QVERIFY(!data.m_smartctl.failure());
+        QVERIFY(data.m_valid);
     }
 
     void testBroken()
@@ -52,6 +54,7 @@ private Q_SLOTS:
                  SMART::Failures({SMART::Failure::Disk, SMART::Failure::Prefail, SMART::Failure::ErrorsRecorded, SMART::Failure::SelfTestErrors}));
         QVERIFY(data.m_smartctl.failure());
         QVERIFY(!!data.m_smartctl.failure());
+        QVERIFY(data.m_valid);
     }
 
     void testTimeout()
@@ -67,6 +70,7 @@ private Q_SLOTS:
         QCOMPARE(data.m_smartctl.failure(), SMART::Failures({SMART::Failure::InternalCommand}));
         QVERIFY(data.m_smartctl.failure());
         QVERIFY(!!data.m_smartctl.failure());
+        QVERIFY(data.m_valid);
     }
 
     void testFailingSectorsButPassingStatus()
@@ -79,6 +83,20 @@ private Q_SLOTS:
         QCOMPARE(data.m_device, "/dev/sdb");
         QCOMPARE(data.m_status.m_passed, true);
         QCOMPARE(data.m_smartctl.failure(), SMART::Failures({SMART::Failure::ErrorsRecorded | SMART::Failure::SelfTestErrors}));
+        QVERIFY(data.m_valid);
+    }
+
+    void testVBoxDrive()
+    {
+        // VBox virtual drives fail with bit2 and have no status
+        QFile file(QFINDTESTDATA("fixtures/invalid-vbox.json"));
+        QVERIFY(file.open(QFile::ReadOnly));
+        auto doc = QJsonDocument::fromJson(file.readAll());
+        SMARTData data(doc);
+        QCOMPARE(data.m_device, "/dev/sda");
+        QCOMPARE(data.m_status.m_passed, false);
+        QCOMPARE(data.m_smartctl.failure(), SMART::Failures({SMART::Failure::InternalCommand}));
+        QVERIFY(!data.m_valid);
     }
 };
 

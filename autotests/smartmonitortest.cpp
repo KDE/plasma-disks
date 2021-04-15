@@ -27,7 +27,9 @@ private Q_SLOTS:
         struct Ctl : public AbstractSMARTCtl {
             void run(const QString &devicePath) override
             {
-                static QMap<QString, QString> data{{"/dev/testfoobarpass", "fixtures/pass.json"}, {"/dev/testfoobarfail", "fixtures/fail.json"}};
+                static QMap<QString, QString> data{{"/dev/testfoobarpass", "fixtures/pass.json"},
+                                                   {"/dev/invalid-vbox.json", "fixtures/invalid-vbox.json"},
+                                                   {"/dev/testfoobarfail", "fixtures/fail.json"}};
 
                 const QString fixture = data.value(devicePath);
                 Q_ASSERT(!fixture.isEmpty());
@@ -51,6 +53,7 @@ private Q_SLOTS:
             void loadData() override
             {
                 Q_EMIT addDevice(new Device{"udi-pass", "product", "/dev/testfoobarpass"});
+                Q_EMIT addDevice(new Device{"udi-invalid", "product", "/dev/invalid-vbox.json"});
                 // discover this twice to ensure notifications aren't duplicated!
                 Q_EMIT addDevice(new Device{"udi-fail", "product", "/dev/testfoobarfail"});
                 Q_EMIT addDevice(new Device{"udi-fail", "product", "/dev/testfoobarfail"});
@@ -68,11 +71,15 @@ private Q_SLOTS:
         QCOMPARE(monitor.devices().count(), 2); // There are 3 devices but one is a dupe.
 
         bool sawPass = false;
+        bool sawInvalid = false;
         bool sawFail = false;
         for (const auto *device : monitor.devices()) {
             if (device->path() == "/dev/testfoobarpass") {
                 QVERIFY(!device->failed());
                 sawPass = true;
+            }
+            if (device->path() == "/dev/invalid") {
+                sawInvalid = true;
             }
             if (device->path() == "/dev/testfoobarfail") {
                 QVERIFY(device->failed());
@@ -80,6 +87,7 @@ private Q_SLOTS:
             }
         }
         QVERIFY(sawPass);
+        QVERIFY(!sawInvalid); // mustn't be seen, it's an invalid device ;)
         QVERIFY(sawFail);
 
         // Ensure removing works as well.

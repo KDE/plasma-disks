@@ -49,7 +49,7 @@ void SMARTCtl::run(const QString &devicePath)
         const auto json = data.value(QStringLiteral("data"), QByteArray()).toByteArray();
 
         QJsonDocument document;
-        if (json.isEmpty() || code & SMART::Failure::CmdLineParse || code & SMART::Failure::DeviceOpen) {
+        if (json.isEmpty()) {
             qCDebug(KDED) << "looks like we got no data back for" << devicePath << code << json.isEmpty();
         } else {
             document = QJsonDocument::fromJson(json);

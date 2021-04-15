@@ -7,6 +7,8 @@
 #include <QJsonObject>
 #include <QJsonValue>
 
+#include "kded_debug.h"
+
 SMARTStatus::SMARTStatus(const QJsonObject &object)
     : m_passed(object[QStringLiteral("passed")].toBool())
 {
@@ -27,5 +29,28 @@ SMARTData::SMARTData(const QJsonDocument &document)
     : m_smartctl(SMARTCtlData(document.object()[QStringLiteral("smartctl")].toObject()))
     , m_status(SMARTStatus(document.object()[QStringLiteral("smart_status")].toObject()))
     , m_device(document.object()[QStringLiteral("device")].toObject()[QStringLiteral("name")].toString())
+    , m_valid(checkValid(document))
 {
+}
+
+bool SMARTData::checkValid(const QJsonDocument &document) const
+{
+    if (m_smartctl.failure() & SMART::Failure::CmdLineParse) {
+        qCDebug(KDED) << "Command line error" << m_device << document.toJson();
+        return false;
+    }
+    if (m_smartctl.failure() & SMART::Failure::DeviceOpen) {
+        qCDebug(KDED) << "Failed to open device" << m_device << document.toJson();
+        return false;
+    }
+    const bool hasSMARTStatus = document.object().contains(QStringLiteral("smart_status"));
+    const bool internalCommandFailure = (m_smartctl.failure() & SMART::Failure::InternalCommand);
+    if (!hasSMARTStatus && internalCommandFailure) {
+        // VirtualBox drives return with InternalCommand problems and no SMART data. Consider the data invalid.
+        // If we also have other failure codes we'll still want to consider the data valid as it might indicate
+        // problems.
+        qCDebug(KDED) << "Internal command problems resulted in no smart_status data" << m_device << document.toJson();
+        return false;
+    }
+    return true;
 }

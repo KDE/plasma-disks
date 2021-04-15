@@ -12,5 +12,6 @@
       <file alias='fail.json'>./fail.json</file>
       <file alias='missing-status.json'>./missing-status.json</file>
       <file alias='pass.json'>./pass.json</file>
+      <file alias='invalid-vbox.json'>./invalid-vbox.json</file>
    </qresource>
 </RCC>
