@@ -3,6 +3,8 @@
 
 #include "smartmonitor.h"
 
+#include <chrono>
+
 #include <KLocalizedString>
 
 #include "device.h"
@@ -12,6 +14,8 @@
 #include "smartctl.h"
 #include "smartdata.h"
 
+using namespace std::chrono_literals;
+
 SMARTMonitor::SMARTMonitor(std::unique_ptr<AbstractSMARTCtl> ctl, std::unique_ptr<DeviceNotifier> deviceNotifier, QObject *parent)
     : QObject(parent)
     , m_ctl(std::move(ctl))
@@ -19,7 +23,7 @@ SMARTMonitor::SMARTMonitor(std::unique_ptr<AbstractSMARTCtl> ctl, std::unique_pt
 {
     connect(&m_reloadTimer, &QTimer::timeout, this, &SMARTMonitor::reloadData);
     connect(m_ctl.get(), &AbstractSMARTCtl::finished, this, &SMARTMonitor::onSMARTCtlFinished);
-    m_reloadTimer.setInterval(1000 * 60 /*minute*/ * 60 /*hour*/ * 24 /*day*/);
+    m_reloadTimer.setInterval(24h);
 }
 
 void SMARTMonitor::start()
