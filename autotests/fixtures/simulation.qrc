@@ -13,5 +13,6 @@
       <file alias='missing-status.json'>./missing-status.json</file>
       <file alias='pass.json'>./pass.json</file>
       <file alias='invalid-vbox.json'>./invalid-vbox.json</file>
+      <file alias='pass-without-status.json'>./pass-without-status.json</file>
    </qresource>
 </RCC>

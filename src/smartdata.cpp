@@ -52,5 +52,14 @@ bool SMARTData::checkValid(const QJsonDocument &document) const
         qCDebug(KDED) << "Internal command problems resulted in no smart_status data" << m_device << document.toJson();
         return false;
     }
+    const bool noFailure = m_smartctl.failure() == SMART::Failures();
+    if (!hasSMARTStatus && noFailure) {
+        // When SMART is disabled we may get a blob back but it will lack any information on the SMART status.
+        // Unfortunately the fact that SMART was disabled (versus not available etc.) isn't codified in the JSON.
+        // https://bugs.kde.org/show_bug.cgi?id=435699
+        qCDebug(KDED) << "SMART support is either disabled or not supported on the device" << m_device << document.toJson();
+        return false;
+    }
+
     return true;
 }

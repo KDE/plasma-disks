@@ -98,6 +98,21 @@ private Q_SLOTS:
         QCOMPARE(data.m_smartctl.failure(), SMART::Failures({SMART::Failure::InternalCommand}));
         QVERIFY(!data.m_valid);
     }
+
+    void testNoSmartStatusNoError()
+    {
+        // When SMART is disabled we get no smart_status but also no error. Ought to be invalid all the same and
+        // ignored.
+        // https://bugs.kde.org/show_bug.cgi?id=435699
+        QFile file(QFINDTESTDATA("fixtures/pass-without-status.json"));
+        QVERIFY(file.open(QFile::ReadOnly));
+        auto doc = QJsonDocument::fromJson(file.readAll());
+        SMARTData data(doc);
+        QCOMPARE(data.m_device, "/dev/sdb");
+        QCOMPARE(data.m_status.m_passed, false);
+        QCOMPARE(data.m_smartctl.failure(), SMART::Failures());
+        QVERIFY(!data.m_valid);
+    }
 };
 
 QTEST_MAIN(SMARTDataTest)
