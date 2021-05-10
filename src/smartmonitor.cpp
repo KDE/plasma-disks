@@ -76,14 +76,14 @@ void SMARTMonitor::onSMARTCtlFinished(const QString &devicePath, const QJsonDocu
     }
 
     SMARTData data(document);
-    if (!devicePath.endsWith(QStringLiteral(".json"))) { // simulation data
-        Q_ASSERT(devicePath == data.m_device);
-    }
-
     if (!data.m_valid) {
         qCDebug(KDED) << "Invalid SMART data; skipping" << devicePath;
         device->deleteLater();
         return;
+    }
+
+    if (!devicePath.endsWith(QStringLiteral(".json"))) { // simulation data
+        Q_ASSERT(devicePath == data.m_device);
     }
 
     auto existingIt = std::find_if(m_devices.begin(), m_devices.end(), [&device](Device *existing) {
