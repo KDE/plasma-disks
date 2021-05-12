@@ -29,7 +29,8 @@ private Q_SLOTS:
             {
                 static QMap<QString, QString> data{{"/dev/testfoobarpass", "fixtures/pass.json"},
                                                    {"/dev/invalid-vbox.json", "fixtures/invalid-vbox.json"},
-                                                   {"/dev/testfoobarfail", "fixtures/fail.json"}};
+                                                   {"/dev/testfoobarfail", "fixtures/fail.json"},
+                                                   {"/dev/invalid-cmdline-bad-usb-bridge", "fixtures/invalid-cmdline-bad-usb-bridge.json"}};
 
                 const QString fixture = data.value(devicePath);
                 Q_ASSERT(!fixture.isEmpty());
@@ -54,6 +55,7 @@ private Q_SLOTS:
             {
                 Q_EMIT addDevice(new Device{"udi-pass", "product", "/dev/testfoobarpass"});
                 Q_EMIT addDevice(new Device{"udi-invalid", "product", "/dev/invalid-vbox.json"});
+                Q_EMIT addDevice(new Device{"udi-invalid-cmdline-bad-usb-bridge", "product", "/dev/invalid-cmdline-bad-usb-bridge"});
                 // discover this twice to ensure notifications aren't duplicated!
                 Q_EMIT addDevice(new Device{"udi-fail", "product", "/dev/testfoobarfail"});
                 Q_EMIT addDevice(new Device{"udi-fail", "product", "/dev/testfoobarfail"});
@@ -73,6 +75,7 @@ private Q_SLOTS:
         bool sawPass = false;
         bool sawInvalid = false;
         bool sawFail = false;
+        bool sawInvalidCmdLine = false;
         for (const auto *device : monitor.devices()) {
             if (device->path() == "/dev/testfoobarpass") {
                 QVERIFY(!device->failed());
@@ -81,6 +84,9 @@ private Q_SLOTS:
             if (device->path() == "/dev/invalid") {
                 sawInvalid = true;
             }
+            if (device->path() == "/dev/invalid-cmdline-bad-usb-bridge") {
+                sawInvalidCmdLine = true;
+            }
             if (device->path() == "/dev/testfoobarfail") {
                 QVERIFY(device->failed());
                 sawFail = true;
@@ -88,6 +94,7 @@ private Q_SLOTS:
         }
         QVERIFY(sawPass);
         QVERIFY(!sawInvalid); // mustn't be seen, it's an invalid device ;)
+        QVERIFY(!sawInvalidCmdLine); // ditto
         QVERIFY(sawFail);
 
         // Ensure removing works as well.
