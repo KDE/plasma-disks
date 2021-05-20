@@ -3,14 +3,14 @@
 
 #pragma once
 
-#include <QtCore/QByteArray>
-#include <QtCore/QList>
-#include <QtCore/QMap>
-#include <QtCore/QObject>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QVariant>
-#include <QtDBus/QtDBus>
+#include <QByteArray>
+#include <QList>
+#include <QMap>
+#include <QObject>
+#include <QString>
+#include <QStringList>
+#include <QVariant>
+#include <QtDBus>
 
 #include "org.freedesktop.DBus.ObjectManager.h" // needed for typedefs
 
