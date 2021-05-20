@@ -1,9 +1,10 @@
 # SPDX-License-Identifier: CC0-1.0
 # SPDX-FileCopyrightText: none
-/build
+/build*
 cmake-build-debug*
 .idea
 .clang-format
 /compile_commands.json
 .clangd
 .cache
+
