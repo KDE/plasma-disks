@@ -25,7 +25,7 @@ static bool isSimulation()
 #endif
 
 template<class... Args>
-static std::unique_ptr<AbstractSMARTCtl> make_unique_smartctl(Args &&... args)
+static std::unique_ptr<AbstractSMARTCtl> make_unique_smartctl(Args &&...args)
 {
 #ifdef WITH_SIMULATION
     if (isSimulation()) {
@@ -36,7 +36,7 @@ static std::unique_ptr<AbstractSMARTCtl> make_unique_smartctl(Args &&... args)
 }
 
 template<class... Args>
-static std::unique_ptr<DeviceNotifier> make_unique_devicenotifier(Args &&... args)
+static std::unique_ptr<DeviceNotifier> make_unique_devicenotifier(Args &&...args)
 {
 #ifdef WITH_SIMULATION
     if (isSimulation()) {
