@@ -84,9 +84,10 @@ void SMARTNotifier::onMaybeFailed()
 void SMARTNotifier::maybeFailed(const Device *device)
 {
     Q_ASSERT(device);
-    // We notify on instabilities in the hopes that there won't be false positives.
-    // Might need revisiting.
-    if ((!device->failed() && device->instabilities().isEmpty()) || device->ignore()) {
+    // NB: do not notify on instabilities in 5.22 it's shown to raise false positives or at least be annoying when
+    //   failure seems unlikely. fixing it properly requires larger changes to the UI and strings
+    // https://bugs.kde.org/show_bug.cgi?id=438539
+    if ((!device->failed() /*&& device->instabilities().isEmpty()*/) || device->ignore()) {
         return;
     }
 
