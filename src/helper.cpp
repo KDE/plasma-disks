@@ -66,7 +66,7 @@ ActionReply SMARTHelper::smartctl(const QVariantMap &args)
     }
 
     // PATH is super minimal when invoked through dbus
-    setenv("PATH", "/usr/sbin:/sbin", 1);
+    setenv("PATH", "/usr/sbin:/sbin:/usr/local/sbin", 1);
     QProcess p;
     // json=c is badly documented and means "gimme json but don't pretty print"
     p.start(QStringLiteral("smartctl"), {QStringLiteral("--all"), QStringLiteral("--json=c"), devicePath}, QProcess::ReadOnly);
