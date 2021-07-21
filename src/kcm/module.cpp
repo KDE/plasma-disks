@@ -5,10 +5,13 @@
 
 #include <KAboutData>
 #include <KLocalizedString>
+#include <KPluginFactory>
 
 #include "devicemodel.h"
 #include "servicerunner.h"
 #include "version.h"
+
+K_PLUGIN_CLASS_WITH_JSON(Module, "smart.json")
 
 Module::Module(QObject *parent, const QVariantList &args)
     : KQuickAddons::ConfigModule(parent, args)
@@ -42,3 +45,5 @@ void Module::save()
 void Module::defaults()
 {
 }
+
+#include "module.moc"

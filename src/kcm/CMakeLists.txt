@@ -7,7 +7,6 @@ file(GLOB QML_SRCS package/contents/*.qml)
 add_custom_target(QmlFiles ALL echo SOURCES ${QML_SRCS})
 
 set(kcm_SRCS
-    main.cpp
     module.cpp
     devicemodel.cpp
     servicerunner.cpp
