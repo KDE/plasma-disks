@@ -54,9 +54,7 @@ if(BUILD_TESTING)
     add_subdirectory(autotests)
 endif()
 
-if(IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
-    ki18n_install(po)
-endif()
+ki18n_install(po)
 
 install(FILES org.kde.plasma.disks.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
