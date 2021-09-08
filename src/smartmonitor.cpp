@@ -32,6 +32,7 @@ void SMARTMonitor::start()
     connect(m_deviceNotifier.get(), &DeviceNotifier::addDevice, this, &SMARTMonitor::addDevice);
     connect(m_deviceNotifier.get(), &DeviceNotifier::removeUDI, this, &SMARTMonitor::removeUDI);
     QMetaObject::invokeMethod(m_deviceNotifier.get(), &DeviceNotifier::start, Qt::QueuedConnection); // async to ensure listeners are ready
+    m_reloadTimer.start();
 }
 
 QVector<Device *> SMARTMonitor::devices() const
