@@ -36,6 +36,10 @@ Icon=preferences-smart-status
 URL=https://www.kde.org
 
 [org.kde.kded.smart.smartctl]
+Policy=yes
+PolicyInactive=yes
+# require auth, only useful for testing
+#Policy=auth_admin
 Name=Read SMART Report Details
 Name[az]=SMART Hesabatı Təfərrüatlarını Oxumaq
 Name[ca]=Llegeix els detalls de l'informe SMART
@@ -98,8 +102,3 @@ Description[sv]=Läs lagringsenhetens SMART-rapport för att kontrollera enheten
 Description[uk]=Ознайомлення зі звітом SMART щодо пристрою для зберігання даних для перевірки стану пристрою
 Description[x-test]=xxRead storage device SMART report to check the device's healthxx
 Description[zh_CN]=读取存储设备的 SMART 报告以检查该设备的健康状况
-Policy=yes
-PolicyInactive=auth_admin
-
-# require auth, only useful for testing
-#Policy=auth_admin
