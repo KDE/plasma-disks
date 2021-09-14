@@ -5,6 +5,14 @@
 
 #include <QFile>
 
+static QString readCLIData()
+{
+    QFile file(":/plasma-disks/fixtures/cli.txt");
+    const bool open = file.open(QFile::ReadOnly);
+    Q_ASSERT(open);
+    return file.readAll();
+}
+
 void SimulationCtl::run(const QString &devicePath)
 {
     qDebug() << "SIMULATING" << devicePath;
@@ -13,5 +21,5 @@ void SimulationCtl::run(const QString &devicePath)
     QJsonParseError error;
     const auto document = QJsonDocument::fromJson(file.readAll(), &error);
     Q_ASSERT(error.error == QJsonParseError::NoError);
-    Q_EMIT finished(devicePath, document);
+    Q_EMIT finished(devicePath, document, readCLIData());
 }

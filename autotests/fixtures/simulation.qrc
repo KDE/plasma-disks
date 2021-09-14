@@ -14,5 +14,6 @@
       <file alias='pass.json'>./pass.json</file>
       <file alias='invalid-vbox.json'>./invalid-vbox.json</file>
       <file alias='pass-without-status.json'>./pass-without-status.json</file>
+      <file alias='cli.txt'>./cli.txt</file>
    </qresource>
 </RCC>

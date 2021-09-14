@@ -60,7 +60,7 @@ void SMARTMonitor::reloadData()
     m_reloadTimer.start();
 }
 
-void SMARTMonitor::onSMARTCtlFinished(const QString &devicePath, const QJsonDocument &document)
+void SMARTMonitor::onSMARTCtlFinished(const QString &devicePath, const QJsonDocument &document, const QString &textDocument)
 {
     auto pendingIt = m_pendingDevices.find(devicePath);
     if (pendingIt == m_pendingDevices.end()) {
@@ -97,11 +97,13 @@ void SMARTMonitor::onSMARTCtlFinished(const QString &devicePath, const QJsonDocu
         // update failure and call it a day. Notification is handled by the Device.
         existing->setInstabilities(Instabilities::from(data));
         existing->setFailed(!data.m_status.m_passed);
+        existing->setAdvancedReport(textDocument);
 
         return;
     }
     device->setInstabilities(Instabilities::from(data));
     device->setFailed(!data.m_status.m_passed);
+    device->setAdvancedReport(textDocument);
 
     m_devices << device;
     emit deviceAdded(device);

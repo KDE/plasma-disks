@@ -67,9 +67,19 @@ ActionReply SMARTHelper::smartctl(const QVariantMap &args)
 
     // PATH is super minimal when invoked through dbus
     setenv("PATH", "/usr/sbin:/sbin:/usr/local/sbin", 1);
-    QProcess p;
+
+    const QString command = QStringLiteral("smartctl");
+    const QString all = QStringLiteral("--all");
+
+    // JSON output.
+    QProcess jsonProcess;
     // json=c is badly documented and means "gimme json but don't pretty print"
-    p.start(QStringLiteral("smartctl"), {QStringLiteral("--all"), QStringLiteral("--json=c"), devicePath}, QProcess::ReadOnly);
+    jsonProcess.start(command, {all, QStringLiteral("--json=c"), devicePath}, QProcess::ReadOnly);
+
+    // Diagnostic CLI output for advanced users.
+    QProcess cliProcess;
+    cliProcess.start(command, {all, devicePath}, QProcess::ReadOnly);
+
     // Wait for 120 seconds + 5 seconds leeway.
     // This allows us to ideally let smartctl time out internally and still
     // construct a json blob if possible. The kernel ioctl timeout for nvme
@@ -77,11 +87,19 @@ ActionReply SMARTHelper::smartctl(const QVariantMap &args)
     // appear to be in that range but there may be more than one :|
     // https://bugs.kde.org/show_bug.cgi?id=428844
     using namespace std::chrono_literals;
-    p.waitForFinished(std::chrono::milliseconds(125s).count());
+    if (!jsonProcess.waitForFinished(std::chrono::milliseconds(125s).count())) {
+        qDebug() << "jsonProcess has not finished in time";
+    }
+    // CLI was also running. Give it a bit of extra time still in case there was resource contention.
+    if (!cliProcess.waitForFinished(std::chrono::milliseconds(10s).count())) {
+        qDebug() << "cliProcess has not finished in time";
+    }
 
     ActionReply reply;
-    reply.addData(QStringLiteral("exitCode"), p.exitCode());
-    reply.addData(QStringLiteral("data"), p.readAllStandardOutput());
+    reply.addData(QStringLiteral("exitCode"), jsonProcess.exitCode());
+    reply.addData(QStringLiteral("data"), jsonProcess.readAllStandardOutput());
+    reply.addData(QStringLiteral("cliExitCode"), cliProcess.exitCode());
+    reply.addData(QStringLiteral("cliData"), cliProcess.readAllStandardOutput());
     return reply;
 }
 

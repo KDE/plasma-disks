@@ -33,7 +33,7 @@ signals:
 private slots:
     void removeUDI(const QString &udi);
     void reloadData();
-    void onSMARTCtlFinished(const QString &devicePath, const QJsonDocument &document);
+    void onSMARTCtlFinished(const QString &devicePath, const QJsonDocument &document, const QString &textDocument);
 
 private:
     void addDevice(Device *device);

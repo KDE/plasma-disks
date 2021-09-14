@@ -10,6 +10,7 @@ import org.kde.kirigami 2.12 as Kirigami
 import QtQuick.Controls 2.14
 
 KCM.SimpleKCM {
+    id: root
     implicitWidth: Kirigami.Units.gridUnit * 28
     implicitHeight: Kirigami.Units.gridUnit * 20
 
@@ -105,6 +106,15 @@ KCM.SimpleKCM {
                     icon.name: ignore ? "view-visible" : "view-hidden"
                     onTriggered: {
                         model.ignore = !ignore
+                    }
+                },
+                Kirigami.Action {
+                    visible: model.advancedReport !== ''
+                    text: i18nc("@action/button show detailed smart report", "Detailed Information")
+                    icon.name: "dialog-scripts"
+                    onTriggered: {
+                        // NB: push daftly hardcodes ui/ as prefix....
+                        kcm.push("ReportPage.qml", {title: product, text: advancedReport})
                     }
                 }
             ]

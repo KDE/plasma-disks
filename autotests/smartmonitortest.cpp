@@ -25,6 +25,14 @@ private Q_SLOTS:
     void testRun()
     {
         struct Ctl : public AbstractSMARTCtl {
+            static QString readCLIData()
+            {
+                QFile file(QFINDTESTDATA("fixtures/cli.txt"));
+                const bool open = file.open(QFile::ReadOnly);
+                Q_ASSERT(open);
+                return file.readAll();
+            }
+
             void run(const QString &devicePath) override
             {
                 static QMap<QString, QString> data{{"/dev/testfoobarpass", "fixtures/pass.json"},
@@ -41,7 +49,8 @@ private Q_SLOTS:
                 const auto document = QJsonDocument::fromJson(file.readAll(), &err);
                 Q_ASSERT(err.error == QJsonParseError::NoError);
 
-                Q_EMIT finished(devicePath, document);
+                static QString cliData = readCLIData();
+                Q_EMIT finished(devicePath, document, cliData);
             }
         };
 

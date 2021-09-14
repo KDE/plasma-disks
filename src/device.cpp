@@ -89,3 +89,19 @@ void Device::setInstabilities(const QStringList &instabilities)
     m_instabilities = instabilities;
     Q_EMIT instabilitiesChanged();
 }
+
+QString Device::advancedReport() const
+{
+    return m_advancedReport;
+}
+
+void Device::setAdvancedReport(const QString &report)
+{
+    // clean up excess whitespaces. This also helps us with detecting truly empty output.
+    const QString newReport = report.trimmed();
+    if (m_advancedReport == newReport) {
+        return;
+    }
+    m_advancedReport = newReport;
+    Q_EMIT advancedReportChanged();
+}

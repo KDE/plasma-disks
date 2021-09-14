@@ -29,6 +29,7 @@ class Device : public QObject
     // 'failed' is writable for ease of testing and nothing more.
     Q_PROPERTY(bool failed READ failed WRITE setFailed NOTIFY failedChanged)
     Q_PROPERTY(bool ignore READ ignore WRITE setIgnore NOTIFY ignoreChanged)
+    Q_PROPERTY(QString advancedReport READ advancedReport NOTIFY advancedReportChanged)
 public:
     Device(const QString &udi_, const QString &product_, const QString &path_, QObject *parent = nullptr);
     explicit Device(const Solid::Device &solidDevice, QObject *parent = nullptr);
@@ -59,6 +60,10 @@ public:
     QStringList instabilities() const;
     void setInstabilities(const QStringList &instabilities);
 
+    QString advancedReport() const;
+    void setAdvancedReport(const QString &report);
+    Q_SIGNAL void advancedReportChanged();
+
 signals:
     void instabilitiesChanged();
     void failedChanged();
@@ -71,4 +76,5 @@ private:
     QStringList m_instabilities;
     bool m_failed = false;
     bool m_ignored = false;
+    QString m_advancedReport;
 };

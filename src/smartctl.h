@@ -13,11 +13,16 @@ class AbstractSMARTCtl : public QObject
 {
     Q_OBJECT
 public:
-    virtual ~AbstractSMARTCtl() = default;
+    ~AbstractSMARTCtl() override = default;
     virtual void run(const QString &devicePath) = 0;
 
 signals:
-    void finished(const QString &devicePath, const QJsonDocument &document) const;
+    /**
+     * @param devicePath the device the request was finished for (same as was passed into run())
+     * @param document the JSON presentation of the report
+     * @param the text presentation of the report (ordinary CLI output from smartctl)
+     */
+    void finished(const QString &devicePath, const QJsonDocument &document, const QString &textDocument) const;
 
 protected:
     AbstractSMARTCtl() = default;
