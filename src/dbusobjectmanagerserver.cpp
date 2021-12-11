@@ -32,7 +32,7 @@ public:
         }
     }
 
-private slots:
+private Q_SLOTS:
     void onPropertyChanged()
     {
         if (!sender() || senderSignalIndex() == -1) {
@@ -82,7 +82,7 @@ KDBusObjectManagerServer::KDBusObjectManagerServer(QObject *parent)
 bool KDBusObjectManagerServer::serve(QObject *object)
 {
     m_managedObjects << object;
-    emit InterfacesAdded(path(object), interfacePropertiesMap(object));
+    Q_EMIT InterfacesAdded(path(object), interfacePropertiesMap(object));
     connect(object, &QObject::destroyed, this, [this](QObject *obj) {
         unserve(obj);
     }); // auto-unserve
@@ -98,7 +98,7 @@ bool KDBusObjectManagerServer::serve(QObject *object)
 void KDBusObjectManagerServer::unserve(QObject *object)
 {
     const QStringList interfaces = metaObjectsFor(object).keys();
-    emit InterfacesRemoved(path(object), {interfaces});
+    Q_EMIT InterfacesRemoved(path(object), {interfaces});
     QDBusConnection::sessionBus().unregisterObject(path(object).path());
     m_managedObjects.removeAll(object);
 }

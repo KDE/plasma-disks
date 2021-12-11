@@ -63,7 +63,7 @@ void SMARTCtl::run(const QString &devicePath)
             m_requestQueue.pop();
         }
 
-        emit finished(devicePath, document, data.value(QStringLiteral("cliData")).toString());
+        Q_EMIT finished(devicePath, document, data.value(QStringLiteral("cliData")).toString());
     });
     job->start();
 }

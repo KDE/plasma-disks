@@ -12,7 +12,6 @@ void SimulationDeviceNotifier::start()
 {
     loadData();
 }
-#include <QDebug>
 void SimulationDeviceNotifier::loadData()
 {
     QDirIterator it(QStringLiteral(":/plasma-disks/fixtures/"), {QStringLiteral("*.json")});

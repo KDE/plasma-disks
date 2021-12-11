@@ -114,7 +114,7 @@ protected:
     }
 
 private:
-    OrgFreedesktopDBusPropertiesInterface *m_dbusObject;
+    OrgFreedesktopDBusPropertiesInterface *const m_dbusObject;
 };
 
 void DeviceModel::addObject(const QDBusObjectPath &dbusPath, const KDBusObjectManagerInterfacePropertiesMap &interfacePropertyMap)
@@ -160,7 +160,7 @@ void DeviceModel::addObject(const QDBusObjectPath &dbusPath, const KDBusObjectMa
                     Q_ASSERT(role != -1);
                     const int index = m_objects.indexOf(obj);
                     Q_ASSERT(index != -1);
-                    emit dataChanged(createIndex(index, 0), createIndex(index, 0), {role});
+                    Q_EMIT dataChanged(createIndex(index, 0), createIndex(index, 0), {role});
                 }
             });
 
@@ -221,13 +221,13 @@ void DeviceModel::reset()
         m_iface->disconnect(this);
         m_iface->deleteLater();
         m_iface = nullptr;
-        emit validChanged();
+        Q_EMIT validChanged();
     }
 
     if (m_getManagedObjectsWatcher) {
         m_getManagedObjectsWatcher->deleteLater();
         m_getManagedObjectsWatcher = nullptr;
-        emit waitingChanged();
+        Q_EMIT waitingChanged();
     }
 
     endResetModel();
@@ -241,7 +241,7 @@ void DeviceModel::reload()
     connect(m_iface, &OrgFreedesktopDBusObjectManagerInterface::InterfacesAdded, this, &DeviceModel::addObject);
     connect(m_iface, &OrgFreedesktopDBusObjectManagerInterface::InterfacesRemoved, this, &DeviceModel::removeObject);
 
-    emit validChanged();
+    Q_EMIT validChanged();
 
     // Load existing objects.
     if (m_getManagedObjectsWatcher) {
@@ -249,7 +249,7 @@ void DeviceModel::reload()
         m_getManagedObjectsWatcher->deleteLater();
     }
     m_getManagedObjectsWatcher = new QDBusPendingCallWatcher(m_iface->GetManagedObjects(), this);
-    emit waitingChanged();
+    Q_EMIT waitingChanged();
     connect(m_getManagedObjectsWatcher, &QDBusPendingCallWatcher::finished, this, [this] {
         QDBusPendingReply<KDBusObjectManagerObjectPathInterfacePropertiesMap> call = *m_getManagedObjectsWatcher;
         auto map = call.value();
@@ -258,7 +258,7 @@ void DeviceModel::reload()
         }
         m_getManagedObjectsWatcher->deleteLater();
         m_getManagedObjectsWatcher = nullptr;
-        emit waitingChanged();
+        Q_EMIT waitingChanged();
     });
 }
 

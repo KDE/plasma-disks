@@ -58,7 +58,7 @@ void Device::setFailed(bool failed)
         return;
     }
     m_failed = failed;
-    emit failedChanged();
+    Q_EMIT failedChanged();
 }
 
 bool Device::ignore() const
@@ -71,9 +71,9 @@ void Device::setIgnore(bool ignored)
     if (m_ignored == ignored) {
         return;
     }
-    KSharedConfig::openConfig("org.kde.kded.smart")->group("Ignores").writeEntry(m_udi, ignored);
+    KSharedConfig::openConfig(QStringLiteral("org.kde.kded.smart"))->group("Ignores").writeEntry(m_udi, ignored);
     m_ignored = ignored;
-    emit ignoreChanged();
+    Q_EMIT ignoreChanged();
 }
 
 QStringList Device::instabilities() const

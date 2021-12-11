@@ -33,7 +33,7 @@ public:
 
     static void registerTypes();
 
-public slots:
+public Q_SLOTS:
     KDBusObjectManagerObjectPathInterfacePropertiesMap GetManagedObjects();
 
 signals:

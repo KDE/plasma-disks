@@ -47,7 +47,7 @@ void SMARTMonitor::removeUDI(const QString &udi)
             return false;
         }
 
-        emit deviceRemoved(dev);
+        Q_EMIT deviceRemoved(dev);
         dev->deleteLater();
         return true;
     });
@@ -106,7 +106,7 @@ void SMARTMonitor::onSMARTCtlFinished(const QString &devicePath, const QJsonDocu
     device->setAdvancedReport(textDocument);
 
     m_devices << device;
-    emit deviceAdded(device);
+    Q_EMIT deviceAdded(device);
 }
 
 void SMARTMonitor::addDevice(Device *device)

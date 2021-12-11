@@ -19,8 +19,8 @@ void ServiceRunner::setName(const QString &name)
 {
     m_name = name;
     m_service = KService::serviceByDesktopName(name);
-    emit nameChanged();
-    emit canRunChanged();
+    Q_EMIT nameChanged();
+    Q_EMIT canRunChanged();
 }
 
 bool ServiceRunner::canRun() const
