@@ -34,13 +34,14 @@ ecm_qt_declare_logging_category(
 )
 
 add_library(statickdedsmart STATIC ${kded_SRCS})
+set_property(TARGET statickdedsmart PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_include_directories(statickdedsmart
     PUBLIC
         "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR};${CMAKE_CURRENT_BINARY_DIR}>")
 target_link_libraries(statickdedsmart
     PUBLIC
-    Qt::Core
-    Qt::DBus
+    Qt${QT_MAJOR_VERSION}::Core
+    Qt${QT_MAJOR_VERSION}::DBus
     KF5::Solid
     KF5::I18n
     KF5::Notifications
@@ -55,7 +56,7 @@ add_library(kded-smart MODULE main.cpp)
 kcoreaddons_desktop_to_json(kded-smart smart.desktop)
 set_target_properties(kded-smart PROPERTIES OUTPUT_NAME smart)
 target_link_libraries(kded-smart statickdedsmart)
-install(TARGETS kded-smart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded)
+install(TARGETS kded-smart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/kded)
 
 kauth_install_actions(org.kde.kded.smart org.kde.kded.smart.actions)
 add_executable(kded-smart-helper helper.cpp)
@@ -64,6 +65,6 @@ target_link_libraries(kded-smart-helper KF5::AuthCore KF5::ConfigCore KF5::I18n)
 kauth_install_helper_files(kded-smart-helper org.kde.kded.smart root)
 install(TARGETS kded-smart-helper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 
-install(FILES org.kde.kded.smart.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
+install(FILES org.kde.kded.smart.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
 
 add_subdirectory(kcm)

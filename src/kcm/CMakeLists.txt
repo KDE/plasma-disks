@@ -16,7 +16,7 @@ set(kcm_SRCS
 # we'll not have access to them here as cmake claims
 #   No rule to make target 'src/org.kde.smart.Device.xml'
 # Instead generate the xmls (again) here...
-qt5_generate_dbus_interface(../device.h org.kde.kded.smart.Device.xml)
+qt_generate_dbus_interface(../device.h org.kde.kded.smart.Device.xml)
 qt_add_dbus_interface(kcm_SRCS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kded.smart.Device.xml org.kde.kded.smart.Device)
 
 qt_add_dbus_interface(kcm_SRCS org.freedesktop.DBus.Properties.xml org.freedesktop.DBus.Properties)
@@ -35,7 +35,7 @@ target_link_libraries(plasma_disks_kcm
     KF5::CoreAddons
     KF5::I18n
     KF5::QuickAddons
-    Qt::DBus
+    Qt${QT_MAJOR_VERSION}::DBus
     KF5::Solid)
 
 kcoreaddons_desktop_to_json(plasma_disks_kcm smart.desktop)
