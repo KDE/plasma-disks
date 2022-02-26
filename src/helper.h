@@ -3,8 +3,14 @@
 
 #ifndef HELPER_H
 #define HELPER_H
-
+#include <QObject>
+#include <kauth_version.h>
+#if KAUTH_VERSION >= QT_VERSION_CHECK(5, 92, 0)
+#include <KAuth/ActionReply>
+#include <KAuth/HelperSupport>
+#else
 #include <KAuth>
+#endif
 
 using namespace KAuth;
 
