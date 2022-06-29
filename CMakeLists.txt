@@ -27,6 +27,7 @@ include(KDEGitCommitHooks)
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Gui Core)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+    ConfigWidgets
     CoreAddons
     DBusAddons
     Notifications
