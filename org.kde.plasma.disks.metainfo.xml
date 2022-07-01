@@ -10,6 +10,7 @@
   <project_license>GPL-2.0+</project_license>
   <name>Plasma Disks</name>
   <name xml:lang="az">Plasma Diskləri</name>
+  <name xml:lang="bg">Дискове на Plasma</name>
   <name xml:lang="ca">Plasma Disks</name>
   <name xml:lang="ca-valencia">Plasma Disks</name>
   <name xml:lang="cs">Disky Plasma</name>
@@ -45,6 +46,7 @@
   <name xml:lang="zh-CN">Plasma 磁盘监控</name>
   <summary>Hard disk health monitoring for KDE Plasma</summary>
   <summary xml:lang="az">KDE Plasma üçün sərt diskin vəziyyətinin izlənilməsi</summary>
+  <summary xml:lang="bg">Програма на KDE Plasma за следене на състоянието на твърдите дискове</summary>
   <summary xml:lang="ca">Monitoratge de l'estat dels discs durs per al Plasma del KDE</summary>
   <summary xml:lang="ca-valencia">Monitoratge de l'estat dels discs durs per a Plasma de KDE</summary>
   <summary xml:lang="da">Overvågning af harddiskhelbred til KDE Plasma</summary>
@@ -80,6 +82,7 @@
   <description>
     <p>Plasma Disks monitors S.M.A.R.T. data of disks and alerts the user when signs of imminent failure appear.</p>
     <p xml:lang="az">Plasma Disklər, disklərin S.M.A.R.T verilənlərini idarə edir və istifadəçini baş verəcək nasazlıq barəsində xəbərdar edir.</p>
+    <p xml:lang="bg">Дискове на Plasma следи SMART данни от дисковете и уведомява потребителя при признаци за предстояща неизправност.</p>
     <p xml:lang="ca">El Plasma Disks controla les dades S.M.A.R.T. dels discs i alerta l'usuari quan apareixen signes de fallada imminent.</p>
     <p xml:lang="ca-valencia">Plasma Disks controla les dades S.M.A.R.T. dels discs i alerta l'usuari quan apareixen signes de fallada imminent.</p>
     <p xml:lang="da">Plasma Diske overvåger S.M.A.R.T.-data for diske og giver brugeren besked når der opstår tegn på snarligt nedbrud.</p>
@@ -117,6 +120,7 @@
     <screenshot type="default">
       <caption>The Plasma Disks Info Center module showing the state of devices.</caption>
       <caption xml:lang="az">Plasma Disklər Məlumat Mərkəzi modulu, qurğuların vəziyyətini göstərir.</caption>
+      <caption xml:lang="bg">Дискове на Plasma е модул на Информационния център, който показва състоянието на устройствата.</caption>
       <caption xml:lang="ca">El mòdul del Centre d'informació dels discs del Plasma que mostra l'estat dels dispositius.</caption>
       <caption xml:lang="ca-valencia">El mòdul de Centre d'informació dels discs de Plasma que mostra l'estat dels dispositius.</caption>
       <caption xml:lang="da">Plasma Diske Info Center-modulet viser enhedernes tilstande.</caption>
@@ -155,6 +159,7 @@
   <project_group>KDE</project_group>
   <developer_name>Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="az">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="bg">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="ca">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="ca-valencia">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="cs">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
