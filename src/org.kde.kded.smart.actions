@@ -3,6 +3,7 @@
 [Domain]
 Name=Plasma SMART
 Name[az]=Plasma SMART
+Name[bg]=Plasma SMART
 Name[ca]=Plasma SMART
 Name[ca@valencia]=Plasma SMART
 Name[da]=Plasma SMART
@@ -43,6 +44,7 @@ PolicyInactive=yes
 #Policy=auth_admin
 Name=Read SMART Report Details
 Name[az]=SMART Hesabatı Təfərrüatlarını Oxumaq
+Name[bg]=Прочитане на SMART отчета
 Name[ca]=Llegeix els detalls de l'informe SMART
 Name[ca@valencia]=Llig els detalls de l'informe SMART
 Name[da]=Læs detaljer fra SMART-rapport
@@ -75,6 +77,7 @@ Name[x-test]=xxRead SMART Report Detailsxx
 Name[zh_CN]=读取 SMART 报告详情
 Description=Read storage device SMART report to check the device's health
 Description[az]=Yaddaş qurğusunun vəziyyətini yoxlamaq üçün SMART hesabatını oxuyun
+Description[bg]=Прочитане на SMART отчета за устройство за съхранение, за проверка на състоянието му
 Description[ca]=Llegeix l'informe SMART del dispositiu d'emmagatzematge per a comprovar l'estat del dispositiu
 Description[ca@valencia]=Llig l'informe SMART del dispositiu d'emmagatzematge per a comprovar l'estat del dispositiu
 Description[da]=Læs lagerenheders SMART-rapport for at tjekke enhedens helbred
