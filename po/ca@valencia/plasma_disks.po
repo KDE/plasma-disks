@@ -34,7 +34,7 @@ msgstr "txemaq@gmail.com"
 #, kde-format
 msgctxt "@label"
 msgid "Prefail attributes <= threshold."
-msgstr "Atributs previs a fallada <= llindar."
+msgstr "Atributs previs a la fallada <= llindar."
 
 #: instabilities.cpp:31
 #, kde-format
@@ -44,8 +44,8 @@ msgid ""
 "prefail) attributes have been <= threshold at some time in the past."
 msgstr ""
 "La comprovació d'estat de SMART ha retornat «DISK OK» però s'han trobat "
-"diversos atributs (ús o previ a fallada) que han sigut <= llindar en algun "
-"moment del passat."
+"diversos atributs (ús o previ a la fallada) que han sigut <= llindar en "
+"algun moment del passat."
 
 #: instabilities.cpp:33
 #, kde-format
