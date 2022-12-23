@@ -24,6 +24,7 @@ include(ECMQtDeclareLoggingCategory)
 include(KDEClangFormat)
 include(FeatureSummary)
 include(KDEGitCommitHooks)
+include(ECMDeprecationSettings)
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Gui Core)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
@@ -48,8 +49,9 @@ cmake_dependent_option(WITH_SIMULATION
     "CMAKE_BUILD_TYPE MATCHES [Dd]ebug"
     OFF
 )
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055B00)
+ecm_set_disabled_deprecation_versions(QT 5.15.2
+    KF 5.101
+)
 
 add_subdirectory(src)
 
