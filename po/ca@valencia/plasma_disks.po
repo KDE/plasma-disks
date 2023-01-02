@@ -51,7 +51,8 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "The device error log contains records of errors."
-msgstr "El registre d'errors del dispositiu conté enregistraments d'errors."
+msgstr ""
+"El registre d'errors del dispositiu conté l'enregistrament dels errors."
 
 #: instabilities.cpp:37
 #, kde-format
@@ -60,9 +61,9 @@ msgid ""
 "The device self-test log contains records of errors. [ATA only] Failed self-"
 "tests outdated by a newer successful extended self-test are ignored."
 msgstr ""
-"El registre d'autocomprovació del dispositiu conté enregistraments d'errors. "
-"[Només ATA] S'ignoren les autocomprovacions fallides obsoletes per una "
-"autocomprovació ampliada correcta més nova."
+"El registre d'autocomprovació del dispositiu conté l'enregistrament dels "
+"errors. [Només ATA] S'ignoren les autocomprovacions fallides obsoletes per "
+"una autocomprovació ampliada correcta més nova."
 
 #: kcm/module.cpp:20
 #, kde-format
