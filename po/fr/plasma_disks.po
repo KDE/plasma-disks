@@ -1,18 +1,19 @@
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021.
+# Xavier BESNARD <xavier.besnard]neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-02-27 00:49+0000\n"
-"PO-Revision-Date: 2021-12-29 20:00+0100\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2023-01-05 14:39+0100\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.0\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -28,7 +29,7 @@ msgstr "xavier.besnard@neuf.fr"
 #, kde-format
 msgctxt "@label"
 msgid "Prefail attributes <= threshold."
-msgstr "Attributs pour échec possible <= threshold."
+msgstr "Attributs pour échec possible <= seuil."
 
 #: instabilities.cpp:31
 #, kde-format
@@ -56,7 +57,7 @@ msgid ""
 "tests outdated by a newer successful extended self-test are ignored."
 msgstr ""
 "Le journal d'auto-tests du périphérique contient des enregistrements "
-"d'erreurs. [ATA uniquement] Les auto-tests en défaut, rendus obsolètes par "
+"d'erreurs [ATA uniquement]. Les auto-tests en défaut, rendus obsolètes par "
 "un auto-test détaillé et correct sont ignorés."
 
 #: kcm/module.cpp:20
