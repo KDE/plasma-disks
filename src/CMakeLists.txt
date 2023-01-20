@@ -4,22 +4,22 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"plasma_disks\")
 
 set(kded_SRCS
-    smartdata.cpp
-    smartmonitor.cpp
-    smartctl.cpp
-    smartnotifier.cpp
+    smartdata.cpp smartdata.h
+    smartmonitor.cpp smartmonitor.h
+    smartctl.cpp smartctl.h
+    smartnotifier.cpp smartnotifier.h
     dbusobjectmanagerserver.cpp
     device.cpp
     devicenotifier.cpp
-    soliddevicenotifier.cpp
-    instabilities.cpp
-    smartfailure.cpp
+    soliddevicenotifier.cpp soliddevicenotifier.h
+    instabilities.cpp instabilities.h
+    smartfailure.cpp smartfailure.h
 )
 
 if(WITH_SIMULATION)
     list(APPEND kded_SRCS
-        simulationdevicenotifier.cpp
-        simulationctl.cpp
+        simulationdevicenotifier.cpp simulationdevicenotifier.h
+        simulationctl.cpp simulationctl.h
         ../autotests/fixtures/simulation.qrc)
     add_definitions(-DWITH_SIMULATION)
 endif()

@@ -7,9 +7,9 @@ file(GLOB QML_SRCS package/contents/*.qml)
 add_custom_target(QmlFiles ALL echo SOURCES ${QML_SRCS})
 
 set(kcm_SRCS
-    module.cpp
-    devicemodel.cpp
-    servicerunner.cpp
+    module.cpp module.h
+    devicemodel.cpp devicemodel.h
+    servicerunner.cpp servicerunner.h
 )
 
 # Something wonky is going on with the dbus macros. When the commands are set in the parent scope
