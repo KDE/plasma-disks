@@ -53,7 +53,6 @@ target_link_libraries(statickdedsmart
 )
 
 add_library(kded-smart MODULE main.cpp)
-kcoreaddons_desktop_to_json(kded-smart smart.desktop)
 set_target_properties(kded-smart PROPERTIES OUTPUT_NAME smart)
 target_link_libraries(kded-smart statickdedsmart)
 install(TARGETS kded-smart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/kded)
