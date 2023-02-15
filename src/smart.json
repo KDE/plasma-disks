@@ -1,6 +1,15 @@
 {
     "KPlugin": {
         "Description": "Storage device health monitoring",
+        "Description[ca@valencia]": "Monitoratge de l'estat dels dispositius d'emmagatzematge",
+        "Description[ca]": "Monitoratge de l'estat dels dispositius d'emmagatzematge",
+        "Description[es]": "Control del estado de salud de dispositivos de almacenamiento",
+        "Description[ka]": "საცავის მოწყობილობის ჯანმრთელობის თვალყურის დევნება",
+        "Description[nl]": "Monitoren van welzijn opslagapparaat",
+        "Description[pt_BR]": "Monitoramento da integridade do dispositivo de armazenamento",
+        "Description[tr]": "Depolama aygıtı sağlığı izleme",
+        "Description[uk]": "Спостереження за станом пристроїв для зберігання даних",
+        "Description[x-test]": "xxStorage device health monitoringxx",
         "Icon": "preferences-smart-status",
         "Name": "SMART",
         "Name[az]": "SMART",
