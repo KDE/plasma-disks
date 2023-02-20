@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Storage device health monitoring",
+        "Description[az]": "Yaddaş cihazının vəziyyətinin izlənməsi",
         "Description[bg]": "Мониторинг на състоянието на устройство за съхранение",
         "Description[ca@valencia]": "Monitoratge de l'estat dels dispositius d'emmagatzematge",
         "Description[ca]": "Monitoratge de l'estat dels dispositius d'emmagatzematge",
