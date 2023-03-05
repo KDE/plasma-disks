@@ -9,7 +9,7 @@ class Module : public KQuickAddons::ConfigModule
 {
     Q_OBJECT
 public:
-    explicit Module(QObject *parent, const QVariantList &args = QVariantList());
+    explicit Module(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args);
     ~Module() override;
     void load() override;
     void save() override;
