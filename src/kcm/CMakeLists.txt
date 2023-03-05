@@ -31,11 +31,11 @@ kcmutils_generate_desktop_file(kcm_disks)
 
 target_link_libraries(kcm_disks
     statickdedsmart
-    KF5::ConfigWidgets
-    KF5::CoreAddons
-    KF5::I18n
-    KF5::QuickAddons
+    KF6::ConfigWidgets
+    KF6::CoreAddons
+    KF6::I18n
+    KF6::QuickAddons
     Qt${QT_MAJOR_VERSION}::DBus
-    KF5::Solid)
+    KF6::Solid)
 
 kpackage_install_package(package kcm_disks kcms)

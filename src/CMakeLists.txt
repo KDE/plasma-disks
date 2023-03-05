@@ -42,14 +42,14 @@ target_link_libraries(statickdedsmart
     PUBLIC
     Qt${QT_MAJOR_VERSION}::Core
     Qt${QT_MAJOR_VERSION}::DBus
-    KF5::Solid
-    KF5::I18n
-    KF5::Notifications
-    KF5::CoreAddons
-    KF5::DBusAddons
-    KF5::Service
-    KF5::KIOGui
-    KF5::AuthCore
+    KF6::Solid
+    KF6::I18n
+    KF6::Notifications
+    KF6::CoreAddons
+    KF6::DBusAddons
+    KF6::Service
+    KF6::KIOGui
+    KF6::AuthCore
 )
 
 add_library(kded-smart MODULE main.cpp)
@@ -59,7 +59,7 @@ install(TARGETS kded-smart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VER
 
 kauth_install_actions(org.kde.kded.smart org.kde.kded.smart.actions)
 add_executable(kded-smart-helper helper.cpp)
-target_link_libraries(kded-smart-helper KF5::AuthCore KF5::ConfigCore KF5::I18n)
+target_link_libraries(kded-smart-helper KF6::AuthCore KF6::ConfigCore KF6::I18n)
 
 kauth_install_helper_files(kded-smart-helper org.kde.kded.smart root)
 install(TARGETS kded-smart-helper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
