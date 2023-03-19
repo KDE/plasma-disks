@@ -37,6 +37,7 @@ Name[tr]=SMART
 Name[uk]=SMART
 Name[x-test]=xxSMARTxx
 Name[zh_CN]=SMART
+Name[zh_TW]=SMART
 Type=Service
 Icon=preferences-smart-status
 # FIXME: do we need these metadata even
