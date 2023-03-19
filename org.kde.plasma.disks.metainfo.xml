@@ -44,6 +44,7 @@
   <name xml:lang="uk">Диски Плазми</name>
   <name xml:lang="x-test">xxPlasma Disksxx</name>
   <name xml:lang="zh-CN">Plasma 磁盘监控</name>
+  <name xml:lang="zh-TW">Plasma 磁碟</name>
   <summary>Hard disk health monitoring for KDE Plasma</summary>
   <summary xml:lang="az">KDE Plasma üçün sərt diskin vəziyyətinin izlənilməsi</summary>
   <summary xml:lang="bg">Програма на KDE Plasma за следене на състоянието на твърдите дискове</summary>
@@ -79,6 +80,7 @@
   <summary xml:lang="uk">Стеження за станом дисків для Плазми KDE</summary>
   <summary xml:lang="x-test">xxHard disk health monitoring for KDE Plasmaxx</summary>
   <summary xml:lang="zh-CN">KDE Plasma 硬盘健康状况监控程序</summary>
+  <summary xml:lang="zh-TW">KDE Plasma 用的硬碟健康狀態監控工具</summary>
   <description>
     <p>Plasma Disks monitors S.M.A.R.T. data of disks and alerts the user when signs of imminent failure appear.</p>
     <p xml:lang="az">Plasma Disklər, disklərin S.M.A.R.T verilənlərini idarə edir və istifadəçini baş verəcək nasazlıq barəsində xəbərdar edir.</p>
@@ -114,6 +116,7 @@
     <p xml:lang="uk">«Диски Плазми» стежать за даними S.M.A.R.T. дисків і попереджають користувача, коли з'являються ознаки неминучої відмови у роботі.</p>
     <p xml:lang="x-test">xxPlasma Disks monitors S.M.A.R.T. data of disks and alerts the user when signs of imminent failure appear.xx</p>
     <p xml:lang="zh-CN">Plasma 磁盘监控程序会监控磁盘的 S.M.A.R.T. 数据，并在发现故障前兆时警告用户。</p>
+    <p xml:lang="zh-TW">Plasma 磁碟會監控磁碟的 S.M.A.R.T. 資料，並在出現硬碟即將出錯的徵兆時告知使用者。</p>
   </description>
   <icon type="stock">preferences-smart-status</icon>
   <screenshots>
@@ -153,6 +156,7 @@
       <caption xml:lang="uk">Модуль «Центру інформації» «Диски Плазми» призначено для показу даних щодо стану дискових пристроїв зберігання даних.</caption>
       <caption xml:lang="x-test">xxThe Plasma Disks Info Center module showing the state of devices.xx</caption>
       <caption xml:lang="zh-CN">显示设备状态的 Plasma 磁盘信息中心模块。</caption>
+      <caption xml:lang="zh-TW">Plasma 磁碟的資訊中心模組顯示著裝置的狀態。</caption>
       <image>https://cdn.kde.org/screenshots/plasma-disks/plasma-disks.png</image>
     </screenshot>
   </screenshots>
@@ -193,6 +197,7 @@
   <developer_name xml:lang="uk">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="x-test">xxHarald Sitter &lt;sitter@kde.org&gt;xx</developer_name>
   <developer_name xml:lang="zh-CN">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="zh-TW">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <categories>
     <category>System</category>
   </categories>
