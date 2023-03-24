@@ -1,5 +1,4 @@
 {
-    "Categories": "Qt;KDE;X-KDE-information;",
     "KPlugin": {
         "Description": "Storage device health monitoring",
         "Description[az]": "Yaddaş cihazının vəziyyətinin izlənməsi",
@@ -115,6 +114,5 @@
     "Keywords[x-test]": "xxSMART,S.M.A.R.T.,monitoring,health,disk,drive,storage,failurexx",
     "Keywords[zh_CN]": "SMART,S.M.A.R.T.,monitoring,health,disk,drive,storage,failure,监控,健康,磁盘,驱动器,硬盘,存储,故障",
     "Keywords[zh_TW]": "SMART,S.M.A.R.T.,monitoring,health,disk,drive,storage,failure,儲存裝置,硬碟,出錯,錯誤",
-    "X-KDE-KInfoCenter-Category": "device_information",
-    "X-KDE-ParentApp": "kinfocenter"
+    "X-KDE-KInfoCenter-Category": "device_information"
 }
