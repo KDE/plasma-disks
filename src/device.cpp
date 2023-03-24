@@ -17,7 +17,7 @@ Device::Device(const QString &udi_, const QString &product_, const QString &path
     , m_udi(udi_)
     , m_product(product_)
     , m_path(path_)
-    , m_ignored(KSharedConfig::openConfig("org.kde.kded.smart")->group("Ignores").readEntry(m_udi, false))
+    , m_ignored(KSharedConfig::openConfig(QStringLiteral("org.kde.kded.smart"))->group("Ignores").readEntry(m_udi, false))
 {
     // A simple replace actually makes any UDI safe to use for dbus.
     // https://dbus.freedesktop.org/doc/dbus-specification.html#message-protocol-marshaling-object-path

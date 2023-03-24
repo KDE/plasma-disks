@@ -64,7 +64,7 @@ public:
     void setAdvancedReport(const QString &report);
     Q_SIGNAL void advancedReportChanged();
 
-signals:
+Q_SIGNALS:
     void instabilitiesChanged();
     void failedChanged();
     void ignoreChanged();

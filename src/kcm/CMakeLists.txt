@@ -27,17 +27,14 @@ set_source_files_properties(org.freedesktop.DBus.ObjectManager.xml
 qt_add_dbus_interface(kcm_SRCS org.freedesktop.DBus.ObjectManager.xml org.freedesktop.DBus.ObjectManager)
 
 kcoreaddons_add_plugin(plasma_disks_kcm SOURCES ${kcm_SRCS} INSTALL_NAMESPACE "plasma/kcms/kinfocenter")
-set_target_properties(plasma_disks_kcm PROPERTIES OUTPUT_NAME smart)
 
 target_link_libraries(plasma_disks_kcm
     statickdedsmart
-    KF6::ConfigWidgets
     KF6::CoreAddons
     KF6::I18n
-    KF6::QuickAddons
+    KF6::KCMUtilsQuick
     Qt6::DBus
     KF6::Solid)
 
-kcoreaddons_desktop_to_json(plasma_disks_kcm smart.desktop)
-
-kpackage_install_package(package plasma_disks kcms)
+kcmutils_generate_desktop_file(plasma_disks_kcm)
+kpackage_install_package(package plasma_disks_kcm kcms)

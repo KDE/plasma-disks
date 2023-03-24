@@ -14,7 +14,7 @@ DeviceModel::DeviceModel(QObject *parent)
 {
     KDBusObjectManagerServer::registerTypes();
 
-    auto watcher = new QDBusServiceWatcher("org.kde.kded5", QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+    auto watcher = new QDBusServiceWatcher(QStringLiteral("org.kde.kded5"), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
     connect(watcher,
             &QDBusServiceWatcher::serviceOwnerChanged,
             this,
@@ -53,7 +53,7 @@ QVariant DeviceModel::data(const QModelIndex &index, int role) const
     if (prop.isEmpty()) {
         return QVariant();
     }
-    return obj->property(prop);
+    return obj->property(prop.data());
 }
 
 bool DeviceModel::setData(const QModelIndex &index, const QVariant &value, int role)
@@ -69,7 +69,7 @@ bool DeviceModel::setData(const QModelIndex &index, const QVariant &value, int r
     if (prop.isEmpty()) {
         return false;
     }
-    return obj->setProperty(prop, value);
+    return obj->setProperty(prop.data(), value);
 }
 
 int DeviceModel::role(const QByteArray &roleName) const
@@ -104,11 +104,11 @@ protected:
         if (event->type() == QEvent::DynamicPropertyChange) {
             auto change = static_cast<QDynamicPropertyChangeEvent *>(event);
             const auto name = change->propertyName();
-            const auto value = m_dbusObject->property(name);
+            const auto value = m_dbusObject->property(name.data());
             // WARNING: should we want to rely on the actual interfaces a property relies on
             // that needs implementing first. On addObject we ignore the interface and so we
             // use a dummy interface here.
-            m_dbusObject->Set("org.kde.kded.smart.Device", name, QDBusVariant(value));
+            m_dbusObject->Set(QStringLiteral("org.kde.kded.smart.Device"), QLatin1String(name), QDBusVariant(value));
         }
         return QObject::eventFilter(obj, event);
     }
@@ -135,7 +135,7 @@ void DeviceModel::addObject(const QDBusObjectPath &dbusPath, const KDBusObjectMa
     // so it brings literally nothing to the table for our Device class.
     // Use QObjects with dynamic properties instead to model the remote objects.
     // Property changes are abstracted via the ListModel anyway.
-    auto obj = new OrgFreedesktopDBusPropertiesInterface("org.kde.kded5", path, QDBusConnection::sessionBus(), this);
+    auto obj = new OrgFreedesktopDBusPropertiesInterface(QStringLiteral("org.kde.kded5"), path, QDBusConnection::sessionBus(), this);
     m_objects << obj;
     obj->setObjectName(path);
     // Don't care about interfaces, iterate the values i.e. propertymap
@@ -196,7 +196,7 @@ void DeviceModel::initRoleNames(QObject *object)
     auto mo = *object->metaObject();
     for (int i = 0; i < mo.propertyCount(); ++i) {
         QMetaProperty property = mo.property(i);
-        QString name(property.name());
+        QString name = QLatin1String(property.name());
         m_roles[++maxEnumValue] = name.toLatin1();
         m_objectPoperties.insert(maxEnumValue, property.name());
         if (!property.hasNotifySignal()) {
@@ -237,7 +237,10 @@ void DeviceModel::reload()
 {
     reset();
 
-    m_iface = new OrgFreedesktopDBusObjectManagerInterface("org.kde.kded5", "/modules/smart/devices", QDBusConnection::sessionBus(), this);
+    m_iface = new OrgFreedesktopDBusObjectManagerInterface(QStringLiteral("org.kde.kded5"),
+                                                           QStringLiteral("/modules/smart/devices"),
+                                                           QDBusConnection::sessionBus(),
+                                                           this);
     connect(m_iface, &OrgFreedesktopDBusObjectManagerInterface::InterfacesAdded, this, &DeviceModel::addObject);
     connect(m_iface, &OrgFreedesktopDBusObjectManagerInterface::InterfacesRemoved, this, &DeviceModel::removeObject);
 

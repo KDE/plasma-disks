@@ -42,7 +42,7 @@ public:
     bool valid() const;
     bool waiting() const;
 
-signals:
+Q_SIGNALS:
     void validChanged();
     void waitingChanged();
 

@@ -32,7 +32,8 @@ static QString nameToPath(const QString &name)
     const QString path = QStringLiteral("/dev/%1").arg(name);
 
     struct stat sb;
-    if (lstat(QFile::encodeName(path), &sb) == -1) {
+    QByteArray fileName(QFile::encodeName(path));
+    if (lstat(fileName.constData(), &sb) == -1) {
         const int err = errno;
         qWarning() << "Failed to stat block device" << name << strerror(err);
         return {};

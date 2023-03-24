@@ -16,7 +16,7 @@ public:
     ~AbstractSMARTCtl() override = default;
     virtual void run(const QString &devicePath) = 0;
 
-signals:
+Q_SIGNALS:
     /**
      * @param devicePath the device the request was finished for (same as was passed into run())
      * @param document the JSON presentation of the report

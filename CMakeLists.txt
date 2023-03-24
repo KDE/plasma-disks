@@ -36,7 +36,8 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Service
     KIO
     Auth
-    Declarative
+    Package
+    KCMUtils
 )
 
 find_package(smartctl)

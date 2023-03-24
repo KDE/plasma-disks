@@ -20,7 +20,7 @@ public:
     FailureNotification(const Device *device, QObject *parent = nullptr)
         : QObject(parent)
     {
-        m_notification->setComponentName("org.kde.kded.smart");
+        m_notification->setComponentName(QStringLiteral("org.kde.kded.smart"));
         if (device->failed()) {
             m_notification->setIconName(QStringLiteral("data-warning"));
         } else {

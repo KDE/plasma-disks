@@ -36,7 +36,7 @@ public:
 public Q_SLOTS:
     KDBusObjectManagerObjectPathInterfacePropertiesMap GetManagedObjects();
 
-signals:
+Q_SIGNALS:
     void InterfacesAdded(QDBusObjectPath path, KDBusObjectManagerInterfacePropertiesMap map);
     void InterfacesRemoved(QDBusObjectPath path, KDBusObjectManagerInterfaceList list);
 

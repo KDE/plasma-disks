@@ -26,7 +26,7 @@ public:
 
     QVector<Device *> devices() const;
 
-signals:
+Q_SIGNALS:
     void deviceAdded(Device *device);
     void deviceRemoved(Device *device);
 

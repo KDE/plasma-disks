@@ -21,7 +21,7 @@ public:
 
     bool canRun() const;
 
-signals:
+Q_SIGNALS:
     void nameChanged();
     void canRunChanged();
 

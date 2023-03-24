@@ -54,7 +54,7 @@ private Q_SLOTS:
             QDBusMessage signal = QDBusMessage::createSignal(m_objectPath, //
                                                              QStringLiteral("org.freedesktop.DBus.Properties"),
                                                              QStringLiteral("PropertiesChanged"));
-            signal << mo->classInfo(ciid).value();
+            signal << QLatin1String(mo->classInfo(ciid).value());
             signal << QVariantMap({{QString::fromLatin1(property.name()), property.read(sender())}}); // changed properties DICT<STRING,VARIANT>
             signal << QStringList(); // invalidated property names no clue what invalidation means
             QDBusConnection::sessionBus().send(signal);
@@ -137,7 +137,7 @@ KDBusObjectManagerObjectPathInterfacePropertiesMap KDBusObjectManagerServer::Get
 
 QDBusObjectPath KDBusObjectManagerServer::path(const QObject *object)
 {
-    const QString path = m_path + "/" + object->objectName();
+    const QString path = m_path + QLatin1String("/") + object->objectName();
 
     qCDebug(KDED) << "path for " << object->objectName() << object->metaObject()->className() << ":" << path;
     return QDBusObjectPath(path);
@@ -158,7 +158,7 @@ KDBusObjectManagerInterfacePropertiesMap KDBusObjectManagerServer::interfaceProp
         QVariantMap properties;
         for (int i = mo->propertyOffset(); i < mo->propertyCount(); ++i) {
             auto property = mo->property(i);
-            properties[property.name()] = property.read(child);
+            properties[QLatin1String(property.name())] = property.read(child);
         }
         interfaceMap[interface] = properties;
     }
