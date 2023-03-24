@@ -31,12 +31,12 @@ set_target_properties(plasma_disks_kcm PROPERTIES OUTPUT_NAME smart)
 
 target_link_libraries(plasma_disks_kcm
     statickdedsmart
-    KF5::ConfigWidgets
-    KF5::CoreAddons
-    KF5::I18n
-    KF5::QuickAddons
-    Qt${QT_MAJOR_VERSION}::DBus
-    KF5::Solid)
+    KF6::ConfigWidgets
+    KF6::CoreAddons
+    KF6::I18n
+    KF6::QuickAddons
+    Qt6::DBus
+    KF6::Solid)
 
 kcoreaddons_desktop_to_json(plasma_disks_kcm smart.desktop)
 
