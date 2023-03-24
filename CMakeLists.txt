@@ -27,7 +27,6 @@ include(ECMDeprecationSettings)
 
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Gui Core)
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
-    ConfigWidgets
     CoreAddons
     DBusAddons
     Notifications

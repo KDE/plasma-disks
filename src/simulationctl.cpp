@@ -7,10 +7,10 @@
 
 static QString readCLIData()
 {
-    QFile file(":/plasma-disks/fixtures/cli.txt");
+    QFile file(QStringLiteral(":/plasma-disks/fixtures/cli.txt"));
     const bool open = file.open(QFile::ReadOnly);
     Q_ASSERT(open);
-    return file.readAll();
+    return QString::fromLocal8Bit(file.readAll());
 }
 
 void SimulationCtl::run(const QString &devicePath)
