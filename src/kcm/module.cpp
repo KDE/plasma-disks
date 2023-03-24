@@ -3,12 +3,12 @@
 
 #include "module.h"
 
-#include <KPluginFactory>
 #include "devicemodel.h"
 #include "servicerunner.h"
 #include "version.h"
+#include <KPluginFactory>
 
-K_PLUGIN_CLASS_WITH_JSON(Module, "smart.json")
+K_PLUGIN_CLASS_WITH_JSON(Module, "kcm_disks.json")
 
 Module::Module(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : KQuickConfigModule(parent, data, args)

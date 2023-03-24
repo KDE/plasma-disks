@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 # SPDX-FileCopyrightText: 2020-2021 Harald Sitter <sitter@kde.org>
 
-add_definitions(-DTRANSLATION_DOMAIN=\"plasma_disks\")
+add_definitions(-DTRANSLATION_DOMAIN=\"kcm_disks\")
 
 set(kded_SRCS
     smartdata.cpp smartdata.h
