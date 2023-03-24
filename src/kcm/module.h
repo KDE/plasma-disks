@@ -3,13 +3,13 @@
 
 #pragma once
 
-#include <KQuickAddons/ConfigModule>
+#include <KQuickConfigModule>
 
-class Module : public KQuickAddons::ConfigModule
+class Module : public KQuickConfigModule
 {
     Q_OBJECT
 public:
-    explicit Module(QObject *parent, const QVariantList &args = QVariantList());
+    explicit Module(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~Module() override;
     void load() override;
     void save() override;

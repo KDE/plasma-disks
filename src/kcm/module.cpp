@@ -3,26 +3,16 @@
 
 #include "module.h"
 
-#include <KAboutData>
-#include <KLocalizedString>
 #include <KPluginFactory>
-
 #include "devicemodel.h"
 #include "servicerunner.h"
 #include "version.h"
 
 K_PLUGIN_CLASS_WITH_JSON(Module, "smart.json")
 
-Module::Module(QObject *parent, const QVariantList &args)
-    : KQuickAddons::ConfigModule(parent, args)
+Module::Module(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
+    : KQuickConfigModule(parent, data, args)
 {
-    auto aboutData = new KAboutData(QStringLiteral("plasma_disks"),
-                                    i18nc("@title", "Storage Device Health Monitoring"),
-                                    QString::fromLatin1(global_s_versionStringFull),
-                                    QString(),
-                                    KAboutLicense::LicenseKey::GPL_V3,
-                                    i18nc("@info:credit", "Copyright 2020 Harald Sitter"));
-    setAboutData(aboutData);
     // We have no help so remove the button from the buttons.
     setButtons(buttons() ^ Help ^ Default ^ Apply);
 
