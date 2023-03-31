@@ -1,0 +1,177 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the plasma-disks package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma-disks\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-03-31 02:17+0000\n"
+"PO-Revision-Date: 2022-09-15 08:25+0200\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#: instabilities.cpp:27
+#, kde-format
+msgctxt "@label"
+msgid "Prefail attributes <= threshold."
+msgstr "სიკვდილისწინა ატრიბუტები <= ზღვარი."
+
+#: instabilities.cpp:31
+#, kde-format
+msgctxt "@label"
+msgid ""
+"SMART status check returned 'DISK OK' but we found that some (usage or "
+"prefail) attributes have been <= threshold at some time in the past."
+msgstr ""
+"SMART სტატუსის შემოწმება დაბრუნდა \"DISK OK\", მაგრამ ჩვენ აღმოვაჩინეთ, რომ "
+"ზოგიერთი (გამოყენება ან ასაწყობი) ატრიბუტი წარსულში გარკვეულ დროს < = "
+"ბარიერი."
+
+#: instabilities.cpp:33
+#, kde-format
+msgctxt "@label"
+msgid "The device error log contains records of errors."
+msgstr "დისკის ჟურნალი შეცდომების შესახებ ჩანაწერებს შეიცავს."
+
+#: instabilities.cpp:37
+#, kde-format
+msgctxt "@label"
+msgid ""
+"The device self-test log contains records of errors. [ATA only] Failed self-"
+"tests outdated by a newer successful extended self-test are ignored."
+msgstr ""
+"მოწყობილობის თვითტესტის ჟურნალი შეიცავს შეცდომების ჩანაწერებს. [მხოლოდ ATA] "
+"იგნორირებულია ახალი წარმატებული გაფართოებული თვითტესპორტის მიერ მოძველებული "
+"თვითტესტები."
+
+#: kcm/package/contents/ui/main.qml:41
+msgctxt "@info/status"
+msgid "Unable to obtain data. KDED is not running."
+msgstr "მონაცემების მიღება შეუძლებელია. KDED გაშვებული არაა."
+
+#: kcm/package/contents/ui/main.qml:52
+msgctxt "@info/status"
+msgid "No S.M.A.R.T. devices found."
+msgstr "მოწყობილობა S.M.A.R.T. ტექნოლოგიის მხარდაჭერით ნაპოვნი არაა."
+
+#: kcm/package/contents/ui/main.qml:73
+msgctxt "@info"
+msgid ""
+"The SMART system of this device is reporting problems. This may be a sign of "
+"imminent device failure or data reliability being compromised. Back up your "
+"data and replace this drive as soon as possible to avoid losing any data."
+msgstr ""
+"ამ მოწყობილობის SMART სისტემის ანგარიშში დისკის სიკვდილის აშკარა ნიშნებია. "
+"სასწრაფოდ აიღეთ მარქაფი და გამოცვალეთ დისკი."
+
+#: kcm/package/contents/ui/main.qml:79
+msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
+msgid ""
+"<p>The SMART firmware is not reporting a failure, but there are early signs "
+"of malfunction. This might not point at imminent device failure but requires "
+"longer term analysis. Back up your data and contact the manufacturer of this "
+"disk, or replace it preemptively just to be safe.</p><ul>%1</ul>"
+msgstr ""
+"<p> SMART მიკროკოდი ავარიას არ გადმოგვცემს, მაგრამ მისი ადრეული ნიშნების "
+"შემჩნევა უკვე შესაძლებელია. ეს შეიძლება არ მიუთითებდეს გარდაუვალ ავარიაზე, "
+"მაგრამ ძირეულ გამოკვლევას მოითხოვს. დაამარქაფეთ თქვენი მონაცემები და "
+"დაუკავშირდით დისკის მწარმოებელს. ან გამოცვალეთ ის, რათა უსაფრთხოდ იყოთ. </"
+"p><ul>%1</ul>"
+
+#: kcm/package/contents/ui/main.qml:85
+msgctxt "@info"
+msgid "This device appears to be working as expected."
+msgstr "მოწყობილობა სრულად მწყობრშია."
+
+#: kcm/package/contents/ui/main.qml:92
+msgctxt "@action/button action button to start partition manager"
+msgid "Partition Manager"
+msgstr "დანაყოფების მმართველი"
+
+#: kcm/package/contents/ui/main.qml:98
+msgctxt "@action/button action button to start backup program"
+msgid "Backup"
+msgstr "მარქაფი"
+
+#: kcm/package/contents/ui/main.qml:104
+msgctxt "@action/button action button to monitor a device for smart failure"
+msgid "Monitor"
+msgstr "მონიტორინგი"
+
+#: kcm/package/contents/ui/main.qml:105
+msgctxt "@action/button action button to ignore smart failures for a device"
+msgid "Ignore"
+msgstr "უგულებელყოფა"
+
+#: kcm/package/contents/ui/main.qml:113
+msgctxt "@action/button show detailed smart report"
+msgid "Detailed Information"
+msgstr "დეტალური ინფორმაცია"
+
+#: smartctl.cpp:39
+#, kde-format
+msgctxt ""
+"@label description of authentication request to read SMART data. %1 is a "
+"device path e.g. /dev/sda"
+msgid "Read SMART report for storage device %1"
+msgstr "საცავის მოწყობილობის SMART ანგარიშის წაკითხვა: %1"
+
+#: smartnotifier.cpp:29
+#, kde-format
+msgctxt "@title notification"
+msgid "Storage Device Problems"
+msgstr "საცავის მოწყობილობის პრობლემები"
+
+#: smartnotifier.cpp:32
+#, kde-kuit-format
+msgctxt ""
+"@info notification; text %1 is a pretty product name; %2 the device path e."
+"g. /dev/sda"
+msgid ""
+"The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
+"likely to fail soon!"
+msgstr ""
+"საცავის მოწყობილობა <emphasis>%1</emphasis> (<filename>%2</filename>) მალე "
+"მოკვდება!"
+
+#: smartnotifier.cpp:37
+#, kde-kuit-format
+msgctxt ""
+"@info notification; text %1 is a pretty product name; %2 the device path e."
+"g. /dev/sda"
+msgid ""
+"The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
+"showing indications of instability."
+msgstr ""
+"საცავის მოწყობილობა <emphasis>%1</emphasis> (<filename>%2</filename>) "
+"არასტაბილურობის ნიშნებს ავლენს."
+
+#: smartnotifier.cpp:44
+#, kde-format
+msgctxt "@action:button notification action to manage device problems"
+msgid "Manage"
+msgstr "მართვა"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Temuri Doghonadze"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "Temuri.doghonadze@gmail.com"
+
+#~ msgctxt "@title"
+#~ msgid "Storage Device Health Monitoring"
+#~ msgstr "საცავის მოწყობილობის ჯანმრთებობის თვალყურის დევნება"
+
+#~ msgctxt "@info:credit"
+#~ msgid "Copyright 2020 Harald Sitter"
+#~ msgstr "2020 Harald Sitter, ყველა უფლება დაცულია"
