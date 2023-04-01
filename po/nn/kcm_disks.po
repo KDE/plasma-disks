@@ -161,19 +161,3 @@ msgstr ""
 msgctxt "@action:button notification action to manage device problems"
 msgid "Manage"
 msgstr "Handsam"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Karl Ove Hufthammer"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "karl@huftis.org"
-
-#~ msgctxt "@title"
-#~ msgid "Storage Device Health Monitoring"
-#~ msgstr "Overvaking av helsetilstanden til lagringseiningar"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Copyright 2020 Harald Sitter"
-#~ msgstr "© 2020 Harald Sitter"
