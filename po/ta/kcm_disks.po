@@ -1,21 +1,21 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the plasma-disks package.
 #
-# A S Alam <aalam.yellow@gmail.com>, 2020, 2023.
+# Kishore G <kishore96@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-31 02:17+0000\n"
-"PO-Revision-Date: 2023-04-01 20:41-0700\n"
-"Last-Translator: A S Alam <aalam@satluj.org>\n"
-"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
-"Language: pa\n"
+"PO-Revision-Date: 2023-04-02 17:18+0530\n"
+"Last-Translator: Kishore G <kishore96@gmail.com>\n"
+"Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
+"Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.03.90\n"
 
 #: instabilities.cpp:27
 #, kde-format
@@ -48,12 +48,12 @@ msgstr ""
 #: kcm/package/contents/ui/main.qml:41
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
-msgstr "ਡਾਟਾ ਲੈਣ ਲਈ ਅਸਮਰੱਥ ਹੈ। KDED ਚੱਲ ਨਹੀਂ ਰਿਹਾ ਹੈ।"
+msgstr ""
 
 #: kcm/package/contents/ui/main.qml:52
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
-msgstr "ਕੋਈ S.M.A.R.T. ਡਿਵਾਈਸ ਨਹੀਂ ਲੱਭਿਆ।"
+msgstr ""
 
 #: kcm/package/contents/ui/main.qml:73
 msgctxt "@info"
@@ -75,32 +75,32 @@ msgstr ""
 #: kcm/package/contents/ui/main.qml:85
 msgctxt "@info"
 msgid "This device appears to be working as expected."
-msgstr "ਇਹ ਡਿਵਾਈਸ ਉਮੀਦ ਮੁਤਾਬਕ ਕੰਮ ਕਰਦਾ ਜਾਪਦਾ ਹੈ।"
+msgstr ""
 
 #: kcm/package/contents/ui/main.qml:92
 msgctxt "@action/button action button to start partition manager"
 msgid "Partition Manager"
-msgstr "ਪਾਰਟੀਸ਼ਨ ਮੈਨੇਜਰ"
+msgstr "வகிர்வு மேலாளி"
 
 #: kcm/package/contents/ui/main.qml:98
 msgctxt "@action/button action button to start backup program"
 msgid "Backup"
-msgstr "ਬੈਕਅੱਪ"
+msgstr "காப்புநகல்"
 
 #: kcm/package/contents/ui/main.qml:104
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
-msgstr "ਮਾਨੀਟਰ"
+msgstr "கண்காணி"
 
 #: kcm/package/contents/ui/main.qml:105
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
-msgstr "ਅਣਡਿੱਠਾ ਕਰੋ"
+msgstr "பொருட்படுத்தாதே"
 
 #: kcm/package/contents/ui/main.qml:113
 msgctxt "@action/button show detailed smart report"
 msgid "Detailed Information"
-msgstr "ਵੇਰਵੇ ਸਮੇਤ ਜਾਣਕਾਰੀ"
+msgstr "மேம்பட்ட விவரங்கள்"
 
 #: smartctl.cpp:39
 #, kde-format
@@ -108,13 +108,13 @@ msgctxt ""
 "@label description of authentication request to read SMART data. %1 is a "
 "device path e.g. /dev/sda"
 msgid "Read SMART report for storage device %1"
-msgstr "ਸਟੋਰੇਜ਼ ਡਿਵਾਈਸ %1 ਲਈ SMART ਰਿਪੋਰਟ ਦੇ ਵੇਰਵੇ ਪੜ੍ਹੋ"
+msgstr ""
 
 #: smartnotifier.cpp:29
 #, kde-format
 msgctxt "@title notification"
 msgid "Storage Device Problems"
-msgstr "ਸਟੋਰੇਜ਼ ਡਿਵਾਈਸ ਦੀਆਂ ਸਮੱਸਿਆਵਾਂ"
+msgstr "சேமிப்பக சாதனத்தில் சிக்கல்"
 
 #: smartnotifier.cpp:32
 #, kde-kuit-format
@@ -125,17 +125,11 @@ msgid ""
 "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
 "likely to fail soon!"
 msgstr ""
-"ਸਟੋਰੇਜ਼ ਡਿਵਾਈਸ <emphasis>%1</emphasis> (<filename>%2</filename>) ਦੇ ਛੇਤੀ ਹੀ ਫੇਲ੍ਹ "
-"ਹੋਣ ਦੀ ਉਮੀਦ ਹੈ"
+"<emphasis>%1</emphasis> (<filename>%2</filename>) எனும் சேமிப்பக சாதனம் விரைவில் "
+"முறிவடையக்கூடும்!"
 
 #: smartnotifier.cpp:37
-#, fuzzy, kde-kuit-format
-#| msgctxt ""
-#| "@info notification; text %1 is a pretty product name; %2 the device path "
-#| "e.g. /dev/sda"
-#| msgid ""
-#| "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
-#| "likely to fail soon!"
+#, kde-kuit-format
 msgctxt ""
 "@info notification; text %1 is a pretty product name; %2 the device path e."
 "g. /dev/sda"
@@ -143,27 +137,11 @@ msgid ""
 "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
 "showing indications of instability."
 msgstr ""
-"ਸਟੋਰੇਜ਼ ਡਿਵਾਈਸ <emphasis>%1</emphasis> (<filename>%2</filename>) ਦੇ ਛੇਤੀ ਹੀ ਫੇਲ੍ਹ "
-"ਹੋਣ ਦੀ ਉਮੀਦ ਹੈ"
+"<emphasis>%1</emphasis> (<filename>%2</filename>) எனும் சேமிப்பக சாதனம் "
+"பழுதுகளின் அறிகுறிகளைக் காண்பிக்கிறது."
 
 #: smartnotifier.cpp:44
 #, kde-format
 msgctxt "@action:button notification action to manage device problems"
 msgid "Manage"
-msgstr "ਇੰਤਜ਼ਾਮ ਕਰੋ"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ ੨੦੨੦"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "alam.yellow@gmail.com"
-
-#~ msgctxt "@title"
-#~ msgid "Storage Device Health Monitoring"
-#~ msgstr "ਸਟੋਰੇਜ਼ ਡਿਵਾਈਸ ਦੀ ਸਥਿਤੀ ਦੀ ਨਿਗਰਾਨੀ"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Copyright 2020 Harald Sitter"
-#~ msgstr "Copyright 2020 Harald Sitter"
+msgstr "நிர்வகி"
