@@ -81,6 +81,7 @@ Comment[zh_TW]=儲存裝置健康狀態監控
 
 [Context/device]
 Name=Device
+Name[ast]=Preséu
 Name[az]=Cihaz
 Name[bg]=Устройство
 Name[ca]=Dispositiu

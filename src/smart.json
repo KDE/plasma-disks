@@ -34,6 +34,7 @@
         "Description[zh_TW]": "儲存裝置健康狀態監控",
         "Icon": "preferences-smart-status",
         "Name": "SMART",
+        "Name[ast]": "SMART",
         "Name[az]": "SMART",
         "Name[bg]": "SMART",
         "Name[ca@valencia]": "SMART",
