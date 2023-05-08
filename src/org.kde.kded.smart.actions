@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
 [Domain]
 Name=Plasma SMART
+Name[ar]=بلازما سمارت
 Name[az]=Plasma SMART
 Name[bg]=Plasma SMART
 Name[ca]=Plasma SMART
@@ -48,6 +49,7 @@ PolicyInactive=yes
 # require auth, only useful for testing
 #Policy=auth_admin
 Name=Read SMART Report Details
+Name[ar]=اقرأ تفاصيل تقرير سمارت
 Name[az]=SMART Hesabatı Təfərrüatlarını Oxumaq
 Name[bg]=Прочитане на SMART отчета
 Name[ca]=Llegeix els detalls de l'informe SMART
@@ -86,6 +88,7 @@ Name[x-test]=xxRead SMART Report Detailsxx
 Name[zh_CN]=读取 SMART 报告详情
 Name[zh_TW]=讀取 SMART 回報詳細資訊
 Description=Read storage device SMART report to check the device's health
+Description[ar]=اقرأ تفاصيل تقرير سمارت لتتحقق من صحة الجهاز
 Description[az]=Yaddaş qurğusunun vəziyyətini yoxlamaq üçün SMART hesabatını oxuyun
 Description[bg]=Прочитане на SMART отчета за устройство за съхранение, за проверка на състоянието му
 Description[ca]=Llegeix l'informe SMART del dispositiu d'emmagatzematge per a comprovar l'estat del dispositiu
