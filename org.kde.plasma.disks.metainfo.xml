@@ -9,6 +9,7 @@
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Plasma Disks</name>
+  <name xml:lang="ar">أقراص بلازما</name>
   <name xml:lang="az">Plasma Diskləri</name>
   <name xml:lang="bg">Дискове на Plasma</name>
   <name xml:lang="ca">Plasma Disks</name>
@@ -48,6 +49,7 @@
   <name xml:lang="zh-CN">Plasma 磁盘监控</name>
   <name xml:lang="zh-TW">Plasma 磁碟</name>
   <summary>Hard disk health monitoring for KDE Plasma</summary>
+  <summary xml:lang="ar">مراقبة صحة القرص الصلب لبلازما كيدي</summary>
   <summary xml:lang="az">KDE Plasma üçün sərt diskin vəziyyətinin izlənilməsi</summary>
   <summary xml:lang="bg">Програма на KDE Plasma за следене на състоянието на твърдите дискове</summary>
   <summary xml:lang="ca">Monitoratge de l'estat dels discs durs per al Plasma del KDE</summary>
@@ -87,6 +89,7 @@
   <summary xml:lang="zh-TW">KDE Plasma 用的硬碟健康狀態監控工具</summary>
   <description>
     <p>Plasma Disks monitors S.M.A.R.T. data of disks and alerts the user when signs of imminent failure appear.</p>
+    <p xml:lang="ar">أقراص بلازما يراقب بيانات صحة الأقراص S.M.A.R.T. وتنبه المستخدم عند ظهور علامات فشل وشيك.</p>
     <p xml:lang="az">Plasma Disklər, disklərin S.M.A.R.T verilənlərini idarə edir və istifadəçini baş verəcək nasazlıq barəsində xəbərdar edir.</p>
     <p xml:lang="bg">Дискове на Plasma следи SMART данни от дисковете и уведомява потребителя при признаци за предстояща неизправност.</p>
     <p xml:lang="ca">El Plasma Disks controla les dades S.M.A.R.T. dels discs i alerta l'usuari quan apareixen signes de fallada imminent.</p>
@@ -128,6 +131,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>The Plasma Disks Info Center module showing the state of devices.</caption>
+      <caption xml:lang="ar">وحدة مركز معلومات "أقراص البلازما" تعرض حالة الأجهزة.</caption>
       <caption xml:lang="az">Plasma Disklər Məlumat Mərkəzi modulu, qurğuların vəziyyətini göstərir.</caption>
       <caption xml:lang="bg">Дискове на Plasma е модул на Информационния център, който показва състоянието на устройствата.</caption>
       <caption xml:lang="ca">El mòdul del Centre d'informació dels discs del Plasma que mostra l'estat dels dispositius.</caption>
@@ -170,6 +174,7 @@
   </screenshots>
   <project_group>KDE</project_group>
   <developer_name>Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="ar">هارالد سِتِر &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="az">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="bg">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="ca">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
