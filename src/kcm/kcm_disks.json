@@ -73,6 +73,7 @@
         "Name[tr]": "SMART Durumu",
         "Name[uk]": "Стан SMART",
         "Name[x-test]": "xxSMART Statusxx",
+        "Name[zh_TW]": "SMART 狀態",
         "ServiceTypes": [
             "KCModule"
         ]
