@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-31 02:17+0000\n"
-"PO-Revision-Date: 2023-02-24 12:44\n"
+"PO-Revision-Date: 2023-05-22 13:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/plasma-disks/plasma_disks.pot\n"
-"X-Crowdin-File-ID: 24438\n"
+"X-Crowdin-File: /kf6-trunk/messages/plasma-disks/kcm_disks.pot\n"
+"X-Crowdin-File-ID: 42811\n"
 
 #: instabilities.cpp:27
 #, kde-format
@@ -52,12 +52,12 @@ msgstr ""
 #: kcm/package/contents/ui/main.qml:41
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
-msgstr "无法获取数据。KDED 并未运行。"
+msgstr "无法获取数据。KDED 没有运行。"
 
 #: kcm/package/contents/ui/main.qml:52
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
-msgstr "未找到 S.M.A.R.T. 设备。"
+msgstr "没有找到 S.M.A.R.T. 设备。"
 
 #: kcm/package/contents/ui/main.qml:73
 msgctxt "@info"
@@ -154,19 +154,3 @@ msgstr ""
 msgctxt "@action:button notification action to manage device problems"
 msgid "Manage"
 msgstr "管理"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Tyson Tan"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "tysontan@tysontan.com"
-
-#~ msgctxt "@title"
-#~ msgid "Storage Device Health Monitoring"
-#~ msgstr "存储设备健康状况监测"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Copyright 2020 Harald Sitter"
-#~ msgstr "Copyright 2020 Harald Sitter"
