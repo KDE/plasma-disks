@@ -26,7 +26,7 @@ set_source_files_properties(org.freedesktop.DBus.ObjectManager.xml
 )
 qt_add_dbus_interface(kcm_SRCS org.freedesktop.DBus.ObjectManager.xml org.freedesktop.DBus.ObjectManager)
 
-kcoreaddons_add_plugin(kcm_disks SOURCES ${kcm_SRCS} INSTALL_NAMESPACE "plasma/kcms/kinfocenter")
+kcmutils_add_qml_kcm(kcm_disks SOURCES ${kcm_SRCS} INSTALL_NAMESPACE "plasma/kcms/kinfocenter")
 
 target_link_libraries(kcm_disks
     statickdedsmart
@@ -34,7 +34,5 @@ target_link_libraries(kcm_disks
     KF6::I18n
     KF6::KCMUtilsQuick
     Qt6::DBus
-    KF6::Solid)
-
-kcmutils_generate_desktop_file(kcm_disks)
-kpackage_install_package(package kcm_disks kcms)
+    KF6::Solid
+)
