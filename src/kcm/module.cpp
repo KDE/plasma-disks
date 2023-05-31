@@ -12,8 +12,8 @@ class Module : public KQuickConfigModule
 {
     Q_OBJECT
 public:
-    explicit Module(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
-        : KQuickConfigModule(parent, data, args)
+    explicit Module(QObject *parent, const KPluginMetaData &data)
+        : KQuickConfigModule(parent, data)
     {
         // We have no help so remove the button from the buttons.
         setButtons(buttons() ^ Help ^ Default ^ Apply);
