@@ -7,7 +7,7 @@ project(plasma-disks)
 set(PROJECT_VERSION "5.27.80")
 
 set(QT_MIN_VERSION "6.4.0")
-set(KF_MIN_VERSION "5.102.0")
+set(KF_MIN_VERSION "5.240.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
@@ -48,8 +48,8 @@ cmake_dependent_option(WITH_SIMULATION
     "CMAKE_BUILD_TYPE MATCHES [Dd]ebug"
     OFF
 )
-ecm_set_disabled_deprecation_versions(QT 5.15.2
-    KF 5.101
+ecm_set_disabled_deprecation_versions(QT 6.5
+    KF 5.240.0
 )
 
 add_subdirectory(src)
