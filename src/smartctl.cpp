@@ -3,18 +3,13 @@
 
 #include "smartctl.h"
 
-#include <kauth_version.h>
-#if KAUTH_VERSION >= QT_VERSION_CHECK(5, 92, 0)
 #include <KAuth/Action>
 #include <KAuth/ExecuteJob>
 #include <KAuth/HelperSupport>
-#else
-#include <KAuthAction>
-#include <KAuthExecuteJob>
-#endif
 #include <KLocalizedString>
 #include <QDebug>
 #include <QFileInfo>
+#include <kauth_version.h>
 
 #include "kded_debug.h"
 #include "smartfailure.h"
