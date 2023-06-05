@@ -9,7 +9,6 @@
 #include <KLocalizedString>
 #include <QDebug>
 #include <QFileInfo>
-#include <kauth_version.h>
 
 #include "kded_debug.h"
 #include "smartfailure.h"
