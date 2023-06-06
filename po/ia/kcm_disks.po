@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-31 02:17+0000\n"
+"POT-Creation-Date: 2023-06-06 02:09+0000\n"
 "PO-Revision-Date: 2021-09-23 12:23+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -52,17 +52,17 @@ msgstr ""
 "[solmente ATA] Fallite auto-tests devenite obsolete per un plus nove auto-"
 "test extendite con successo es ignorate. "
 
-#: kcm/package/contents/ui/main.qml:41
+#: kcm/ui/main.qml:41
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
 msgstr "Incapace de obtener datos. KDED non es executante."
 
-#: kcm/package/contents/ui/main.qml:52
+#: kcm/ui/main.qml:52
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
 msgstr "Necun dispositivo S.M.A.R.T. trovate."
 
-#: kcm/package/contents/ui/main.qml:73
+#: kcm/ui/main.qml:73
 msgctxt "@info"
 msgid ""
 "The SMART system of this device is reporting problems. This may be a sign of "
@@ -75,7 +75,7 @@ msgstr ""
 "datos  e reimplacia iste dispositivo le plus tosto possibile per evitar "
 "perder ulle datos."
 
-#: kcm/package/contents/ui/main.qml:79
+#: kcm/ui/main.qml:79
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
 msgid ""
 "<p>The SMART firmware is not reporting a failure, but there are early signs "
@@ -89,32 +89,32 @@ msgstr ""
 "continge le constructor de iste disco, o reimplacia lo preventivemente  solo "
 "per esser secur.</p><ul>%1</ul>"
 
-#: kcm/package/contents/ui/main.qml:85
+#: kcm/ui/main.qml:85
 msgctxt "@info"
 msgid "This device appears to be working as expected."
 msgstr "Iste dispositivo appare que functiona como expectate"
 
-#: kcm/package/contents/ui/main.qml:92
+#: kcm/ui/main.qml:92
 msgctxt "@action/button action button to start partition manager"
 msgid "Partition Manager"
 msgstr "Partition Manager (gerente de partition)"
 
-#: kcm/package/contents/ui/main.qml:98
+#: kcm/ui/main.qml:98
 msgctxt "@action/button action button to start backup program"
 msgid "Backup"
 msgstr "Retrocopia"
 
-#: kcm/package/contents/ui/main.qml:104
+#: kcm/ui/main.qml:104
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
 msgstr "Monitor"
 
-#: kcm/package/contents/ui/main.qml:105
+#: kcm/ui/main.qml:105
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
 msgstr "Ignora"
 
-#: kcm/package/contents/ui/main.qml:113
+#: kcm/ui/main.qml:113
 msgctxt "@action/button show detailed smart report"
 msgid "Detailed Information"
 msgstr "Information detaliate"

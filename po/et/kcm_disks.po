@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-31 02:17+0000\n"
+"POT-Creation-Date: 2023-06-06 02:09+0000\n"
 "PO-Revision-Date: 2020-10-08 13:30+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -45,17 +45,17 @@ msgid ""
 "tests outdated by a newer successful extended self-test are ignored."
 msgstr ""
 
-#: kcm/package/contents/ui/main.qml:41
+#: kcm/ui/main.qml:41
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
 msgstr "Andmete hankimine nurjus. KDED ei tööta."
 
-#: kcm/package/contents/ui/main.qml:52
+#: kcm/ui/main.qml:52
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
 msgstr "Ühtegi SMART-i toega seadet ei leitud."
 
-#: kcm/package/contents/ui/main.qml:73
+#: kcm/ui/main.qml:73
 #, fuzzy
 #| msgctxt "@info"
 #| msgid ""
@@ -74,7 +74,7 @@ msgstr ""
 "vältimiseks on äärmiselt soovitatav teha andmetest varukoopia ja see seade "
 "esimesel võimalusel välja vahetada."
 
-#: kcm/package/contents/ui/main.qml:79
+#: kcm/ui/main.qml:79
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
 msgid ""
 "<p>The SMART firmware is not reporting a failure, but there are early signs "
@@ -83,32 +83,32 @@ msgid ""
 "disk, or replace it preemptively just to be safe.</p><ul>%1</ul>"
 msgstr ""
 
-#: kcm/package/contents/ui/main.qml:85
+#: kcm/ui/main.qml:85
 msgctxt "@info"
 msgid "This device appears to be working as expected."
 msgstr "Tundub, et see seade töötab, nagu vaja."
 
-#: kcm/package/contents/ui/main.qml:92
+#: kcm/ui/main.qml:92
 msgctxt "@action/button action button to start partition manager"
 msgid "Partition Manager"
 msgstr "Partitsioonihaldur"
 
-#: kcm/package/contents/ui/main.qml:98
+#: kcm/ui/main.qml:98
 msgctxt "@action/button action button to start backup program"
 msgid "Backup"
 msgstr "Varundamine"
 
-#: kcm/package/contents/ui/main.qml:104
+#: kcm/ui/main.qml:104
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
 msgstr "Jälgi"
 
-#: kcm/package/contents/ui/main.qml:105
+#: kcm/ui/main.qml:105
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
 msgstr "Eira"
 
-#: kcm/package/contents/ui/main.qml:113
+#: kcm/ui/main.qml:113
 msgctxt "@action/button show detailed smart report"
 msgid "Detailed Information"
 msgstr ""

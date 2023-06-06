@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-31 02:17+0000\n"
+"POT-Creation-Date: 2023-06-06 02:09+0000\n"
 "PO-Revision-Date: 2021-09-18 19:50+0400\n"
 "Last-Translator: Kheyyam Gojayev <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -51,17 +51,17 @@ msgstr ""
 "öz-özünü test etmədən sonra köhnəlmiş uğursuz özünü testetmələr nəzərə "
 "alınmır."
 
-#: kcm/package/contents/ui/main.qml:41
+#: kcm/ui/main.qml:41
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
 msgstr "Məlumat əldə edilə bilmədi. KDED işləmir."
 
-#: kcm/package/contents/ui/main.qml:52
+#: kcm/ui/main.qml:52
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
 msgstr "S.M.A.R.T. cihazları tapılmadı."
 
-#: kcm/package/contents/ui/main.qml:73
+#: kcm/ui/main.qml:73
 msgctxt "@info"
 msgid ""
 "The SMART system of this device is reporting problems. This may be a sign of "
@@ -73,7 +73,7 @@ msgstr ""
 "bilər. Heç bir məlumatı itirməmək üçün verilənlərinizi yedekləməyiniz və bu "
 "diski ən qısa müddətdə dəyişdirməyiniz tövsiyə olunur."
 
-#: kcm/package/contents/ui/main.qml:79
+#: kcm/ui/main.qml:79
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
 msgid ""
 "<p>The SMART firmware is not reporting a failure, but there are early signs "
@@ -88,32 +88,32 @@ msgstr ""
 "əlaqə yaradın və ya onu hər ehtimala qarşı ən qısa zamanda dəyişin.</p><ul>"
 "%1</ul>"
 
-#: kcm/package/contents/ui/main.qml:85
+#: kcm/ui/main.qml:85
 msgctxt "@info"
 msgid "This device appears to be working as expected."
 msgstr "Bu cihaz qaydasında işləyir."
 
-#: kcm/package/contents/ui/main.qml:92
+#: kcm/ui/main.qml:92
 msgctxt "@action/button action button to start partition manager"
 msgid "Partition Manager"
 msgstr "Bölmələr Meneceri"
 
-#: kcm/package/contents/ui/main.qml:98
+#: kcm/ui/main.qml:98
 msgctxt "@action/button action button to start backup program"
 msgid "Backup"
 msgstr "Yedəkləmək"
 
-#: kcm/package/contents/ui/main.qml:104
+#: kcm/ui/main.qml:104
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
 msgstr "Ekran"
 
-#: kcm/package/contents/ui/main.qml:105
+#: kcm/ui/main.qml:105
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
 msgstr "Gözardı etmək"
 
-#: kcm/package/contents/ui/main.qml:113
+#: kcm/ui/main.qml:113
 msgctxt "@action/button show detailed smart report"
 msgid "Detailed Information"
 msgstr "Ətraflı məlumat"
