@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-06 02:09+0000\n"
+"POT-Creation-Date: 2023-06-07 02:19+0000\n"
 "PO-Revision-Date: 2022-10-14 15:28+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -102,7 +102,7 @@ msgctxt "@action/button show detailed smart report"
 msgid "Detailed Information"
 msgstr "Ítarlegri upplýsingar"
 
-#: smartctl.cpp:39
+#: smartctl.cpp:33
 #, kde-format
 msgctxt ""
 "@label description of authentication request to read SMART data. %1 is a "
