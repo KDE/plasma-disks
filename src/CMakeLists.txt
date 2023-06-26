@@ -55,7 +55,7 @@ target_link_libraries(statickdedsmart
 add_library(kded-smart MODULE main.cpp)
 set_target_properties(kded-smart PROPERTIES OUTPUT_NAME smart)
 target_link_libraries(kded-smart statickdedsmart)
-install(TARGETS kded-smart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/kded)
+install(TARGETS kded-smart DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/kded)
 
 kauth_install_actions(org.kde.kded.smart org.kde.kded.smart.actions)
 add_executable(kded-smart-helper helper.cpp)
