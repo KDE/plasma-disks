@@ -14,7 +14,7 @@ DeviceModel::DeviceModel(QObject *parent)
 {
     KDBusObjectManagerServer::registerTypes();
 
-    auto watcher = new QDBusServiceWatcher(QStringLiteral("org.kde.kded5"), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+    auto watcher = new QDBusServiceWatcher(QStringLiteral("org.kde.kded6"), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
     connect(watcher,
             &QDBusServiceWatcher::serviceOwnerChanged,
             this,
@@ -135,7 +135,7 @@ void DeviceModel::addObject(const QDBusObjectPath &dbusPath, const KDBusObjectMa
     // so it brings literally nothing to the table for our Device class.
     // Use QObjects with dynamic properties instead to model the remote objects.
     // Property changes are abstracted via the ListModel anyway.
-    auto obj = new OrgFreedesktopDBusPropertiesInterface(QStringLiteral("org.kde.kded5"), path, QDBusConnection::sessionBus(), this);
+    auto obj = new OrgFreedesktopDBusPropertiesInterface(QStringLiteral("org.kde.kded6"), path, QDBusConnection::sessionBus(), this);
     m_objects << obj;
     obj->setObjectName(path);
     // Don't care about interfaces, iterate the values i.e. propertymap
@@ -237,7 +237,7 @@ void DeviceModel::reload()
 {
     reset();
 
-    m_iface = new OrgFreedesktopDBusObjectManagerInterface(QStringLiteral("org.kde.kded5"),
+    m_iface = new OrgFreedesktopDBusObjectManagerInterface(QStringLiteral("org.kde.kded6"),
                                                            QStringLiteral("/modules/smart/devices"),
                                                            QDBusConnection::sessionBus(),
                                                            this);
