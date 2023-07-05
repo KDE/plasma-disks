@@ -23,3 +23,5 @@ void SimulationCtl::run(const QString &devicePath)
     Q_ASSERT(error.error == QJsonParseError::NoError);
     Q_EMIT finished(devicePath, document, readCLIData());
 }
+
+#include "moc_simulationctl.cpp"

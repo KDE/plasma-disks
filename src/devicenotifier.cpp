@@ -2,3 +2,5 @@
 // SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
 
 #include "devicenotifier.h"
+
+#include "moc_devicenotifier.cpp"

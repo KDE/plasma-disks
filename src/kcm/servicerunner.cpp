@@ -27,3 +27,5 @@ bool ServiceRunner::canRun() const
 {
     return !m_name.isEmpty() && m_service && m_service->isValid();
 }
+
+#include "moc_servicerunner.cpp"

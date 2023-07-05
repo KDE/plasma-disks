@@ -114,3 +114,5 @@ void SMARTMonitor::addDevice(Device *device)
     m_pendingDevices[device->path()] = device;
     m_ctl->run(device->path());
 }
+
+#include "moc_smartmonitor.cpp"

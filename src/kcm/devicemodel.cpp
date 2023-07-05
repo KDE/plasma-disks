@@ -266,3 +266,5 @@ void DeviceModel::reload()
 }
 
 #include "devicemodel.moc"
+
+#include "moc_devicemodel.cpp"

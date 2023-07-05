@@ -69,3 +69,5 @@ void SolidDeviceNotifier::checkSolidDevice(const Solid::Device &device)
 
     Q_EMIT addDevice(new Device(device));
 }
+
+#include "moc_soliddevicenotifier.cpp"

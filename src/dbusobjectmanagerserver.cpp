@@ -186,3 +186,5 @@ KDBusObjectManagerServer::InterfaceMetaObjectHash KDBusObjectManagerServer::meta
 }
 
 #include "dbusobjectmanagerserver.moc"
+
+#include "moc_dbusobjectmanagerserver.cpp"

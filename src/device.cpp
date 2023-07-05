@@ -105,3 +105,5 @@ void Device::setAdvancedReport(const QString &report)
     m_advancedReport = newReport;
     Q_EMIT advancedReportChanged();
 }
+
+#include "moc_device.cpp"

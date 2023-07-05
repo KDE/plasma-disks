@@ -2,3 +2,5 @@
 // SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
 
 #include "smartfailure.h"
+
+#include "moc_smartfailure.cpp"

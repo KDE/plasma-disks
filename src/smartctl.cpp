@@ -68,3 +68,5 @@ void SMARTCtl::run(const QString &devicePath)
     });
     job->start();
 }
+
+#include "moc_smartctl.cpp"

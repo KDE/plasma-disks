@@ -21,3 +21,5 @@ void SimulationDeviceNotifier::loadData()
         Q_EMIT addDevice(new Device(info.fileName(), info.fileName(), info.absoluteFilePath()));
     }
 }
+
+#include "moc_simulationdevicenotifier.cpp"

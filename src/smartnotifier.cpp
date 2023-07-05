@@ -97,3 +97,5 @@ void SMARTNotifier::maybeFailed(const Device *device)
 }
 
 #include "smartnotifier.moc"
+
+#include "moc_smartnotifier.cpp"
