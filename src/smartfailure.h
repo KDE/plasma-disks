@@ -36,7 +36,7 @@ enum class Failure {
     SelfTestErrors = 0x80,
     // The entire thing doesn't exceed 8 bits because it's a posix exit code.
 };
-Q_ENUM_NS(Failure);
+Q_ENUM_NS(Failure)
 Q_DECLARE_FLAGS(Failures, Failure)
 }
 
