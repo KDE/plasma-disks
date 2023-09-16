@@ -28,7 +28,7 @@ qt_add_dbus_interface(kcm_SRCS org.freedesktop.DBus.ObjectManager.xml org.freede
 
 kcmutils_add_qml_kcm(kcm_disks SOURCES ${kcm_SRCS} INSTALL_NAMESPACE "plasma/kcms/kinfocenter")
 
-target_link_libraries(kcm_disks
+target_link_libraries(kcm_disks PRIVATE
     statickdedsmart
     KF6::CoreAddons
     KF6::I18n
