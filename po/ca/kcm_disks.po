@@ -1,15 +1,15 @@
 # Translation of kcm_disks.po to Catalan
-# Copyright (C) 2020-2021 This_file_is_part_of_KDE
+# Copyright (C) 2020-2023 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2020, 2021.
+# Josep M. Ferrer <txemaq@gmail.com>, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-07 02:19+0000\n"
-"PO-Revision-Date: 2021-10-23 19:54+0200\n"
+"PO-Revision-Date: 2023-09-24 17:20+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: instabilities.cpp:27
 #, kde-format
@@ -74,7 +74,7 @@ msgstr ""
 "El sistema SMART d'aquest dispositiu està informant de problemes. Això pot "
 "ser un signe de fallada imminent del dispositiu o s'ha compromès la "
 "fiabilitat de les dades. Feu una còpia de seguretat de les dades i "
-"substituïu aquesta unitat tan aviat com sigui possible per evitar perdre "
+"substituïu aquesta unitat tan aviat com sigui possible per a evitar perdre "
 "qualsevol dada."
 
 #: kcm/ui/main.qml:79
