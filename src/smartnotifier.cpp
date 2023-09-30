@@ -41,8 +41,8 @@ public:
 
         KService::Ptr kcm = KService::serviceByStorageId(QStringLiteral("smart"));
         Q_ASSERT(kcm); // there's a bug or installation is broken; mustn't happen in production
-        m_notification->setActions({i18nc("@action:button notification action to manage device problems", "Manage")});
-        connect(m_notification, &KNotification::action1Activated, this, [kcm] {
+        auto manageAction = m_notification->addAction(i18nc("@action:button notification action to manage device problems", "Manage"));
+        connect(manageAction, &KNotificationAction::activated, this, [kcm] {
             KIO::ApplicationLauncherJob(kcm).start();
         });
 
