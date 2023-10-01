@@ -54,7 +54,7 @@ msgstr ""
 #: kcm/ui/main.qml:41
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
-msgstr "Non se poden obter datos. KDED non está en execución."
+msgstr "Non é posíbel obter datos. KDED non está en execución."
 
 #: kcm/ui/main.qml:52
 msgctxt "@info/status"
@@ -70,8 +70,8 @@ msgid ""
 msgstr ""
 "O sistema SMART deste dispositivo está informando de problemas. Isto pode "
 "ser indicativo dun fallo inminente do dispositivo, ou pode que a integridade "
-"dos datos estea en perigo. Faga unha copia de seguridade dos datos e "
-"substitúa a unidade canto antes para evitar perder datos."
+"dos datos estea en perigo. Faga unha salvagarda dos datos e substitúa a "
+"unidade canto antes para evitar perder datos."
 
 #: kcm/ui/main.qml:79
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
@@ -83,9 +83,9 @@ msgid ""
 msgstr ""
 "<p>O firmware de SMART non está informando dun problema, pero hai indicios "
 "de mal funcionamento. Isto podería non ser indicativo dun fallo inminente do "
-"dispositivo, pero require unha análise a máis longo prazo. Faga unha copia "
-"de seguridade dos seus datos e contacte co fabricante do disco, ou "
-"substitúao de antemán por precaución.</p><ul>%1</ul>"
+"dispositivo, pero require unha análise a máis longo prazo. Faga unha "
+"salvagarda dos seus datos e contacte co fabricante do disco, ou substitúao "
+"de antemán por precaución.</p><ul>%1</ul>"
 
 #: kcm/ui/main.qml:85
 msgctxt "@info"
@@ -100,7 +100,7 @@ msgstr "Xestor de particións"
 #: kcm/ui/main.qml:98
 msgctxt "@action/button action button to start backup program"
 msgid "Backup"
-msgstr "Facer unha copia de seguridade"
+msgstr "Facer unha salvagarda"
 
 #: kcm/ui/main.qml:104
 msgctxt "@action/button action button to monitor a device for smart failure"
