@@ -24,7 +24,7 @@ public:
     explicit SMARTMonitor(std::unique_ptr<AbstractSMARTCtl> ctl, std::unique_ptr<DeviceNotifier> deviceNotifier, QObject *parent = nullptr);
     void start();
 
-    QVector<Device *> devices() const;
+    QList<Device *> devices() const;
 
 Q_SIGNALS:
     void deviceAdded(Device *device);
@@ -42,7 +42,7 @@ private:
     const std::unique_ptr<AbstractSMARTCtl> m_ctl;
     const std::unique_ptr<DeviceNotifier> m_deviceNotifier;
     QHash<QString, Device *> m_pendingDevices; // waiting for smartctl to return
-    QVector<Device *> m_devices; // monitored smart devices
+    QList<Device *> m_devices; // monitored smart devices
 };
 
 #endif // SMARTMONITOR_H

@@ -26,7 +26,7 @@ public:
         ObjectRole = Qt::UserRole + 1,
     };
 
-    QVector<QObject *> m_objects;
+    QList<QObject *> m_objects;
 
     DeviceModel(QObject *parent = nullptr);
 

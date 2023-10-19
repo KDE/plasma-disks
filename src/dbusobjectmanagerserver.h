@@ -48,5 +48,5 @@ private:
     InterfaceMetaObjectHash metaObjectsFor(const QObject *object);
 
     const QString m_path = QStringLiteral("/modules/smart/devices");
-    QVector<QObject *> m_managedObjects;
+    QList<QObject *> m_managedObjects;
 };

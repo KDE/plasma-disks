@@ -35,7 +35,7 @@ void SMARTMonitor::start()
     m_reloadTimer.start();
 }
 
-QVector<Device *> SMARTMonitor::devices() const
+QList<Device *> SMARTMonitor::devices() const
 {
     return m_devices;
 }
