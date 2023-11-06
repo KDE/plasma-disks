@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.16)
 project(plasma-disks)
 set(PROJECT_VERSION "5.27.80")
 
-set(QT_MIN_VERSION "6.4.0")
+set(QT_MIN_VERSION "6.5.0")
 set(KF6_MIN_VERSION "5.240.0")
 
 find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
