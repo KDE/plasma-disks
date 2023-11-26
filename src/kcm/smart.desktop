@@ -119,4 +119,4 @@ Keywords[sv]=SMART,S.M.A.R.T.,övervakning,hälsa,disk,enhet,lagring,fel
 Keywords[tr]=SMART,S.M.A.R.T.,izleme,sağlık,disk,sürücü,depolama,arıza
 Keywords[uk]=SMART,S.M.A.R.T.,monitoring,health,disk,drive,storage,failure,смарт,спостереження,моніторинг,стан,диск,носій,сховище,помилка,вада,проблема
 Keywords[x-test]=xxSMART,S.M.A.R.T.,monitoring,health,disk,drive,storage,failurexx
-Keywords[zh_CN]=SMART,S.M.A.R.T.,monitoring,health,disk,drive,storage,failure,监控,健康,磁盘,驱动器,硬盘,存储,故障
+Keywords[zh_CN]=SMART,S.M.A.R.T.,monitoring,health,disk,drive,storage,failure,监控,预警,健康,磁盘,驱动器,硬盘,存储,故障,jiankong,jiankang,cipan,qudongqi,yingpan,cunchu,guzhang,yujing
