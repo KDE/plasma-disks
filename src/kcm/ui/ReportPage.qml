@@ -14,5 +14,6 @@ KCM.SimpleKCM {
         readOnly: true
         font.family: "monospace"
         textFormat: TextEdit.PlainText
+        wrapMode: TextEdit.Wrap
     }
 }
