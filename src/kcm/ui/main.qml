@@ -65,7 +65,7 @@ KCM.SimpleKCM {
             }
 
             contentItem: Label {
-                width: parent.width
+                anchors.fill: parent
                 wrapMode: Text.Wrap
                 text: {
                     if (failed) {
