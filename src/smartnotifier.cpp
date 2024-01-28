@@ -39,7 +39,7 @@ public:
                                            device->path()));
         }
 
-        KService::Ptr kcm = KService::serviceByStorageId(QStringLiteral("smart"));
+        KService::Ptr kcm = KService::serviceByDesktopName(QStringLiteral("kcm_disks"));
         Q_ASSERT(kcm); // there's a bug or installation is broken; mustn't happen in production
         auto manageAction = m_notification->addAction(i18nc("@action:button notification action to manage device problems", "Manage"));
         connect(manageAction, &KNotificationAction::activated, this, [kcm] {
