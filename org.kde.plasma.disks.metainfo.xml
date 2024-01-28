@@ -33,6 +33,7 @@
   <name xml:lang="it">Dischi di Plasma</name>
   <name xml:lang="ka">Plasma Disks</name>
   <name xml:lang="ko">Plasma 디스크</name>
+  <name xml:lang="lv">„Plasma“ diski</name>
   <name xml:lang="nl">Plasma-schijven</name>
   <name xml:lang="nn">Plasma-diskar</name>
   <name xml:lang="pa">ਪਲਾਜ਼ਮਾ ਡਿਸਕਾਂ</name>
@@ -74,6 +75,7 @@
   <summary xml:lang="it">Controllo della salute dei dischi rigidi per KDE Plasma</summary>
   <summary xml:lang="ka">მყარის დისკების ჯანმრთელობის თვალყურის დევნება KDE Plasma-სთვის</summary>
   <summary xml:lang="ko">KDE Plasma용 하드 디스크 상태 모니터링</summary>
+  <summary xml:lang="lv">KDE „Plasma“ cieto diska veselības pārraudzības rīks</summary>
   <summary xml:lang="nl">Monitoren van welzijn van vaste schijf voor KDE Plasma</summary>
   <summary xml:lang="nn">Overvaking av harddisk-helse for KDE Plasma</summary>
   <summary xml:lang="pa">KDE ਪਲਾਜ਼ਮਾ ਲਈ ਹਾਰਡ ਡਿਸਕ ਦੀ ਸਥਿਤੀ ਦੀ ਨਿਗਰਾਨੀ</summary>
@@ -116,6 +118,7 @@
     <p xml:lang="it">Dischi di Plasma controlla i dati S.M.A.R.T. dei dischi, e avverte l'utente quando si manifestano dei segni di guasto imminente.</p>
     <p xml:lang="ka">Plasma Disks აკონტროლებს დისკების S.M.A.R.T. მონაცემებს და ატყობინებს მომხმარებელს გარდაუვალი ავარიის მოახლოების შესახებ.</p>
     <p xml:lang="ko">Plasma 디스크에서는 디스크의 SMART 데이터를 관찰하고 오류 발생 시 사용자에게 경고합니다.</p>
+    <p xml:lang="lv">„Plasma“ diski pārrauga disku S.M.A.R.T. datus un brīdina lietotāju, ja sāk atklāties nenovēršamas avārijas pazīmes.</p>
     <p xml:lang="nl">Plasma Disks monitort S.M.A.R.T. gegevens van schijven en waarschuwt de gebruiker wanneer tekenen van driegend falen verschijnen.</p>
     <p xml:lang="nn">Plasma Disks overvaker S.M.A.R.T.-data på harddiskar og varslar brukaren når det finst teikn på nærleg havari.</p>
     <p xml:lang="pa">ਪਲਾਜ਼ਮਾ ਡਿਸਕ ਡਿਸਕਾਂ ਦੇ S.M.A.R.T. ਡਾਟੇ ਦੀ ਨਿਗਰਾਨੀ ਕਰਦੀ ਹੈ ਅਤੇ ਜਦੋਂ ਵੀ ਛੇਤੀ ਕਿਤੇ ਫੇਲ੍ਹ ਹੋਣ ਦੀ ਸੰਭਾਵਨਾ ਦੇ ਲੱਛਣ ਹੋਣ ਤਾਂ ਵਰਤੋਂਕਾਰ ਨੂੰ ਸਾਵਧਾਨ ਕਰਦੀ ਹੈ।</p>
@@ -161,6 +164,7 @@
       <caption xml:lang="it">Il modulo Dischi di Plasma del Centro d'informazione che mostra lo stato dei dispositivi.</caption>
       <caption xml:lang="ka">Plasma Disks-ის Info Center-ის მოდული დისკების მდგომარეობის საჩვენებლად.</caption>
       <caption xml:lang="ko">Plasma 디스크 정보 센터 모듈에서는 장치 상태를 표시합니다.</caption>
+      <caption xml:lang="lv">Ierīču statuss „Plasma“ disku informācijas centra modulī</caption>
       <caption xml:lang="nl">De module Plasma Disks Info Center laat de status van apparaten zien.</caption>
       <caption xml:lang="nn">Plasma Disks-informasjonssenter­modulen viser helsetilstanden til lagringseiningar</caption>
       <caption xml:lang="pa">ਡਿਵਾਈਸਾਂ ਦੀ ਸਥਿਤੀ ਵੇਖਾਉਣ ਲਈ ਪਲਾਜ਼ਮਾ ਡਿਸਕ ਜਾਣਕਾਰੀ ਕੇਂਦਰ ਮੋਡੀਊਲ ਹੈ।</caption>
@@ -207,6 +211,7 @@
   <developer_name xml:lang="it">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="ka">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="ko">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="lv">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="nl">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="nn">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="pa">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
