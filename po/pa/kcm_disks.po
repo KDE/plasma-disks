@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-07 02:19+0000\n"
-"PO-Revision-Date: 2024-01-01 11:09-0600\n"
+"PO-Revision-Date: 2024-01-28 18:09-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
@@ -44,6 +44,8 @@ msgid ""
 "The device self-test log contains records of errors. [ATA only] Failed self-"
 "tests outdated by a newer successful extended self-test are ignored."
 msgstr ""
+"ਡਿਵਾਇਸ ਸਵੈ-ਟੈਸਟ ਲਾਗ ਵਿੱਚ ਗਲਤੀਆਂ ਦੀ ਜਾਣਕਾਰੀ ਹੈ। [ਸਿਰਫ਼ ATA] ਨਵੇਂ ਕਾਮਯਾਬ ਵਧੀਕ ਸਵੈ-ਟੈਸਟ "
+"ਰਾਹੀਂ ਅਣਡਿੱਠੇ ਕੀਤੇ ਅਸਫ਼ਲ ਹੋਏ ਸਵੈ-ਟੈਸਟਾਂ ਨੂੰ ਅਣਡਿੱਠਾ ਕੀਤਾ ਗਿਆ ਹੈ।"
 
 #: kcm/ui/main.qml:41
 msgctxt "@info/status"
@@ -132,13 +134,7 @@ msgstr ""
 "ਹੋਣ ਦੀ ਉਮੀਦ ਹੈ"
 
 #: smartnotifier.cpp:37
-#, fuzzy, kde-kuit-format
-#| msgctxt ""
-#| "@info notification; text %1 is a pretty product name; %2 the device path "
-#| "e.g. /dev/sda"
-#| msgid ""
-#| "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
-#| "likely to fail soon!"
+#, kde-kuit-format
 msgctxt ""
 "@info notification; text %1 is a pretty product name; %2 the device path e."
 "g. /dev/sda"
@@ -146,8 +142,8 @@ msgid ""
 "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
 "showing indications of instability."
 msgstr ""
-"ਸਟੋਰੇਜ਼ ਡਿਵਾਈਸ <emphasis>%1</emphasis> (<filename>%2</filename>) ਦੇ ਛੇਤੀ ਹੀ ਫੇਲ੍ਹ "
-"ਹੋਣ ਦੀ ਉਮੀਦ ਹੈ"
+"ਸਟੋਰੇਜ਼ ਡਿਵਾਈਸ <emphasis>%1</emphasis> (<filename>%2</filename>) ਅਸਥਿਰਤਾ ਦੇ ਸੰਕੇਤ "
+"ਦੇ ਰਿਹਾ ਹੈ।"
 
 #: smartnotifier.cpp:44
 #, kde-format
