@@ -1,22 +1,23 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-disks package.
 # Tommi Nieminen <translator@legisign.org>, 2020, 2021.
-# Lasse Liehu <lasse.liehu@iki.fi>, 2021.
+# SPDX-FileCopyrightText: 2021, 2024 Lasse Liehu <lasse.liehu@iki.fi>
+# SPDX-FileCopyrightText: 2024 Kimmo Kujansuu <mrkujansuu@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-02-27 00:49+0000\n"
-"PO-Revision-Date: 2021-09-28 14:28+0300\n"
-"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"PO-Revision-Date: 2024-02-29 21:03+0200\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -104,8 +105,8 @@ msgid ""
 "longer term analysis. Back up your data and contact the manufacturer of this "
 "disk, or replace it preemptively just to be safe.</p><ul>%1</ul>"
 msgstr ""
-"<p>SMART-varusohjelmisto ei ilmoita virheestä, mutta osoittaa varhaisia "
-"merkkejä toimintahäiriöstä. Tämä ei välttämättä tarkoita laitevikaa mutta "
+"<p>SMART-laiteohjelmisto ei ilmoita virheestä, mutta osoittaa varhaisia "
+"merkkejä toimintahäiriöstä. Tämä ei välttämättä tarkoita laitevikaa, mutta "
 "vaatii pidempikestoista analyysia. Varmuuskopioi tietosi ja ota yhteyttä "
 "levyn valmistajaan tai vaihda se ennaltaehkäisevästi.</p><ul>%1</ul>"
 
@@ -145,13 +146,13 @@ msgctxt ""
 "@label description of authentication request to read SMART data. %1 is a "
 "device path e.g. /dev/sda"
 msgid "Read SMART report for storage device %1"
-msgstr "Lue laitteen %1 SMART-raportti"
+msgstr "Lue kiintolevyn %1 SMART-raportti"
 
 #: smartnotifier.cpp:29
 #, kde-format
 msgctxt "@title notification"
 msgid "Storage Device Problems"
-msgstr "Tallennuslaiteongelmia"
+msgstr "Kiintolevyongelmia"
 
 #: smartnotifier.cpp:32
 #, kde-kuit-format
@@ -162,8 +163,8 @@ msgid ""
 "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
 "likely to fail soon!"
 msgstr ""
-"Tallennuslaite <emphasis>%1</emphasis> (<filename>%2</filename>) kohtaa "
-"todennäköisesti pian ongelmia!"
+"Kiintolevy <emphasis>%1</emphasis> (<filename>%2</filename>)  "
+"todennäköisesti kohtaa pian ongelmia!"
 
 #: smartnotifier.cpp:37
 #, kde-kuit-format
@@ -174,8 +175,8 @@ msgid ""
 "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
 "showing indications of instability."
 msgstr ""
-"Tallennuslaite <emphasis>%1</emphasis> (<filename>%2</filename>) osoittaa "
-"merkkejä epävakaudesta."
+"Kiintolevy <emphasis>%1</emphasis> (<filename>%2</filename>) osoittaa "
+"epävakauden merkkejä."
 
 #: smartnotifier.cpp:44
 #, kde-format
