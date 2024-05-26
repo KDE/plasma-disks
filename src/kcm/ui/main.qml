@@ -1,28 +1,32 @@
-// SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
-// SPDX-FileCopyrightText: 2020-2021 Harald Sitter <sitter@kde.org>
+/*
+ *  SPDX-FileCopyrightText: 2020-2021 Harald Sitter <sitter@kde.org>
+ *  SPDX-FileCopyrightText: 2024 Oliver Beard <olib141@outlook.com>
+ *
+ *  SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+ */
+
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
+import QtQml.Models // TODO: Needed?
 
 import org.kde.kcmutils as KCM
-import QtQuick 2.14
-import QtQml.Models 2.14
-import QtQuick.Layouts 1.14
-import SMART 1.0 as SMART
-import org.kde.kirigami 2.12 as Kirigami
-import QtQuick.Controls 2.14
+import org.kde.kirigami as Kirigami
 
-KCM.SimpleKCM {
+import SMART as SMART
+
+KCM.AbstractKCM {
     id: root
-    implicitWidth: Kirigami.Units.gridUnit * 28
-    implicitHeight: Kirigami.Units.gridUnit * 20
 
-    SMART.ServiceRunner {
-        id: partitionManagerRunner
-        name: "org.kde.partitionmanager"
-    }
+    // Done in module.cpp, move here?
+    // KCM.ConfigModule.buttons: KCM.ConfigModule.Default | KCM.ConfigModule.Apply | KCM.ConfigModule.Help
 
-    SMART.ServiceRunner {
-        id: kupRunner
-        name: "kcm_kup"
-    }
+    implicitWidth: Kirigami.Units.gridUnit * 30
+    implicitHeight: Kirigami.Units.gridUnit * 35
+    framedView: false // from powerdevil, needed?
+
+    SMART.ServiceRunner { id: partitionManagerRunner; name: "org.kde.partitionmanager" }
+    SMART.ServiceRunner { id: kupRunner; name: "kcm_kup" }
 
     actions: [
         Kirigami.Action {
@@ -39,6 +43,103 @@ KCM.SimpleKCM {
         }
     ]
 
+    // TODO: From powerdevil, better way?
+    Rectangle {
+        // We're using AbstractKCM so that the automatic scrolling support of SimpleKCM
+        // doesn't get in the way of the "tab content" Flickable below.
+        // Use this lovely rectangle instead to still give the view a default background color.
+        anchors.fill: parent
+        color: Kirigami.Theme.backgroundColor
+    }
+
+    SMART.DeviceModel { id: deviceModel }
+
+    states: [
+        State {
+            name: "noData"
+            when: !deviceModel.valid
+        },
+        State {
+            name: "waitingForDevices"
+            when: deviceModel.waiting
+        },
+        State {
+            name: "noDevices"
+            // TODO: set to model
+            when: deviceModel.rowCount() == 0
+        },
+        State {
+            name: "ready"
+            when: deviceModel.rowCount() > 0
+        }
+    ]
+
+    Kirigami.PlaceholderMessage {
+        anchors.centerIn: parent
+
+        width: parent.width - Kirigami.Units.gridUnit * 2
+
+        visible: root.state == "noData" || root.state == "noDevices"
+        icon.name: root.state == "noData" ? "data-warning-symbolic"
+                                          : "edit-none-symbolic"
+        text: root.state == "noData" ? i18nc("@info:placeholder", "Unable to obtain data")
+                                     : i18nc("@info:placeholder", "No S.M.A.R.T. devices found")
+        explanation: root.state == "noData" ? ""
+                                            : i18nc("@info:usagetip", "KDED is not running")
+    }
+
+    ColumnLayout {
+        anchors.fill: parent
+
+        visible: root.state == "ready"
+        spacing: 0
+
+        Kirigami.NavigationTabBar {
+            id: deviceTabBar
+            Layout.fillWidth: true
+
+            //onActionsChanged: if (currentIndex == -1) currentIndex = 0
+
+            Instantiator {
+                model: deviceModel
+                delegate: Kirigami.Action {
+                    icon.name: {
+                        if (model.ignore) {
+                            return "drive-harddisk-symbolic"
+                        } else if (model.failed) {
+                            return "disk-quota-high-symbolic"
+                        } else if (model.instabilities.length !== 0) {
+                            return "data-quota-low-symboic"
+                        } else {
+                            return "disk-quota-symbolic"
+                        }
+                    }
+                    text: "%1\n%2".arg(model.product).arg(model.path)
+                    onTriggered: deviceInfo.text = model.advancedReport
+                    //displayComponent: Rectangle { color: "red"; width: 50; height: 50 }
+                }
+
+                onObjectAdded: (_, object) => deviceTabBar.actions.push(object)
+                onObjectRemoved: (_, object) => deviceTabBar.actions.remove(object)
+            }
+        }
+
+        QQC2.TextArea {
+            id: deviceInfo
+
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            background: null // render this without frame so it looks neatly integrated into the kcm page
+            readOnly: true
+            font.family: "monospace"
+            textFormat: TextEdit.PlainText
+            wrapMode: TextEdit.Wrap
+            text: "TODO"
+        }
+    }
+
+    /*
     Kirigami.CardsListView {
         id: listView
         width: 110
@@ -123,4 +224,5 @@ KCM.SimpleKCM {
             ]
         }
     }
+    */
 }
