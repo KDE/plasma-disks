@@ -14,21 +14,36 @@ KCM.SimpleKCM {
     implicitWidth: Kirigami.Units.gridUnit * 28
     implicitHeight: Kirigami.Units.gridUnit * 20
 
+    SMART.ServiceRunner {
+        id: partitionManagerRunner
+        name: "org.kde.partitionmanager"
+    }
+
+    SMART.ServiceRunner {
+        id: kupRunner
+        name: "kcm_kup"
+    }
+
+    actions: [
+        Kirigami.Action {
+            visible: partitionManagerRunner.canRun
+            text: i18nc("@action/button action button to start partition manager", "Partition Manager")
+            icon.name: "partitionmanager"
+            onTriggered: partitionManagerRunner.run()
+        },
+        Kirigami.Action {
+            visible: kupRunner.canRun
+            text: i18nc("@action/button action button to start backup program", "Backup")
+            icon.name: "kup"
+            onTriggered: kupRunner.run()
+        }
+    ]
+
     Kirigami.CardsListView {
         id: listView
         width: 110
         height: 160
         model: SMART.DeviceModel { id: deviceModel }
-
-        SMART.ServiceRunner {
-            id: partitionManagerRunner
-            name: "org.kde.partitionmanager"
-        }
-
-        SMART.ServiceRunner {
-            id: kupRunner
-            name: "kcm_kup"
-        }
 
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
@@ -87,18 +102,6 @@ KCM.SimpleKCM {
             }
 
             actions: [
-                Kirigami.Action {
-                    visible: partitionManagerRunner.canRun
-                    text: i18nc("@action/button action button to start partition manager", "Partition Manager")
-                    icon.name: "partitionmanager"
-                    onTriggered: partitionManagerRunner.run()
-                },
-                Kirigami.Action {
-                    visible: kupRunner.canRun
-                    text: i18nc("@action/button action button to start backup program", "Backup")
-                    icon.name: "kup"
-                    onTriggered: kupRunner.run()
-                },
                 Kirigami.Action {
                     text: ignore
                           ? i18nc("@action/button action button to monitor a device for smart failure", "Monitor")
