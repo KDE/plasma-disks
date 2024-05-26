@@ -9,11 +9,11 @@
 class ServiceRunner : public QObject
 {
     Q_OBJECT
+
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(bool canRun READ canRun NOTIFY canRunChanged)
-public:
-    using QObject::QObject;
 
+public:
     Q_INVOKABLE void run();
 
     QString name() const;
