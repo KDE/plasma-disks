@@ -164,19 +164,3 @@ msgstr ""
 msgctxt "@action:button notification action to manage device problems"
 msgid "Manage"
 msgstr "Gestiona"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Josep M. Ferrer"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "txemaq@gmail.com"
-
-#~ msgctxt "@title"
-#~ msgid "Storage Device Health Monitoring"
-#~ msgstr "Monitoratge de l'estat dels dispositius d'emmagatzematge"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Copyright 2020 Harald Sitter"
-#~ msgstr "Copyright 2020 Harald Sitter"
