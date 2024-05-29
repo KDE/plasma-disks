@@ -16,7 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 20.12.1\n"
 
 #: instabilities.cpp:27
 #, kde-format
@@ -49,7 +48,7 @@ msgid ""
 "tests outdated by a newer successful extended self-test are ignored."
 msgstr ""
 "Dziennik samodiagnozy dysku ma wpisy o błędach. [tylko ATA] Próby zakończone "
-"niepowodzeniem, która zostały zastąpione nowszymi próbami, zakończonymi "
+"niepowodzeniem, które zostały zastąpione nowszymi próbami, zakończonymi "
 "powodzeniem, są pomijane."
 
 #: kcm/ui/main.qml:41
@@ -106,12 +105,12 @@ msgstr "Kopia zapasowa"
 #: kcm/ui/main.qml:104
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
-msgstr "Monitor"
+msgstr "Monitoruj"
 
 #: kcm/ui/main.qml:105
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
-msgstr "Pomiń"
+msgstr "Nie monitoruj"
 
 #: kcm/ui/main.qml:113
 msgctxt "@action/button show detailed smart report"
