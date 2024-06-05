@@ -3,6 +3,7 @@
 [Global]
 IconName=preferences-smart-status
 Name=Storage Device Health Monitoring
+Name[ar]=مراقبة صحة جهاز التخزين
 Name[az]=Yaddaş Cihazının Vəziyyətinin İzlənməsi
 Name[bg]=Мониторинг на състоянието на устройството за съхранение
 Name[ca]=Monitoratge de l'estat dels dispositius d'emmagatzematge
@@ -40,6 +41,7 @@ Name[uk]=Спостереження за станом пристроїв збе�
 Name[x-test]=xxStorage Device Health Monitoringxx
 Name[zh_CN]=存储设备健康状况监测
 Comment=Storage Device Health Monitoring
+Comment[ar]=مراقبة صحة جهاز التخزين
 Comment[az]=Yaddaş Cihazının Vəziyyətinin İzlənməsi
 Comment[bg]=Мониторинг на състоянието на устройството за съхранение
 Comment[ca]=Monitoratge de l'estat dels dispositius d'emmagatzematge
@@ -79,6 +81,7 @@ Comment[zh_CN]=存储设备健康状况监测
 
 [Context/device]
 Name=Device
+Name[ar]=الجهاز
 Name[az]=Cihaz
 Name[bg]=Устройство
 Name[ca]=Dispositiu
@@ -117,6 +120,7 @@ Name[uk]=Пристрій
 Name[x-test]=xxDevicexx
 Name[zh_CN]=设备
 Comment=Used for notifications about a specific device
+Comment[ar]=تستخدم للإشعارات حول جهاز معين
 Comment[az]=Göstərilən cihaz haqqında bildirişlər üçün istifadə olunur
 Comment[bg]=Използва се за известяване относно специфично устройство
 Comment[ca]=S'usa per a les notificacions d'un dispositiu específic
@@ -156,6 +160,7 @@ Comment[zh_CN]=用于为特定设备发送通知
 
 [Event/imminentDeviceFailure]
 Name=Imminent Device Failure
+Name[ar]=فشل وشيك في الجهاز
 Name[az]=Cihaz sıradan çıxmaq üzrədir
 Name[bg]=Престояща неизправност на устройството
 Name[ca]=Fallada imminent del dispositiu
@@ -193,6 +198,7 @@ Name[uk]=Неминуча відмова пристрою
 Name[x-test]=xxImminent Device Failurexx
 Name[zh_CN]=设备即将发生故障
 Comment=A device is showing signs of imminent failure
+Comment[ar]=يظهر الجهاز علامات على فشل وشيك في الجهاز
 Comment[az]=Cihaz sıradan çıxmaq üzrə olduğunu göstərir
 Comment[bg]=Устройство проява признаци на предстояща неизправност
 Comment[ca]=Un dispositiu mostra signes d'una fallada imminent
