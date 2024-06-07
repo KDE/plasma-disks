@@ -27,13 +27,13 @@ KCM.SimpleKCM {
     actions: [
         Kirigami.Action {
             visible: partitionManagerRunner.canRun
-            text: i18nc("@action/button action button to start partition manager", "Partition Manager")
+            text: i18nc("@action/button action button to start partition manager", "Open Partition Manager")
             icon.name: "partitionmanager"
             onTriggered: partitionManagerRunner.run()
         },
         Kirigami.Action {
             visible: kupRunner.canRun
-            text: i18nc("@action/button action button to start backup program", "Backup")
+            text: i18nc("@action/button action button to start backup program", "Perform Backup")
             icon.name: "kup"
             onTriggered: kupRunner.run()
         }
@@ -113,8 +113,8 @@ KCM.SimpleKCM {
                 },
                 Kirigami.Action {
                     visible: model.advancedReport !== ''
-                    text: i18nc("@action/button show detailed smart report", "Detailed Information")
-                    icon.name: "dialog-scripts"
+                    text: i18nc("@action/button show detailed smart report", "Show Details")
+                    icon.name: "showinfo-symbolic"
                     onTriggered: {
                         // NB: push daftly hardcodes ui/ as prefix....
                         kcm.push("ReportPage.qml", {title: product, text: advancedReport})
