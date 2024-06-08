@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-07 02:19+0000\n"
+"POT-Creation-Date: 2024-06-08 00:40+0000\n"
 "PO-Revision-Date: 2021-09-18 19:50+0400\n"
 "Last-Translator: Kheyyam Gojayev <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -51,17 +51,33 @@ msgstr ""
 "öz-özünü test etmədən sonra köhnəlmiş uğursuz özünü testetmələr nəzərə "
 "alınmır."
 
-#: kcm/ui/main.qml:41
+#: kcm/ui/main.qml:30
+#, fuzzy
+#| msgctxt "@action/button action button to start partition manager"
+#| msgid "Partition Manager"
+msgctxt "@action/button action button to start partition manager"
+msgid "Open Partition Manager"
+msgstr "Bölmələr Meneceri"
+
+#: kcm/ui/main.qml:36
+#, fuzzy
+#| msgctxt "@action/button action button to start backup program"
+#| msgid "Backup"
+msgctxt "@action/button action button to start backup program"
+msgid "Perform Backup"
+msgstr "Yedəkləmək"
+
+#: kcm/ui/main.qml:56
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
 msgstr "Məlumat əldə edilə bilmədi. KDED işləmir."
 
-#: kcm/ui/main.qml:52
+#: kcm/ui/main.qml:67
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
 msgstr "S.M.A.R.T. cihazları tapılmadı."
 
-#: kcm/ui/main.qml:73
+#: kcm/ui/main.qml:88
 msgctxt "@info"
 msgid ""
 "The SMART system of this device is reporting problems. This may be a sign of "
@@ -73,7 +89,7 @@ msgstr ""
 "bilər. Heç bir məlumatı itirməmək üçün verilənlərinizi yedekləməyiniz və bu "
 "diski ən qısa müddətdə dəyişdirməyiniz tövsiyə olunur."
 
-#: kcm/ui/main.qml:79
+#: kcm/ui/main.qml:94
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
 msgid ""
 "<p>The SMART firmware is not reporting a failure, but there are early signs "
@@ -88,35 +104,28 @@ msgstr ""
 "əlaqə yaradın və ya onu hər ehtimala qarşı ən qısa zamanda dəyişin.</p><ul>"
 "%1</ul>"
 
-#: kcm/ui/main.qml:85
+#: kcm/ui/main.qml:100
 msgctxt "@info"
 msgid "This device appears to be working as expected."
 msgstr "Bu cihaz qaydasında işləyir."
 
-#: kcm/ui/main.qml:92
-msgctxt "@action/button action button to start partition manager"
-msgid "Partition Manager"
-msgstr "Bölmələr Meneceri"
-
-#: kcm/ui/main.qml:98
-msgctxt "@action/button action button to start backup program"
-msgid "Backup"
-msgstr "Yedəkləmək"
-
-#: kcm/ui/main.qml:104
+#: kcm/ui/main.qml:107
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
 msgstr "Ekran"
 
-#: kcm/ui/main.qml:105
+#: kcm/ui/main.qml:108
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
 msgstr "Gözardı etmək"
 
-#: kcm/ui/main.qml:113
+#: kcm/ui/main.qml:116
+#, fuzzy
+#| msgctxt "EMAIL OF TRANSLATORS"
+#| msgid "Your emails"
 msgctxt "@action/button show detailed smart report"
-msgid "Detailed Information"
-msgstr "Ətraflı məlumat"
+msgid "Show Details"
+msgstr "xxmn77@gmail.com"
 
 #: smartctl.cpp:33
 #, kde-format
@@ -162,13 +171,13 @@ msgctxt "@action:button notification action to manage device problems"
 msgid "Manage"
 msgstr "İdarəetmə"
 
+#~ msgctxt "@action/button show detailed smart report"
+#~ msgid "Detailed Information"
+#~ msgstr "Ətraflı məlumat"
+
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
 #~ msgstr "Xəyyam Qocayev"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "xxmn77@gmail.com"
 
 #~ msgctxt "@title"
 #~ msgid "Storage Device Health Monitoring"

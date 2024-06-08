@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-07 02:19+0000\n"
+"POT-Creation-Date: 2024-06-08 00:40+0000\n"
 "PO-Revision-Date: 2020-10-08 13:30+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -45,17 +45,33 @@ msgid ""
 "tests outdated by a newer successful extended self-test are ignored."
 msgstr ""
 
-#: kcm/ui/main.qml:41
+#: kcm/ui/main.qml:30
+#, fuzzy
+#| msgctxt "@action/button action button to start partition manager"
+#| msgid "Partition Manager"
+msgctxt "@action/button action button to start partition manager"
+msgid "Open Partition Manager"
+msgstr "Partitsioonihaldur"
+
+#: kcm/ui/main.qml:36
+#, fuzzy
+#| msgctxt "@action/button action button to start backup program"
+#| msgid "Backup"
+msgctxt "@action/button action button to start backup program"
+msgid "Perform Backup"
+msgstr "Varundamine"
+
+#: kcm/ui/main.qml:56
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
 msgstr "Andmete hankimine nurjus. KDED ei tööta."
 
-#: kcm/ui/main.qml:52
+#: kcm/ui/main.qml:67
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
 msgstr "Ühtegi SMART-i toega seadet ei leitud."
 
-#: kcm/ui/main.qml:73
+#: kcm/ui/main.qml:88
 #, fuzzy
 #| msgctxt "@info"
 #| msgid ""
@@ -74,7 +90,7 @@ msgstr ""
 "vältimiseks on äärmiselt soovitatav teha andmetest varukoopia ja see seade "
 "esimesel võimalusel välja vahetada."
 
-#: kcm/ui/main.qml:79
+#: kcm/ui/main.qml:94
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
 msgid ""
 "<p>The SMART firmware is not reporting a failure, but there are early signs "
@@ -83,35 +99,28 @@ msgid ""
 "disk, or replace it preemptively just to be safe.</p><ul>%1</ul>"
 msgstr ""
 
-#: kcm/ui/main.qml:85
+#: kcm/ui/main.qml:100
 msgctxt "@info"
 msgid "This device appears to be working as expected."
 msgstr "Tundub, et see seade töötab, nagu vaja."
 
-#: kcm/ui/main.qml:92
-msgctxt "@action/button action button to start partition manager"
-msgid "Partition Manager"
-msgstr "Partitsioonihaldur"
-
-#: kcm/ui/main.qml:98
-msgctxt "@action/button action button to start backup program"
-msgid "Backup"
-msgstr "Varundamine"
-
-#: kcm/ui/main.qml:104
+#: kcm/ui/main.qml:107
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
 msgstr "Jälgi"
 
-#: kcm/ui/main.qml:105
+#: kcm/ui/main.qml:108
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
 msgstr "Eira"
 
-#: kcm/ui/main.qml:113
+#: kcm/ui/main.qml:116
+#, fuzzy
+#| msgctxt "EMAIL OF TRANSLATORS"
+#| msgid "Your emails"
 msgctxt "@action/button show detailed smart report"
-msgid "Detailed Information"
-msgstr ""
+msgid "Show Details"
+msgstr "mihhkel@gmail.com"
 
 #: smartctl.cpp:33
 #, kde-format
@@ -166,10 +175,6 @@ msgstr "Halda"
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
 #~ msgstr "Mihkel Tõnnov"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "mihhkel@gmail.com"
 
 #~ msgctxt "@title"
 #~ msgid "Storage Device Health Monitoring"

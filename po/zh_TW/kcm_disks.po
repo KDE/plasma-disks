@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-07 02:19+0000\n"
+"POT-Creation-Date: 2024-06-08 00:40+0000\n"
 "PO-Revision-Date: 2023-08-07 18:57+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -52,17 +52,33 @@ msgstr ""
 "裝置自我檢查紀錄內記有錯誤。[僅 ATA] 失敗的自我檢查在有更新的成功擴充自我檢查"
 "時會被忽略。"
 
-#: kcm/ui/main.qml:41
+#: kcm/ui/main.qml:30
+#, fuzzy
+#| msgctxt "@action/button action button to start partition manager"
+#| msgid "Partition Manager"
+msgctxt "@action/button action button to start partition manager"
+msgid "Open Partition Manager"
+msgstr "分割區管理員"
+
+#: kcm/ui/main.qml:36
+#, fuzzy
+#| msgctxt "@action/button action button to start backup program"
+#| msgid "Backup"
+msgctxt "@action/button action button to start backup program"
+msgid "Perform Backup"
+msgstr "備份"
+
+#: kcm/ui/main.qml:56
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
 msgstr "無法取得資料。KDED 並非執行中。"
 
-#: kcm/ui/main.qml:52
+#: kcm/ui/main.qml:67
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
 msgstr "沒有找到 S.M.A.R.T. 裝置"
 
-#: kcm/ui/main.qml:73
+#: kcm/ui/main.qml:88
 msgctxt "@info"
 msgid ""
 "The SMART system of this device is reporting problems. This may be a sign of "
@@ -72,7 +88,7 @@ msgstr ""
 "這個裝置的 SMART 系統回報了問題。這可能是裝置馬上就要發生嚴重錯誤或是資料可靠"
 "性下降的徵兆。請儘快備份您的資料並將此磁碟替換掉，以避免遺失資料。"
 
-#: kcm/ui/main.qml:79
+#: kcm/ui/main.qml:94
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
 msgid ""
 "<p>The SMART firmware is not reporting a failure, but there are early signs "
@@ -84,35 +100,28 @@ msgstr ""
 "出錯，但需要較長期的分析。請備份您的資料並與這個磁碟的製造商聯繫，或是先將它"
 "替換掉以求保險。</p><ul>%1</ul>"
 
-#: kcm/ui/main.qml:85
+#: kcm/ui/main.qml:100
 msgctxt "@info"
 msgid "This device appears to be working as expected."
 msgstr "這個裝置看起來運作正常。"
 
-#: kcm/ui/main.qml:92
-msgctxt "@action/button action button to start partition manager"
-msgid "Partition Manager"
-msgstr "分割區管理員"
-
-#: kcm/ui/main.qml:98
-msgctxt "@action/button action button to start backup program"
-msgid "Backup"
-msgstr "備份"
-
-#: kcm/ui/main.qml:104
+#: kcm/ui/main.qml:107
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
 msgstr "監控"
 
-#: kcm/ui/main.qml:105
+#: kcm/ui/main.qml:108
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
 msgstr "忽略"
 
-#: kcm/ui/main.qml:113
+#: kcm/ui/main.qml:116
+#, fuzzy
+#| msgctxt "EMAIL OF TRANSLATORS"
+#| msgid "Your emails"
 msgctxt "@action/button show detailed smart report"
-msgid "Detailed Information"
-msgstr "詳細資訊"
+msgid "Show Details"
+msgstr "mail@kisaragi-hiu.com"
 
 #: smartctl.cpp:33
 #, kde-format
@@ -157,13 +166,13 @@ msgctxt "@action:button notification action to manage device problems"
 msgid "Manage"
 msgstr "管理"
 
+#~ msgctxt "@action/button show detailed smart report"
+#~ msgid "Detailed Information"
+#~ msgstr "詳細資訊"
+
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
 #~ msgstr "Kisaragi Hiu"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "mail@kisaragi-hiu.com"
 
 #~ msgctxt "@title"
 #~ msgid "Storage Device Health Monitoring"

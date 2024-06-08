@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-07 02:19+0000\n"
+"POT-Creation-Date: 2024-06-08 00:40+0000\n"
 "PO-Revision-Date: 2021-09-15 12:38+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -53,17 +53,33 @@ msgstr ""
 "errores. Se ignoran las autocomprobaciones que han fallado [solo ATA] si han "
 "quedado desactualizadas por otra autocomprobación satisfactoria más reciente."
 
-#: kcm/ui/main.qml:41
+#: kcm/ui/main.qml:30
+#, fuzzy
+#| msgctxt "@action/button action button to start partition manager"
+#| msgid "Partition Manager"
+msgctxt "@action/button action button to start partition manager"
+msgid "Open Partition Manager"
+msgstr "Gestor de particiones"
+
+#: kcm/ui/main.qml:36
+#, fuzzy
+#| msgctxt "@action/button action button to start backup program"
+#| msgid "Backup"
+msgctxt "@action/button action button to start backup program"
+msgid "Perform Backup"
+msgstr "Copia de respaldo"
+
+#: kcm/ui/main.qml:56
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
 msgstr "No se ha podido obtener datos. KDED no está en ejecución."
 
-#: kcm/ui/main.qml:52
+#: kcm/ui/main.qml:67
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
 msgstr "No se han encontrado dispositivos S.M.A.R.T."
 
-#: kcm/ui/main.qml:73
+#: kcm/ui/main.qml:88
 msgctxt "@info"
 msgid ""
 "The SMART system of this device is reporting problems. This may be a sign of "
@@ -76,7 +92,7 @@ msgstr ""
 "este dispositivo tan pronto como le sea posible para evitar cualquier "
 "pérdida de datos."
 
-#: kcm/ui/main.qml:79
+#: kcm/ui/main.qml:94
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
 msgid ""
 "<p>The SMART firmware is not reporting a failure, but there are early signs "
@@ -91,35 +107,28 @@ msgstr ""
 "disco, o sustitúyalo de forma preventiva solo para más seguridad.</p><ul>%1</"
 "ul>"
 
-#: kcm/ui/main.qml:85
+#: kcm/ui/main.qml:100
 msgctxt "@info"
 msgid "This device appears to be working as expected."
 msgstr "Parece que este dispositivo funciona como es de esperar."
 
-#: kcm/ui/main.qml:92
-msgctxt "@action/button action button to start partition manager"
-msgid "Partition Manager"
-msgstr "Gestor de particiones"
-
-#: kcm/ui/main.qml:98
-msgctxt "@action/button action button to start backup program"
-msgid "Backup"
-msgstr "Copia de respaldo"
-
-#: kcm/ui/main.qml:104
+#: kcm/ui/main.qml:107
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
 msgstr "Monitor"
 
-#: kcm/ui/main.qml:105
+#: kcm/ui/main.qml:108
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
 msgstr "Ignorar"
 
-#: kcm/ui/main.qml:113
+#: kcm/ui/main.qml:116
+#, fuzzy
+#| msgctxt "EMAIL OF TRANSLATORS"
+#| msgid "Your emails"
 msgctxt "@action/button show detailed smart report"
-msgid "Detailed Information"
-msgstr "Información detallada"
+msgid "Show Details"
+msgstr "ecuadra@eloihr.net"
 
 #: smartctl.cpp:33
 #, kde-format
@@ -165,13 +174,13 @@ msgctxt "@action:button notification action to manage device problems"
 msgid "Manage"
 msgstr "Gestionar"
 
+#~ msgctxt "@action/button show detailed smart report"
+#~ msgid "Detailed Information"
+#~ msgstr "Información detallada"
+
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
 #~ msgstr "Eloy Cuadra"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "ecuadra@eloihr.net"
 
 #~ msgctxt "@title"
 #~ msgid "Storage Device Health Monitoring"

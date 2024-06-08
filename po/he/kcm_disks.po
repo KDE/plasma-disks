@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-07 02:19+0000\n"
+"POT-Creation-Date: 2024-06-08 00:40+0000\n"
 "PO-Revision-Date: 2023-10-03 09:49+0300\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -51,17 +51,33 @@ msgstr ""
 "יומן הבדיקה העצמית של ההתקן מכיל רשומות של שגיאות. [ATA בלבד] בדיקות עצמו "
 "שנכשלו בעבר אך הצליחו בהמשך בבדיקות עצמיות מורחבות לא נחשבות."
 
-#: kcm/ui/main.qml:41
+#: kcm/ui/main.qml:30
+#, fuzzy
+#| msgctxt "@action/button action button to start partition manager"
+#| msgid "Partition Manager"
+msgctxt "@action/button action button to start partition manager"
+msgid "Open Partition Manager"
+msgstr "מנהל מחיצות"
+
+#: kcm/ui/main.qml:36
+#, fuzzy
+#| msgctxt "@action/button action button to start backup program"
+#| msgid "Backup"
+msgctxt "@action/button action button to start backup program"
+msgid "Perform Backup"
+msgstr "גיבוי"
+
+#: kcm/ui/main.qml:56
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
 msgstr "לא ניתן למשוך נתונים. KDED לא פעיל."
 
-#: kcm/ui/main.qml:52
+#: kcm/ui/main.qml:67
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
 msgstr "לא נמצאו התקני S.M.A.R.T."
 
-#: kcm/ui/main.qml:73
+#: kcm/ui/main.qml:88
 msgctxt "@info"
 msgid ""
 "The SMART system of this device is reporting problems. This may be a sign of "
@@ -72,7 +88,7 @@ msgstr ""
 "באופק או שאמינות הנתונים הושחתה. יש לגבות את הנתונים שלך ולהחליף את הכונן "
 "הזה במהירות האפשרות כדי להימנע מאיבוד נתונים כלשהם."
 
-#: kcm/ui/main.qml:79
+#: kcm/ui/main.qml:94
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
 msgid ""
 "<p>The SMART firmware is not reporting a failure, but there are early signs "
@@ -85,35 +101,25 @@ msgstr ""
 "את נתוני הכונן שלך וליצור קשר עם יצרן הכונן או להחליף אותו כצעד מניעתי.</"
 "p><ul>%1</ul>"
 
-#: kcm/ui/main.qml:85
+#: kcm/ui/main.qml:100
 msgctxt "@info"
 msgid "This device appears to be working as expected."
 msgstr "נראה שההתקן הזה פועל כראוי."
 
-#: kcm/ui/main.qml:92
-msgctxt "@action/button action button to start partition manager"
-msgid "Partition Manager"
-msgstr "מנהל מחיצות"
-
-#: kcm/ui/main.qml:98
-msgctxt "@action/button action button to start backup program"
-msgid "Backup"
-msgstr "גיבוי"
-
-#: kcm/ui/main.qml:104
+#: kcm/ui/main.qml:107
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
 msgstr "צג"
 
-#: kcm/ui/main.qml:105
+#: kcm/ui/main.qml:108
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
 msgstr "התעלמות"
 
-#: kcm/ui/main.qml:113
+#: kcm/ui/main.qml:116
 msgctxt "@action/button show detailed smart report"
-msgid "Detailed Information"
-msgstr "מידע מפורט"
+msgid "Show Details"
+msgstr ""
 
 #: smartctl.cpp:33
 #, kde-format
@@ -158,3 +164,7 @@ msgstr ""
 msgctxt "@action:button notification action to manage device problems"
 msgid "Manage"
 msgstr "ניהול"
+
+#~ msgctxt "@action/button show detailed smart report"
+#~ msgid "Detailed Information"
+#~ msgstr "מידע מפורט"
