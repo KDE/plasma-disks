@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:40+0000\n"
-"PO-Revision-Date: 2023-04-29 12:29+0100\n"
+"PO-Revision-Date: 2024-06-08 10:47+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -52,20 +52,14 @@ msgstr ""
 "estas ignorataj."
 
 #: kcm/ui/main.qml:30
-#, fuzzy
-#| msgctxt "@action/button action button to start partition manager"
-#| msgid "Partition Manager"
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
-msgstr "Dispartiga Administranto"
+msgstr "Malfermi Dispartigan Mastrumilon"
 
 #: kcm/ui/main.qml:36
-#, fuzzy
-#| msgctxt "@action/button action button to start backup program"
-#| msgid "Backup"
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
-msgstr "Rezervo"
+msgstr "Fari Sekurkopion"
 
 #: kcm/ui/main.qml:56
 msgctxt "@info/status"
@@ -121,7 +115,7 @@ msgstr "Ignori"
 #: kcm/ui/main.qml:116
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
-msgstr ""
+msgstr "Montri Detalojn"
 
 #: smartctl.cpp:33
 #, kde-format
@@ -166,7 +160,3 @@ msgstr ""
 msgctxt "@action:button notification action to manage device problems"
 msgid "Manage"
 msgstr "Administri"
-
-#~ msgctxt "@action/button show detailed smart report"
-#~ msgid "Detailed Information"
-#~ msgstr "Detalaj Informoj"

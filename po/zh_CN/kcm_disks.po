@@ -50,20 +50,14 @@ msgstr ""
 "失败将被忽略。"
 
 #: kcm/ui/main.qml:30
-#, fuzzy
-#| msgctxt "@action/button action button to start partition manager"
-#| msgid "Partition Manager"
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
-msgstr "分区管理器"
+msgstr ""
 
 #: kcm/ui/main.qml:36
-#, fuzzy
-#| msgctxt "@action/button action button to start backup program"
-#| msgid "Backup"
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
-msgstr "备份"
+msgstr ""
 
 #: kcm/ui/main.qml:56
 msgctxt "@info/status"
@@ -160,7 +154,3 @@ msgstr ""
 msgctxt "@action:button notification action to manage device problems"
 msgid "Manage"
 msgstr "管理"
-
-#~ msgctxt "@action/button show detailed smart report"
-#~ msgid "Detailed Information"
-#~ msgstr "详细信息"

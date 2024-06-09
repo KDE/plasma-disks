@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-disks package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2020, 2021.
+# SPDX-FileCopyrightText: 2020, 2021, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:40+0000\n"
-"PO-Revision-Date: 2021-09-15 12:23+0200\n"
+"PO-Revision-Date: 2024-06-08 12:35+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: instabilities.cpp:27
 #, kde-format
@@ -52,20 +52,14 @@ msgstr ""
 "zelftest worden genegeerd."
 
 #: kcm/ui/main.qml:30
-#, fuzzy
-#| msgctxt "@action/button action button to start partition manager"
-#| msgid "Partition Manager"
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
-msgstr "Partitiebeheerder"
+msgstr "Partitiebeheerder openen"
 
 #: kcm/ui/main.qml:36
-#, fuzzy
-#| msgctxt "@action/button action button to start backup program"
-#| msgid "Backup"
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
-msgstr "Reservekopie"
+msgstr "Reservekopie maken"
 
 #: kcm/ui/main.qml:56
 msgctxt "@info/status"
@@ -119,12 +113,9 @@ msgid "Ignore"
 msgstr "Negeren"
 
 #: kcm/ui/main.qml:116
-#, fuzzy
-#| msgctxt "EMAIL OF TRANSLATORS"
-#| msgid "Your emails"
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
-msgstr "freekdekruijf@kde.nl"
+msgstr "Details tonen"
 
 #: smartctl.cpp:33
 #, kde-format
