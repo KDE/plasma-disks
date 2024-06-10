@@ -52,12 +52,12 @@ msgstr ""
 #: kcm/ui/main.qml:30
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
-msgstr ""
+msgstr "打开分区管理器"
 
 #: kcm/ui/main.qml:36
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
-msgstr ""
+msgstr "执行备份"
 
 #: kcm/ui/main.qml:56
 msgctxt "@info/status"
@@ -109,7 +109,7 @@ msgstr "忽略"
 #: kcm/ui/main.qml:116
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
-msgstr ""
+msgstr "显示详情"
 
 #: smartctl.cpp:33
 #, kde-format

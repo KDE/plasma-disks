@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the plasma-disks package.
 #
 # Automatically generated, 2020.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2020, 2021.
+# SPDX-FileCopyrightText: 2020, 2021, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:40+0000\n"
-"PO-Revision-Date: 2021-09-15 12:38+0200\n"
+"PO-Revision-Date: 2024-06-08 17:11+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: instabilities.cpp:27
 #, kde-format
@@ -54,20 +54,14 @@ msgstr ""
 "quedado desactualizadas por otra autocomprobación satisfactoria más reciente."
 
 #: kcm/ui/main.qml:30
-#, fuzzy
-#| msgctxt "@action/button action button to start partition manager"
-#| msgid "Partition Manager"
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
-msgstr "Gestor de particiones"
+msgstr "Abrir el gestor de particiones"
 
 #: kcm/ui/main.qml:36
-#, fuzzy
-#| msgctxt "@action/button action button to start backup program"
-#| msgid "Backup"
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
-msgstr "Copia de respaldo"
+msgstr "Hacer copia de respaldo"
 
 #: kcm/ui/main.qml:56
 msgctxt "@info/status"
@@ -123,12 +117,9 @@ msgid "Ignore"
 msgstr "Ignorar"
 
 #: kcm/ui/main.qml:116
-#, fuzzy
-#| msgctxt "EMAIL OF TRANSLATORS"
-#| msgid "Your emails"
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
-msgstr "ecuadra@eloihr.net"
+msgstr "Mostrar detalles"
 
 #: smartctl.cpp:33
 #, kde-format
