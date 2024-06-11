@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the plasma-disks package.
 #
-# giovanni <g.sora@tiscali.it>, 2021.
+# giovanni <g.sora@tiscali.it>, 2021, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:40+0000\n"
-"PO-Revision-Date: 2021-09-23 12:23+0200\n"
+"PO-Revision-Date: 2024-06-10 12:10+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: instabilities.cpp:27
 #, kde-format
@@ -53,20 +53,14 @@ msgstr ""
 "test extendite con successo es ignorate. "
 
 #: kcm/ui/main.qml:30
-#, fuzzy
-#| msgctxt "@action/button action button to start partition manager"
-#| msgid "Partition Manager"
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
-msgstr "Partition Manager (gerente de partition)"
+msgstr "Aperi Partition Manager (gerente de partition)"
 
 #: kcm/ui/main.qml:36
-#, fuzzy
-#| msgctxt "@action/button action button to start backup program"
-#| msgid "Backup"
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
-msgstr "Retrocopia"
+msgstr "Exeque Retrocopia"
 
 #: kcm/ui/main.qml:56
 msgctxt "@info/status"
@@ -121,12 +115,9 @@ msgid "Ignore"
 msgstr "Ignora"
 
 #: kcm/ui/main.qml:116
-#, fuzzy
-#| msgctxt "EMAIL OF TRANSLATORS"
-#| msgid "Your emails"
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
-msgstr "g.sora@tiscali.it"
+msgstr "Monstra Detalios"
 
 #: smartctl.cpp:33
 #, kde-format
