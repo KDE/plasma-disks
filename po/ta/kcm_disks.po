@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-disks package.
 #
-# Kishore G <kishore96@gmail.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:40+0000\n"
-"PO-Revision-Date: 2023-04-02 17:18+0530\n"
+"PO-Revision-Date: 2024-06-16 17:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.03.90\n"
+"X-Generator: Lokalize 24.05.1\n"
 
 #: instabilities.cpp:27
 #, kde-format
@@ -46,30 +46,24 @@ msgid ""
 msgstr ""
 
 #: kcm/ui/main.qml:30
-#, fuzzy
-#| msgctxt "@action/button action button to start partition manager"
-#| msgid "Partition Manager"
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
-msgstr "வகிர்வு மேலாளி"
+msgstr "வகிர்வு மேலாளியை திற"
 
 #: kcm/ui/main.qml:36
-#, fuzzy
-#| msgctxt "@action/button action button to start backup program"
-#| msgid "Backup"
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
-msgstr "காப்புநகல்"
+msgstr "காப்புநகல் எடு"
 
 #: kcm/ui/main.qml:56
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
-msgstr ""
+msgstr "விவரங்களைப் பெற முடியவில்லை. KDED இயங்கவில்லை."
 
 #: kcm/ui/main.qml:67
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
-msgstr ""
+msgstr "எந்த S.M.A.R.T. சாதனமும் கண்டுபிடிக்கப்படவில்லை."
 
 #: kcm/ui/main.qml:88
 msgctxt "@info"
@@ -106,7 +100,7 @@ msgstr "பொருட்படுத்தாதே"
 #: kcm/ui/main.qml:116
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
-msgstr ""
+msgstr "விவரங்களை காட்டு"
 
 #: smartctl.cpp:33
 #, kde-format
