@@ -1,16 +1,16 @@
 # Translation for plasma_disks.po to Euskara/Basque (eu).
-# Copyright (C) 2020-2021, This file is copyright:
+# Copyright (C) 2020-2024 This file is copyright:
 # This file is distributed under the same license as the plasma-disks package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2021.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2021, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:40+0000\n"
-"PO-Revision-Date: 2021-09-22 19:03+0200\n"
+"PO-Revision-Date: 2024-07-04 12:57+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 24.05.1\n"
 
 #: instabilities.cpp:27
 #, kde-format
@@ -55,20 +55,14 @@ msgstr ""
 "autoprobak baztertu egiten dira."
 
 #: kcm/ui/main.qml:30
-#, fuzzy
-#| msgctxt "@action/button action button to start partition manager"
-#| msgid "Partition Manager"
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
-msgstr "Partizio kudeatzailea"
+msgstr "Ireki partizio kudeatzailea"
 
 #: kcm/ui/main.qml:36
-#, fuzzy
-#| msgctxt "@action/button action button to start backup program"
-#| msgid "Backup"
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
-msgstr "Babes-kopia"
+msgstr "Egin babes-kopia"
 
 #: kcm/ui/main.qml:56
 msgctxt "@info/status"
@@ -122,12 +116,9 @@ msgid "Ignore"
 msgstr "Ez-ikusi"
 
 #: kcm/ui/main.qml:116
-#, fuzzy
-#| msgctxt "EMAIL OF TRANSLATORS"
-#| msgid "Your emails"
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
-msgstr "xalba@ni.eus"
+msgstr "Erakutsi xehetasunak"
 
 #: smartctl.cpp:33
 #, kde-format
