@@ -1,12 +1,11 @@
 # Translation of kcm_disks to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:40+0000\n"
-"PO-Revision-Date: 2021-09-19 12:57+0200\n"
+"PO-Revision-Date: 2024-07-06 14:32+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.11.70\n"
+"X-Generator: Lokalize 24.05.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -53,20 +52,14 @@ msgstr ""
 "feiltestar, vert ignorerte."
 
 #: kcm/ui/main.qml:30
-#, fuzzy
-#| msgctxt "@action/button action button to start partition manager"
-#| msgid "Partition Manager"
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
-msgstr "Partisjonshandsaming"
+msgstr "Opna partisjonshandsaming"
 
 #: kcm/ui/main.qml:36
-#, fuzzy
-#| msgctxt "@action/button action button to start backup program"
-#| msgid "Backup"
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
-msgstr "Reservekopi"
+msgstr "Lag reservekopi"
 
 #: kcm/ui/main.qml:56
 msgctxt "@info/status"
@@ -122,7 +115,7 @@ msgstr "Ignorer"
 #: kcm/ui/main.qml:116
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
-msgstr ""
+msgstr "Vis detaljar"
 
 #: smartctl.cpp:33
 #, kde-format
