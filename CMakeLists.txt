@@ -47,8 +47,8 @@ cmake_dependent_option(WITH_SIMULATION
     "CMAKE_BUILD_TYPE MATCHES [Dd]ebug"
     OFF
 )
-ecm_set_disabled_deprecation_versions(QT 6.5
-    KF 5.240.0
+ecm_set_disabled_deprecation_versions(QT 6.7
+    KF 6.4.0
 )
 
 add_subdirectory(src)
