@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-disks package.
-# Shinjo Park <kde@peremen.name>, 2020, 2021.
+# SPDX-FileCopyrightText: 2020, 2021, 2024 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:40+0000\n"
-"PO-Revision-Date: 2021-11-12 01:28+0100\n"
+"PO-Revision-Date: 2024-08-20 00:38+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: instabilities.cpp:27
 #, kde-format
@@ -50,20 +50,14 @@ msgstr ""
 "확장된 자가 진단이 성공했다면 실패한 이전 자가 진단은 무시됩니다."
 
 #: kcm/ui/main.qml:30
-#, fuzzy
-#| msgctxt "@action/button action button to start partition manager"
-#| msgid "Partition Manager"
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
-msgstr "파티션 관리자"
+msgstr "파티션 관리자 열기"
 
 #: kcm/ui/main.qml:36
-#, fuzzy
-#| msgctxt "@action/button action button to start backup program"
-#| msgid "Backup"
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
-msgstr "백업"
+msgstr "백업 수행"
 
 #: kcm/ui/main.qml:56
 msgctxt "@info/status"
@@ -115,12 +109,9 @@ msgid "Ignore"
 msgstr "무시"
 
 #: kcm/ui/main.qml:116
-#, fuzzy
-#| msgctxt "EMAIL OF TRANSLATORS"
-#| msgid "Your emails"
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
-msgstr "kde@peremen.name"
+msgstr "자세한 정보 표시"
 
 #: smartctl.cpp:33
 #, kde-format
