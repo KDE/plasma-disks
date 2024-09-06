@@ -1,22 +1,23 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-disks package.
 # Burkhard Lück <lueck@hube-lueck.de>, 2020, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2022.
+# SPDX-FileCopyrightText: 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: plasma-disks\n"
+"Project-Id-Version: kcm_disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-02-27 00:49+0000\n"
-"PO-Revision-Date: 2022-02-26 03:26+0100\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2024-09-03 22:07+0200\n"
+"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.08.0\n"
+"X-Generator: Lokalize 24.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -32,7 +33,7 @@ msgstr "kde-i18n-de@kde.org"
 #, kde-format
 msgctxt "@label"
 msgid "Prefail attributes <= threshold."
-msgstr ""
+msgstr "Fehleranzeigende Attribute <= Schwellwert."
 
 #: instabilities.cpp:31
 #, kde-format
@@ -41,6 +42,8 @@ msgid ""
 "SMART status check returned 'DISK OK' but we found that some (usage or "
 "prefail) attributes have been <= threshold at some time in the past."
 msgstr ""
+"Der SMART-Statustest meldet „DISK OK“. Jedoch sind einige (Nutzungs- oder "
+"fehleranzeigende) Attribute <= historischen Schwellwert."
 
 #: instabilities.cpp:33
 #, kde-format
@@ -55,6 +58,9 @@ msgid ""
 "The device self-test log contains records of errors. [ATA only] Failed self-"
 "tests outdated by a newer successful extended self-test are ignored."
 msgstr ""
+"Das Protokoll des Geräteselbststests enthält Anzeichen für Fehler. [nur ATA] "
+"Fehlgeschlagene Selbsttest, die durch neuere Selbsttest überholt sind, "
+"werden nicht berücksichtigt."
 
 #: kcm/module.cpp:20
 #, kde-format
@@ -98,6 +104,12 @@ msgid ""
 "longer term analysis. Back up your data and contact the manufacturer of this "
 "disk, or replace it preemptively just to be safe.</p><ul>%1</ul>"
 msgstr ""
+"<p>Die SMART-Firmware berichtet keinen Fehler. Jedoch liegen frühe Signale "
+"einer Fehlfunktion vor. Dies bedeutet nicht zwingend einen direkten "
+"Gerätefehler hin, sondern sollte länger betrachtet werden. Die Daten sollten "
+"gesichert and der Hersteller der Festplatte kontaktiert werden. Zudem sollte "
+"zur Sicherheit ein baldiger Austausch in Betracht gezogen werden.</p><ul>%1</"
+"ul>"
 
 #: kcm/package/contents/main.qml:85
 msgctxt "@info"
