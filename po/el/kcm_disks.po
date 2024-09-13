@@ -1,4 +1,4 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-disks package.
 #
 # Stelios <sstavra@gmail.com>, 2020.
@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:40+0000\n"
-"PO-Revision-Date: 2020-10-12 08:47+0300\n"
-"Last-Translator: Stelios <sstavra@gmail.com>\n"
-"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"PO-Revision-Date: 2024-09-04 21:35+0300\n"
+"Last-Translator: Αντώνης Γέραλης <capoiosct@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-doc@kde.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #: instabilities.cpp:27
 #, kde-format
 msgctxt "@label"
 msgid "Prefail attributes <= threshold."
-msgstr ""
+msgstr "Χαρακτηριστικά προ αποτυχίας <= κατώτατο όριο."
 
 #: instabilities.cpp:31
 #, kde-format
@@ -30,12 +30,16 @@ msgid ""
 "SMART status check returned 'DISK OK' but we found that some (usage or "
 "prefail) attributes have been <= threshold at some time in the past."
 msgstr ""
+"Ο έλεγχος κατάστασης SMART επέστρεψε 'DISK OK', αλλά διαπιστώσαμε ότι "
+"ορισμένα χαρακτηριστικά (χρήσης ή προ αποτυχίας) ήταν <= κατώτατο όριο "
+"κάποια στιγμή στο παρελθόν."
 
 #: instabilities.cpp:33
 #, kde-format
 msgctxt "@label"
 msgid "The device error log contains records of errors."
 msgstr ""
+"Το αρχείο καταγραφής σφαλμάτων της συσκευής περιέχει εγγραφές σφαλμάτων."
 
 #: instabilities.cpp:37
 #, kde-format
@@ -44,22 +48,19 @@ msgid ""
 "The device self-test log contains records of errors. [ATA only] Failed self-"
 "tests outdated by a newer successful extended self-test are ignored."
 msgstr ""
+"Το αρχείο καταγραφής αυτοελέγχου της συσκευής περιέχει εγγραφές σφαλμάτων. "
+"[Μόνο ATA] Οι αποτυχημένοι αυτοέλεγχοι που έχουν ξεπεραστεί από ένα νεότερο "
+"επιτυχή εκτεταμένο αυτοέλεγχο αγνοούνται."
 
 #: kcm/ui/main.qml:30
-#, fuzzy
-#| msgctxt "@action/button action button to start partition manager"
-#| msgid "Partition Manager"
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
-msgstr "Διαχειριστής κατατμήσεων"
+msgstr "Άνοιγμα του διαχειριστή κατατμήσεων"
 
 #: kcm/ui/main.qml:36
-#, fuzzy
-#| msgctxt "@action/button action button to start backup program"
-#| msgid "Backup"
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
-msgstr "Εφεδρικό αντίγραφο"
+msgstr "Εκτέλεση αντιγράφων ασφαλείας"
 
 #: kcm/ui/main.qml:56
 msgctxt "@info/status"
@@ -72,24 +73,17 @@ msgid "No S.M.A.R.T. devices found."
 msgstr "Δεν βρέθηκαν συσκευές S.M.A.R.T."
 
 #: kcm/ui/main.qml:88
-#, fuzzy
-#| msgctxt "@info"
-#| msgid ""
-#| "The SMART system of this device is reporting problems. This may be a sign "
-#| "of imminent device failure or data reliability being compromised. It is "
-#| "highly recommended that you backup your data and replace this drive as "
-#| "soon as possible to avoid losing any data."
 msgctxt "@info"
 msgid ""
 "The SMART system of this device is reporting problems. This may be a sign of "
 "imminent device failure or data reliability being compromised. Back up your "
 "data and replace this drive as soon as possible to avoid losing any data."
 msgstr ""
-"Το SMART σύστημα αυτής της συσκευής αναφέρει προβλήματα. Αυτό μπορεί να "
-"είναι σημάδι επικείμενης αστοχίας του δίσκου ή αλλοίωση και απώλεια "
-"αξιοπιστίας των δεδομένων. Δίνεται ισχυρή σύσταση για υποστηρικτική "
-"αποθήκευση των δεδομένων σας και αντικατάσταση της συσκευής το συντομότερο "
-"για να αποφύγετε την απώλεια δεδομένων."
+"Το σύστημα SMART αυτής της συσκευής αναφέρει προβλήματα. Αυτό μπορεί να "
+"αποτελεί ένδειξη επικείμενης βλάβης της συσκευής ή υποβάθμισης της "
+"αξιοπιστίας των δεδομένων. Δημιουργήστε αντίγραφα ασφαλείας των δεδομένων "
+"σας και αντικαταστήστε αυτή τη μονάδα το συντομότερο δυνατό για να αποφύγετε "
+"την απώλεια δεδομένων."
 
 #: kcm/ui/main.qml:94
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
@@ -99,6 +93,11 @@ msgid ""
 "longer term analysis. Back up your data and contact the manufacturer of this "
 "disk, or replace it preemptively just to be safe.</p><ul>%1</ul>"
 msgstr ""
+"<p>Το υλικολογισμικό SMART δεν αναφέρει βλάβη, αλλά υπάρχουν πρώιμα σημάδια "
+"δυσλειτουργίας. Αυτό μπορεί να μην υποδεικνύει επικείμενη βλάβη της "
+"συσκευής, αλλά απαιτεί πιο μακροπρόθεσμη ανάλυση. Δημιουργήστε αντίγραφα "
+"ασφαλείας των δεδομένων σας και επικοινωνήστε με τον κατασκευαστή αυτού του "
+"δίσκου ή αντικαταστήστε τον προληπτικά για να είστε σίγουροι.</p><ul>%1</ul>"
 
 #: kcm/ui/main.qml:100
 msgctxt "@info"
@@ -116,12 +115,9 @@ msgid "Ignore"
 msgstr "Αγνόηση"
 
 #: kcm/ui/main.qml:116
-#, fuzzy
-#| msgctxt "EMAIL OF TRANSLATORS"
-#| msgid "Your emails"
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
-msgstr "sstavra@gmail.com"
+msgstr "Εμφάνιση λεπτομερειών"
 
 #: smartctl.cpp:33
 #, kde-format
@@ -135,7 +131,7 @@ msgstr "Διαβάστε την αναφορά SMART για τη συσκευή 
 #, kde-format
 msgctxt "@title notification"
 msgid "Storage Device Problems"
-msgstr "Προβλήματα συσκευών αποθήκευσης"
+msgstr "Προβλήματα συσκευής αποθήκευσης"
 
 #: smartnotifier.cpp:32
 #, kde-kuit-format
@@ -150,13 +146,7 @@ msgstr ""
 "ενδέχεται να αποτύχει σύντομα!"
 
 #: smartnotifier.cpp:37
-#, fuzzy, kde-kuit-format
-#| msgctxt ""
-#| "@info notification; text %1 is a pretty product name; %2 the device path "
-#| "e.g. /dev/sda"
-#| msgid ""
-#| "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
-#| "likely to fail soon!"
+#, kde-kuit-format
 msgctxt ""
 "@info notification; text %1 is a pretty product name; %2 the device path e."
 "g. /dev/sda"
@@ -165,7 +155,7 @@ msgid ""
 "showing indications of instability."
 msgstr ""
 "Η συσκευή αποθήκευσης <emphasis>%1</emphasis> (<filename>%2</filename>) "
-"ενδέχεται να αποτύχει σύντομα!"
+"παρουσιάζει ενδείξεις αστάθειας."
 
 #: smartnotifier.cpp:44
 #, kde-format
