@@ -10,6 +10,7 @@ X-KDE-Library=smart
 Icon=preferences-smart-status
 
 Name=SMART
+Name[ar]=سمارت
 Name[az]=SMART
 Name[bg]=SMART
 Name[ca]=SMART
@@ -48,6 +49,7 @@ Name[uk]=SMART
 Name[x-test]=xxSMARTxx
 Name[zh_CN]=SMART
 Comment=Storage device health monitoring
+Comment[ar]=مراقبة صحة جهاز التخزين
 Comment[az]=Yaddaş cihazının vəziyyətinin izlənməsi
 Comment[bg]=Мониторинг на състоянието на устройството за съхранение
 Comment[ca]=Monitoratge de l'estat dels dispositius d'emmagatzematge
