@@ -160,7 +160,3 @@ msgstr ""
 msgctxt "@action:button notification action to manage device problems"
 msgid "Manage"
 msgstr "Управление"
-
-#~ msgctxt "@action/button show detailed smart report"
-#~ msgid "Detailed Information"
-#~ msgstr "Подробна информация"
