@@ -15,6 +15,7 @@
 #include "smartdata.h"
 
 using namespace std::chrono_literals;
+using namespace Qt::StringLiterals;
 
 SMARTMonitor::SMARTMonitor(std::unique_ptr<AbstractSMARTCtl> ctl, std::unique_ptr<DeviceNotifier> deviceNotifier, QObject *parent)
     : QObject(parent)
@@ -84,7 +85,7 @@ void SMARTMonitor::onSMARTCtlFinished(const QString &devicePath, const QJsonDocu
     }
 
     if (!devicePath.endsWith(QStringLiteral(".json"))) { // simulation data
-        Q_ASSERT(devicePath == data.m_device);
+        Q_ASSERT_X(devicePath == data.m_device, Q_FUNC_INFO, qUtf8Printable(u"devicePath and device do not match (%1 : %2)"_s.arg(devicePath, data.m_device)));
     }
 
     auto existingIt = std::find_if(m_devices.begin(), m_devices.end(), [&device](Device *existing) {
