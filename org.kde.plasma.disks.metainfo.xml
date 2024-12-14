@@ -43,6 +43,7 @@
   <name xml:lang="pt-BR">Discos do Plasma</name>
   <name xml:lang="ro">Discuri Plasma</name>
   <name xml:lang="ru">Plasma Disks</name>
+  <name xml:lang="sa">प्लाज्मा डिस्क</name>
   <name xml:lang="sk">Plasma Disks</name>
   <name xml:lang="sl">Plasma Disks</name>
   <name xml:lang="sv">Plasma diskar</name>
@@ -86,6 +87,7 @@
   <summary xml:lang="pt-BR">Monitoramento da saúde do disco rígido para o KDE Plasma</summary>
   <summary xml:lang="ro">Monitorizarea sănătății discurilor pentru Plasma KDE</summary>
   <summary xml:lang="ru">Наблюдение за состоянием устройств хранения данных для KDE Plasma</summary>
+  <summary xml:lang="sa">KDE Plasma कृते हार्डडिस्कस्वास्थ्यनिरीक्षणम्</summary>
   <summary xml:lang="sk">Monitoring zdravia diskov pre KDE Plasma</summary>
   <summary xml:lang="sl">Nadzor zdravja trdega diska za KDE Plasmo</summary>
   <summary xml:lang="sv">Övervakning av hårddiskhälsa för KDE Plasma</summary>
@@ -130,6 +132,7 @@
     <p xml:lang="pt-BR">O Discos do Plasma monitora os dados S.M.A.R.T. dos discos e alerta o usuário quando aparecerem sinais de falha iminente.</p>
     <p xml:lang="ro">Discuri Plasma monitorizează datele S.M.A.R.T. ale discurilor și alertează utilizatorul la apariția semnelor de defecțiune iminentă.</p>
     <p xml:lang="ru">Наблюдение за состоянием дисков с использованием технологии S.M.A.R.T. и уведомление пользователя о приближении выхода устройств из строя.</p>
+    <p xml:lang="sa">प्लाज्मा डिस्क्स् निरीक्षक S.M.A.R.T. डिस्कस्य data तथा च यदा आसन्नविफलतायाः चिह्नानि दृश्यन्ते तदा उपयोक्तारं सचेष्टयति ।</p>
     <p xml:lang="sk">Plasma Disks monitoruje údaje S.M.A.R.T. a upozorní používateľa, keď sa objavia známky zlyhania disku.</p>
     <p xml:lang="sl">Plasma nadzorniki diskov nadzirajo S.M.A.R.T. podatke o diskih in opozorijo uporabnika, ko se pojavijo znaki neizbežne okvare.</p>
     <p xml:lang="sv">Plasma diskar övervakar S.M.A.R.T.-data för diskar och varnar användaren när tecken på förestående fel visar sig.</p>
@@ -177,6 +180,7 @@
       <caption xml:lang="pt-BR">O módulo de informação do Discos do Plasma mostrando o estado dos dispositivos.</caption>
       <caption xml:lang="ro">Modul al centrului de informații Discuri Plasma ce arată starea dispozitivelor.</caption>
       <caption xml:lang="ru">Просмотр состояния устройств в модуле приложения «Информация о системе».</caption>
+      <caption xml:lang="sa">उपकरणानां स्थितिं दर्शयति Plasma Disks Info Center मॉड्यूल् ।</caption>
       <caption xml:lang="sk">Modul informačného centra Plasma Disks zobrazuje stav zariadení.</caption>
       <caption xml:lang="sl">Modul Info Center plazemskih diskov prikazuje stanje naprav.</caption>
       <caption xml:lang="sv">Modulen Plasma diskar i informationscentralen som visar enheters tillstånd.</caption>
@@ -225,6 +229,7 @@
   <developer_name xml:lang="pt-BR">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="ro">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="ru">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="sa">हरल्ड सिटर &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="sk">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="sl">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="sv">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
