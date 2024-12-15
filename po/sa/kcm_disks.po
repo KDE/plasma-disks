@@ -20,7 +20,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label"
 msgid "Prefail attributes <= threshold."
-msgstr ""
+msgstr "पूर्वविफलता विशेषताएँ <= दहलीज।"
 
 #: instabilities.cpp:31
 #, kde-format
@@ -29,12 +29,14 @@ msgid ""
 "SMART status check returned 'DISK OK' but we found that some (usage or "
 "prefail) attributes have been <= threshold at some time in the past."
 msgstr ""
+"SMART स्थितिपरीक्षा 'DISK OK' इति प्रत्यागच्छत् परन्तु वयं पश्यामः यत् केचन (उपयोगः अथवा "
+"पूर्वविफलता) विशेषताः पूर्वं कस्मिन्चित् समये <= threshold अभवन् ।"
 
 #: instabilities.cpp:33
 #, kde-format
 msgctxt "@label"
 msgid "The device error log contains records of errors."
-msgstr ""
+msgstr "यन्त्रदोषवृत्तलेखे दोषाणां अभिलेखाः सन्ति ।"
 
 #: instabilities.cpp:37
 #, kde-format
@@ -43,26 +45,28 @@ msgid ""
 "The device self-test log contains records of errors. [ATA only] Failed self-"
 "tests outdated by a newer successful extended self-test are ignored."
 msgstr ""
+"यन्त्रस्य स्वपरीक्षणवृत्तलेखे त्रुटिनां अभिलेखाः सन्ति । [ATA only] "
+"नूतनतरसफलविस्तारितस्वपरीक्षायाः पुरातनाः असफलाः स्वपरीक्षाः उपेक्षिताः भवन्ति ।"
 
 #: kcm/ui/main.qml:30
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
-msgstr ""
+msgstr "विभाजनप्रबन्धकं उद्घाटयन्तु"
 
 #: kcm/ui/main.qml:36
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
-msgstr ""
+msgstr "बैकअपं कुर्वन्तु"
 
 #: kcm/ui/main.qml:56
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
-msgstr ""
+msgstr "दत्तांशं प्राप्तुं असमर्थः। KDED न चाल्यते।"
 
 #: kcm/ui/main.qml:67
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
-msgstr ""
+msgstr "न S.M.A.R.T. यन्त्राणि प्राप्तानि।"
 
 #: kcm/ui/main.qml:88
 msgctxt "@info"
@@ -71,6 +75,9 @@ msgid ""
 "imminent device failure or data reliability being compromised. Back up your "
 "data and replace this drive as soon as possible to avoid losing any data."
 msgstr ""
+"अस्य यन्त्रस्य SMART प्रणाली समस्यानां सूचनां ददाति । एतत् आसन्नयन्त्रविफलतायाः अथवा "
+"दत्तांशविश्वसनीयतायाः क्षतिः भवितुं शक्नोति । स्वस्य दत्तांशस्य बैकअपं गृह्य यथाशीघ्रं एतत् "
+"ड्राइव् प्रतिस्थापयन्तु यत् किमपि दत्तांशं नष्टं न भवति ।"
 
 #: kcm/ui/main.qml:94
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
@@ -80,26 +87,30 @@ msgid ""
 "longer term analysis. Back up your data and contact the manufacturer of this "
 "disk, or replace it preemptively just to be safe.</p><ul>%1</ul>"
 msgstr ""
+"<p>SMART फर्मवेयर विफलतायाः सूचनां न ददाति, परन्तु त्रुटिः प्रारम्भिकानि लक्षणानि सन्ति "
+"। एतेन आसन्नयन्त्रविफलतां न सूचयितुं शक्यते परन्तु दीर्घकालीनविश्लेषणस्य आवश्यकता भवति । "
+"स्वदत्तांशस्य बैकअपं गृह्य अस्य डिस्कस्य निर्मातृणां सम्पर्कं कुर्वन्तु, अथवा केवलं सुरक्षिततायै "
+"पूर्वतया प्रतिस्थापयन्तु ।</p><ul> %1</ul>"
 
 #: kcm/ui/main.qml:100
 msgctxt "@info"
 msgid "This device appears to be working as expected."
-msgstr ""
+msgstr "एतत् यन्त्रं यथा अपेक्षितं कार्यं कुर्वन् दृश्यते ।"
 
 #: kcm/ui/main.qml:107
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
-msgstr ""
+msgstr "नियंत्रण"
 
 #: kcm/ui/main.qml:108
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
-msgstr ""
+msgstr "उपेक्षा"
 
 #: kcm/ui/main.qml:116
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
-msgstr ""
+msgstr "विवरणं दर्शयतु"
 
 #: smartctl.cpp:33
 #, kde-format
@@ -107,13 +118,13 @@ msgctxt ""
 "@label description of authentication request to read SMART data. %1 is a "
 "device path e.g. /dev/sda"
 msgid "Read SMART report for storage device %1"
-msgstr ""
+msgstr "भण्डारणयन्त्रस्य %1 कृते SMART रिपोर्ट् पठन्तु"
 
 #: smartnotifier.cpp:29
 #, kde-format
 msgctxt "@title notification"
 msgid "Storage Device Problems"
-msgstr ""
+msgstr "भण्डारणयन्त्रस्य समस्याः"
 
 #: smartnotifier.cpp:32
 #, kde-kuit-format
@@ -124,6 +135,8 @@ msgid ""
 "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
 "likely to fail soon!"
 msgstr ""
+"भण्डारणयन्त्रं <emphasis>%1</emphasis> (<filename>%2</filename>) शीघ्रमेव विफलं "
+"भवितुम् अर्हति!"
 
 #: smartnotifier.cpp:37
 #, kde-kuit-format
@@ -134,9 +147,11 @@ msgid ""
 "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
 "showing indications of instability."
 msgstr ""
+"भण्डारणयन्त्रं <emphasis>%1</emphasis> (<filename>%2</filename>) अस्थिरतायाः "
+"संकेतान् दर्शयति ।"
 
 #: smartnotifier.cpp:44
 #, kde-format
 msgctxt "@action:button notification action to manage device problems"
 msgid "Manage"
-msgstr ""
+msgstr "प्रबंधनं"
