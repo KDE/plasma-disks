@@ -1,0 +1,157 @@
+# Hindi translations for plasma-disks package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the plasma-disks package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma-disks\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-06-08 00:40+0000\n"
+"PO-Revision-Date: 2024-12-15 17:37+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: instabilities.cpp:27
+#, kde-format
+msgctxt "@label"
+msgid "Prefail attributes <= threshold."
+msgstr "प्रीफेल विशेषताएँ <= थ्रेशोल्ड."
+
+#: instabilities.cpp:31
+#, kde-format
+msgctxt "@label"
+msgid ""
+"SMART status check returned 'DISK OK' but we found that some (usage or "
+"prefail) attributes have been <= threshold at some time in the past."
+msgstr ""
+"स्मार्ट स्थिति जांच ने 'डिस्क ओके' लौटाया, लेकिन हमने पाया कि कुछ (उपयोग या प्रीफेल) "
+"विशेषताएं अतीत में कुछ समय पर <= सीमा तक रही हैं।"
+
+#: instabilities.cpp:33
+#, kde-format
+msgctxt "@label"
+msgid "The device error log contains records of errors."
+msgstr "डिवाइस त्रुटि लॉग में त्रुटियों का रिकॉर्ड होता है।"
+
+#: instabilities.cpp:37
+#, kde-format
+msgctxt "@label"
+msgid ""
+"The device self-test log contains records of errors. [ATA only] Failed self-"
+"tests outdated by a newer successful extended self-test are ignored."
+msgstr ""
+"डिवाइस स्व-परीक्षण लॉग में त्रुटियों के रिकॉर्ड होते हैं। [केवल ATA] नए सफल विस्तारित स्व-"
+"परीक्षण द्वारा पुराने हो चुके असफल स्व-परीक्षणों को अनदेखा कर दिया जाता है।"
+
+#: kcm/ui/main.qml:30
+msgctxt "@action/button action button to start partition manager"
+msgid "Open Partition Manager"
+msgstr "विभाजन प्रबंधक खोलें"
+
+#: kcm/ui/main.qml:36
+msgctxt "@action/button action button to start backup program"
+msgid "Perform Backup"
+msgstr "बैकअप करें"
+
+#: kcm/ui/main.qml:56
+msgctxt "@info/status"
+msgid "Unable to obtain data. KDED is not running."
+msgstr "डेटा प्राप्त करने में असमर्थ. KDED नहीं चल रहा है."
+
+#: kcm/ui/main.qml:67
+msgctxt "@info/status"
+msgid "No S.M.A.R.T. devices found."
+msgstr "कोई S.M.A.R.T. डिवाइस नहीं मिला."
+
+#: kcm/ui/main.qml:88
+msgctxt "@info"
+msgid ""
+"The SMART system of this device is reporting problems. This may be a sign of "
+"imminent device failure or data reliability being compromised. Back up your "
+"data and replace this drive as soon as possible to avoid losing any data."
+msgstr ""
+"इस डिवाइस का SMART सिस्टम समस्याओं की रिपोर्ट कर रहा है। यह आसन्न डिवाइस विफलता या "
+"डेटा विश्वसनीयता से समझौता होने का संकेत हो सकता है। अपने डेटा का बैकअप लें और किसी भी "
+"डेटा को खोने से बचने के लिए जितनी जल्दी हो सके इस ड्राइव को बदलें।"
+
+#: kcm/ui/main.qml:94
+msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
+msgid ""
+"<p>The SMART firmware is not reporting a failure, but there are early signs "
+"of malfunction. This might not point at imminent device failure but requires "
+"longer term analysis. Back up your data and contact the manufacturer of this "
+"disk, or replace it preemptively just to be safe.</p><ul>%1</ul>"
+msgstr ""
+"<p>स्मार्ट फर्मवेयर विफलता की रिपोर्ट नहीं कर रहा है, लेकिन खराबी के शुरुआती संकेत हैं। यह "
+"आसन्न डिवाइस विफलता का संकेत नहीं हो सकता है, लेकिन इसके लिए दीर्घकालिक विश्लेषण की "
+"आवश्यकता है। अपने डेटा का बैकअप लें और इस डिस्क के निर्माता से संपर्क करें, या सुरक्षा के लिए "
+"इसे पहले से ही बदल दें।</p><ul> %1</ul>"
+
+#: kcm/ui/main.qml:100
+msgctxt "@info"
+msgid "This device appears to be working as expected."
+msgstr "यह डिवाइस अपेक्षानुसार काम कर रही है।"
+
+#: kcm/ui/main.qml:107
+msgctxt "@action/button action button to monitor a device for smart failure"
+msgid "Monitor"
+msgstr "निगरानी करना"
+
+#: kcm/ui/main.qml:108
+msgctxt "@action/button action button to ignore smart failures for a device"
+msgid "Ignore"
+msgstr "अनदेखा करना"
+
+#: kcm/ui/main.qml:116
+msgctxt "@action/button show detailed smart report"
+msgid "Show Details"
+msgstr "प्रदर्शन का विवरण"
+
+#: smartctl.cpp:33
+#, kde-format
+msgctxt ""
+"@label description of authentication request to read SMART data. %1 is a "
+"device path e.g. /dev/sda"
+msgid "Read SMART report for storage device %1"
+msgstr "स्टोरेज डिवाइस %1 के लिए SMART रिपोर्ट पढ़ें"
+
+#: smartnotifier.cpp:29
+#, kde-format
+msgctxt "@title notification"
+msgid "Storage Device Problems"
+msgstr "स्टोरेज डिवाइस की समस्याएं"
+
+#: smartnotifier.cpp:32
+#, kde-kuit-format
+msgctxt ""
+"@info notification; text %1 is a pretty product name; %2 the device path e."
+"g. /dev/sda"
+msgid ""
+"The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
+"likely to fail soon!"
+msgstr ""
+"भंडारण डिवाइस <emphasis>%1</emphasis> (<filename>%2</filename>) जल्द ही विफल "
+"होने की संभावना है!"
+
+#: smartnotifier.cpp:37
+#, kde-kuit-format
+msgctxt ""
+"@info notification; text %1 is a pretty product name; %2 the device path e."
+"g. /dev/sda"
+msgid ""
+"The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
+"showing indications of instability."
+msgstr ""
+"भंडारण डिवाइस <emphasis>%1</emphasis> (<filename>%2</filename>) अस्थिरता के संकेत "
+"दिखा रहा है।"
+
+#: smartnotifier.cpp:44
+#, kde-format
+msgctxt "@action:button notification action to manage device problems"
+msgid "Manage"
+msgstr "प्रबंधित करना"
