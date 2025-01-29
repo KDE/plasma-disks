@@ -3,6 +3,7 @@
 
 #include "simulationctl.h"
 
+#include <QDebug>
 #include <QFile>
 
 static QString readCLIData()
