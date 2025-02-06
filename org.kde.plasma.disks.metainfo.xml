@@ -140,7 +140,7 @@
     <p xml:lang="sl">Plasma nadzorniki diskov nadzirajo S.M.A.R.T. podatke o diskih in opozorijo uporabnika, ko se pojavijo znaki neizbežne okvare.</p>
     <p xml:lang="sv">Plasma diskar övervakar S.M.A.R.T.-data för diskar och varnar användaren när tecken på förestående fel visar sig.</p>
     <p xml:lang="ta">வட்டுகளின் S.M.A.R.T. தரவைக் கண்காணித்து, முறிவின் அறிகுறிகள் தெரியும்போது பயனருக்கு 'பிளாஸ்மா வட்டுகள்' அறிவிக்கும்.</p>
-    <p xml:lang="tr">Plasma Diskler, disklerin S.M.A.R.T. durumunu izler ve yakında arıza işaretleri vermesi durumunda kullanıcıya bilgi verir.</p>
+    <p xml:lang="tr">Plasma Diskler, disklerin S.M.A.R.T. durumunu izler ve yakında arıza işaretleri vermesi durumunda kullanıcıyı ikaz eder.</p>
     <p xml:lang="uk">«Диски Плазми» стежать за даними S.M.A.R.T. дисків і попереджають користувача, коли з'являються ознаки неминучої відмови у роботі.</p>
     <p xml:lang="x-test">xxPlasma Disks monitors S.M.A.R.T. data of disks and alerts the user when signs of imminent failure appear.xx</p>
     <p xml:lang="zh-CN">Plasma 磁盘监控程序会监控磁盘的 S.M.A.R.T. 数据，并在发现故障前兆时警告用户。</p>
