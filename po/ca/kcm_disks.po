@@ -164,19 +164,3 @@ msgstr ""
 msgctxt "@action:button notification action to manage device problems"
 msgid "Manage"
 msgstr "Gestiona"
-
-#~ msgctxt "@action/button show detailed smart report"
-#~ msgid "Detailed Information"
-#~ msgstr "Informació detallada"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Josep M. Ferrer"
-
-#~ msgctxt "@title"
-#~ msgid "Storage Device Health Monitoring"
-#~ msgstr "Monitoratge de l'estat dels dispositius d'emmagatzematge"
-
-#~ msgctxt "@info:credit"
-#~ msgid "Copyright 2020 Harald Sitter"
-#~ msgstr "Copyright 2020 Harald Sitter"
