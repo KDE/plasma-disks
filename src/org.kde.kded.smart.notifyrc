@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
 [Global]
 IconName=preferences-smart-status
-Name=Storage Device Health Monitoring
+Name=Device Health
 Name[ar]=مراقبة صحة جهاز التخزين
 Name[az]=Yaddaş Cihazının Vəziyyətinin İzlənməsi
 Name[bg]=Мониторинг на състоянието на устройството за съхранение
