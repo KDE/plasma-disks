@@ -3,6 +3,18 @@
 [Global]
 IconName=preferences-smart-status
 Name=Device Health
+Name[bg]=Техническо състояние на устройството
+Name[ca]=Estat dels dispositius
+Name[ca@valencia]=Estat dels dispositius
+Name[es]=Estado de salud del dispositivo
+Name[he]=בריאות ההתקן
+Name[ka]=მოწყობილობის ჯანმრთელობა
+Name[nl]=Welzijn van apparaat
+Name[ru]=Состояние устройства
+Name[sl]=Zdravje naprave
+Name[tr]=Aygıt Sağlığı
+Name[uk]=Стан пристрою
+Name[x-test]=xxDevice Healthxx
 Comment=Storage Device Health Monitoring
 Comment[ar]=مراقبة صحة جهاز التخزين
 Comment[az]=Yaddaş Cihazının Vəziyyətinin İzlənməsi
