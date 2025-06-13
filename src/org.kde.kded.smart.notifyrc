@@ -3,6 +3,7 @@
 [Global]
 IconName=preferences-smart-status
 Name=Device Health
+Name[ar]=صحة الجهاز
 Name[bg]=Техническо състояние на устройството
 Name[ca]=Estat dels dispositius
 Name[ca@valencia]=Estat dels dispositius
