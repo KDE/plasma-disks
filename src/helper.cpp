@@ -39,12 +39,8 @@ static QString nameToPath(const QString &name)
         return {};
     }
 
-#ifdef Q_OS_FREEBSD // There are only character devices
-    if (!S_ISCHR(sb.st_mode)) {
-#else // On others assume they are block devices (e.g. linux)
-    if (!S_ISBLK(sb.st_mode)) {
-#endif
-        qWarning() << "Device is not actually a block device" << name;
+    if (!(S_ISCHR(sb.st_mode) || S_ISBLK(sb.st_mode))) {
+        qWarning() << "Device is not a character or block device" << name;
         return {};
     }
 
