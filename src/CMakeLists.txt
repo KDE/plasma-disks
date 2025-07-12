@@ -9,8 +9,8 @@ set(kded_SRCS
     smartctl.cpp smartctl.h
     smartnotifier.cpp smartnotifier.h
     dbusobjectmanagerserver.cpp
-    device.cpp
-    devicenotifier.cpp
+    device.cpp device.h
+    devicenotifier.cpp devicenotifier.h
     soliddevicenotifier.cpp soliddevicenotifier.h
     instabilities.cpp instabilities.h
     smartfailure.cpp smartfailure.h
