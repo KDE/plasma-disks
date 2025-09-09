@@ -40,7 +40,6 @@
         "Description[ta]": "வட்டு ஆரோக்கிய கண்காணிப்பு",
         "Description[tr]": "Depolama aygıtı sağlığı izleme",
         "Description[uk]": "Спостереження за станом пристроїв для зберігання даних",
-        "Description[x-test]": "xxStorage device health monitoringxx",
         "Description[zh_CN]": "存储设备健康状况监测",
         "Description[zh_TW]": "儲存裝置健康狀態監控",
         "Icon": "preferences-smart-status",
@@ -88,7 +87,6 @@
         "Name[ta]": "SMART",
         "Name[tr]": "SMART",
         "Name[uk]": "SMART",
-        "Name[x-test]": "xxSMARTxx",
         "Name[zh_CN]": "SMART",
         "Name[zh_TW]": "SMART"
     },
