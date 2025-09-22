@@ -40,6 +40,7 @@ Name[sv]=Övervakning av lagringsenheters hälsa
 Name[tr]=Depolama Aygıtı Sağlığı İzleme
 Name[uk]=Спостереження за станом пристроїв зберігання даних
 Name[zh_CN]=存储设备健康状况监测
+Name[zh_TW]=儲存裝置健康狀態監控
 Comment=Storage Device Health Monitoring
 Comment[ar]=مراقبة صحة جهاز التخزين
 Comment[az]=Yaddaş Cihazının Vəziyyətinin İzlənməsi
@@ -78,6 +79,7 @@ Comment[sv]=Övervakning av lagringsenheters hälsa
 Comment[tr]=Depolama Aygıtı Sağlığı İzleme
 Comment[uk]=Спостереження за станом пристроїв зберігання даних
 Comment[zh_CN]=存储设备健康状况监测
+Comment[zh_TW]=儲存裝置健康狀態監控
 
 [Context/device]
 Name=Device
@@ -119,6 +121,7 @@ Name[sv]=Enhet
 Name[tr]=Aygıt
 Name[uk]=Пристрій
 Name[zh_CN]=设备
+Name[zh_TW]=裝置
 Comment=Used for notifications about a specific device
 Comment[ar]=تستخدم للإشعارات حول جهاز معين
 Comment[az]=Göstərilən cihaz haqqında bildirişlər üçün istifadə olunur
@@ -157,6 +160,7 @@ Comment[sv]=Används för underrättelser om en specifik enhet
 Comment[tr]=Belirli bir aygıt hakkında bildirim için kullanılır
 Comment[uk]=Використовується для сповіщень щодо певного пристрою
 Comment[zh_CN]=用于为特定设备发送通知
+Comment[zh_TW]=用於特定裝置的通知
 
 [Event/imminentDeviceFailure]
 Name=Imminent Device Failure
@@ -197,6 +201,7 @@ Name[sv]=Nära förestående fel
 Name[tr]=Aygıt Arızası Yakın
 Name[uk]=Неминуча відмова пристрою
 Name[zh_CN]=设备即将发生故障
+Name[zh_TW]=裝置即將發生嚴重錯誤
 Comment=A device is showing signs of imminent failure
 Comment[ar]=يظهر الجهاز علامات على فشل وشيك في الجهاز
 Comment[az]=Cihaz sıradan çıxmaq üzrə olduğunu göstərir
@@ -235,5 +240,6 @@ Comment[sv]=En enhet visar tecken på ett nära förestående fel
 Comment[tr]=Bir aygıt yakında arıza işareti veriyor
 Comment[uk]=Пристрій повідомляє про ознаки неминучої відмови у роботі
 Comment[zh_CN]=一个设备出现故障前兆
+Comment[zh_TW]=有一個裝置出現即將發生嚴重錯誤的徵兆
 Contexts=device
 Action=Popup
