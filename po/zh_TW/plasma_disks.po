@@ -4,35 +4,37 @@
 # This file is distributed under the same license as the plasma-disks package.
 # Automatically generated, 2022.
 #
+# SPDX-FileCopyrightText: 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-02-27 00:49+0000\n"
-"PO-Revision-Date: 2022-02-27 00:49+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-09-22 06:30+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Kisaragi Hiu"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "mail@kisaragi-hiu.com"
 
 #: instabilities.cpp:27
 #, kde-format
 msgctxt "@label"
 msgid "Prefail attributes <= threshold."
-msgstr ""
+msgstr "失敗前屬性小於等於閥值。"
 
 #: instabilities.cpp:31
 #, kde-format
@@ -41,12 +43,14 @@ msgid ""
 "SMART status check returned 'DISK OK' but we found that some (usage or "
 "prefail) attributes have been <= threshold at some time in the past."
 msgstr ""
+"SMART 狀態檢查回傳 'DISK OK' 但我們發現某些（使用或失敗前）屬性過去曾經小於或"
+"等於閥值。"
 
 #: instabilities.cpp:33
 #, kde-format
 msgctxt "@label"
 msgid "The device error log contains records of errors."
-msgstr ""
+msgstr "裝置錯誤紀錄內記有錯誤。"
 
 #: instabilities.cpp:37
 #, kde-format
@@ -55,28 +59,30 @@ msgid ""
 "The device self-test log contains records of errors. [ATA only] Failed self-"
 "tests outdated by a newer successful extended self-test are ignored."
 msgstr ""
+"裝置自我檢查紀錄內記有錯誤。[僅 ATA] 失敗的自我檢查在有更新的成功擴充自我檢查"
+"時會被忽略。"
 
 #: kcm/module.cpp:20
 #, kde-format
 msgctxt "@title"
 msgid "Storage Device Health Monitoring"
-msgstr ""
+msgstr "儲存裝置健康狀態監控"
 
 #: kcm/module.cpp:24
 #, kde-format
 msgctxt "@info:credit"
 msgid "Copyright 2020 Harald Sitter"
-msgstr ""
+msgstr "版權所有 2020 Harald Sitter"
 
 #: kcm/package/contents/main.qml:41
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
-msgstr ""
+msgstr "無法取得資料。KDED 並非執行中。"
 
 #: kcm/package/contents/main.qml:52
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
-msgstr ""
+msgstr "沒有找到 S.M.A.R.T. 裝置"
 
 #: kcm/package/contents/main.qml:73
 msgctxt "@info"
@@ -85,6 +91,8 @@ msgid ""
 "imminent device failure or data reliability being compromised. Back up your "
 "data and replace this drive as soon as possible to avoid losing any data."
 msgstr ""
+"這個裝置的 SMART 系統回報了問題。這可能是裝置馬上就要發生嚴重錯誤或是資料可靠"
+"性下降的徵兆。請儘快備份您的資料並將此磁碟替換掉，以避免遺失資料。"
 
 #: kcm/package/contents/main.qml:79
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
@@ -94,36 +102,39 @@ msgid ""
 "longer term analysis. Back up your data and contact the manufacturer of this "
 "disk, or replace it preemptively just to be safe.</p><ul>%1</ul>"
 msgstr ""
+"<p>SMART 韌體沒有回報失敗，但有出現發生錯誤的早期徵兆。這可能不代表裝置會馬上"
+"出錯，但需要較長期的分析。請備份您的資料並與這個磁碟的製造商聯繫，或是先將它"
+"替換掉以求保險。</p><ul>%1</ul>"
 
 #: kcm/package/contents/main.qml:85
 msgctxt "@info"
 msgid "This device appears to be working as expected."
-msgstr ""
+msgstr "這個裝置看起來運作正常。"
 
 #: kcm/package/contents/main.qml:92
 msgctxt "@action/button action button to start partition manager"
 msgid "Partition Manager"
-msgstr ""
+msgstr "磁碟分割區管理員"
 
 #: kcm/package/contents/main.qml:98
 msgctxt "@action/button action button to start backup program"
 msgid "Backup"
-msgstr ""
+msgstr "備份"
 
 #: kcm/package/contents/main.qml:104
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
-msgstr ""
+msgstr "監控"
 
 #: kcm/package/contents/main.qml:105
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
-msgstr ""
+msgstr "忽略"
 
 #: kcm/package/contents/main.qml:113
 msgctxt "@action/button show detailed smart report"
 msgid "Detailed Information"
-msgstr ""
+msgstr "詳細資訊"
 
 #: smartctl.cpp:39
 #, kde-format
@@ -131,13 +142,13 @@ msgctxt ""
 "@label description of authentication request to read SMART data. %1 is a "
 "device path e.g. /dev/sda"
 msgid "Read SMART report for storage device %1"
-msgstr ""
+msgstr "讀取儲存裝置 %1 的 SMART 回報"
 
 #: smartnotifier.cpp:29
 #, kde-format
 msgctxt "@title notification"
 msgid "Storage Device Problems"
-msgstr ""
+msgstr "儲存裝置問題"
 
 #: smartnotifier.cpp:32
 #, kde-kuit-format
@@ -148,6 +159,8 @@ msgid ""
 "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
 "likely to fail soon!"
 msgstr ""
+"儲存裝置 <emphasis>%1</emphasis> (<filename>%2</filename>) 很可能很快就會發生"
+"嚴重錯誤！"
 
 #: smartnotifier.cpp:37
 #, kde-kuit-format
@@ -158,9 +171,10 @@ msgid ""
 "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
 "showing indications of instability."
 msgstr ""
+"儲存裝置 <emphasis>%1</emphasis> (<filename>%2</filename>) 有不穩定性的徵兆。"
 
 #: smartnotifier.cpp:44
 #, kde-format
 msgctxt "@action:button notification action to manage device problems"
 msgid "Manage"
-msgstr ""
+msgstr "管理"
