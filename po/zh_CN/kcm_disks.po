@@ -94,7 +94,7 @@ msgstr ""
 #: kcm/ui/main.qml:100
 msgctxt "@info"
 msgid "This device appears to be working as expected."
-msgstr "此设备报告它工作正常。"
+msgstr "此设备自检正常。"
 
 #: kcm/ui/main.qml:107
 msgctxt "@action/button action button to monitor a device for smart failure"
