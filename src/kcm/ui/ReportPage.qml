@@ -10,6 +10,8 @@ import org.kde.kcmutils as KCM
 KCM.SimpleKCM {
     property alias text: textArea.text
 
+    Kirigami.Theme.colorSet: Kirigami.Theme.View
+    Kirigami.Theme.inherit: false
     QQC2.TextArea { // scrolling is implemented in the simplekcm
         id: textArea
         background: null // render this without frame so it looks neatly integrated into the kcm page

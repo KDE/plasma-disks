@@ -13,8 +13,12 @@ import org.kde.kcmutils as KCM
 
 KCM.SimpleKCM {
     id: root
+
     implicitWidth: Kirigami.Units.gridUnit * 28
     implicitHeight: Kirigami.Units.gridUnit * 20
+
+    Kirigami.Theme.colorSet: Kirigami.Theme.Window
+    Kirigami.Theme.inherit: false
 
     SMART.ServiceRunner {
         id: partitionManagerRunner
