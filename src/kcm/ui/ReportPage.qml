@@ -5,13 +5,27 @@ import QtQuick
 import QtQuick.Controls as QQC2
 
 import org.kde.kirigami as Kirigami
+import org.kde.kquickcontrolsaddons as KQuickControlsAddons
 import org.kde.kcmutils as KCM
 
 KCM.SimpleKCM {
+    id: root
+
     property alias text: textArea.text
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     Kirigami.Theme.inherit: false
+
+    KQuickControlsAddons.Clipboard { id: clipboard }
+
+    actions: [
+        Kirigami.Action {
+            icon.name: "edit-copy-symbolic"
+            text: i18nc("@action:button copies all displayed text", "Copy to Clipboard")
+            onTriggered: clipboard.content = root.text
+        }
+    ]
+
     QQC2.TextArea { // scrolling is implemented in the simplekcm
         id: textArea
         background: null // render this without frame so it looks neatly integrated into the kcm page

@@ -18,5 +18,6 @@ Dependencies:
     'frameworks/kwindowsystem': '@latest-kf6'
     'frameworks/solid': '@latest-kf6'
     'frameworks/kcmutils': '@latest-kf6'
+    'frameworks/kdeclarative': '@latest-kf6'
 Options:
  require-passing-tests-on: ['Linux', 'FreeBSD']
