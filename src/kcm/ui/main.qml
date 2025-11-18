@@ -77,33 +77,34 @@ KCM.SimpleKCM {
             banner.title: "%1 (%2)".arg(product).arg(path)
             banner.titleIcon: {
                 if (failed) {
-                    return "data-warning"
+                    return "data-warning";
                 }
                 if (instabilities.length !== 0) {
-                    return "data-information"
+                    return "data-information";
                 }
-                return ""
+                return "data-success";
             }
+            banner.titleMinimumIconSize: Kirigami.Units.iconSizes.sizeForLabels
 
-            contentItem: Label {
-                anchors.fill: parent
+            contentItem: QQC2.Label {
                 wrapMode: Text.Wrap
+                textFormat: Text.StyledText
                 text: {
                     if (failed) {
                         return i18nc("@info",
                             "The SMART system of this device is reporting problems. This may be a sign of imminent device failure or data reliability being compromised. " +
-                            "Back up your data and replace this drive as soon as possible to avoid losing any data.")
+                            "Back up your data and replace this drive as soon as possible to avoid losing any data.");
                     }
                     if (instabilities.length !== 0) {
-                        var items = instabilities.map(item => "<li>%1</li>".arg(item))
+                        const items = instabilities.map(item => "<li>%1</li>".arg(item));
                         return i18nc("@info %1 is a bunch of <li> with the strings from instabilities.cpp",
                             "<p>The SMART firmware is not reporting a failure, but there are early signs of malfunction. " +
                             "This might not point at imminent device failure but requires longer term analysis. " +
                             "Back up your data and contact the manufacturer of this disk, or replace it preemptively just to be safe.</p>" +
-                            "<ul>%1</ul>", items.join(''))
+                            "<ul>%1</ul>", items.join(''));
                     }
                     return i18nc("@info",
-                            "This device appears to be working as expected.")
+                            "This device appears to be working as expected.");
                 }
             }
 
