@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2025-11-29 00:44+0000\n"
 "PO-Revision-Date: 2024-06-08 13:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -51,27 +51,27 @@ msgstr ""
 "olan öz sınamalar daha yeni bir genişletilmiş öz sınama tarafından geçersiz "
 "kılınırsa eski sınamalar yok sayılır."
 
-#: kcm/ui/main.qml:30
+#: kcm/ui/main.qml:36
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
 msgstr "Bölüntü Yöneticisi’ni Aç"
 
-#: kcm/ui/main.qml:36
+#: kcm/ui/main.qml:42
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
 msgstr "Yedek Gerçekleştir"
 
-#: kcm/ui/main.qml:56
+#: kcm/ui/main.qml:62
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
 msgstr "Veri alınamıyor. KDED çalışmıyor."
 
-#: kcm/ui/main.qml:67
+#: kcm/ui/main.qml:73
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
 msgstr "Bir S.M.A.R.T. aygıtı bulunamadı"
 
-#: kcm/ui/main.qml:88
+#: kcm/ui/main.qml:95
 msgctxt "@info"
 msgid ""
 "The SMART system of this device is reporting problems. This may be a sign of "
@@ -83,7 +83,7 @@ msgstr ""
 "yedekleyin ve veri kaybını önlemek için bu sürücüyü en kısa zamanda "
 "değiştirin."
 
-#: kcm/ui/main.qml:94
+#: kcm/ui/main.qml:101
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
 msgid ""
 "<p>The SMART firmware is not reporting a failure, but there are early signs "
@@ -96,25 +96,30 @@ msgstr ""
 "bir çözümleme gereklidir. Verinizi yedekleyin ve aygıt üreticisine durumu "
 "bildirin veya şimdiden bu sürücüyü değiştirin.</p><ul>%1</ul>"
 
-#: kcm/ui/main.qml:100
+#: kcm/ui/main.qml:107
 msgctxt "@info"
 msgid "This device appears to be working as expected."
 msgstr "Bu aygıt düzgün çalışıyor."
 
-#: kcm/ui/main.qml:107
+#: kcm/ui/main.qml:114
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
 msgstr "İzle"
 
-#: kcm/ui/main.qml:108
+#: kcm/ui/main.qml:115
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
 msgstr "Yok Say"
 
-#: kcm/ui/main.qml:116
+#: kcm/ui/main.qml:123
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
 msgstr "Ayrıntıları Göster"
+
+#: kcm/ui/ReportPage.qml:24
+msgctxt "@action:button copies all displayed text"
+msgid "Copy to Clipboard"
+msgstr ""
 
 #: smartctl.cpp:33
 #, kde-format

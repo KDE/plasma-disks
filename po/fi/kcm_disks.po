@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2025-11-29 00:44+0000\n"
 "PO-Revision-Date: 2024-10-18 11:46+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -53,27 +53,27 @@ msgstr ""
 "onnistuneiden laajojen itsetestausten vanhentamat epäonnistumiset "
 "sivuutetaan."
 
-#: kcm/ui/main.qml:30
+#: kcm/ui/main.qml:36
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
 msgstr "Avaa osionhallinta"
 
-#: kcm/ui/main.qml:36
+#: kcm/ui/main.qml:42
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
 msgstr "Varmuuskopioi"
 
-#: kcm/ui/main.qml:56
+#: kcm/ui/main.qml:62
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
 msgstr "Tietoja ei voi saada: kded ei ole käynnissä."
 
-#: kcm/ui/main.qml:67
+#: kcm/ui/main.qml:73
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
 msgstr "SMART-laitteita ei löytynyt."
 
-#: kcm/ui/main.qml:88
+#: kcm/ui/main.qml:95
 msgctxt "@info"
 msgid ""
 "The SMART system of this device is reporting problems. This may be a sign of "
@@ -85,7 +85,7 @@ msgstr ""
 "Varmuuskopioi tietosi ja vaihda asema mahdollisimman pian, jottei tietoa "
 "menetettäisi."
 
-#: kcm/ui/main.qml:94
+#: kcm/ui/main.qml:101
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
 msgid ""
 "<p>The SMART firmware is not reporting a failure, but there are early signs "
@@ -98,25 +98,30 @@ msgstr ""
 "vaatii pidempikestoista analyysia. Varmuuskopioi tietosi ja ota yhteyttä "
 "levyn valmistajaan tai vaihda se ennaltaehkäisevästi.</p><ul>%1</ul>"
 
-#: kcm/ui/main.qml:100
+#: kcm/ui/main.qml:107
 msgctxt "@info"
 msgid "This device appears to be working as expected."
 msgstr "Laite vaikuttaa toimivan odotetusti."
 
-#: kcm/ui/main.qml:107
+#: kcm/ui/main.qml:114
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
 msgstr "Valvonta"
 
-#: kcm/ui/main.qml:108
+#: kcm/ui/main.qml:115
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
 msgstr "Ohita"
 
-#: kcm/ui/main.qml:116
+#: kcm/ui/main.qml:123
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
 msgstr "Näytä tiedot"
+
+#: kcm/ui/ReportPage.qml:24
+msgctxt "@action:button copies all displayed text"
+msgid "Copy to Clipboard"
+msgstr ""
 
 #: smartctl.cpp:33
 #, kde-format

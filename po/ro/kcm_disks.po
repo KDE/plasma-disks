@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2025-11-29 00:44+0000\n"
 "PO-Revision-Date: 2025-10-19 02:39+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -51,27 +51,27 @@ msgstr ""
 "erori. [Doar ATA] Testele automate eșuate, ce sunt învechite de către teste "
 "automate reușite mai noi, sunt ignorate."
 
-#: kcm/ui/main.qml:30
+#: kcm/ui/main.qml:36
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
 msgstr "Deschide Gestionarul de partiții"
 
-#: kcm/ui/main.qml:36
+#: kcm/ui/main.qml:42
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
 msgstr "Creează copie de rezervă"
 
-#: kcm/ui/main.qml:56
+#: kcm/ui/main.qml:62
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
 msgstr "Nu se pot obține date. KDED nu rulează."
 
-#: kcm/ui/main.qml:67
+#: kcm/ui/main.qml:73
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
 msgstr "Niciun dispozitiv S.M.A.R.T. găsit."
 
-#: kcm/ui/main.qml:88
+#: kcm/ui/main.qml:95
 msgctxt "@info"
 msgid ""
 "The SMART system of this device is reporting problems. This may be a sign of "
@@ -83,7 +83,7 @@ msgstr ""
 "datelor. Faceți o copie de rezervă a datelor și înlocuiți această unitate "
 "cât mai curând posibil pentru a evita pierderea datelor."
 
-#: kcm/ui/main.qml:94
+#: kcm/ui/main.qml:101
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
 msgid ""
 "<p>The SMART firmware is not reporting a failure, but there are early signs "
@@ -97,25 +97,30 @@ msgstr ""
 "a datelor și contactați producătorul discului sau înlocuiți-l pentru orice "
 "eventualitate.</p><ul>%1</ul>"
 
-#: kcm/ui/main.qml:100
+#: kcm/ui/main.qml:107
 msgctxt "@info"
 msgid "This device appears to be working as expected."
 msgstr "Acest dispozitiv pare să funcționeze conform așteptărilor."
 
-#: kcm/ui/main.qml:107
+#: kcm/ui/main.qml:114
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
 msgstr "Monitorizează"
 
-#: kcm/ui/main.qml:108
+#: kcm/ui/main.qml:115
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
 msgstr "Ignoră"
 
-#: kcm/ui/main.qml:116
+#: kcm/ui/main.qml:123
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
 msgstr "Arată detalii"
+
+#: kcm/ui/ReportPage.qml:24
+msgctxt "@action:button copies all displayed text"
+msgid "Copy to Clipboard"
+msgstr ""
 
 #: smartctl.cpp:33
 #, kde-format

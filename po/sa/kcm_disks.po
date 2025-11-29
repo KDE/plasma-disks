@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2025-11-29 00:44+0000\n"
 "PO-Revision-Date: 2024-12-13 19:10+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -49,27 +49,27 @@ msgstr ""
 "यन्त्रस्य स्वपरीक्षणवृत्तलेखे त्रुटिनां अभिलेखाः सन्ति । [ATA only] "
 "नूतनतरसफलविस्तारितस्वपरीक्षायाः पुरातनाः असफलाः स्वपरीक्षाः उपेक्षिताः भवन्ति ।"
 
-#: kcm/ui/main.qml:30
+#: kcm/ui/main.qml:36
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
 msgstr "विभाजनप्रबन्धकं उद्घाटयन्तु"
 
-#: kcm/ui/main.qml:36
+#: kcm/ui/main.qml:42
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
 msgstr "बैकअपं कुर्वन्तु"
 
-#: kcm/ui/main.qml:56
+#: kcm/ui/main.qml:62
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
 msgstr "दत्तांशं प्राप्तुं असमर्थः। KDED न चाल्यते।"
 
-#: kcm/ui/main.qml:67
+#: kcm/ui/main.qml:73
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
 msgstr "न S.M.A.R.T. यन्त्राणि प्राप्तानि।"
 
-#: kcm/ui/main.qml:88
+#: kcm/ui/main.qml:95
 msgctxt "@info"
 msgid ""
 "The SMART system of this device is reporting problems. This may be a sign of "
@@ -80,7 +80,7 @@ msgstr ""
 "दत्तांशविश्वसनीयतायाः क्षतिः भवितुं शक्नोति । स्वस्य दत्तांशस्य बैकअपं गृह्य यथाशीघ्रं एतत् "
 "ड्राइव् प्रतिस्थापयन्तु यत् किमपि दत्तांशं नष्टं न भवति ।"
 
-#: kcm/ui/main.qml:94
+#: kcm/ui/main.qml:101
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
 msgid ""
 "<p>The SMART firmware is not reporting a failure, but there are early signs "
@@ -93,25 +93,30 @@ msgstr ""
 "स्वदत्तांशस्य बैकअपं गृह्य अस्य डिस्कस्य निर्मातृणां सम्पर्कं कुर्वन्तु, अथवा केवलं सुरक्षिततायै "
 "पूर्वतया प्रतिस्थापयन्तु ।</p><ul> %1</ul>"
 
-#: kcm/ui/main.qml:100
+#: kcm/ui/main.qml:107
 msgctxt "@info"
 msgid "This device appears to be working as expected."
 msgstr "एतत् यन्त्रं यथा अपेक्षितं कार्यं कुर्वन् दृश्यते ।"
 
-#: kcm/ui/main.qml:107
+#: kcm/ui/main.qml:114
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
 msgstr "नियंत्रण"
 
-#: kcm/ui/main.qml:108
+#: kcm/ui/main.qml:115
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
 msgstr "उपेक्षा"
 
-#: kcm/ui/main.qml:116
+#: kcm/ui/main.qml:123
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
 msgstr "विवरणं दर्शयतु"
+
+#: kcm/ui/ReportPage.qml:24
+msgctxt "@action:button copies all displayed text"
+msgid "Copy to Clipboard"
+msgstr ""
 
 #: smartctl.cpp:33
 #, kde-format

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2025-11-29 00:44+0000\n"
 "PO-Revision-Date: 2021-09-17 15:49+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -50,7 +50,7 @@ msgstr ""
 "Neúspešné autotesty zastarané novším úspešným rozšíreným autotestom sú "
 "ignorované."
 
-#: kcm/ui/main.qml:30
+#: kcm/ui/main.qml:36
 #, fuzzy
 #| msgctxt "@action/button action button to start partition manager"
 #| msgid "Partition Manager"
@@ -58,7 +58,7 @@ msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
 msgstr "Správca partícií"
 
-#: kcm/ui/main.qml:36
+#: kcm/ui/main.qml:42
 #, fuzzy
 #| msgctxt "@action/button action button to start backup program"
 #| msgid "Backup"
@@ -66,17 +66,17 @@ msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
 msgstr "Zálohovať"
 
-#: kcm/ui/main.qml:56
+#: kcm/ui/main.qml:62
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
 msgstr "Nie je možné získať údaje. KDED nebeží."
 
-#: kcm/ui/main.qml:67
+#: kcm/ui/main.qml:73
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
 msgstr "Nenájdené žiadne S.M.A.R.T. zariadenia"
 
-#: kcm/ui/main.qml:88
+#: kcm/ui/main.qml:95
 msgctxt "@info"
 msgid ""
 "The SMART system of this device is reporting problems. This may be a sign of "
@@ -88,7 +88,7 @@ msgstr ""
 "Zálohujte si dáta a vymeňte tento disk čo najskôr, aby ste predišli strate "
 "údajov."
 
-#: kcm/ui/main.qml:94
+#: kcm/ui/main.qml:101
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
 msgid ""
 "<p>The SMART firmware is not reporting a failure, but there are early signs "
@@ -101,28 +101,33 @@ msgstr ""
 "dlhodobejšiu analýzu. Zálohujte si svoje dáta a obráťte sa na výrobcu tohto "
 "disku, prípadne ho preventívne vymeňte.</p><ul>%1</ul>"
 
-#: kcm/ui/main.qml:100
+#: kcm/ui/main.qml:107
 msgctxt "@info"
 msgid "This device appears to be working as expected."
 msgstr "Zdá sa, že toto zariadenie funguje podľa očakávaní."
 
-#: kcm/ui/main.qml:107
+#: kcm/ui/main.qml:114
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
 msgstr "Monitor"
 
-#: kcm/ui/main.qml:108
+#: kcm/ui/main.qml:115
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
 msgstr "Ignorovať"
 
-#: kcm/ui/main.qml:116
+#: kcm/ui/main.qml:123
 #, fuzzy
 #| msgctxt "EMAIL OF TRANSLATORS"
 #| msgid "Your emails"
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
 msgstr "wizzardsk@gmail.com"
+
+#: kcm/ui/ReportPage.qml:24
+msgctxt "@action:button copies all displayed text"
+msgid "Copy to Clipboard"
+msgstr ""
 
 #: smartctl.cpp:33
 #, kde-format

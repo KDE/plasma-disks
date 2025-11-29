@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2025-11-29 00:44+0000\n"
 "PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -49,27 +49,27 @@ msgstr ""
 "डिवाइस स्व-परीक्षण लॉग में त्रुटियों के रिकॉर्ड होते हैं। [केवल ATA] नए सफल विस्तारित स्व-"
 "परीक्षण द्वारा पुराने हो चुके असफल स्व-परीक्षणों को अनदेखा कर दिया जाता है।"
 
-#: kcm/ui/main.qml:30
+#: kcm/ui/main.qml:36
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
 msgstr "विभाजन प्रबंधक खोलें"
 
-#: kcm/ui/main.qml:36
+#: kcm/ui/main.qml:42
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
 msgstr "बैकअप करें"
 
-#: kcm/ui/main.qml:56
+#: kcm/ui/main.qml:62
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
 msgstr "डेटा प्राप्त करने में असमर्थ. KDED नहीं चल रहा है."
 
-#: kcm/ui/main.qml:67
+#: kcm/ui/main.qml:73
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
 msgstr "कोई S.M.A.R.T. डिवाइस नहीं मिला."
 
-#: kcm/ui/main.qml:88
+#: kcm/ui/main.qml:95
 msgctxt "@info"
 msgid ""
 "The SMART system of this device is reporting problems. This may be a sign of "
@@ -80,7 +80,7 @@ msgstr ""
 "डेटा विश्वसनीयता से समझौता होने का संकेत हो सकता है। अपने डेटा का बैकअप लें और किसी भी "
 "डेटा को खोने से बचने के लिए जितनी जल्दी हो सके इस ड्राइव को बदलें।"
 
-#: kcm/ui/main.qml:94
+#: kcm/ui/main.qml:101
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
 msgid ""
 "<p>The SMART firmware is not reporting a failure, but there are early signs "
@@ -93,25 +93,30 @@ msgstr ""
 "आवश्यकता है। अपने डेटा का बैकअप लें और इस डिस्क के निर्माता से संपर्क करें, या सुरक्षा के लिए "
 "इसे पहले से ही बदल दें।</p><ul> %1</ul>"
 
-#: kcm/ui/main.qml:100
+#: kcm/ui/main.qml:107
 msgctxt "@info"
 msgid "This device appears to be working as expected."
 msgstr "यह डिवाइस अपेक्षानुसार काम कर रही है।"
 
-#: kcm/ui/main.qml:107
+#: kcm/ui/main.qml:114
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
 msgstr "निगरानी करना"
 
-#: kcm/ui/main.qml:108
+#: kcm/ui/main.qml:115
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
 msgstr "अनदेखा करना"
 
-#: kcm/ui/main.qml:116
+#: kcm/ui/main.qml:123
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
 msgstr "प्रदर्शन का विवरण"
+
+#: kcm/ui/ReportPage.qml:24
+msgctxt "@action:button copies all displayed text"
+msgid "Copy to Clipboard"
+msgstr ""
 
 #: smartctl.cpp:33
 #, kde-format
