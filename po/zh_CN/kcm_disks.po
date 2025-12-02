@@ -114,7 +114,7 @@ msgstr "显示详情"
 #: kcm/ui/ReportPage.qml:24
 msgctxt "@action:button copies all displayed text"
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "复制到剪贴板"
 
 #: smartctl.cpp:33
 #, kde-format
