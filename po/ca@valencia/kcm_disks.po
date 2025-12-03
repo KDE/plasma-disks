@@ -1,15 +1,15 @@
 # Translation of kcm_disks.po to Catalan (Valencian)
-# Copyright (C) 2020-2024 This_file_is_part_of_KDE
+# Copyright (C) 2020-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-29 00:44+0000\n"
-"PO-Revision-Date: 2024-10-27 17:43+0100\n"
+"PO-Revision-Date: 2025-11-29 11:10+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: instabilities.cpp:27
 #, kde-format
@@ -124,7 +124,7 @@ msgstr "Mostra els detalls"
 #: kcm/ui/ReportPage.qml:24
 msgctxt "@action:button copies all displayed text"
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Copia a dins del porta-retalls"
 
 #: smartctl.cpp:33
 #, kde-format
