@@ -105,7 +105,7 @@ msgstr "Zobrazit podrobnosti"
 #: kcm/ui/ReportPage.qml:24
 msgctxt "@action:button copies all displayed text"
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Zkopírovat do schránky"
 
 #: smartctl.cpp:33
 #, kde-format
