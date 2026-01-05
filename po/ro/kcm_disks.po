@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-29 00:44+0000\n"
-"PO-Revision-Date: 2025-10-19 02:39+0100\n"
+"PO-Revision-Date: 2025-11-30 12:34+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -120,7 +120,7 @@ msgstr "Arată detalii"
 #: kcm/ui/ReportPage.qml:24
 msgctxt "@action:button copies all displayed text"
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Copiază în clipboard"
 
 #: smartctl.cpp:33
 #, kde-format
