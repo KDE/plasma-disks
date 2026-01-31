@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-29 00:44+0000\n"
-"PO-Revision-Date: 2020-10-10 02:29+0200\n"
+"PO-Revision-Date: 2026-01-30 14:14+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,12 +17,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Poedit 3.8\n"
 
 #: instabilities.cpp:27
 #, kde-format
 msgctxt "@label"
 msgid "Prefail attributes <= threshold."
-msgstr ""
+msgstr "Prieš-gedimo atributai <= slenkstis."
 
 #: instabilities.cpp:31
 #, kde-format
@@ -31,12 +32,15 @@ msgid ""
 "SMART status check returned 'DISK OK' but we found that some (usage or "
 "prefail) attributes have been <= threshold at some time in the past."
 msgstr ""
+"SMART būsenos patikrinimas grąžino „DISK OK“ (Diskas tvarkingas), bet mes "
+"atradome, kad kai kurie (naudojimo ar prieš-gedimo) atributai tam tikru metu "
+"praeityje buvo <= slenkstis."
 
 #: instabilities.cpp:33
 #, kde-format
 msgctxt "@label"
 msgid "The device error log contains records of errors."
-msgstr ""
+msgstr "Šio įtaiso klaidų žurnale yra įrašų apie klaidas."
 
 #: instabilities.cpp:37
 #, kde-format
@@ -45,26 +49,29 @@ msgid ""
 "The device self-test log contains records of errors. [ATA only] Failed self-"
 "tests outdated by a newer successful extended self-test are ignored."
 msgstr ""
+"Įtaiso savikontrolės žurnale yra įrašų apie klaidas. [Tik ATA] Savikontrolės "
+"nesėkmių, kurios tapo pasenusios dėl naujesnių sėkmingų išplėstinių "
+"savikontrolės patikrinimų, yra nepaisoma."
 
 #: kcm/ui/main.qml:36
 msgctxt "@action/button action button to start partition manager"
 msgid "Open Partition Manager"
-msgstr ""
+msgstr "Atverti skaidinių tvarkytuvę"
 
 #: kcm/ui/main.qml:42
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
-msgstr ""
+msgstr "Padaryti atsarginę kopiją"
 
 #: kcm/ui/main.qml:62
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
-msgstr ""
+msgstr "Nepavyko gauti duomenų. KDED neveikia."
 
 #: kcm/ui/main.qml:73
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
-msgstr ""
+msgstr "Nerasta jokių S.M.A.R.T. įtaisų."
 
 #: kcm/ui/main.qml:95
 msgctxt "@info"
@@ -73,6 +80,10 @@ msgid ""
 "imminent device failure or data reliability being compromised. Back up your "
 "data and replace this drive as soon as possible to avoid losing any data."
 msgstr ""
+"Šio įtaiso SMART sistema praneša apie problemas. Tai gali būti įtaisui "
+"gresiančio gedimo požymis arba gali reikšti, jog yra pavojus duomenų "
+"patikimumui. Padarykite atsarginę duomenų kopiją ir kaip įmanoma greičiau "
+"pakeiskite šį diską, kad išvengtumėte duomenų praradimo."
 
 #: kcm/ui/main.qml:101
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
@@ -82,31 +93,36 @@ msgid ""
 "longer term analysis. Back up your data and contact the manufacturer of this "
 "disk, or replace it preemptively just to be safe.</p><ul>%1</ul>"
 msgstr ""
+"<p>SMART programinė aparatinė įranga nepraneša apie gedimą, bet yra "
+"ankstyvųjų blogo funkcionavimo požymių. Gali būti, jog tai nenurodo įtaisui "
+"gresiančio gedimo, bet reikalauja ilgalaikės analizės. Padarykite atsarginę "
+"duomenų kopiją ir susisiekite su disko gamintoju arba imkitės prevencinių "
+"veiksmų ir pakeiskite diską, kad būtų saugiau.</p><ul>%1</ul>"
 
 #: kcm/ui/main.qml:107
 msgctxt "@info"
 msgid "This device appears to be working as expected."
-msgstr ""
+msgstr "Atrodo, kad šis įtaisas veikia taip, kaip reikia."
 
 #: kcm/ui/main.qml:114
 msgctxt "@action/button action button to monitor a device for smart failure"
 msgid "Monitor"
-msgstr ""
+msgstr "Stebėti"
 
 #: kcm/ui/main.qml:115
 msgctxt "@action/button action button to ignore smart failures for a device"
 msgid "Ignore"
-msgstr ""
+msgstr "Nepaisyti"
 
 #: kcm/ui/main.qml:123
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
-msgstr ""
+msgstr "Rodyti išsamiau"
 
 #: kcm/ui/ReportPage.qml:24
 msgctxt "@action:button copies all displayed text"
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Kopijuoti į iškarpinę"
 
 #: smartctl.cpp:33
 #, kde-format
@@ -114,13 +130,13 @@ msgctxt ""
 "@label description of authentication request to read SMART data. %1 is a "
 "device path e.g. /dev/sda"
 msgid "Read SMART report for storage device %1"
-msgstr ""
+msgstr "Skaityti SMART ataskaitą apie %1 atminties įtaisą"
 
 #: smartnotifier.cpp:29
 #, kde-format
 msgctxt "@title notification"
 msgid "Storage Device Problems"
-msgstr ""
+msgstr "Problemos su atminties įtaisu"
 
 #: smartnotifier.cpp:32
 #, kde-kuit-format
@@ -131,6 +147,8 @@ msgid ""
 "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
 "likely to fail soon!"
 msgstr ""
+"Tikėtina, kad atminties įtaisas <emphasis>%1</emphasis> (<filename>%2</"
+"filename>) netrukus suges!"
 
 #: smartnotifier.cpp:37
 #, kde-kuit-format
@@ -141,9 +159,11 @@ msgid ""
 "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
 "showing indications of instability."
 msgstr ""
+"Atminties įtaisas <emphasis>%1</emphasis> (<filename>%2</filename>) rodo "
+"nestabilumo požymius."
 
 #: smartnotifier.cpp:44
 #, kde-format
 msgctxt "@action:button notification action to manage device problems"
 msgid "Manage"
-msgstr ""
+msgstr "Tvarkyti"
