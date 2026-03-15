@@ -54,6 +54,7 @@
   <summary xml:lang="bg">Програма на KDE Plasma за следене на състоянието на твърдите дискове</summary>
   <summary xml:lang="ca">Monitoratge de l'estat dels discs durs per al Plasma del KDE</summary>
   <summary xml:lang="ca-valencia">Monitoratge de l'estat dels discs durs per a Plasma de KDE</summary>
+  <summary xml:lang="cs">Sledování stavu pevného disku pro KDE Plasma</summary>
   <summary xml:lang="da">Overvågning af harddiskhelbred til KDE Plasma</summary>
   <summary xml:lang="de">Überwachung des Datenträgerzustands für KDE-Plasma</summary>
   <summary xml:lang="el">Επίβλεψη της υγείας του σκληρού δίσκου για το KDE Plasma</summary>
@@ -94,6 +95,7 @@
     <p xml:lang="bg">Дискове на Plasma следи SMART данни от дисковете и уведомява потребителя при признаци за предстояща неизправност.</p>
     <p xml:lang="ca">El Plasma Disks controla les dades S.M.A.R.T. dels discs i alerta l'usuari quan apareixen signes de fallada imminent.</p>
     <p xml:lang="ca-valencia">Plasma Disks controla les dades S.M.A.R.T. dels discs i alerta l'usuari quan apareixen signes de fallada imminent.</p>
+    <p xml:lang="cs">Plasma Disks monitoruje data S.M.A.R.T. disků a upozorní uživatele, když se objeví známky hrozící poruchy.</p>
     <p xml:lang="da">Plasma Diske overvåger S.M.A.R.T.-data for diske og giver brugeren besked når der opstår tegn på snarligt nedbrud.</p>
     <p xml:lang="de">Plasma Disks überwacht die S.M.A.R.T.-Daten von Datenträgern und warnt den Benutzer, wenn Anzeichen für einen bevorstehenden Ausfall auftreten.</p>
     <p xml:lang="el">Το Plasma Disks παρακολουθεί τα δεδομένα S.M.A.R.T. των δίσκων και ειδοποιεί τον χρήστη όταν παρουσιάζονται σημάδια επικείμενης αστοχίας.</p>
@@ -136,6 +138,7 @@
       <caption xml:lang="bg">Дискове на Plasma е модул на Информационния център, който показва състоянието на устройствата.</caption>
       <caption xml:lang="ca">El mòdul del Centre d'informació dels discs del Plasma que mostra l'estat dels dispositius.</caption>
       <caption xml:lang="ca-valencia">El mòdul de Centre d'informació dels discs de Plasma que mostra l'estat dels dispositius.</caption>
+      <caption xml:lang="cs">Modul Informační centrum disků zobrazující stav zařízení.</caption>
       <caption xml:lang="da">Plasma Diske Info Center-modulet viser enhedernes tilstande.</caption>
       <caption xml:lang="de">Das Infozentrum-Module Plasma Disks zeigt den Status der Geräte.</caption>
       <caption xml:lang="el">Το άρθρωμα κέντρου πληροφοριών Plasma Disks δείχνει την κατάσταση των συσκευών.</caption>
