@@ -15,3 +15,8 @@ ecm_add_test(smartmonitortest.cpp TEST_NAME smartmonitortest
 
 ecm_add_test(devicetest.cpp TEST_NAME devicetest
     LINK_LIBRARIES Qt6::Test statickdedsmart)
+
+add_test(NAME kcm_disks_smoketest COMMAND kcmshell6 --smoke-test kcm_disks)
+set_tests_properties(kcm_disks_smoketest PROPERTIES
+    ENVIRONMENT_MODIFICATION QT_PLUGIN_PATH=path_list_prepend:${CMAKE_BINARY_DIR}/bin
+)
