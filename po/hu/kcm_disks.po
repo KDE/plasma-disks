@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the plasma-disks package.
 #
 # Kristóf Kiszel <kiszel.kristof@gmail.com>, 2020, 2021.
-# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
+# SPDX-FileCopyrightText: 2024, 2026 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-29 00:44+0000\n"
-"PO-Revision-Date: 2024-09-16 21:37+0200\n"
+"PO-Revision-Date: 2026-05-30 21:42+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: instabilities.cpp:27
 #, kde-format
@@ -120,7 +120,7 @@ msgstr "Részletek megjelenítése"
 #: kcm/ui/ReportPage.qml:24
 msgctxt "@action:button copies all displayed text"
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Másolás a vágólapra"
 
 #: smartctl.cpp:33
 #, kde-format
