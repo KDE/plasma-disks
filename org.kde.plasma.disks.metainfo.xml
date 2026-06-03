@@ -51,6 +51,7 @@
   <name xml:lang="sv">Plasma diskar</name>
   <name xml:lang="ta">பிளாஸ்மா வட்டுகள்</name>
   <name xml:lang="tr">Plasma Diskler</name>
+  <name xml:lang="ug">Plasma دىسكا</name>
   <name xml:lang="uk">Диски Плазми</name>
   <name xml:lang="zh-CN">Plasma 磁盘监控</name>
   <name xml:lang="zh-TW">Plasma 磁碟</name>
@@ -97,6 +98,7 @@
   <summary xml:lang="sv">Övervakning av hårddiskhälsa för KDE Plasma</summary>
   <summary xml:lang="ta">கே.டீ.யீ. பிளாஸ்மாவுக்கான வட்டு ஆரோக்கிய கண்காணிப்பு</summary>
   <summary xml:lang="tr">KDE Plasma için sabit disk sağlığı izleme</summary>
+  <summary xml:lang="ug">KDE Plasma قاتتىق دىسكا ساغلاملىقىنى كۆزەتكۈچ</summary>
   <summary xml:lang="uk">Стеження за станом дисків для Плазми KDE</summary>
   <summary xml:lang="zh-CN">KDE Plasma 硬盘健康状况监控程序</summary>
   <summary xml:lang="zh-TW">KDE Plasma 用的硬碟健康狀態監控工具</summary>
