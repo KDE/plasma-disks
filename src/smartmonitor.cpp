@@ -27,6 +27,12 @@ SMARTMonitor::SMARTMonitor(std::unique_ptr<AbstractSMARTCtl> ctl, std::unique_pt
     m_reloadTimer.setInterval(24h);
 }
 
+SMARTMonitor::~SMARTMonitor()
+{
+    qDeleteAll(m_devices);
+    qDeleteAll(m_pendingDevices);
+}
+
 void SMARTMonitor::start()
 {
     qCDebug(KDED) << "starting";

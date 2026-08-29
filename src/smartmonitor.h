@@ -22,6 +22,7 @@ class SMARTMonitor : public QObject
 
 public:
     explicit SMARTMonitor(std::unique_ptr<AbstractSMARTCtl> ctl, std::unique_ptr<DeviceNotifier> deviceNotifier, QObject *parent = nullptr);
+    ~SMARTMonitor();
     void start();
 
     QList<Device *> devices() const;
