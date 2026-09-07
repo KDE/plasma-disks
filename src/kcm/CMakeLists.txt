@@ -30,9 +30,10 @@ kcmutils_add_qml_kcm(kcm_disks SOURCES ${kcm_SRCS} INSTALL_NAMESPACE "plasma/kcm
 
 target_link_libraries(kcm_disks PRIVATE
     statickdedsmart
+    Qt6::DBus
+    Qt6::Qml
     KF6::CoreAddons
     KF6::I18n
     KF6::KCMUtilsQuick
-    Qt6::DBus
     KF6::Solid
 )
