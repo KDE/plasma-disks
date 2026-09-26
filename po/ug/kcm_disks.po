@@ -1,28 +1,28 @@
 # Uyghur translation for kcm_disks.
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the plasma-disks package.
-# Abduqadir Abliz <sahranbay@gmail.com>, 2026., YEAR.
+# Abduqadir Abliz <sahranbay@gmail.com>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-disks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-29 00:44+0000\n"
-"PO-Revision-Date: 2026-09-23 06:56+0900\n"
+"PO-Revision-Date: 2026-09-24 20:14-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.9\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #: instabilities.cpp:27
 #, kde-format
 msgctxt "@label"
 msgid "Prefail attributes <= threshold."
-msgstr ""
+msgstr "كاشىلىدىن ئىلگىرىكى خاسلىقى بوسۇغا قىممىتىدىن كىچىك ياكى تەڭ."
 
 #: instabilities.cpp:31
 #, kde-format
@@ -31,12 +31,15 @@ msgid ""
 "SMART status check returned 'DISK OK' but we found that some (usage or "
 "prefail) attributes have been <= threshold at some time in the past."
 msgstr ""
+"SMART ھالىتىنى تەكشۈرۈش «DISK OK»  يەنى دىسكا ياخشى ئۇچۇرىنى قايتۇردى ئەمما "
+"بەزى (ئىشلىتىش ياكى مەغلۇپ بولۇشتىن ئىلگىرى) خاسلىق قىممىتى بوسۇغا "
+"قىممىتىدىن كىچىك ياكى تەڭ ئىكەنلىكىنى بايقىدى."
 
 #: instabilities.cpp:33
 #, kde-format
 msgctxt "@label"
 msgid "The device error log contains records of errors."
-msgstr ""
+msgstr "ئۈسكۈنىنىڭ خاتالىق كۈندىلىك خاتىرىسىدە خاتا خاتىرە بار."
 
 #: instabilities.cpp:37
 #, kde-format
@@ -45,6 +48,9 @@ msgid ""
 "The device self-test log contains records of errors. [ATA only] Failed self-"
 "tests outdated by a newer successful extended self-test are ignored."
 msgstr ""
+"ئۈسكۈنىنىڭ ئۆزىنى تەكشۈرۈش كۈندىلىك خاتىرىسىدە خاتا خاتىرە بار. [ATA لا] "
+"مۇۋەپپەقىيەتلىك ئۆزىنى تەكشۈرۈش يۈز بېرىشتىن ئىلگىرىكى ئۆزىنى تەكشۈرۈش "
+"مەغلۇبىيىتىگە پەرۋا قىلمايدۇ."
 
 #: kcm/ui/main.qml:36
 msgctxt "@action/button action button to start partition manager"
@@ -54,17 +60,17 @@ msgstr "دىسكا رايونى باشقۇرغۇچنى ئاچ"
 #: kcm/ui/main.qml:42
 msgctxt "@action/button action button to start backup program"
 msgid "Perform Backup"
-msgstr ""
+msgstr "زاپاسلاشنى ئىجرا قىل"
 
 #: kcm/ui/main.qml:62
 msgctxt "@info/status"
 msgid "Unable to obtain data. KDED is not running."
-msgstr ""
+msgstr "سانلىق مەلۇماتقا ئېرىشەلمىدى. KDED ئىجرا قىلىنمايۋاتىدۇ."
 
 #: kcm/ui/main.qml:73
 msgctxt "@info/status"
 msgid "No S.M.A.R.T. devices found."
-msgstr ""
+msgstr "ھېچقانداق S.M.A.R.T. ئۈسكۈنىسى تېپىلمىدى."
 
 #: kcm/ui/main.qml:95
 msgctxt "@info"
@@ -73,6 +79,10 @@ msgid ""
 "imminent device failure or data reliability being compromised. Back up your "
 "data and replace this drive as soon as possible to avoid losing any data."
 msgstr ""
+"بۇ ئۈسكۈنىنىڭ SMART سىستېمىسى مەسىلە مەلۇم قىلىۋاتىدۇ. بۇ ئۈسكۈنە مەسىلىسى "
+"ياكى سانلىق مەلۇمات ئىشەنچلىكلىكىنىڭ زىيانغا ئۇچرىغانلىقىنىڭ بېشارىتى بولۇشى "
+"مۇمكىن. سانلىق مەلۇماتنىڭ بۇزۇلۇشىنىڭ ئالدىنى ئېلىش ئۈچۈن، ئامالنىڭ بارىچە "
+"بۇ ئۈسكۈنىدىكى سانلىق مەلۇماتنى زاپاسلاپ، مەزكۇر ئۈسكۈنىنى ئالماشتۇرۇڭ."
 
 #: kcm/ui/main.qml:101
 msgctxt "@info %1 is a bunch of <li> with the strings from instabilities.cpp"
@@ -82,11 +92,17 @@ msgid ""
 "longer term analysis. Back up your data and contact the manufacturer of this "
 "disk, or replace it preemptively just to be safe.</p><ul>%1</ul>"
 msgstr ""
+"<p>SMART مۇقىم دېتالى مەسىلىنى مەلۇم قىلمىدى ئەمما بۇ ئۈسكۈنىدە مەسىلە "
+"كۆرۈلگەنلىكنىڭ ئالامىتى كۆرۈلدى. بۇ مەزكۇر ئۈسكۈنىدە تېزلا كاشىلا يۈز "
+"بېرىدىغانلىقىدىن دېرەك بەرمەيدۇ ئەمما ئۈسكۈنىنى ئۇزۇن مۇددەت ئىشلىتىش ياكى "
+"ئىشلەتمەسلىكنى تەھلىل قىلىش كېرەك. سانلىق مەلۇماتنىڭ بىخەتەرلىكىگە "
+"كاپالەتلىك قىلىش ئۈچۈن سانلىق مەلۇماتنى زاپاسلاپ ۋە زاۋۇت بىلەن ئالاقىلىشىڭ "
+"ياكى ئالدىنى ئېلىش خاراكتېرلىك ئۈسكۈنە ئالماشتۇرۇڭ.</p><ul>%1</ul>"
 
 #: kcm/ui/main.qml:107
 msgctxt "@info"
 msgid "This device appears to be working as expected."
-msgstr ""
+msgstr "بۇ ئۈسكۈنە مۆلچەردىكىدەك ئىشلەۋاتقاندەك قىلىدۇ."
 
 #: kcm/ui/main.qml:114
 msgctxt "@action/button action button to monitor a device for smart failure"
@@ -101,7 +117,7 @@ msgstr "پەرۋا قىلما"
 #: kcm/ui/main.qml:123
 msgctxt "@action/button show detailed smart report"
 msgid "Show Details"
-msgstr "تەپسىلاتلارنى كۆرسەت"
+msgstr "تەپسىلاتىنى كۆرسەت"
 
 #: kcm/ui/ReportPage.qml:24
 msgctxt "@action:button copies all displayed text"
@@ -114,13 +130,13 @@ msgctxt ""
 "@label description of authentication request to read SMART data. %1 is a "
 "device path e.g. /dev/sda"
 msgid "Read SMART report for storage device %1"
-msgstr ""
+msgstr "ساقلاش ئۈسكۈنىسى %1 نىڭ SMART دوكلاتىنى ئوقۇيدۇ"
 
 #: smartnotifier.cpp:29
 #, kde-format
 msgctxt "@title notification"
 msgid "Storage Device Problems"
-msgstr ""
+msgstr "ساقلىغۇچ ئۈسكۈنە مەسىلىسى"
 
 #: smartnotifier.cpp:32
 #, kde-kuit-format
@@ -131,6 +147,8 @@ msgid ""
 "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
 "likely to fail soon!"
 msgstr ""
+"ساقلىغۇچ ئۈسكۈنىسى <emphasis>%1</emphasis> (<filename>%2</filename>) پات "
+"يېقىندا بۇزۇلىدىغاندەك قىلىدۇ!"
 
 #: smartnotifier.cpp:37
 #, kde-kuit-format
@@ -141,9 +159,11 @@ msgid ""
 "The storage device <emphasis>%1</emphasis> (<filename>%2</filename>) is "
 "showing indications of instability."
 msgstr ""
+"ساقلىغۇچ ئۈسكۈنىسى <emphasis>%1</emphasis> (<filename>%2</filename>) دا "
+"مۇقىمسىزلىق ئالامىتى كۆرۈلدى."
 
 #: smartnotifier.cpp:44
 #, kde-format
 msgctxt "@action:button notification action to manage device problems"
 msgid "Manage"
-msgstr ""
+msgstr "باشقۇر"
