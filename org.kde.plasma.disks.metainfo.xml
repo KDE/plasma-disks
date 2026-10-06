@@ -48,6 +48,10 @@
   <name xml:lang="sa">प्लाज्मा डिस्क</name>
   <name xml:lang="sk">Plasma Disks</name>
   <name xml:lang="sl">Plasma Disks</name>
+  <name xml:lang="sr">Плазма дискови</name>
+  <name xml:lang="sr-Latn">Plasma diskovi</name>
+  <name xml:lang="sr-ijekavian">Плазма дискови</name>
+  <name xml:lang="sr-ijekavianlatin">Plasma diskovi</name>
   <name xml:lang="sv">Plasma diskar</name>
   <name xml:lang="ta">பிளாஸ்மா வட்டுகள்</name>
   <name xml:lang="tr">Plasma Diskler</name>
@@ -95,6 +99,10 @@
   <summary xml:lang="sa">KDE Plasma कृते हार्डडिस्कस्वास्थ्यनिरीक्षणम्</summary>
   <summary xml:lang="sk">Monitoring zdravia diskov pre KDE Plasma</summary>
   <summary xml:lang="sl">Nadzor zdravja trdega diska za KDE Plasmo</summary>
+  <summary xml:lang="sr">Надгледање здравља хард‑дискова за КДЕ Плазму</summary>
+  <summary xml:lang="sr-Latn">Nadgledanje zdravlja hard‑diskova za KDE Plasmu</summary>
+  <summary xml:lang="sr-ijekavian">Надгледање здравља хард‑дискова за КДЕ Плазму</summary>
+  <summary xml:lang="sr-ijekavianlatin">Nadgledanje zdravlja hard‑diskova za KDE Plasmu</summary>
   <summary xml:lang="sv">Övervakning av hårddiskhälsa för KDE Plasma</summary>
   <summary xml:lang="ta">கே.டீ.யீ. பிளாஸ்மாவுக்கான வட்டு ஆரோக்கிய கண்காணிப்பு</summary>
   <summary xml:lang="tr">KDE Plasma için sabit disk sağlığı izleme</summary>
@@ -143,6 +151,10 @@
     <p xml:lang="sa">प्लाज्मा डिस्क्स् निरीक्षक S.M.A.R.T. डिस्कस्य data तथा च यदा आसन्नविफलतायाः चिह्नानि दृश्यन्ते तदा उपयोक्तारं सचेष्टयति ।</p>
     <p xml:lang="sk">Plasma Disks monitoruje údaje S.M.A.R.T. a upozorní používateľa, keď sa objavia známky zlyhania disku.</p>
     <p xml:lang="sl">Plasma nadzorniki diskov nadzirajo S.M.A.R.T. podatke o diskih in opozorijo uporabnika, ko se pojavijo znaki neizbežne okvare.</p>
+    <p xml:lang="sr">Плазма дискови надгледају СМАРТ податке дискова и упозоравају корисника кад се појаве знаци скорог отказа.</p>
+    <p xml:lang="sr-Latn">Plasma diskovi nadgledaju SMART podatke diskova i upozoravaju korisnika kad se pojave znaci skorog otkaza.</p>
+    <p xml:lang="sr-ijekavian">Плазма дискови надгледају СМАРТ податке дискова и упозоравају корисника кад се појаве знаци скорог отказа.</p>
+    <p xml:lang="sr-ijekavianlatin">Plasma diskovi nadgledaju SMART podatke diskova i upozoravaju korisnika kad se pojave znaci skorog otkaza.</p>
     <p xml:lang="sv">Plasma diskar övervakar S.M.A.R.T.-data för diskar och varnar användaren när tecken på förestående fel visar sig.</p>
     <p xml:lang="ta">வட்டுகளின் S.M.A.R.T. தரவைக் கண்காணித்து, முறிவின் அறிகுறிகள் தெரியும்போது பயனருக்கு 'பிளாஸ்மா வட்டுகள்' அறிவிக்கும்.</p>
     <p xml:lang="tr">Plasma Diskler, disklerin S.M.A.R.T. durumunu izler ve yakında arıza işaretleri vermesi durumunda kullanıcıyı ikaz eder.</p>
@@ -194,6 +206,10 @@
       <caption xml:lang="sa">उपकरणानां स्थितिं दर्शयति Plasma Disks Info Center मॉड्यूल् ।</caption>
       <caption xml:lang="sk">Modul informačného centra Plasma Disks zobrazuje stav zariadení.</caption>
       <caption xml:lang="sl">Modul Info Center plazemskih diskov prikazuje stanje naprav.</caption>
+      <caption xml:lang="sr">Модул Инфоцентра „Плазма дискови“ који приказује стање уређаја.</caption>
+      <caption xml:lang="sr-Latn">Modul Infocentra „Plasma diskovi“ koji prikazuje stanje uređaja.</caption>
+      <caption xml:lang="sr-ijekavian">Модул Инфоцентра „Плазма дискови“ који приказује стање уређаја.</caption>
+      <caption xml:lang="sr-ijekavianlatin">Modul Infocentra „Plasma diskovi“ koji prikazuje stanje uređaja.</caption>
       <caption xml:lang="sv">Modulen Plasma diskar i informationscentralen som visar enheters tillstånd.</caption>
       <caption xml:lang="ta">சாதனங்களின் நிலையைக் காட்டும் 'பிளாஸ்மா வட்டுகள்' விவர மையக் கூறு.</caption>
       <caption xml:lang="tr">Plasma Diskler Bilgi Merkezi modülü aygıtların durumunu gösterir.</caption>
@@ -245,6 +261,10 @@
   <developer_name xml:lang="sa">हरल्ड सिटर &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="sk">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="sl">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="sr">Харалд Ситер &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="sr-Latn">Harald Siter &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="sr-ijekavian">Харалд Ситер &lt;sitter@kde.org&gt;</developer_name>
+  <developer_name xml:lang="sr-ijekavianlatin">Harald Siter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="sv">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="ta">ஹாரல்ட் சிட்டர் &lt;sitter@kde.org&gt;</developer_name>
   <developer_name xml:lang="tr">Harald Sitter &lt;sitter@kde.org&gt;</developer_name>
