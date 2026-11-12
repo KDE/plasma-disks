@@ -120,9 +120,10 @@ msgid "Show Details"
 msgstr "Εμφάνιση λεπτομερειών"
 
 #: kcm/ui/ReportPage.qml:24
+#, fuzzy
 msgctxt "@action:button copies all displayed text"
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Αντιγραφή στο πρόχειρο"
 
 #: smartctl.cpp:33
 #, kde-format
